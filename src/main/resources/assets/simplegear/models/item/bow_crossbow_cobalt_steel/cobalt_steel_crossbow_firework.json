@@ -1,0 +1,6 @@
+{
+    "parent": "simplegear:item/cobalt_steel_crossbow",
+    "textures": {
+        "layer0": "simplegear:item/cobalt_steel_crossbow_firework"
+    }
+}

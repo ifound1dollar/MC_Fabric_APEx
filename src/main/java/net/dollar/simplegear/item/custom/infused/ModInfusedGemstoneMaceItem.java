@@ -13,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+@Deprecated
 public class ModInfusedGemstoneMaceItem extends ModMaceItem implements IInfusedGemstoneItem {
     public ModInfusedGemstoneMaceItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);

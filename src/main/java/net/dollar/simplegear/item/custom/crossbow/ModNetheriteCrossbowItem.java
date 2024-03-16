@@ -38,6 +38,7 @@ import java.util.List;
  * Corresponds specifically to the Netherite Crossbow item. Re-implements NUMEROUS methods from CrossbowItem
  *  which are private and must be entirely re-defined. All redundant override methods are removed.
  */
+@Deprecated
 public class ModNetheriteCrossbowItem extends CrossbowItem {
     public ModNetheriteCrossbowItem(Settings settings) {
         super(settings);
@@ -208,7 +209,7 @@ public class ModNetheriteCrossbowItem extends CrossbowItem {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
         PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, entity,
-                arrow, ArrowUtil.ARROW_TYPE.NETHERITE);
+                arrow, ArrowUtil.ARROW_TYPE.COBALT);
 
         if (entity instanceof PlayerEntity) {
             persistentProjectileEntity.setCritical(true);

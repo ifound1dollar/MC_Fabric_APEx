@@ -52,13 +52,13 @@ public class InfusedGemstoneArrowEntity extends ArrowEntity {
 
         //If the owner (who fired the arrow) is a LivingEntity.
         if (getOwner() instanceof LivingEntity livingEntity) {
-            //Apply Poison effect to target for configurable duration in seconds.
+            //Apply Wither effect to target (attackedEntity) for configurable duration in seconds.
             //TODO: RE-IMPLEMENT CONFIGS
-            //Level 1 Poison ticks every 25 ticks, add one second for 4 procs (duration +1 tick so ticks 4 times).
-//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON,
-//                    ((ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() + 1) * 20) + 1, 1));
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON,
-                    (5 * 20) + 1, 0));
+            //Level 2 wither for once-per-second damage tick (duration +1 tick so ticks 4 times).
+//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
+//                    (ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20) + 1, 1));
+            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
+                    (4 * 20) + 1, 1));
         }
     }
 }

@@ -1,13 +1,13 @@
 {
   "values": [
-    "simplegear:infused_diamond_axe",
-    "simplegear:infused_diamond_hoe",
-    "simplegear:infused_diamond_mace",
-    "simplegear:infused_diamond_pickaxe",
-    "simplegear:infused_diamond_shovel",
-    "simplegear:infused_diamond_sword",
-    "simplegear:infused_diamond_bow",
-    "simplegear:infused_diamond_crossbow",
-    "simplegear:infused_diamond_shears"
+    "simplegear:infused_gemstone_axe",
+    "simplegear:infused_gemstone_hoe",
+    "simplegear:infused_gemstone_mace",
+    "simplegear:infused_gemstone_pickaxe",
+    "simplegear:infused_gemstone_shovel",
+    "simplegear:infused_gemstone_sword",
+    "simplegear:infused_gemstone_bow",
+    "simplegear:infused_gemstone_crossbow",
+    "simplegear:infused_gemstone_shears"
   ]
 }

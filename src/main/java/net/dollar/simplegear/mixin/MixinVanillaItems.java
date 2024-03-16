@@ -1,6 +1,6 @@
 package net.dollar.simplegear.mixin;
 
-import net.dollar.simplegear.item.custom.netherite.*;
+import net.dollar.simplegear.item.custom.cobaltsteel.*;
 import net.minecraft.item.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.Slice;
 /**
  * Mixin for overwriting vanilla item registries.
  */
+@Deprecated
 @Mixin(Items.class)
 public class MixinVanillaItems {
     //Slicing redirects will overwrite a specific method call at a pre-defined point, corresponding to each
@@ -37,7 +38,7 @@ public class MixinVanillaItems {
             )
     )
     private static Item overwriteNetheriteIngot(Item.Settings settings) {
-        return new ModNetheriteIngotItem(settings);
+        return new ModCobaltSteelIngotItem(settings);
     }
 
 
@@ -61,7 +62,7 @@ public class MixinVanillaItems {
             )
     )
     private static ArmorItem overwriteNetheriteBoots(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings) {
-        return new ModNetheriteArmorItem(material, type, settings);
+        return new ModCobaltSteelArmorItem(material, type, settings);
     }
     @Redirect(
             method = "<clinit>",
@@ -81,7 +82,7 @@ public class MixinVanillaItems {
             )
     )
     private static ArmorItem overwriteNetheriteLeggings(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings) {
-        return new ModNetheriteArmorItem(material, type, settings);
+        return new ModCobaltSteelArmorItem(material, type, settings);
     }
     @Redirect(
             method = "<clinit>",
@@ -101,7 +102,7 @@ public class MixinVanillaItems {
             )
     )
     private static ArmorItem overwriteNetheriteChestplate(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings) {
-        return new ModNetheriteArmorItem(material, type, settings);
+        return new ModCobaltSteelArmorItem(material, type, settings);
     }
     @Redirect(
             method = "<clinit>",
@@ -121,7 +122,7 @@ public class MixinVanillaItems {
             )
     )
     private static ArmorItem overwriteNetheriteHelmet(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings) {
-        return new ModNetheriteArmorItem(material, type, settings);
+        return new ModCobaltSteelArmorItem(material, type, settings);
     }
 
 
@@ -145,7 +146,7 @@ public class MixinVanillaItems {
             )
     )
     private static AxeItem overwriteNetheriteAxe(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
-        return new ModNetheriteAxeItem(ToolMaterials.NETHERITE, 6, -3.0f, settings);
+        return new ModCobaltSteelAxeItem(ToolMaterials.NETHERITE, 6, -3.0f, settings);
     }
 
     @Redirect(
@@ -166,7 +167,7 @@ public class MixinVanillaItems {
             )
     )
     private static HoeItem overwriteNetheriteHoe(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
-        return new ModNetheriteHoeItem(ToolMaterials.NETHERITE, -2, 1.0f, settings);
+        return new ModCobaltSteelHoeItem(ToolMaterials.NETHERITE, -2, 1.0f, settings);
     }
 
     @Redirect(
@@ -187,7 +188,7 @@ public class MixinVanillaItems {
             )
     )
     private static PickaxeItem overwriteNetheritePickaxe(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
-        return new ModNetheritePickaxeItem(ToolMaterials.NETHERITE, 1, -2.8f, settings);
+        return new ModCobaltSteelPickaxeItem(ToolMaterials.NETHERITE, 1, -2.8f, settings);
     }
 
     @Redirect(
@@ -208,7 +209,7 @@ public class MixinVanillaItems {
             )
     )
     private static ShovelItem overwriteNetheriteShovel(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
-        return new ModNetheriteShovelItem(ToolMaterials.NETHERITE, 2.0f, -3.0f, settings);
+        return new ModCobaltSteelShovelItem(ToolMaterials.NETHERITE, 2.0f, -3.0f, settings);
     }
 
     @Redirect(
@@ -229,6 +230,6 @@ public class MixinVanillaItems {
             )
     )
     private static SwordItem overwriteNetheriteSword(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Item.Settings settings) {
-        return new ModNetheriteSwordItem(ToolMaterials.NETHERITE, 4, -2.4f, settings);
+        return new ModCobaltSteelSwordItem(ToolMaterials.NETHERITE, 4, -2.4f, settings);
     }
 }

@@ -20,6 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+@Deprecated
 public class ModNetheriteBowItem extends BowItem implements IInfusedGemstoneItem {
     public ModNetheriteBowItem(Settings settings) {
         super(settings);
@@ -60,7 +61,7 @@ public class ModNetheriteBowItem extends BowItem implements IInfusedGemstoneItem
             //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
             //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
             PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, playerEntity,
-                    itemStack, ArrowUtil.ARROW_TYPE.NETHERITE);
+                    itemStack, ArrowUtil.ARROW_TYPE.COBALT);
 
             persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 3.0f, 1.0f);
             if (f == 1.0f) {

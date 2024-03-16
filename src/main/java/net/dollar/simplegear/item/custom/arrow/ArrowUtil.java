@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ArrowUtil {
-    public enum ARROW_TYPE { STEEL, INFUSED, NETHERITE, CARBIDE }
+    public enum ARROW_TYPE { INFUSED, COBALT, CARBIDE }
 
     /**
      * Creates a custom arrow entity specific to the Steel, Infused Gemstone, Netherite, or Tungsten-Carbide
@@ -30,18 +30,13 @@ public class ArrowUtil {
                 temp.checkIsSpectral(arrowStack);
                 arrowEntity = temp;
             }
-            case NETHERITE -> {
-                NetheriteArrowEntity temp = new NetheriteArrowEntity(world, shooter);
-                temp.checkIsSpectral(arrowStack);
-                arrowEntity = temp;
-            }
             case CARBIDE -> {
                 TungstenCarbideArrowEntity temp = new TungstenCarbideArrowEntity(world, shooter);
                 temp.checkIsSpectral(arrowStack);
                 arrowEntity = temp;
             }
-            default -> {
-                SteelArrowEntity temp = new SteelArrowEntity(world, shooter);
+            default -> {    //Guaranteed to be COBALT
+                CobaltSteelArrowEntity temp = new CobaltSteelArrowEntity(world, shooter);
                 temp.checkIsSpectral(arrowStack);
                 arrowEntity = temp;
             }

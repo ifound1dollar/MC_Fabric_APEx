@@ -7,7 +7,7 @@
     "item": "minecraft:diamond_hoe"
   },
   "result": {
-    "item": "simplegear:infused_diamond_hoe"
+    "item": "simplegear:infused_gemstone_hoe"
   },
   "template": {
     "item": "simplegear:infusion_upgrade_smithing_template"

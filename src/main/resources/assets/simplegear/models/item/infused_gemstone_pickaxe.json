@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "simplegear:item/infused_diamond_pickaxe"
+    "layer0": "simplegear:item/infused_gemstone_pickaxe"
   }
 }

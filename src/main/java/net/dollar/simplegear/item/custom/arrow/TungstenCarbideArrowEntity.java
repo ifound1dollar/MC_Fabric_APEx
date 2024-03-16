@@ -52,13 +52,13 @@ public class TungstenCarbideArrowEntity extends ArrowEntity {
 
         //If the owner (who fired the arrow) is a LivingEntity.
         if (getOwner() instanceof LivingEntity livingEntity) {
-            //Apply Slowness effect to target (attackedEntity) for configurable duration in seconds.
+            //Apply Weakness effect to target for configurable duration in seconds.
             //TODO: RE-IMPLEMENT CONFIGS
-            //Level 2 slow (third argument) for 30% reduction, 15%/level.
-//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
-//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 1));
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
-                    4 * 20, 1));
+            //Level 1 (third argument) for 4 heart melee damage reduction.
+//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
+//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 0));
+            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
+                    4 * 20, 0));
         }
     }
 }

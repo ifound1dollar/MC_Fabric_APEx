@@ -4,9 +4,11 @@ import net.dollar.simplegear.util.IInfusedGemstoneItem;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -31,6 +33,25 @@ public class ModInfusedGemstoneAxeItem extends AxeItem implements IInfusedGemsto
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         ModUtils.applyInfusedGemstoneOnHit(target, attacker);
         return super.postHit(stack, target, attacker);
+    }
+
+    /**
+     * Gets whether Entities of this Item are fireproof (true).
+     * @return Whether this Item is fireproof
+     */
+    @Override
+    public boolean isFireproof() {
+        return true;
+    }
+
+    /**
+     * Gets whether Entities of this Item can be damaged by a specific DamageSource (false for fire and explosion).
+     * @param source DamageSource being checked
+     * @return Whether this Item can be damaged by the DamageSource
+     */
+    @Override
+    public boolean damage(DamageSource source) {
+        return !(source.isIn(DamageTypeTags.IS_FIRE) || source.isIn(DamageTypeTags.IS_EXPLOSION));
     }
 
     /**

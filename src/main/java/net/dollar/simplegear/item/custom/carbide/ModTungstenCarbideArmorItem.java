@@ -65,15 +65,15 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IDamageHan
      */
     @Override
     public float onDamaged(LivingEntity entity, EquipmentSlot slot, DamageSource source, float amount) {
-        //If not chestplate OR not full set, do not alter damage.
-        if (slot != EquipmentSlot.CHEST || !isFullSet) { return amount; }
-
-        //If taking damage from Explosion source, reduce damage taken.
-        if (ModUtils.getDamageCategory(source) == ModUtils.DamageCategory.EXPLOSION) {
-            //TODO: RE-IMPLEMENT CONFIGS
-            //return amount * (1 - ((float)ModCommonConfigs.TUNGSTEN_CARBIDE_EXPLOSION_DAMAGE_REDUCTION.get() / 100));
-            return amount * 0.67f;
-        }
+//        //If not chestplate OR not full set, do not alter damage.
+//        if (slot != EquipmentSlot.CHEST || !isFullSet) { return amount; }
+//
+//        //If taking damage from Explosion source, reduce damage taken.
+//        if (ModUtils.getDamageCategory(source) == ModUtils.DamageCategory.EXPLOSION) {
+//            //TODO: RE-IMPLEMENT CONFIGS
+//            //return amount * (1 - ((float)ModCommonConfigs.TUNGSTEN_CARBIDE_EXPLOSION_DAMAGE_REDUCTION.get() / 100));
+//            return amount * 0.67f;
+//        }
         return amount;  //if reaches here, return original amount
     }
 

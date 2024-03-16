@@ -11,13 +11,11 @@ import net.minecraft.util.Identifier;
  */
 public class ModModelPredicateProvider {
     public static void registerModModels() {
-        registerBow(ModItems.STEEL_BOW);
         registerBow(ModItems.INFUSED_GEMSTONE_BOW);
-        registerBow(ModItems.NETHERITE_BOW);
+        registerBow(ModItems.COBALT_STEEL_BOW);
         registerBow(ModItems.TUNGSTEN_CARBIDE_BOW);
-        registerCrossbow(ModItems.STEEL_CROSSBOW);
         registerCrossbow(ModItems.INFUSED_GEMSTONE_CROSSBOW);
-        registerCrossbow(ModItems.NETHERITE_CROSSBOW);
+        registerCrossbow(ModItems.COBALT_STEEL_CROSSBOW);
         registerCrossbow(ModItems.TUNGSTEN_CARBIDE_CROSSBOW);
     }
 

@@ -7,7 +7,7 @@
     "item": "minecraft:diamond_chestplate"
   },
   "result": {
-    "item": "simplegear:infused_diamond_chestplate"
+    "item": "simplegear:infused_gemstone_chestplate"
   },
   "template": {
     "item": "simplegear:infusion_upgrade_smithing_template"

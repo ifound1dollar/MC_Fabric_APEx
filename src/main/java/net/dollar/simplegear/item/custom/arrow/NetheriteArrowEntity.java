@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpectralArrowItem;
 import net.minecraft.world.World;
 
+@Deprecated
 public class NetheriteArrowEntity extends ArrowEntity {
     private boolean isSpectral;
 

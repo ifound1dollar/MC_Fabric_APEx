@@ -13,6 +13,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -66,15 +67,34 @@ public class ModInfusedGemstoneArmorItem extends ArmorItem implements IDamageHan
     @Override
     public float onDamaged(LivingEntity entity, EquipmentSlot slot, DamageSource source, float amount) {
         //If not chestplate OR not full set, do not alter damage.
-        if (slot != EquipmentSlot.CHEST || !isFullSet) { return amount; }
-
-        //if taking damage from Magic source, reduce damage taken
-        if (ModUtils.getDamageCategory(source) == ModUtils.DamageCategory.MAGIC) {
-            //TODO: RE-IMPLEMENT CONFIGS
-            //return amount * (1 - ((float)ModCommonConfigs.INFUSED_DIAMOND_MAGIC_DAMAGE_REDUCTION.get() / 100));
-            return amount * 0.67f;
-        }
+//        if (slot != EquipmentSlot.CHEST || !isFullSet) { return amount; }
+//
+//        //if taking damage from Magic source, reduce damage taken
+//        if (ModUtils.getDamageCategory(source) == ModUtils.DamageCategory.MAGIC) {
+//            //TODO: RE-IMPLEMENT CONFIGS
+//            //return amount * (1 - ((float)ModCommonConfigs.infused_gemstone_MAGIC_DAMAGE_REDUCTION.get() / 100));
+//            return amount * 0.67f;
+//        }
         return amount;  //if reaches here, return original amount
+    }
+
+    /**
+     * Gets whether Entities of this Item are fireproof (true).
+     * @return Whether this Item is fireproof
+     */
+    @Override
+    public boolean isFireproof() {
+        return true;
+    }
+
+    /**
+     * Gets whether Entities of this Item can be damaged by a specific DamageSource (false for fire and explosion).
+     * @param source DamageSource being checked
+     * @return Whether this Item can be damaged by the DamageSource
+     */
+    @Override
+    public boolean damage(DamageSource source) {
+        return !(source.isIn(DamageTypeTags.IS_FIRE) || source.isIn(DamageTypeTags.IS_EXPLOSION));
     }
 
     /**

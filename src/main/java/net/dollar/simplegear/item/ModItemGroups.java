@@ -25,12 +25,10 @@ public class ModItemGroups {
                         entries.add(ModItems.KATHLEENS_LOST_DIADEM);
 
                         //Bows/Crossbows
-                        entries.add(ModItems.STEEL_BOW);
-                        entries.add(ModItems.STEEL_CROSSBOW);
                         entries.add(ModItems.INFUSED_GEMSTONE_BOW);
                         entries.add(ModItems.INFUSED_GEMSTONE_CROSSBOW);
-                        entries.add(ModItems.NETHERITE_BOW);
-                        entries.add(ModItems.NETHERITE_CROSSBOW);
+                        entries.add(ModItems.COBALT_STEEL_BOW);
+                        entries.add(ModItems.COBALT_STEEL_CROSSBOW);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_BOW);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_CROSSBOW);
 

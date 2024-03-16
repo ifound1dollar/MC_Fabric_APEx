@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "simplegear:infused_diamond_chestplate_smithing"
+        "recipe": "simplegear:infused_gemstone_chestplate_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "simplegear:infused_diamond_chestplate_smithing"
+      "simplegear:infused_gemstone_chestplate_smithing"
     ]
   },
   "sends_telemetry_event": false

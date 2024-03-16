@@ -17,6 +17,7 @@ import net.minecraft.item.Vanishable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+@Deprecated
 public class ModMaceItem extends ToolItem implements Vanishable {
     private final float attackDamage;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;

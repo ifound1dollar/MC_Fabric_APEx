@@ -17,6 +17,7 @@ import java.util.List;
  * Contains a handful of misc. helper methods used in various parts of the mod.
  */
 public class ModUtils {
+    @Deprecated
     public enum DamageCategory { NONE, BLUNT, SHARP, MAGIC, FIRE, EXPLOSION }
 
 
@@ -25,6 +26,7 @@ public class ModUtils {
      * @param source Vanilla DamageSource
      * @return The determined DamageCategory (NONE if inconclusive)
      */
+    @Deprecated
     public static DamageCategory getDamageCategory(DamageSource source)
     {
 
@@ -78,13 +80,13 @@ public class ModUtils {
      * @param attacker Attacking (user) entity
      */
     public static void applyInfusedGemstoneOnHit(LivingEntity target, LivingEntity attacker) {
-        //Apply Poison effect to target for configurable duration in seconds.
+        //Apply Wither effect to target (attackedEntity) for configurable duration in seconds.
         //TODO: RE-IMPLEMENT CONFIGS
-        //Level 1 Poison ticks every 25 ticks, add one second for 4 procs (duration +1 tick so ticks 4 times).
-//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON,
-//                    ((ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() + 1) * 20) + 1, 1));
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON,
-                (5 * 20) + 1, 0));
+        //Level 2 wither for once-per-second damage tick (duration +1 tick so ticks 4 times).
+//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
+//                    (ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20) + 1, 1));
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
+                (4 * 20) + 1, 1));
     }
     /**
      * Generates special tooltip for all Infused Diamond equipment and appends to Component list,
@@ -96,7 +98,7 @@ public class ModUtils {
         //TODO: RE-IMPLEMENT CONFIGS
         if (isArmor) {
 //            tooltip.add(Text.literal(String.format("§5> Full set: -%s%% Magic damage",
-//                    ModCommonConfigs.INFUSED_DIAMOND_MAGIC_DAMAGE_REDUCTION.get())));
+//                    ModCommonConfigs.infused_gemstone_MAGIC_DAMAGE_REDUCTION.get())));
             tooltip.add(Text.literal("§d> Full set: -33% Magic damage"));
         } else {
 //            tooltip.add(Text.literal(String.format("§5> Poisons target for %ss",
@@ -112,14 +114,14 @@ public class ModUtils {
      * @param target Attacked (target) entity
      * @param attacker Attacking (user) entity
      */
-    public static void applyNetheriteOnHit(LivingEntity target, LivingEntity attacker) {
-        //Apply Wither effect to target (attackedEntity) for configurable duration in seconds.
+    public static void applyCobaltSteelOnHit(LivingEntity target, LivingEntity attacker) {
+        //Apply Slowness effect to target (attackedEntity) for configurable duration in seconds.
         //TODO: RE-IMPLEMENT CONFIGS
-        //Level 2 wither for once-per-second damage tick (duration +1 tick so ticks 4 times).
-//        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
-//                (ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20) + 1, 1));
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
-                (3 * 20) + 1, 1));
+        //Level 2 slow (third argument) for 30% reduction, 15%/level.
+//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
+//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 1));
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
+                4 * 20, 1));
     }
     /**
      * Generates special tooltip for all Infused Diamond equipment and appends to Component list,
@@ -127,11 +129,11 @@ public class ModUtils {
      * @param tooltip List of Components to be appended
      * @param isArmor Whether tooltip should be generated for armor or tools/weapons
      */
-    public static void appendNetheriteEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
+    public static void appendCobaltSteelEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
         //TODO: RE-IMPLEMENT CONFIGS
         if (isArmor) {
 //            tooltip.add(Text.literal(String.format("§4> Full set: -%s%% Fire damage",
-//                    ModCommonConfigs.INFUSED_DIAMOND_MAGIC_DAMAGE_REDUCTION.get())));
+//                    ModCommonConfigs.infused_gemstone_MAGIC_DAMAGE_REDUCTION.get())));
             tooltip.add(Text.literal("§c> Full set: -33% Fire damage"));
         } else {
 //            tooltip.add(Text.literal(String.format("§4> On-hit: Wither target for %ss",
@@ -148,13 +150,13 @@ public class ModUtils {
      * @param attacker Attacking (user) entity
      */
     public static void applyTungstenCarbideOnHit(LivingEntity target, LivingEntity attacker) {
-        //Apply Slowness effect to target (attackedEntity) for configurable duration in seconds.
+        //Apply Weakness effect to target for configurable duration in seconds.
         //TODO: RE-IMPLEMENT CONFIGS
-        //Level 2 slow (third argument) for 30% reduction, 15%/level.
-//        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
-//                ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 1));
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
-                3 * 20, 1));
+        //Level 1 (third argument) for 4 heart melee damage reduction.
+//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
+//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 0));
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
+                4 * 20, 0));
     }
     /**
      * Generates special tooltip for all Infused Diamond equipment and appends to Component list,
@@ -166,7 +168,7 @@ public class ModUtils {
         //TODO: RE-IMPLEMENT CONFIGS
         if (isArmor) {
 //            tooltip.add(Text.literal(String.format("§8> Full set: -%s%% Explosion damage",
-//                    ModCommonConfigs.INFUSED_DIAMOND_MAGIC_DAMAGE_REDUCTION.get())));
+//                    ModCommonConfigs.infused_gemstone_MAGIC_DAMAGE_REDUCTION.get())));
             tooltip.add(Text.literal("§7> Full set: -33% Explosion damage"));
         } else {
 //            tooltip.add(Text.literal(String.format("§8> On-hit: Slow target for %ss",

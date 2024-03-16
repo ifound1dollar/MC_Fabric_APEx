@@ -4,14 +4,13 @@ import net.dollar.simplegear.ModMain;
 import net.dollar.simplegear.item.custom.ModCollectorItem;
 import net.dollar.simplegear.item.custom.bow.ModInfusedGemstoneBowItem;
 import net.dollar.simplegear.item.custom.bow.ModNetheriteBowItem;
-import net.dollar.simplegear.item.custom.bow.ModSteelBowItem;
+import net.dollar.simplegear.item.custom.bow.ModCobaltSteelBowItem;
 import net.dollar.simplegear.item.custom.bow.ModTungstenCarbideBowItem;
 import net.dollar.simplegear.item.custom.crossbow.ModInfusedGemstoneCrossbowItem;
 import net.dollar.simplegear.item.custom.crossbow.ModNetheriteCrossbowItem;
-import net.dollar.simplegear.item.custom.crossbow.ModSteelCrossbowItem;
+import net.dollar.simplegear.item.custom.crossbow.ModCobaltSteelCrossbowItem;
 import net.dollar.simplegear.item.custom.crossbow.ModTungstenCarbideCrossbowItem;
 import net.dollar.simplegear.item.custom.infused.ModInfusedGemstoneItem;
-import net.dollar.simplegear.item.custom.netherite.ModNetheriteIngotItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -38,18 +37,14 @@ public class ModItems {
 
 
     //region Bows/Crossbows 
-    public static final Item STEEL_BOW = registerItem("steel_bow",
-            new ModSteelBowItem(new FabricItemSettings().maxDamage(600)));  //Base durability (maxDamage) is 384
-    public static final Item STEEL_CROSSBOW = registerItem("steel_crossbow",
-            new ModSteelCrossbowItem(new FabricItemSettings().maxDamage(750))); //Base durability (maxDamage) is 465
     public static final Item INFUSED_GEMSTONE_BOW = registerItem("infused_gemstone_bow",
-            new ModInfusedGemstoneBowItem(new FabricItemSettings().maxDamage(1200)));
+            new ModInfusedGemstoneBowItem(new FabricItemSettings().maxDamage(1200)));   //Base durability (maxDamage) is 384
     public static final Item INFUSED_GEMSTONE_CROSSBOW = registerItem("infused_gemstone_crossbow",
-            new ModInfusedGemstoneCrossbowItem(new FabricItemSettings().maxDamage(1500)));
-    public static final Item NETHERITE_BOW = registerItem("netherite_bow",
-            new ModNetheriteBowItem(new FabricItemSettings().maxDamage(1200)));
-    public static final Item NETHERITE_CROSSBOW = registerItem("netherite_crossbow",
-            new ModNetheriteCrossbowItem(new FabricItemSettings().maxDamage(1500)));
+            new ModInfusedGemstoneCrossbowItem(new FabricItemSettings().maxDamage(1500)));  //Base durability (maxDamage) is 465
+    public static final Item COBALT_STEEL_BOW = registerItem("cobalt_steel_bow",
+            new ModCobaltSteelBowItem(new FabricItemSettings().maxDamage(1200)));
+    public static final Item COBALT_STEEL_CROSSBOW = registerItem("cobalt_steel_crossbow",
+            new ModCobaltSteelCrossbowItem(new FabricItemSettings().maxDamage(1500)));
     public static final Item TUNGSTEN_CARBIDE_BOW = registerItem("tungsten_carbide_bow",
             new ModTungstenCarbideBowItem(new FabricItemSettings().maxDamage(1200)));
     public static final Item TUNGSTEN_CARBIDE_CROSSBOW = registerItem("tungsten_carbide_crossbow",
