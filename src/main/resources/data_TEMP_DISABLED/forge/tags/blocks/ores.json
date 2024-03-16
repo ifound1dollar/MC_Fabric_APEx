@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:ores/ruby",
+    "#forge:ores/sapphire",
+    "#forge:ores/tin",
+    "#forge:ores/tungsten"
+  ]
+}

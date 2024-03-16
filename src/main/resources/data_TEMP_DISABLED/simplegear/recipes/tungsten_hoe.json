@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "d": {
+      "tag": "forge:ingots/tungsten"
+    },
+    "i": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "dd",
+    " i",
+    " i"
+  ],
+  "result": {
+    "item": "simplegear:tungsten_hoe"
+  },
+  "show_notification": true
+}

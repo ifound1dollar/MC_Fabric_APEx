@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/tungsten"
+    },
+    {
+      "tag": "forge:ingots/tungsten"
+    },
+    {
+      "tag": "forge:ingots/tungsten"
+    },
+    {
+      "tag": "forge:ingots/tungsten"
+    },
+    {
+      "tag": "forge:cokes"
+    },
+    {
+      "tag": "forge:cokes"
+    },
+    {
+      "tag": "forge:cokes"
+    },
+    {
+      "tag": "forge:cokes"
+    },
+    {
+      "item": "simplegear:molten_core"
+    }
+  ],
+  "result": {
+    "item": "simplegear:tungsten_carbide_ingot"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "simplegear:ruby_block",
+    "simplegear:ruby_ore",
+    "simplegear:deepslate_ruby_ore",
+    "simplegear:sapphire_block",
+    "simplegear:sapphire_ore",
+    "simplegear:deepslate_sapphire_ore",
+    "simplegear:decorative_amethyst_block",
+
+    "simplegear:tin_block",
+    "simplegear:raw_tin_block",
+    "simplegear:tin_ore",
+    "simplegear:deepslate_tin_ore",
+    "simplegear:bronze_block",
+    "simplegear:steel_block",
+    "simplegear:tungsten_block",
+    "simplegear:raw_tungsten_block",
+    "simplegear:tungsten_ore",
+    "simplegear:deepslate_tungsten_ore",
+
+    "simplegear:spectral_lantern"
+  ]
+}

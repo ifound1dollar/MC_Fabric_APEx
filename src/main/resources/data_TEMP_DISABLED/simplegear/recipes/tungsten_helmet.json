@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "d": {
+      "tag": "forge:ingots/tungsten"
+    }
+  },
+  "pattern": [
+    "ddd",
+    "d d"
+  ],
+  "result": {
+    "item": "simplegear:tungsten_helmet"
+  },
+  "show_notification": true
+}

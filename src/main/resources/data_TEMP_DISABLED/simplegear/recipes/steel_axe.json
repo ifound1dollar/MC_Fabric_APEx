@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "d": {
+      "tag": "forge:ingots/steel"
+    },
+    "i": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "dd",
+    "di",
+    " i"
+  ],
+  "result": {
+    "item": "simplegear:steel_axe"
+  },
+  "show_notification": true
+}

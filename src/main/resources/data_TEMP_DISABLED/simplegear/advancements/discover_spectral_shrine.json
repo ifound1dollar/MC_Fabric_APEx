@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "simplegear:spectral_lantern"
+    },
+    "title": "A Spectral Discovery",
+    "description": "Discover a Spectral Shrine",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "simplegear:simple_gearing_expansion",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "location": {
+            "structure": "simplegear:spectral_shrine"
+          }
+        }
+      }
+    }
+  }
+}

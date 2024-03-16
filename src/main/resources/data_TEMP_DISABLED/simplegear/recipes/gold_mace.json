@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "d": {
+      "tag": "forge:ingots/gold"
+    },
+    "i": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    " dd",
+    " id",
+    "i  "
+  ],
+  "result": {
+    "item": "simplegear:gold_mace"
+  },
+  "show_notification": true
+}

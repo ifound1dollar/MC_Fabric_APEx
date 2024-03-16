@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "d": {
+      "tag": "forge:ingots/bronze"
+    },
+    "i": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "dd",
+    " i",
+    " i"
+  ],
+  "result": {
+    "item": "simplegear:bronze_hoe"
+  },
+  "show_notification": true
+}
