@@ -1,6 +1,6 @@
 {
-    "parent": "simplegear:item/infused_diamond_crossbow",
+    "parent": "simplegear:item/infused_gemstone_crossbow",
     "textures": {
-        "layer0": "simplegear:item/infused_diamond_crossbow_firework"
+        "layer0": "simplegear:item/infused_gemstone_crossbow_firework"
     }
 }
