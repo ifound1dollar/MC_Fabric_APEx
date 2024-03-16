@@ -5,6 +5,10 @@ import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 
+/**
+ * Handles setting up complex model predicates that are used for Bows and Crossbows (which render different
+ *  textures depending on duration of use).
+ */
 public class ModModelPredicateProvider {
     public static void registerModModels() {
         registerBow(ModItems.STEEL_BOW);
@@ -50,24 +54,24 @@ public class ModModelPredicateProvider {
                     if (entity == null) {
                         return 0.0f;
                     }
-                    if (CrossbowItem.isCharged((ItemStack)stack)) {
+                    if (CrossbowItem.isCharged(stack)) {
                         return 0.0f;
                     }
-                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / (float)CrossbowItem.getPullTime((ItemStack)stack);
+                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / (float)CrossbowItem.getPullTime(stack);
                 });
 
         ModelPredicateProviderRegistry.register(crossbow, new Identifier("pulling"),
                 (stack, world, entity, seed) ->
                         entity != null && entity.isUsingItem() && entity.getActiveItem() == stack
-                                && !CrossbowItem.isCharged((ItemStack)stack) ? 1.0f : 0.0f);
+                                && !CrossbowItem.isCharged(stack) ? 1.0f : 0.0f);
 
         ModelPredicateProviderRegistry.register(crossbow, new Identifier("charged"),
                 (stack, world, entity, seed) ->
-                        CrossbowItem.isCharged((ItemStack)stack) ? 1.0f : 0.0f);
+                        CrossbowItem.isCharged(stack) ? 1.0f : 0.0f);
 
         ModelPredicateProviderRegistry.register(crossbow, new Identifier("firework"),
                 (stack, world, entity, seed) ->
-                        CrossbowItem.isCharged((ItemStack)stack) &&
-                                CrossbowItem.hasProjectile((ItemStack)stack, (Item)Items.FIREWORK_ROCKET) ? 1.0f : 0.0f);
+                        CrossbowItem.isCharged(stack) &&
+                                CrossbowItem.hasProjectile(stack, Items.FIREWORK_ROCKET) ? 1.0f : 0.0f);
     }
 }

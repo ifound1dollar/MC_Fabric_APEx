@@ -11,6 +11,7 @@ import net.dollar.simplegear.item.custom.crossbow.ModNetheriteCrossbowItem;
 import net.dollar.simplegear.item.custom.crossbow.ModSteelCrossbowItem;
 import net.dollar.simplegear.item.custom.crossbow.ModTungstenCarbideCrossbowItem;
 import net.dollar.simplegear.item.custom.infused.ModInfusedGemstoneItem;
+import net.dollar.simplegear.item.custom.netherite.ModNetheriteIngotItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -54,6 +55,7 @@ public class ModItems {
     public static final Item TUNGSTEN_CARBIDE_CROSSBOW = registerItem("tungsten_carbide_crossbow",
             new ModTungstenCarbideCrossbowItem(new FabricItemSettings().maxDamage(1500)));
     //endregion
+
 
 
 
