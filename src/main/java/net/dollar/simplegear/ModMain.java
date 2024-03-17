@@ -23,8 +23,13 @@ public class ModMain implements ModInitializer {
 		ModBlockEntities.registerModTileEntities();
 		ModModelPredicateProvider.registerModModels();
 
-		//FUEL ITEMS
+		handleFuelRegistries();
+	}
+
+	/**
+	 * Handle creation of all fuel registries, allowing items to be burned for fuel in furnaces and smokers.
+	 */
+	void handleFuelRegistries() {
 		FuelRegistry.INSTANCE.add(ModItems.MOLTEN_CORE, 30000);	//25 minutes
-		//FuelRegistry.INSTANCE.add(ModItems.COAL_COKE, 1600);	//80 seconds (DEFAULT FOR COAL/CHARCOAL)
 	}
 }
