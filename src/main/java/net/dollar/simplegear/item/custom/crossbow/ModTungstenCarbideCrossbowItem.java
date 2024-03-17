@@ -320,7 +320,7 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
         super.appendTooltip(stack, world, tooltip, context);
 
         //Append special tooltip info here.
-        tooltip.add(Text.translatable("tooltip.tungsten_carbide_bow_crossbow1"));
-        tooltip.add(Text.translatable("tooltip.tungsten_carbide_bow_crossbow2"));
+        tooltip.add(Text.translatable("tooltip.tungsten_carbide_bow_crossbow"));
+        tooltip.add(Text.translatable("tooltip.tungsten_carbide_onhit"));
     }
 }

@@ -97,13 +97,11 @@ public class ModUtils {
     public static void appendInfusedDiamondEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
         //TODO: RE-IMPLEMENT CONFIGS
         if (isArmor) {
-//            tooltip.add(Text.literal(String.format("§5> Full set: -%s%% Magic damage",
-//                    ModCommonConfigs.infused_gemstone_MAGIC_DAMAGE_REDUCTION.get())));
-            tooltip.add(Text.literal("§d> Full set: -33% Magic damage"));
+            tooltip.add(Text.translatable("tooltip.infused_gemstone_armor"));
         } else {
-//            tooltip.add(Text.literal(String.format("§5> Poisons target for %ss",
+//            tooltip.add(Text.literal(String.format("§5> Withers target for %ss",
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
-            tooltip.add(Text.literal("§d> Poisons target for 5s"));
+            tooltip.add(Text.translatable("tooltip.infused_gemstone_onhit"));
         }
     }
 
@@ -132,13 +130,11 @@ public class ModUtils {
     public static void appendCobaltSteelEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
         //TODO: RE-IMPLEMENT CONFIGS
         if (isArmor) {
-//            tooltip.add(Text.literal(String.format("§4> Full set: -%s%% Fire damage",
-//                    ModCommonConfigs.infused_gemstone_MAGIC_DAMAGE_REDUCTION.get())));
-            tooltip.add(Text.literal("§c> Full set: -33% Fire damage"));
+            tooltip.add(Text.translatable("tooltip.cobalt_steel_armor"));
         } else {
 //            tooltip.add(Text.literal(String.format("§4> On-hit: Wither target for %ss",
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
-            tooltip.add(Text.literal("§c> Withers target for 4s"));
+            tooltip.add(Text.translatable("tooltip.cobalt_steel_onhit"));
         }
     }
 
@@ -167,13 +163,11 @@ public class ModUtils {
     public static void appendTungstenCarbideEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
         //TODO: RE-IMPLEMENT CONFIGS
         if (isArmor) {
-//            tooltip.add(Text.literal(String.format("§8> Full set: -%s%% Explosion damage",
-//                    ModCommonConfigs.infused_gemstone_MAGIC_DAMAGE_REDUCTION.get())));
-            tooltip.add(Text.literal("§7> Full set: -33% Explosion damage"));
+            tooltip.add(Text.translatable("tooltip.tungsten_carbide_armor"));
         } else {
 //            tooltip.add(Text.literal(String.format("§8> On-hit: Slow target for %ss",
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
-            tooltip.add(Text.literal("§7> Slows target for 4s"));
+            tooltip.add(Text.translatable("tooltip.tungsten_carbide_onhit"));
         }
     }
 }

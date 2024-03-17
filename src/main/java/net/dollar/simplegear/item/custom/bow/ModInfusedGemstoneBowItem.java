@@ -104,7 +104,7 @@ public class ModInfusedGemstoneBowItem extends BowItem implements IInfusedGemsto
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.infused_gemstone_bow_crossbow1"));
-        tooltip.add(Text.translatable("tooltip.infused_gemstone_bow_crossbow2"));
+        tooltip.add(Text.translatable("tooltip.infused_gemstone_bow_crossbow"));
+        tooltip.add(Text.translatable("tooltip.infused_gemstone_onhit"));
     }
 }

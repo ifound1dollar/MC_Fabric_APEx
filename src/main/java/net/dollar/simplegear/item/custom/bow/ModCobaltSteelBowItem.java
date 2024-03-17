@@ -94,7 +94,7 @@ public class ModCobaltSteelBowItem extends BowItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.cobalt_steel_bow_crossbow1"));
-        tooltip.add(Text.translatable("tooltip.cobalt_steel_bow_crossbow2"));
+        tooltip.add(Text.translatable("tooltip.cobalt_steel_bow_crossbow"));
+        tooltip.add(Text.translatable("tooltip.cobalt_steel_onhit"));
     }
 }

@@ -20,8 +20,16 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModItems.INFUSED_GEMSTONE)).entries((displayContext, entries) -> {
                         entries.add(ModItems.RUBY);
                         entries.add(ModItems.SAPPHIRE);
+
+                        //Endgame upgrade items
+                        entries.add(ModItems.HANDFUL_OF_STARDUST);
+                        entries.add(ModItems.COMPOUND_GEMSTONE);
                         entries.add(ModItems.INFUSED_GEMSTONE);
                         entries.add(ModItems.MOLTEN_CORE);
+                        entries.add(ModItems.COBALT_STEEL_INGOT);
+                        entries.add(ModItems.TUNGSTEN_CARBIDE_INGOT);
+
+                        //Collector items
                         entries.add(ModItems.KATHLEENS_LOST_DIADEM);
 
                         //Bows/Crossbows
@@ -31,6 +39,11 @@ public class ModItemGroups {
                         entries.add(ModItems.COBALT_STEEL_CROSSBOW);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_BOW);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_CROSSBOW);
+
+                        //Pickaxes
+                        entries.add(ModItems.INFUSED_GEMSTONE_PICKAXE);
+                        entries.add(ModItems.COBALT_STEEL_PICKAXE);
+                        entries.add(ModItems.TUNGSTEN_CARBIDE_PICKAXE);
 
 
 

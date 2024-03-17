@@ -125,7 +125,7 @@ public class ModTungstenCarbideBowItem extends BowItem implements IInfusedGemsto
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.tungsten_carbide_bow_crossbow1"));
-        tooltip.add(Text.translatable("tooltip.tungsten_carbide_bow_crossbow2"));
+        tooltip.add(Text.translatable("tooltip.tungsten_carbide_bow_crossbow"));
+        tooltip.add(Text.translatable("tooltip.tungsten_carbide_onhit"));
     }
 }
