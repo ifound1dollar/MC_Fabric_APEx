@@ -26,6 +26,8 @@
 
   "item.simplegear.ruby": "Ruby",
   "item.simplegear.sapphire": "Sapphire",
+  "item.simplegear.cobalt_dust": "Cobalt Dust",
+  "item.simplegear.phosphor_dust": "Phosphor Dust",
   "item.simplegear.raw_tin": "Raw Tin",
   "item.simplegear.tin_ingot": "Tin Ingot",
   "item.simplegear.bronze_compound": "Bronze Compound",
@@ -35,10 +37,10 @@
   "item.simplegear.raw_tungsten": "Raw Tungsten",
   "item.simplegear.tungsten_ingot": "Tungsten Ingot",
 
+  "item.simplegear.molten_core": "Molten Core",
   "item.simplegear.compound_gemstone": "Compound Gemstone",
   "item.simplegear.handful_of_stardust": "Handful of Stardust",
   "item.simplegear.infused_gemstone": "Infused Gemstone",
-  "item.simplegear.molten_core": "Molten Core",
   "item.simplegear.tungsten_carbide_ingot": "Tungsten-Carbide Ingot",
   "item.simplegear.cobalt_steel_ingot": "Cobalt-Steel Ingot",
 

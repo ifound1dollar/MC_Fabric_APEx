@@ -4,6 +4,7 @@ import net.dollar.simplegear.ModMain;
 import net.dollar.simplegear.item.ModItems;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -11,6 +12,22 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
     //NETHERITE: 37, {3,8,6,3}, 15, 3.0, 0.1
+    BRONZE("bronze",
+            15,
+            new int[] { 2, 6, 5, 2 },
+            9,
+            SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+            0.0f,
+            0.0f,
+            () -> Ingredient.ofItems(ModItems.BRONZE_INGOT)),
+    GILDED_BRONZE("gilded_bronze",
+            23,
+            new int[] { 3, 6, 5, 3 },
+            25,
+            SoundEvents.ITEM_ARMOR_EQUIP_GOLD,
+            1.0f,
+            0.0f,
+            () -> Ingredient.ofItems(Items.GOLD_INGOT)),
     INFUSED_GEMSTONE("infused_gemstone",
             37,
             new int[] { 3, 8, 6, 3 },

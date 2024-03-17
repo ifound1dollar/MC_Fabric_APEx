@@ -1,6 +1,7 @@
 package net.dollar.simplegear.util;
 
 import net.dollar.simplegear.item.ModItems;
+import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -8,6 +9,18 @@ import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
     //NETHERITE: 4, 2031, 9, 4.0f, 15
+    BRONZE(2,
+            250,
+            6.0f,
+            2.0f,
+            14,
+            () -> Ingredient.ofItems(ModItems.BRONZE_INGOT)),
+    GILDED_BRONZE(3,
+            666,
+            12,
+            3.0f,
+            22,
+            () -> Ingredient.ofItems(Items.GOLD_INGOT)),
     INFUSED_GEMSTONE(4,
             2031,
             10,
