@@ -13,6 +13,7 @@ import net.dollar.simplegear.item.custom.crossbow.ModCobaltSteelCrossbowItem;
 import net.dollar.simplegear.item.custom.crossbow.ModTungstenCarbideCrossbowItem;
 import net.dollar.simplegear.item.custom.infused.*;
 import net.dollar.simplegear.util.ModArmorMaterials;
+import net.dollar.simplegear.util.ModSmithingUpgradeItemHelper;
 import net.dollar.simplegear.util.ModToolMaterials;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -63,6 +64,17 @@ public class ModItems {
             new ModCobaltSteelIngotItem(new FabricItemSettings()));
     public static final Item TUNGSTEN_CARBIDE_INGOT = registerItem("tungsten_carbide_ingot",
             new ModTungstenCarbideIngotItem(new FabricItemSettings()));
+    //endregion
+
+    //region Upgrade Templates
+    public static final Item BASIC_UPGRADE_TEMPLATE = registerItem("basic_upgrade_template",
+            new Item(new FabricItemSettings()));
+    public static final Item COBALT_UPGRADE_TEMPLATE = registerItem("cobalt_upgrade_smithing_template",
+            ModSmithingUpgradeItemHelper.createCobaltUpgradeTemplate());
+    public static final Item INFUSION_UPGRADE_TEMPLATE = registerItem("infusion_upgrade_smithing_template",
+            ModSmithingUpgradeItemHelper.createInfusionUpgradeTemplate());
+    public static final Item CARBIDE_UPGRADE_TEMPLATE = registerItem("carbide_upgrade_smithing_template",
+            ModSmithingUpgradeItemHelper.createCarbideUpgradeTemplate());
     //endregion
 
     //region Bows/Crossbows 

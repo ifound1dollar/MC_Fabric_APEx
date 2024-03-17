@@ -2,6 +2,7 @@ package net.dollar.simplegear.item;
 
 import net.dollar.simplegear.ModMain;
 import net.dollar.simplegear.block.ModBlocks;
+import net.dollar.simplegear.util.ModSmithingUpgradeItemHelper;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -37,6 +38,12 @@ public class ModItemGroups {
                         entries.add(ModItems.INFUSED_GEMSTONE);
                         entries.add(ModItems.COBALT_STEEL_INGOT);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_INGOT);
+
+                        //Upgrade templates
+                        entries.add(ModItems.BASIC_UPGRADE_TEMPLATE);
+                        entries.add(ModItems.COBALT_UPGRADE_TEMPLATE);
+                        entries.add(ModItems.INFUSION_UPGRADE_TEMPLATE);
+                        entries.add(ModItems.CARBIDE_UPGRADE_TEMPLATE);
 
                         //Bronze equipment
                         entries.add(ModItems.BRONZE_AXE);
