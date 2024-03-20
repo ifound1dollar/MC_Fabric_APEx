@@ -106,6 +106,6 @@ public class ModInfusedGemstoneArmorItem extends ArmorItem implements IDamageHan
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendInfusedDiamondEquipmentTooltip(tooltip, true);
+        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, true);
     }
 }

@@ -63,6 +63,6 @@ public class ModInfusedGemstoneShovelItem extends ShovelItem implements IInfused
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendInfusedDiamondEquipmentTooltip(tooltip, false);
+        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, false);
     }
 }

@@ -34,7 +34,7 @@ public enum ModToolMaterials implements ToolMaterial {
              18,
              () -> Ingredient.ofItems(ModItems.COBALT_STEEL_INGOT)),
     TUNGSTEN_CARBIDE(4,
-            2031,
+            2501,
             7,
             6.0f,
             15,

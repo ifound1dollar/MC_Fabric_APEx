@@ -45,7 +45,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
             0.1f,
             () -> Ingredient.ofItems(ModItems.COBALT_STEEL_INGOT)),
     TUNGSTEN_CARBIDE("tungsten_carbide",
-            37,
+            41,
             new int[] { 3, 8, 6, 3 },
             15,
             SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,

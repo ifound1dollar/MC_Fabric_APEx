@@ -1,7 +1,9 @@
 package net.dollar.simplegear.item.custom.cobaltsteel;
 
+import net.dollar.simplegear.ModMain;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -25,9 +27,9 @@ public class ModCobaltSteelPickaxeItem extends PickaxeItem {
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
         float baseVal = super.getMiningSpeedMultiplier(stack, state);
 
-        //If the block being mined contains deepslate, increase mining speed by a further 50% (allows instant
-        //  mining with Cobalt Steel Pickaxe w/Efficiency V & Haste II).
-        return (state.getBlock().getName().contains(Text.of("deepslate"))) ? baseVal * 1.5f : baseVal;
+        //If the block being mined contains deepslate, increase mining speed by a further 100% (allows instant
+        //  mining with Cobalt Steel Pickaxe w/Efficiency V & Haste II : results in total mining speed of 92.4, needs 90).
+        return (state.getBlock() == Blocks.DEEPSLATE) ? baseVal * 2.0f : baseVal;
     }
 
     /**

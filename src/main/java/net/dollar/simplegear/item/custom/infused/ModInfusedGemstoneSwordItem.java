@@ -63,6 +63,6 @@ public class ModInfusedGemstoneSwordItem extends SwordItem implements IInfusedGe
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendInfusedDiamondEquipmentTooltip(tooltip, false);
+        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, false);
     }
 }

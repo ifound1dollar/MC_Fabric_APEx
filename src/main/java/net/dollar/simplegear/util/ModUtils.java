@@ -1,5 +1,6 @@
 package net.dollar.simplegear.util;
 
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -19,7 +20,6 @@ import java.util.List;
 public class ModUtils {
     @Deprecated
     public enum DamageCategory { NONE, BLUNT, SHARP, MAGIC, FIRE, EXPLOSION }
-
 
     /**
      * Takes a vanilla DamageSource and determines which custom DamageCategory it should fall under.
@@ -75,40 +75,7 @@ public class ModUtils {
 
 
     /**
-     * Rolls chance to apply special effect on attack using Infused Diamond tools/armor, and applies when applicable.
-     * @param target Attacked (target) entity
-     * @param attacker Attacking (user) entity
-     */
-    public static void applyInfusedGemstoneOnHit(LivingEntity target, LivingEntity attacker) {
-        //Apply Wither effect to target (attackedEntity) for configurable duration in seconds.
-        //TODO: RE-IMPLEMENT CONFIGS
-        //Level 2 wither for once-per-second damage tick (duration +1 tick so ticks 4 times).
-//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
-//                    (ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20) + 1, 1));
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
-                (4 * 20) + 1, 1));
-    }
-    /**
-     * Generates special tooltip for all Infused Diamond equipment and appends to Component list,
-     *  different for armor and tools/weapons.
-     * @param tooltip List of Components to be appended
-     * @param isArmor Whether tooltip should be generated for armor or tools/weapons
-     */
-    public static void appendInfusedDiamondEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
-        //TODO: RE-IMPLEMENT CONFIGS
-        if (isArmor) {
-            tooltip.add(Text.translatable("tooltip.infused_gemstone_armor"));
-        } else {
-//            tooltip.add(Text.literal(String.format("§5> Withers target for %ss",
-//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
-            tooltip.add(Text.translatable("tooltip.infused_gemstone_onhit"));
-        }
-    }
-
-
-
-    /**
-     * Rolls chance to apply special effect on attack using Netherite tools/armor, and applies when applicable.
+     * Applies special effect on attack using Cobalt-Steel tools/weapons.
      * @param target Attacked (target) entity
      * @param attacker Attacking (user) entity
      */
@@ -122,12 +89,23 @@ public class ModUtils {
                 4 * 20, 1));
     }
     /**
-     * Generates special tooltip for all Infused Diamond equipment and appends to Component list,
+     * Generates special tooltip for all Cobalt-Steel equipment and appends to Text list,
      *  different for armor and tools/weapons.
-     * @param tooltip List of Components to be appended
-     * @param isArmor Whether tooltip should be generated for armor or tools/weapons
+     * @param tooltip List of Texts to be appended
+     * @param isArmor What type of equipment to generate the tooltip for (different for each)
      */
     public static void appendCobaltSteelEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
+        //This method should only ever be called client-side, so no null risk here.
+        //If the player is holding shift, show detailed info.
+        if (Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.cobalt_steel_details_0"));
+            tooltip.add(Text.translatable("tooltip.cobalt_steel_details_1"));
+            tooltip.add(Text.translatable("tooltip.cobalt_steel_details_2"));
+            tooltip.add(Text.translatable("tooltip.cobalt_steel_details_3"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.hold_shift"));
+        }
+
         //TODO: RE-IMPLEMENT CONFIGS
         if (isArmor) {
             tooltip.add(Text.translatable("tooltip.cobalt_steel_armor"));
@@ -141,7 +119,50 @@ public class ModUtils {
 
 
     /**
-     * Rolls chance to apply special effect on attack using Tungsten-Carbide tools/armor, and applies when applicable
+     * Applies special effect on attack using Infused Gemstone tools/weapons.
+     * @param target Attacked (target) entity
+     * @param attacker Attacking (user) entity
+     */
+    public static void applyInfusedGemstoneOnHit(LivingEntity target, LivingEntity attacker) {
+        //Apply Wither effect to target (attackedEntity) for configurable duration in seconds.
+        //TODO: RE-IMPLEMENT CONFIGS
+        //Level 2 wither for once-per-second damage tick (duration +1 tick so ticks 4 times).
+//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
+//                    (ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20) + 1, 1));
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
+                (4 * 20) + 1, 1));
+    }
+    /**
+     * Generates special tooltip for all Infused Gemstone equipment and appends to Text list,
+     *  different for armor and tools/weapons.
+     * @param tooltip List of Texts to be appended
+     * @param isArmor What type of equipment to generate the tooltip for (different for each)
+     */
+    public static void appendInfusedGemstoneEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
+        //This method should only ever be called client-side, so no null risk here.
+        //If the player is holding shift, show detailed info.
+        if (Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.infused_gemstone_details_0"));
+            tooltip.add(Text.translatable("tooltip.infused_gemstone_details_1"));
+            tooltip.add(Text.translatable("tooltip.infused_gemstone_details_2"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.hold_shift"));
+        }
+
+        //TODO: RE-IMPLEMENT CONFIGS
+        if (isArmor) {
+            tooltip.add(Text.translatable("tooltip.infused_gemstone_armor"));
+        } else {
+//            tooltip.add(Text.literal(String.format("§5> Withers target for %ss",
+//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
+            tooltip.add(Text.translatable("tooltip.infused_gemstone_onhit"));
+        }
+    }
+
+
+
+    /**
+     * Applies special effect on attack using Tungsten-Carbide tools/weapons.
      * @param target Attacked (target) entity
      * @param attacker Attacking (user) entity
      */
@@ -155,12 +176,23 @@ public class ModUtils {
                 4 * 20, 0));
     }
     /**
-     * Generates special tooltip for all Infused Diamond equipment and appends to Component list,
+     * Generates special tooltip for all Tungsten-Carbide equipment and appends to Text list,
      *  different for armor and tools/weapons.
-     * @param tooltip List of Components to be appended
-     * @param isArmor Whether tooltip should be generated for armor or tools/weapons
+     * @param tooltip List of Texts to be appended
+     * @param isArmor What type of equipment to generate the tooltip for (different for each)
      */
     public static void appendTungstenCarbideEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
+        //This method should only ever be called client-side, so no null risk here.
+        //If the player is holding shift, show detailed info.
+        if (Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_0"));
+            tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_1"));
+            tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_2"));
+            tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_3"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.hold_shift"));
+        }
+
         //TODO: RE-IMPLEMENT CONFIGS
         if (isArmor) {
             tooltip.add(Text.translatable("tooltip.tungsten_carbide_armor"));

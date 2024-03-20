@@ -43,6 +43,6 @@ public class ModInfusedGemstoneMaceItem extends ModMaceItem implements IInfusedG
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendInfusedDiamondEquipmentTooltip(tooltip, false);
+        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, false);
     }
 }
