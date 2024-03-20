@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": {
+      "item": "simplegear:cobalt_upgrade_smithing_template"
+    },
+    "i": {
+      "tag": "fabric:stone"
+    },
+    "n": {
+      "tag": "fabric:ingots/steel"
+    }
+  },
+  "pattern": [
+    "ndn",
+    "nin",
+    "nnn"
+  ],
+  "result": {
+    "count": 2,
+    "item": "simplegear:cobalt_upgrade_smithing_template"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#fabric:raw_materials/bronze",
+    "#fabric:raw_materials/steel",
+    "#fabric:raw_materials/tin",
+    "#fabric:raw_materials/tungsten"
+  ]
+}

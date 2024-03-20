@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "simplegear:bronze_pickaxe",
+    "simplegear:gilded_bronze_pickaxe",
+    "simplegear:cobalt_steel_pickaxe",
+    "simplegear:infused_gemstone_pickaxe",
+    "simplegear:tungsten_carbide_pickaxe"
+  ]
+}

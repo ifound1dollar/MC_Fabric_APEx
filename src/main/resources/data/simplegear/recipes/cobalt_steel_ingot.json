@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "fabric:ingots/steel"
+    },
+    {
+      "tag": "fabric:ingots/steel"
+    },
+    {
+      "tag": "fabric:ingots/steel"
+    },
+    {
+      "tag": "fabric:ingots/steel"
+    },
+    {
+      "tag": "fabric:dusts/cobalt_dust"
+    },
+    {
+      "tag": "fabric:dusts/cobalt_dust"
+    },
+    {
+      "tag": "fabric:dusts/cobalt_dust"
+    },
+    {
+      "tag": "fabric:dusts/cobalt_dust"
+    },
+    {
+      "item": "simplegear:molten_core"
+    }
+  ],
+  "result": {
+    "item": "simplegear:cobalt_steel_ingot"
+  }
+}

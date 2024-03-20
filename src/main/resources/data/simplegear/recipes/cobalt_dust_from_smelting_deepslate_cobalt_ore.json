@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "cobalt_dust",
+  "ingredient": {
+    "item": "simplegear:deepslate_cobalt_ore"
+  },
+  "result": "simplegear:cobalt_dust"
+}

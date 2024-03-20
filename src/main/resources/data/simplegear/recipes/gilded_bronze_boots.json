@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "d": {
+      "tag": "fabric:ingots/gold"
+    },
+    "i": {
+      "item": "simplegear:bronze_boots"
+    }
+  },
+  "pattern": [
+    "ddd",
+    "did",
+    "ddd"
+  ],
+  "result": {
+    "item": "simplegear:gilded_bronze_boots"
+  },
+  "show_notification": true
+}

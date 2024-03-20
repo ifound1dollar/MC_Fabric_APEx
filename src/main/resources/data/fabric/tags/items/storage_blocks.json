@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#fabric:storage_blocks/bronze",
+    "#fabric:storage_blocks/raw_tin",
+    "#fabric:storage_blocks/raw_tungsten",
+    "#fabric:storage_blocks/ruby",
+    "#fabric:storage_blocks/sapphire",
+    "#fabric:storage_blocks/steel",
+    "#fabric:storage_blocks/tin",
+    "#fabric:storage_blocks/tungsten"
+  ]
+}

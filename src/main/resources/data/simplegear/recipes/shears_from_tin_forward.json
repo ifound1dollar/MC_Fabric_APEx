@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": {
+      "tag": "fabric:ingots/tin"
+    }
+  },
+  "pattern": [
+    " d",
+    "d "
+  ],
+  "result": {
+    "item": "minecraft:shears"
+  },
+  "show_notification": true
+}

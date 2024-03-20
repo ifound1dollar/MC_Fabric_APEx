@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "d": {
+      "tag": "fabric:ingots/bronze"
+    },
+    "i": {
+      "tag": "fabric:rods/wooden"
+    }
+  },
+  "pattern": [
+    "d",
+    "i",
+    "i"
+  ],
+  "result": {
+    "item": "simplegear:bronze_shovel"
+  },
+  "show_notification": true
+}

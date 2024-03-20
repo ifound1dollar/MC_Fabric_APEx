@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.2,
+  "group": "phosphor_dust",
+  "ingredient": {
+    "item": "simplegear:deepslate_phosphor_ore"
+  },
+  "result": "simplegear:phosphor_dust"
+}

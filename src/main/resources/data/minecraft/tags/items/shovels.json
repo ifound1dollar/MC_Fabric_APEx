@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "simplegear:bronze_shovel",
+    "simplegear:gilded_bronze_shovel",
+    "simplegear:cobalt_steel_shovel",
+    "simplegear:infused_gemstone_shovel",
+    "simplegear:tungsten_carbide_shovel"
+  ]
+}

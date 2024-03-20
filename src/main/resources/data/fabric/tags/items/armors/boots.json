@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "simplegear:bronze_boots",
+    "simplegear:gilded_bronze_boots",
+    "simplegear:cobalt_steel_boots",
+    "simplegear:infused_gemstone_boots",
+    "simplegear:tungsten_carbide_boots"
+  ]
+}

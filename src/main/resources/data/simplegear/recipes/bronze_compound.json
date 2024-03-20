@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "fabric:ingots/copper"
+    },
+    {
+      "tag": "fabric:ingots/copper"
+    },
+    {
+      "tag": "fabric:ingots/copper"
+    },
+    {
+      "tag": "fabric:ingots/tin"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "simplegear:bronze_compound"
+  }
+}

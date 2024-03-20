@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#fabric:ores/cobalt",
+    "#fabric:ores/phosphor",
+    "#fabric:ores/ruby",
+    "#fabric:ores/sapphire",
+    "#fabric:ores/tin",
+    "#fabric:ores/tungsten"
+  ]
+}

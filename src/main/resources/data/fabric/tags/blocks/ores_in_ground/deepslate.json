@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "simplegear:deepslate_ruby_ore",
+    "simplegear:deepslate_sapphire_ore",
+    "simplegear:deepslate_tin_ore",
+    "simplegear:deepslate_tungsten_ore",
+    "simplegear:deepslate_cobalt_ore",
+    "simplegear:deepslate_phosphor_ore"
+  ]
+}

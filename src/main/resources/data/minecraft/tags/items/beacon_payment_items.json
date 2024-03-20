@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "simplegear:bronze_ingot",
+    "simplegear:steel_ingot",
+    "simplegear:tungsten_ingot",
+    "simplegear:ruby",
+    "simplegear:sapphire"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "fabric:ingots/tungsten"
+    },
+    {
+      "tag": "fabric:ingots/tungsten"
+    },
+    {
+      "tag": "fabric:ingots/tungsten"
+    },
+    {
+      "tag": "fabric:ingots/tungsten"
+    },
+    {
+      "tag": "minecraft:coals"
+    },
+    {
+      "tag": "minecraft:coals"
+    },
+    {
+      "tag": "minecraft:coals"
+    },
+    {
+      "tag": "minecraft:coals"
+    },
+    {
+      "item": "simplegear:molten_core"
+    }
+  ],
+  "result": {
+    "item": "simplegear:tungsten_carbide_ingot"
+  }
+}

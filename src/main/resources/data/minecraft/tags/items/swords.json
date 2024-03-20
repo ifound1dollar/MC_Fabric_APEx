@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "simplegear:bronze_sword",
+    "simplegear:gilded_bronze_sword",
+    "simplegear:cobalt_steel_sword",
+    "simplegear:infused_gemstone_sword",
+    "simplegear:tungsten_carbide_sword"
+  ]
+}

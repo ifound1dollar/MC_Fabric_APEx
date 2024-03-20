@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#fabric:ingots/bronze",
+    "#fabric:ingots/steel",
+    "#fabric:ingots/tin",
+    "#fabric:ingots/tungsten",
+
+    "#fabric:ingots/iron",
+    "#fabric:ingots/gold"
+  ]
+}

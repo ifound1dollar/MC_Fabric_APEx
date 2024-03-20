@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "fabric:gems/amethyst"
+    },
+    {
+      "tag": "fabric:gems/emerald"
+    },
+    {
+      "tag": "fabric:gems/ruby"
+    },
+    {
+      "tag": "fabric:gems/sapphire"
+    },
+    {
+      "tag": "fabric:gems/diamond"
+    }
+  ],
+  "result": {
+    "item": "simplegear:compound_gemstone"
+  }
+}
