@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "simplegear:block/deepslate_phosphor_ore"
+    "all": "simplegear:block/phosphate_ore"
   }
 }
