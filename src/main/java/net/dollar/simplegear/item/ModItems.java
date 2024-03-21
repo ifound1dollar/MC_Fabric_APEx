@@ -29,9 +29,9 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item SAPPHIRE = registerItem("sapphire",
             new Item(new FabricItemSettings()));
-    public static final Item COBALT_DUST = registerItem("cobalt_dust",
+    public static final Item COBALT_SHARD = registerItem("cobalt_shard",
             new Item(new FabricItemSettings()));
-    public static final Item PHOSPHOR_DUST = registerItem("phosphor_dust",
+    public static final Item PHOSPHATE_POWDER = registerItem("phosphate_powder",
             new Item(new FabricItemSettings()));
     public static final Item RAW_TIN = registerItem("raw_tin",
             new Item(new FabricItemSettings()));

@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_leggings",
+    "minecraft:chainmail_leggings",
+    "minecraft:iron_leggings",
+    "minecraft:golden_leggings",
+    "minecraft:diamond_leggings",
+    "minecraft:netherite_leggings",
+    
+    "simplegear:bronze_leggings",
+    "simplegear:gilded_bronze_leggings",
+    "simplegear:cobalt_steel_leggings",
+    "simplegear:infused_gemstone_leggings",
+    "simplegear:tungsten_carbide_leggings"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:bow",
+
+    "simplegear:cobalt_steel_bow",
+    "simplegear:infused_gemstone_bow",
+    "simplegear:tungsten_carbide_bow"
+  ]
+}

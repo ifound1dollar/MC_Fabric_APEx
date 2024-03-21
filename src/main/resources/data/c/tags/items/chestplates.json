@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_chestplate",
+    "minecraft:chainmail_chestplate",
+    "minecraft:iron_chestplate",
+    "minecraft:golden_chestplate",
+    "minecraft:diamond_chestplate",
+    "minecraft:netherite_chestplate",
+    
+    "simplegear:bronze_chestplate",
+    "simplegear:gilded_bronze_chestplate",
+    "simplegear:cobalt_steel_chestplate",
+    "simplegear:infused_gemstone_chestplate",
+    "simplegear:tungsten_carbide_chestplate"
+  ]
+}

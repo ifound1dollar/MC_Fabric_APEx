@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_boots",
+    "minecraft:chainmail_boots",
+    "minecraft:iron_boots",
+    "minecraft:golden_boots",
+    "minecraft:diamond_boots",
+    "minecraft:netherite_boots",
+
+    "simplegear:bronze_boots",
+    "simplegear:gilded_bronze_boots",
+    "simplegear:cobalt_steel_boots",
+    "simplegear:infused_gemstone_boots",
+    "simplegear:tungsten_carbide_boots"
+  ]
+}

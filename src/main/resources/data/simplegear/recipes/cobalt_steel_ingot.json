@@ -3,28 +3,28 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "fabric:ingots/steel"
+      "tag": "c:steel_ingots"
     },
     {
-      "tag": "fabric:ingots/steel"
+      "tag": "c:steel_ingots"
     },
     {
-      "tag": "fabric:ingots/steel"
+      "tag": "c:steel_ingots"
     },
     {
-      "tag": "fabric:ingots/steel"
+      "tag": "c:steel_ingots"
     },
     {
-      "tag": "fabric:dusts/cobalt_dust"
+      "item": "simplegear:cobalt_shard"
     },
     {
-      "tag": "fabric:dusts/cobalt_dust"
+      "item": "simplegear:cobalt_shard"
     },
     {
-      "tag": "fabric:dusts/cobalt_dust"
+      "item": "simplegear:cobalt_shard"
     },
     {
-      "tag": "fabric:dusts/cobalt_dust"
+      "item": "simplegear:cobalt_shard"
     },
     {
       "item": "simplegear:molten_core"

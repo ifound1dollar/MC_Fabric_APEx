@@ -9,7 +9,7 @@
       "item": "minecraft:obsidian"
     },
     "n": {
-      "tag": "fabric:ingots/tungsten"
+      "tag": "c:tungsten_ingots"
     }
   },
   "pattern": [

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:amethyst_shard",
+    "minecraft:diamond",
+    "minecraft:emerald",
+
+    "simplegear:ruby",
+    "simplegear:sapphire"
+  ]
+}

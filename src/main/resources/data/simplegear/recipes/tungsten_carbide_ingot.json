@@ -3,16 +3,16 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "fabric:ingots/tungsten"
+      "tag": "c:tungsten_ingots"
     },
     {
-      "tag": "fabric:ingots/tungsten"
+      "tag": "c:tungsten_ingots"
     },
     {
-      "tag": "fabric:ingots/tungsten"
+      "tag": "c:tungsten_ingots"
     },
     {
-      "tag": "fabric:ingots/tungsten"
+      "tag": "c:tungsten_ingots"
     },
     {
       "tag": "minecraft:coals"

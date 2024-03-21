@@ -9,8 +9,8 @@
 
   "block.simplegear.cobalt_ore": "Cobalt Ore",
   "block.simplegear.deepslate_cobalt_ore": "Deepslate Cobalt Ore",
-  "block.simplegear.phosphor_ore": "Phosphor Ore",
-  "block.simplegear.deepslate_phosphor_ore": "Deepslate Phosphor Ore",
+  "block.simplegear.phosphate_ore": "Phosphate Ore",
+  "block.simplegear.deepslate_phosphate_ore": "Deepslate Phosphate Ore",
 
   "block.simplegear.tin_block": "Tin Block",
   "block.simplegear.raw_tin_block": "Raw Tin Block",
@@ -31,8 +31,8 @@
 
   "item.simplegear.ruby": "Ruby",
   "item.simplegear.sapphire": "Sapphire",
-  "item.simplegear.cobalt_dust": "Cobalt Dust",
-  "item.simplegear.phosphor_dust": "Phosphor Dust",
+  "item.simplegear.cobalt_shard": "Cobalt Shard",
+  "item.simplegear.phosphate_powder": "Phosphate Powder",
   "item.simplegear.raw_tin": "Raw Tin",
   "item.simplegear.tin_ingot": "Tin Ingot",
   "item.simplegear.bronze_compound": "Bronze Compound",

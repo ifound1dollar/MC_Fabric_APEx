@@ -6,10 +6,10 @@
       "item": "simplegear:basic_upgrade_template"
     },
     "i": {
-      "tag": "fabric:deepslate"
+      "tag": "c:deepslates"
     },
     "n": {
-      "tag": "fabric:gems/diamond"
+      "tag": "c:diamonds"
     }
   },
   "pattern": [

@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "fabric:ingots/iron"
+      "tag": "c:iron_ingots"
     },
     {
       "tag": "minecraft:coals"

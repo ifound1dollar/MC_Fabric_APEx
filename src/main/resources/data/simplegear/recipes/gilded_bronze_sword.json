@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "d": {
-      "tag": "fabric:ingots/gold"
+      "tag": "c:gold_ingots"
     },
     "i": {
       "item": "simplegear:bronze_sword"

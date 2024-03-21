@@ -1,0 +1,53 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#minecraft:redstone_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:copper_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:gold_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:iron_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:coal_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:emerald_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:lapis_ores",
+      "required": false
+    },
+    {
+      "id": "#minecraft:diamond_ores",
+      "required": false
+    },
+    {
+      "id": "#c:quartz_ores",
+      "required": false
+    },
+    "simplegear:cobalt_ore",
+    "simplegear:deepslate_cobalt_ore",
+    "simplegear:phosphate_ore",
+    "simplegear:deepslate_phosphate_ore",
+    "simplegear:ruby_ore",
+    "simplegear:deepslate_ruby_ore",
+    "simplegear:sapphire_ore",
+    "simplegear:deepslate_sapphire_ore",
+    "simplegear:tin_ore",
+    "simplegear:deepslate_tin_ore",
+    "simplegear:tungsten_ore",
+    "simplegear:deepslate_tungsten_ore"
+  ]
+}

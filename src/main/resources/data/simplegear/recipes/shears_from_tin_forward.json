@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "d": {
-      "tag": "fabric:ingots/tin"
+      "tag": "c:tin_ingots"
     }
   },
   "pattern": [

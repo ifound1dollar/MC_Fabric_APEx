@@ -8,10 +8,14 @@
     "simplegear:sapphire_ore",
     "simplegear:deepslate_sapphire_ore",
     "simplegear:decorative_amethyst_block",
+
     "simplegear:steel_block",
     "simplegear:tungsten_block",
     "simplegear:raw_tungsten_block",
     "simplegear:tungsten_ore",
-    "simplegear:deepslate_tungsten_ore"
+    "simplegear:deepslate_tungsten_ore",
+
+    "simplegear:cobalt_ore",
+    "simplegear:deepslate_cobalt_ore"
   ]
 }

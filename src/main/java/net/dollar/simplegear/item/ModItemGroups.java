@@ -2,7 +2,6 @@ package net.dollar.simplegear.item;
 
 import net.dollar.simplegear.ModMain;
 import net.dollar.simplegear.block.ModBlocks;
-import net.dollar.simplegear.util.ModSmithingUpgradeItemHelper;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -24,8 +23,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DEEPSLATE_SAPPHIRE_ORE);
                         entries.add(ModBlocks.COBALT_ORE);
                         entries.add(ModBlocks.DEEPSLATE_COBALT_ORE);
-                        entries.add(ModBlocks.PHOSPHOR_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_PHOSPHOR_ORE);
+                        entries.add(ModBlocks.PHOSPHATE_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_PHOSPHATE_ORE);
                         entries.add(ModBlocks.TIN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
                         entries.add(ModBlocks.RAW_TIN_BLOCK);
@@ -50,8 +49,8 @@ public class ModItemGroups {
                         //Raw Items, Gems, Compounds
                         entries.add(ModItems.RUBY);
                         entries.add(ModItems.SAPPHIRE);
-                        entries.add(ModItems.COBALT_DUST);
-                        entries.add(ModItems.PHOSPHOR_DUST);
+                        entries.add(ModItems.COBALT_SHARD);
+                        entries.add(ModItems.PHOSPHATE_POWDER);
                         entries.add(ModItems.RAW_TIN);
                         entries.add(ModItems.TIN_INGOT);
                         entries.add(ModItems.RAW_TUNGSTEN);

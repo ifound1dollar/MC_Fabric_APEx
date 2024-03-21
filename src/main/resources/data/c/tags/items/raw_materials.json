@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "simplegear:bronze_compound",
+    "simplegear:steel_compound",
+    "simplegear:raw_tin",
+    "simplegear:raw_tungsten"
+  ]
+}

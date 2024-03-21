@@ -86,16 +86,16 @@ public class ModBlocks {
     public static final Block COBALT_ORE = registerBlock("cobalt_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.IRON_ORE)
                     .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY),
-                    UniformIntProvider.create(2, 4)));
+                    UniformIntProvider.create(3, 6)));  //Diamond is 3, 7
     public static final Block DEEPSLATE_COBALT_ORE = registerBlock("deepslate_cobalt_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_IRON_ORE)
                     .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY),
-                    UniformIntProvider.create(2, 4)));
-    public static final Block PHOSPHOR_ORE = registerBlock("phosphor_ore",
+                    UniformIntProvider.create(3, 6)));  //Diamond is 3, 7
+    public static final Block PHOSPHATE_ORE = registerBlock("phosphate_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.IRON_ORE)
                     .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY),
                     UniformIntProvider.create(0, 2)));  //Equivalent to Coal
-    public static final Block DEEPSLATE_PHOSPHOR_ORE = registerBlock("deepslate_phosphor_ore",
+    public static final Block DEEPSLATE_PHOSPHATE_ORE = registerBlock("deepslate_phosphate_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_IRON_ORE)
                     .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY),
                     UniformIntProvider.create(0, 2)));  //Equivalent to Coal

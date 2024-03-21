@@ -3,10 +3,10 @@
   "category": "equipment",
   "key": {
     "d": {
-      "tag": "fabric:ingots/bronze"
+      "tag": "c:bronze_ingots"
     },
     "i": {
-      "tag": "fabric:rods/wooden"
+      "tag": "c:wooden_rods"
     }
   },
   "pattern": [

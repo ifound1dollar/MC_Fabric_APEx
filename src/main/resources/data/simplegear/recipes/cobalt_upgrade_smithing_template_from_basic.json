@@ -6,10 +6,10 @@
       "item": "simplegear:basic_upgrade_template"
     },
     "i": {
-      "tag": "fabric:stone"
+      "tag": "c:stones"
     },
     "n": {
-      "tag": "fabric:ingots/steel"
+      "tag": "c:steel_ingots"
     }
   },
   "pattern": [
