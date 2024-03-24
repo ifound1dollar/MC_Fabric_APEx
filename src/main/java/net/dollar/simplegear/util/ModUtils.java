@@ -1,5 +1,6 @@
 package net.dollar.simplegear.util;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -10,7 +11,10 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 import java.util.List;
 
@@ -18,6 +22,9 @@ import java.util.List;
  * Contains a handful of misc. helper methods used in various parts of the mod.
  */
 public class ModUtils {
+    public static final TagKey<Block> TAG_PAXEL_MINEABLE = TagKey.of(RegistryKeys.BLOCK,
+            new Identifier("simplegear", "paxel_mineable"));
+
     @Deprecated
     public enum DamageCategory { NONE, BLUNT, SHARP, MAGIC, FIRE, EXPLOSION }
 

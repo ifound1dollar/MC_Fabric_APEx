@@ -96,11 +96,21 @@ public class ModItemGroups {
                         entries.add(ModItems.GILDED_BRONZE_LEGGINGS);
                         entries.add(ModItems.GILDED_BRONZE_BOOTS);
 
+                        //Diamond equipment
+                        entries.add(ModItems.DIAMOND_BATTLEAXE);
+                        entries.add(ModItems.DIAMOND_PAXEL);
+
+                        //Netherite equipment
+                        entries.add(ModItems.NETHERITE_BATTLEAXE);
+                        entries.add(ModItems.NETHERITE_PAXEL);
+
                         //Cobalt-Steel equipment
                         entries.add(ModItems.COBALT_STEEL_BOW);
                         entries.add(ModItems.COBALT_STEEL_CROSSBOW);
                         entries.add(ModItems.COBALT_STEEL_AXE);
+                        entries.add(ModItems.COBALT_STEEL_BATTLEAXE);
                         entries.add(ModItems.COBALT_STEEL_HOE);
+                        entries.add(ModItems.COBALT_STEEL_PAXEL);
                         entries.add(ModItems.COBALT_STEEL_PICKAXE);
                         entries.add(ModItems.COBALT_STEEL_SHOVEL);
                         entries.add(ModItems.COBALT_STEEL_SWORD);
@@ -113,7 +123,9 @@ public class ModItemGroups {
                         entries.add(ModItems.INFUSED_GEMSTONE_BOW);
                         entries.add(ModItems.INFUSED_GEMSTONE_CROSSBOW);
                         entries.add(ModItems.INFUSED_GEMSTONE_AXE);
+                        entries.add(ModItems.INFUSED_GEMSTONE_BATTLEAXE);
                         entries.add(ModItems.INFUSED_GEMSTONE_HOE);
+                        entries.add(ModItems.INFUSED_GEMSTONE_PAXEL);
                         entries.add(ModItems.INFUSED_GEMSTONE_PICKAXE);
                         entries.add(ModItems.INFUSED_GEMSTONE_SHOVEL);
                         entries.add(ModItems.INFUSED_GEMSTONE_SWORD);
@@ -126,7 +138,9 @@ public class ModItemGroups {
                         entries.add(ModItems.TUNGSTEN_CARBIDE_BOW);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_CROSSBOW);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_AXE);
+                        entries.add(ModItems.TUNGSTEN_CARBIDE_BATTLEAXE);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_HOE);
+                        entries.add(ModItems.TUNGSTEN_CARBIDE_PAXEL);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_PICKAXE);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_SHOVEL);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_SWORD);

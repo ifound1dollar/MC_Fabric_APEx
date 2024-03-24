@@ -23,8 +23,6 @@
     "simplegear:tungsten_block",
     "simplegear:raw_tungsten_block",
     "simplegear:tungsten_ore",
-    "simplegear:deepslate_tungsten_ore",
-
-    "simplegear:spectral_lantern"
+    "simplegear:deepslate_tungsten_ore"
   ]
 }
