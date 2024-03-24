@@ -42,7 +42,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STEEL_BLOCK);
 
                         //Misc. Blocks
-                        entries.add(ModBlocks.SPECTRAL_LANTERN);
+                        //SOMETHING HERE
 
 
 

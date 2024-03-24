@@ -3,7 +3,7 @@
   "package": "net.dollar.simplegear.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-
+    "MixinPiglinBrain"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -11,5 +11,5 @@
   "client": [
     "MixinHeldItemRenderer",
     "MixinPlayerEntityRenderer"
-	]
+  ]
 }

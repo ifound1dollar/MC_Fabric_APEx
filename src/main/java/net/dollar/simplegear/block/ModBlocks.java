@@ -1,7 +1,6 @@
 package net.dollar.simplegear.block;
 
 import net.dollar.simplegear.ModMain;
-import net.dollar.simplegear.block.custom.ModSpectralLanternBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -16,10 +15,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 public class ModBlocks {
-    public static final Block SPECTRAL_LANTERN = registerBlock("spectral_lantern",
-            new ModSpectralLanternBlock(FabricBlockSettings.copyOf(Blocks.LANTERN).nonOpaque()));
-
-
     public static final Block RUBY_BLOCK = registerBlock("ruby_block",
             new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK)
                     .strength(6.0f).requiresTool().mapColor(MapColor.BRIGHT_RED)));
