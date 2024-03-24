@@ -2,6 +2,6 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "simplegear:item/tungsten_carbide_leggings",
-    "layer1": "minecraft:trims/items/leggings_trim"
+    "layer1": "minecraft:trims/items/leggings_trim_redstone"
   }
 }
