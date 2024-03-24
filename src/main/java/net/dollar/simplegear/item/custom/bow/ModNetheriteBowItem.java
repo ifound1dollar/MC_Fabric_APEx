@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 @Deprecated
-public class ModNetheriteBowItem extends BowItem implements IInfusedGemstoneItem {
+public class ModNetheriteBowItem extends BowItem {
     public ModNetheriteBowItem(Settings settings) {
         super(settings);
     }

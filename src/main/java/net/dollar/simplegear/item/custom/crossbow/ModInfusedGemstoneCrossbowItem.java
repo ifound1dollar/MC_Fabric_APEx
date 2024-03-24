@@ -2,6 +2,7 @@ package net.dollar.simplegear.item.custom.crossbow;
 
 import com.google.common.collect.Lists;
 import net.dollar.simplegear.item.custom.arrow.ArrowUtil;
+import net.dollar.simplegear.util.IInfusedGemstoneItem;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -38,7 +39,7 @@ import java.util.List;
  * Corresponds specifically to the Infused Gemstone Crossbow item. Re-implements NUMEROUS methods from CrossbowItem
  *  which are private and must be entirely re-defined. All redundant override methods are removed.
  */
-public class ModInfusedGemstoneCrossbowItem extends CrossbowItem {
+public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInfusedGemstoneItem {
     public ModInfusedGemstoneCrossbowItem(Settings settings) {
         super(settings);
     }

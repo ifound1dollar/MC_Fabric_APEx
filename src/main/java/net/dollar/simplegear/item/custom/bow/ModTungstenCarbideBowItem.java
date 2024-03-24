@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModTungstenCarbideBowItem extends BowItem implements IInfusedGemstoneItem {
+public class ModTungstenCarbideBowItem extends BowItem {
     public ModTungstenCarbideBowItem(Settings settings) {
         super(settings);
     }

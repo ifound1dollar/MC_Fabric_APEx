@@ -32,7 +32,7 @@ public class MixinPiglinBrain {
                 break;
             }
         }
-        
+
         //Return the variable because only successfully supports setReturnValue() once.
         cir.setReturnValue(value);
     }
