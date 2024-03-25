@@ -1,4 +1,4 @@
-package net.dollar.simplegear.item.custom.infused;
+package net.dollar.simplegear.item.custom.infusedgemstone;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;

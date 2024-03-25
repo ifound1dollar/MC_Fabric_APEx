@@ -1,4 +1,4 @@
-package net.dollar.simplegear.item.custom.infused;
+package net.dollar.simplegear.item.custom.infusedgemstone;
 
 import net.dollar.simplegear.item.ModItems;
 import net.dollar.simplegear.util.IDamageHandlingArmor;

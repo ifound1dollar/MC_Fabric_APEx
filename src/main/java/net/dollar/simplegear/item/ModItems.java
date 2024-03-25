@@ -8,12 +8,12 @@ import net.dollar.simplegear.item.custom.ModPaxelItem;
 import net.dollar.simplegear.item.custom.bow.ModInfusedGemstoneBowItem;
 import net.dollar.simplegear.item.custom.bow.ModCobaltSteelBowItem;
 import net.dollar.simplegear.item.custom.bow.ModTungstenCarbideBowItem;
-import net.dollar.simplegear.item.custom.carbide.*;
+import net.dollar.simplegear.item.custom.tungstencarbide.*;
 import net.dollar.simplegear.item.custom.cobaltsteel.*;
 import net.dollar.simplegear.item.custom.crossbow.ModInfusedGemstoneCrossbowItem;
 import net.dollar.simplegear.item.custom.crossbow.ModCobaltSteelCrossbowItem;
 import net.dollar.simplegear.item.custom.crossbow.ModTungstenCarbideCrossbowItem;
-import net.dollar.simplegear.item.custom.infused.*;
+import net.dollar.simplegear.item.custom.infusedgemstone.*;
 import net.dollar.simplegear.util.ModArmorMaterials;
 import net.dollar.simplegear.util.ModSmithingUpgradeItemHelper;
 import net.dollar.simplegear.util.ModToolMaterials;
@@ -118,15 +118,15 @@ public class ModItems {
                     new FabricItemSettings()));
     public static final Item NETHERITE_BATTLEAXE = registerItem("netherite_battleaxe",
             new ModBattleaxeItem(ToolMaterials.NETHERITE, 5, -3.0f,
-                    new FabricItemSettings())); //Equivalent to Axe stats
+                    new FabricItemSettings().fireproof())); //Equivalent to Axe stats
     public static final Item COBALT_STEEL_BATTLEAXE = registerItem("cobalt_steel_battleaxe",
-            new ModBattleaxeItem(ModToolMaterials.COBALT_STEEL, 5, -2.7f,
+            new ModCobaltSteelBattleaxeItem(ModToolMaterials.COBALT_STEEL, 5, -2.7f,
                     new FabricItemSettings())); //Faster, Netherite = 5.0f, -3.0f
     public static final Item INFUSED_GEMSTONE_BATTLEAXE = registerItem("infused_gemstone_battleaxe",
-            new ModBattleaxeItem(ModToolMaterials.INFUSED_GEMSTONE, 5, -2.9f,
+            new ModInfusedGemstoneBattleaxeItem(ModToolMaterials.INFUSED_GEMSTONE, 5, -2.9f,
                     new FabricItemSettings())); //Very fast, Netherite = 5.0f, -3.0f
     public static final Item TUNGSTEN_CARBIDE_BATTLEAXE = registerItem("tungsten_carbide_battleaxe",
-            new ModBattleaxeItem(ModToolMaterials.TUNGSTEN_CARBIDE, 6, -3.2f,
+            new ModTungstenCarbideBattleaxeItem(ModToolMaterials.TUNGSTEN_CARBIDE, 6, -3.2f,
                     new FabricItemSettings())); //Slower, Netherite = 5.0f, -3.0f
     //endregion
 
@@ -154,15 +154,15 @@ public class ModItems {
                     new FabricItemSettings()));
     public static final Item NETHERITE_PAXEL = registerItem("netherite_paxel",
             new ModPaxelItem(ToolMaterials.NETHERITE, 2.5f, -2.9f,
-                    new FabricItemSettings())); //Average between Axe, Pickaxe, and Shovel stats
+                    new FabricItemSettings().fireproof())); //Average between Axe, Pickaxe, and Shovel stats
     public static final Item COBALT_STEEL_PAXEL = registerItem("cobalt_steel_paxel",
-            new ModPaxelItem(ModToolMaterials.COBALT_STEEL, 2.5f, -2.6f,
+            new ModCobaltSteelPaxelItem(ModToolMaterials.COBALT_STEEL, 2.5f, -2.6f,
                     new FabricItemSettings())); //Faster, Netherite = 2.5f, -2.9f
     public static final Item INFUSED_GEMSTONE_PAXEL = registerItem("infused_gemstone_paxel",
-            new ModPaxelItem(ModToolMaterials.INFUSED_GEMSTONE, 2.5f, -2.8f,
+            new ModInfusedGemstonePaxelItem(ModToolMaterials.INFUSED_GEMSTONE, 2.5f, -2.8f,
                     new FabricItemSettings())); //Very fast, Netherite = 2.5f, -2.9f
     public static final Item TUNGSTEN_CARBIDE_PAXEL = registerItem("tungsten_carbide_paxel",
-            new ModPaxelItem(ModToolMaterials.TUNGSTEN_CARBIDE, 3.0f, -3.1f,
+            new ModTungstenCarbidePaxelItem(ModToolMaterials.TUNGSTEN_CARBIDE, 3.0f, -3.1f,
                     new FabricItemSettings())); //Slower, Netherite = 2.5f, -2.9f
     //endregion
 

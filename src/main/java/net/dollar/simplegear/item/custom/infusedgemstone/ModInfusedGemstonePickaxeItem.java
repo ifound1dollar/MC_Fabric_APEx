@@ -1,21 +1,22 @@
-package net.dollar.simplegear.item.custom.infused;
+package net.dollar.simplegear.item.custom.infusedgemstone;
 
-import net.dollar.simplegear.item.custom.ModMaceItem;
 import net.dollar.simplegear.util.IInfusedGemstoneItem;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-@Deprecated
-public class ModInfusedGemstoneMaceItem extends ModMaceItem implements IInfusedGemstoneItem {
-    public ModInfusedGemstoneMaceItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+public class ModInfusedGemstonePickaxeItem extends PickaxeItem implements IInfusedGemstoneItem {
+    public ModInfusedGemstonePickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
 
@@ -32,6 +33,25 @@ public class ModInfusedGemstoneMaceItem extends ModMaceItem implements IInfusedG
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         ModUtils.applyInfusedGemstoneOnHit(target, attacker);
         return super.postHit(stack, target, attacker);
+    }
+
+    /**
+     * Gets whether Entities of this Item are fireproof (true).
+     * @return Whether this Item is fireproof
+     */
+    @Override
+    public boolean isFireproof() {
+        return true;
+    }
+
+    /**
+     * Gets whether Entities of this Item can be damaged by a specific DamageSource (false for fire and explosion).
+     * @param source DamageSource being checked
+     * @return Whether this Item can be damaged by the DamageSource
+     */
+    @Override
+    public boolean damage(DamageSource source) {
+        return !(source.isIn(DamageTypeTags.IS_FIRE) || source.isIn(DamageTypeTags.IS_EXPLOSION));
     }
 
     /**

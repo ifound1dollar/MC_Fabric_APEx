@@ -1,11 +1,11 @@
-package net.dollar.simplegear.item.custom.carbide;
+package net.dollar.simplegear.item.custom.tungstencarbide;
 
+import net.dollar.simplegear.item.custom.ModBattleaxeItem;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShovelItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
@@ -14,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModTungstenCarbideShovelItem extends ShovelItem {
-    public ModTungstenCarbideShovelItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+public class ModTungstenCarbideBattleaxeItem extends ModBattleaxeItem {
+    public ModTungstenCarbideBattleaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
 

@@ -1,4 +1,4 @@
-package net.dollar.simplegear.item.custom.carbide;
+package net.dollar.simplegear.item.custom.tungstencarbide;
 
 import net.minecraft.item.Item;
 

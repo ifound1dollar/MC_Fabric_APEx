@@ -6,7 +6,7 @@
       "item": "simplegear:cobalt_upgrade_smithing_template"
     },
     "i": {
-      "tag": "c:stones"
+      "item": "minecraft:stone"
     },
     "n": {
       "tag": "c:steel_ingots"

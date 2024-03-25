@@ -4,7 +4,7 @@
       "item": "simplegear:collector_obsidian_dust"
     },
     "title": "Pulverizing Obsidian",
-    "description": "Slay an Obsidian Golem using a Tungsten-Carbide Mace with Hardness V",
+    "description": "Slay an Obsidian Golem using a Tungsten-Carbide Battleaxe with Sharpness V",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
@@ -18,11 +18,11 @@
           "equipment": {
             "mainhand": {
               "items": [
-                "simplegear:tungsten_carbide_mace"
+                "simplegear:tungsten_carbide_battleaxe"
               ],
               "enchantments": [
                 {
-                  "enchantment": "simplegear:hardness",
+                  "enchantment": "minecraft:sharpness",
                   "levels": 5
                 }
               ]

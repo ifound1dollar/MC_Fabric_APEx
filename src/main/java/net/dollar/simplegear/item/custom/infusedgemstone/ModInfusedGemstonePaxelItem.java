@@ -1,12 +1,12 @@
-package net.dollar.simplegear.item.custom.infused;
+package net.dollar.simplegear.item.custom.infusedgemstone;
 
+import net.dollar.simplegear.item.custom.ModPaxelItem;
 import net.dollar.simplegear.util.IInfusedGemstoneItem;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShovelItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
@@ -15,8 +15,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModInfusedGemstoneShovelItem extends ShovelItem implements IInfusedGemstoneItem {
-    public ModInfusedGemstoneShovelItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+public class ModInfusedGemstonePaxelItem extends ModPaxelItem implements IInfusedGemstoneItem {
+    public ModInfusedGemstonePaxelItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
 

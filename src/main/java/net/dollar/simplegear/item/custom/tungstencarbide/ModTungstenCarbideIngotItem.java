@@ -1,12 +1,9 @@
-package net.dollar.simplegear.item.custom.carbide;
+package net.dollar.simplegear.item.custom.tungstencarbide;
 
-import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
@@ -14,25 +11,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModTungstenCarbidePickaxeItem extends PickaxeItem {
-    public ModTungstenCarbidePickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+public class ModTungstenCarbideIngotItem extends Item {
+    public ModTungstenCarbideIngotItem(Settings settings) {
+        super(settings);
     }
 
 
-
-    /**
-     * Performs normal post-hit operations but with chance to apply additional effect(s).
-     * @param stack ItemStack of this Item
-     * @param target Attacked (target) living entity
-     * @param attacker Attacker (user) living entity
-     * @return Whether attack was successfully performed
-     */
-    @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyTungstenCarbideOnHit(target, attacker);
-        return super.postHit(stack, target, attacker);
-    }
 
     /**
      * Gets whether Entities of this Item are fireproof (true).
@@ -62,6 +46,6 @@ public class ModTungstenCarbidePickaxeItem extends PickaxeItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, false);
+        tooltip.add(Text.translatable("tooltip.tungsten_carbide_ingot"));
     }
 }

@@ -1,4 +1,4 @@
-package net.dollar.simplegear.item.custom.carbide;
+package net.dollar.simplegear.item.custom.tungstencarbide;
 
 import net.dollar.simplegear.item.ModItems;
 import net.dollar.simplegear.util.IDamageHandlingArmor;

@@ -1,11 +1,10 @@
-package net.dollar.simplegear.item.custom.infused;
+package net.dollar.simplegear.item.custom.cobaltsteel;
 
-import net.dollar.simplegear.util.IInfusedGemstoneItem;
+import net.dollar.simplegear.item.custom.ModBattleaxeItem;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.DamageTypeTags;
@@ -15,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModInfusedGemstoneHoeItem extends HoeItem implements IInfusedGemstoneItem {
-    public ModInfusedGemstoneHoeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
+public class ModCobaltSteelBattleaxeItem extends ModBattleaxeItem {
+    public ModCobaltSteelBattleaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
 
@@ -31,7 +30,7 @@ public class ModInfusedGemstoneHoeItem extends HoeItem implements IInfusedGemsto
      */
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyInfusedGemstoneOnHit(target, attacker);
+        ModUtils.applyCobaltSteelOnHit(target, attacker);
         return super.postHit(stack, target, attacker);
     }
 
@@ -63,6 +62,6 @@ public class ModInfusedGemstoneHoeItem extends HoeItem implements IInfusedGemsto
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, false);
+        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, false);
     }
 }

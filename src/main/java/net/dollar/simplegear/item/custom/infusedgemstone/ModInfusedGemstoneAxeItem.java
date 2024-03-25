@@ -1,10 +1,11 @@
-package net.dollar.simplegear.item.custom.carbide;
+package net.dollar.simplegear.item.custom.infusedgemstone;
 
-import net.dollar.simplegear.item.custom.ModMaceItem;
+import net.dollar.simplegear.util.IInfusedGemstoneItem;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.DamageTypeTags;
@@ -14,8 +15,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModTungstenCarbideMaceItem extends ModMaceItem {
-    public ModTungstenCarbideMaceItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+public class ModInfusedGemstoneAxeItem extends AxeItem implements IInfusedGemstoneItem {
+    public ModInfusedGemstoneAxeItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
 
@@ -30,7 +31,7 @@ public class ModTungstenCarbideMaceItem extends ModMaceItem {
      */
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyTungstenCarbideOnHit(target, attacker);
+        ModUtils.applyInfusedGemstoneOnHit(target, attacker);
         return super.postHit(stack, target, attacker);
     }
 
@@ -62,6 +63,6 @@ public class ModTungstenCarbideMaceItem extends ModMaceItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, false);
+        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, false);
     }
 }
