@@ -150,20 +150,20 @@ public class ModItems {
 
     //region Paxels
     public static final Item DIAMOND_PAXEL = registerItem("diamond_paxel",
-            new ModPaxelItem(ToolMaterials.DIAMOND, 2.5f, -2.9f,
+            new ModPaxelItem(ToolMaterials.DIAMOND, 2.0f, -2.9f,
                     new FabricItemSettings()));
     public static final Item NETHERITE_PAXEL = registerItem("netherite_paxel",
-            new ModPaxelItem(ToolMaterials.NETHERITE, 2.5f, -2.9f,
-                    new FabricItemSettings().fireproof())); //Average between Axe, Pickaxe, and Shovel stats
+            new ModPaxelItem(ToolMaterials.NETHERITE, 2.0f, -2.9f,
+                    new FabricItemSettings().fireproof())); //Rough average between Axe, Pickaxe, and Shovel stats
     public static final Item COBALT_STEEL_PAXEL = registerItem("cobalt_steel_paxel",
-            new ModCobaltSteelPaxelItem(ModToolMaterials.COBALT_STEEL, 2.5f, -2.6f,
-                    new FabricItemSettings())); //Faster, Netherite = 2.5f, -2.9f
+            new ModCobaltSteelPaxelItem(ModToolMaterials.COBALT_STEEL, 2.0f, -2.6f,
+                    new FabricItemSettings())); //Faster, Netherite = 2.0f, -2.9f
     public static final Item INFUSED_GEMSTONE_PAXEL = registerItem("infused_gemstone_paxel",
-            new ModInfusedGemstonePaxelItem(ModToolMaterials.INFUSED_GEMSTONE, 2.5f, -2.8f,
-                    new FabricItemSettings())); //Very fast, Netherite = 2.5f, -2.9f
+            new ModInfusedGemstonePaxelItem(ModToolMaterials.INFUSED_GEMSTONE, 2.0f, -2.8f,
+                    new FabricItemSettings())); //Very fast, Netherite = 2.0f, -2.9f
     public static final Item TUNGSTEN_CARBIDE_PAXEL = registerItem("tungsten_carbide_paxel",
-            new ModTungstenCarbidePaxelItem(ModToolMaterials.TUNGSTEN_CARBIDE, 3.0f, -3.1f,
-                    new FabricItemSettings())); //Slower, Netherite = 2.5f, -2.9f
+            new ModTungstenCarbidePaxelItem(ModToolMaterials.TUNGSTEN_CARBIDE, 2.5f, -3.1f,
+                    new FabricItemSettings())); //Slower, Netherite = 2.0f, -2.9f
     //endregion
 
     //region Pickaxes

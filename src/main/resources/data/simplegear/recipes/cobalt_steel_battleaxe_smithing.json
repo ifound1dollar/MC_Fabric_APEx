@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "simplegear:cobalt_steel_ingot"
+  },
+  "base": {
+    "item": "simplegear:diamond_battleaxe"
+  },
+  "result": {
+    "item": "simplegear:cobalt_steel_battleaxe"
+  },
+  "template": {
+    "item": "simplegear:cobalt_upgrade_smithing_template"
+  }
+}
