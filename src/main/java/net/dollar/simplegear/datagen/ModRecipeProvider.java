@@ -47,27 +47,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         //SMELTING AND BLASTING
         offerSmelting(exporter, COBALT_SMELTABLES, RecipeCategory.MISC, ModItems.COBALT_SHARD,
-                1.0f, 200, "cobalt_shard");
+                0.9f, 200, "cobalt_shard"); //Diamond is 1.0
         offerBlasting(exporter, COBALT_SMELTABLES, RecipeCategory.MISC, ModItems.COBALT_SHARD,
-                1.0f, 100, "cobalt_shard");
+                0.9f, 100, "cobalt_shard");
         offerSmelting(exporter, PHOSPHATE_SMELTABLES, RecipeCategory.MISC, ModItems.PHOSPHATE_POWDER,
-                1.0f, 200, "phosphate_powder");
+                0.2f, 200, "phosphate_powder"); //Coal is 0.1
         offerBlasting(exporter, PHOSPHATE_SMELTABLES, RecipeCategory.MISC, ModItems.PHOSPHATE_POWDER,
-                1.0f, 100, "phosphate_powder");
+                0.2f, 100, "phosphate_powder");
         offerSmelting(exporter, RUBY_SMELTABLES, RecipeCategory.MISC, ModItems.RUBY,
-                1.0f, 200, "ruby");
+                1.2f, 200, "ruby");         //Diamond/Emerald is 1.0
         offerBlasting(exporter, RUBY_SMELTABLES, RecipeCategory.MISC, ModItems.RUBY,
-                1.0f, 100, "ruby");
+                1.2f, 100, "ruby");
         offerSmelting(exporter, SAPPHIRE_SMELTABLES, RecipeCategory.MISC, ModItems.SAPPHIRE,
-                1.0f, 200, "sapphire");
+                1.2f, 200, "sapphire");     //Diamond/Emerald is 1.0
         offerBlasting(exporter, SAPPHIRE_SMELTABLES, RecipeCategory.MISC, ModItems.SAPPHIRE,
-                1.0f, 100, "sapphire");
+                1.2f, 100, "sapphire");
         offerSmelting(exporter, TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT,
-                1.0f, 200, "tin_ingot");
+                0.7f, 200, "tin_ingot");    //Iron is 0.7
         offerBlasting(exporter, TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT,
-                1.0f, 100, "tin_ingot");
+                0.7f, 100, "tin_ingot");
         offerSmelting(exporter, TUNGSTEN_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
-                1.0f, 200, "tungsten_ingot");
+                1.0f, 200, "tungsten_ingot");   //Diamond is 1.0
         offerBlasting(exporter, TUNGSTEN_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
                 1.0f, 100, "tungsten_ingot");
 

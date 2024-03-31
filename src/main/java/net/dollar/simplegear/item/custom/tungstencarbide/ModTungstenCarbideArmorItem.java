@@ -1,13 +1,14 @@
 package net.dollar.simplegear.item.custom.tungstencarbide;
 
 import net.dollar.simplegear.item.ModItems;
-import net.dollar.simplegear.util.IDamageHandlingArmor;
+import net.dollar.simplegear.util.IFullSetEffectArmor;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -19,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModTungstenCarbideArmorItem extends ArmorItem implements IDamageHandlingArmor {
+public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEffectArmor {
     boolean isFullSet;
 
     public ModTungstenCarbideArmorItem(ArmorMaterial material, Type type, Settings settings) {
@@ -39,16 +40,18 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IDamageHan
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         //Do nothing if on client side OR if not chestplate (isFullSet will never be true on clients).
-        if (world.isClient() || slot != 38) { return; }   //Slot 38 corresponds to chestplate slot
+        if (world.isClient() || slot != 2) {
+            //Slot 2 corresponds to chestplate slot
+            return;
+        }
 
-        //TODO: COMPARE CORRECT TUNGSTEN-CARBIDE ITEMS
         //Check for correct equipment, then set isFullSet accordingly
         if (entity instanceof PlayerEntity player) {
-            boolean hasBoots = player.getEquippedStack(EquipmentSlot.FEET).getItem() == ModItems.MOLTEN_CORE.asItem();
-            boolean hasLegs = player.getEquippedStack(EquipmentSlot.LEGS).getItem() == ModItems.MOLTEN_CORE.asItem();
-            boolean hasChest = player.getEquippedStack(EquipmentSlot.CHEST).getItem() == ModItems.MOLTEN_CORE.asItem();
-            boolean hasHelm = player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ModItems.MOLTEN_CORE.asItem();
-            isFullSet = hasBoots && hasLegs && hasChest && hasHelm;
+            boolean hasHelm = player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ModItems.TUNGSTEN_CARBIDE_HELMET;
+            boolean hasChest = player.getEquippedStack(EquipmentSlot.CHEST).getItem() == ModItems.TUNGSTEN_CARBIDE_CHESTPLATE;
+            boolean hasLegs = player.getEquippedStack(EquipmentSlot.LEGS).getItem() == ModItems.TUNGSTEN_CARBIDE_LEGGINGS;
+            boolean hasBoots = player.getEquippedStack(EquipmentSlot.FEET).getItem() == ModItems.TUNGSTEN_CARBIDE_BOOTS;
+            isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
         } else {
             //If not player, always false.
             isFullSet = false;
@@ -56,26 +59,17 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IDamageHan
     }
 
     /**
-     * Intercepts the damage taken operation to reduce Magic damage taken.
-     * @param entity Attacked LivingEntity (wearer)
-     * @param slot EquipmentSlot of this item
-     * @param source Source of damage to be dealt
-     * @param amount Initial damage amount
-     * @return Updated damage amount
+     * IFullSetEffectArmor interface method that prevents an effect from being applied if a full set is worn.
+     * @param effect Effect trying to be applied
+     * @return Whether the effect can be applied to this armor's wearer
      */
     @Override
-    public float onDamaged(LivingEntity entity, EquipmentSlot slot, DamageSource source, float amount) {
-//        //If not chestplate OR not full set, do not alter damage.
-//        if (slot != EquipmentSlot.CHEST || !isFullSet) { return amount; }
-//
-//        //If taking damage from Explosion source, reduce damage taken.
-//        if (ModUtils.getDamageCategory(source) == ModUtils.DamageCategory.EXPLOSION) {
-//            //TODO: RE-IMPLEMENT CONFIGS
-//            //return amount * (1 - ((float)ModCommonConfigs.TUNGSTEN_CARBIDE_EXPLOSION_DAMAGE_REDUCTION.get() / 100));
-//            return amount * 0.67f;
-//        }
-        return amount;  //if reaches here, return original amount
+    public boolean canReceiveEffect(StatusEffect effect) {
+        //Can receive effect UNLESS full set and effect is weakness.
+        return !(isFullSet && effect == StatusEffects.WEAKNESS);
     }
+
+
 
     /**
      * Gets whether Entities of this Item are fireproof (true).

@@ -1,12 +1,14 @@
 package net.dollar.simplegear.item.custom.cobaltsteel;
 
-import net.dollar.simplegear.util.IDamageHandlingArmor;
+import net.dollar.simplegear.item.ModItems;
+import net.dollar.simplegear.util.IFullSetEffectArmor;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.tag.DamageTypeTags;
@@ -16,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModCobaltSteelArmorItem extends ArmorItem implements IDamageHandlingArmor {
+public class ModCobaltSteelArmorItem extends ArmorItem implements IFullSetEffectArmor {
     boolean isFullSet;
 
     public ModCobaltSteelArmorItem(ArmorMaterial material, Type type, Settings settings) {
@@ -36,16 +38,20 @@ public class ModCobaltSteelArmorItem extends ArmorItem implements IDamageHandlin
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         //Do nothing if on client side OR if not chestplate (isFullSet will never be true on clients).
-        if (world.isClient() || slot != 38) { return; }   //Slot 38 corresponds to chestplate slot
+        if (world.isClient() || slot != 2) {
+            //Slot 2 corresponds to chestplate slot
+            return;
+        }
+
+        //ModMain.LOGGER.info("Slot corresponding to this armor item: " + slot + " | " + stack.getName());
 
         //Check for correct equipment, then set isFullSet accordingly
         if (entity instanceof PlayerEntity player) {
-            //TODO: PROPERLY IMPLEMENT COBALT-STEEL ITEMS
-            boolean hasBoots = player.getEquippedStack(EquipmentSlot.FEET).getItem() == Items.NETHERITE_BOOTS.asItem();
-            boolean hasLegs = player.getEquippedStack(EquipmentSlot.LEGS).getItem() == Items.NETHERITE_LEGGINGS.asItem();
-            boolean hasChest = player.getEquippedStack(EquipmentSlot.CHEST).getItem() == Items.NETHERITE_CHESTPLATE.asItem();
-            boolean hasHelm = player.getEquippedStack(EquipmentSlot.HEAD).getItem() == Items.NETHERITE_HELMET.asItem();
-            isFullSet = hasBoots && hasLegs && hasChest && hasHelm;
+            boolean hasHelm = player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ModItems.COBALT_STEEL_HELMET;
+            boolean hasChest = player.getEquippedStack(EquipmentSlot.CHEST).getItem() == ModItems.COBALT_STEEL_CHESTPLATE;
+            boolean hasLegs = player.getEquippedStack(EquipmentSlot.LEGS).getItem() == ModItems.COBALT_STEEL_LEGGINGS;
+            boolean hasBoots = player.getEquippedStack(EquipmentSlot.FEET).getItem() == ModItems.COBALT_STEEL_BOOTS;
+            isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
         } else {
             //If not player, always false.
             isFullSet = false;
@@ -53,26 +59,18 @@ public class ModCobaltSteelArmorItem extends ArmorItem implements IDamageHandlin
     }
 
     /**
-     * Intercepts the damage taken operation and returns a new damage value.
-     * @param entity Attacked LivingEntity (wearer)
-     * @param slot EquipmentSlot of this item
-     * @param source Source of damage to be dealt
-     * @param amount Initial damage amount
-     * @return Updated damage amount
+     * IFullSetEffectArmor interface method that prevents an effect from being applied if a full set is worn.
+     * @param effect Effect trying to be applied
+     * @return Whether the effect can be applied to this armor's wearer
      */
     @Override
-    public float onDamaged(LivingEntity entity, EquipmentSlot slot, DamageSource source, float amount) {
-//        //If not chestplate OR not full set, do not alter damage.
-//        if (slot != EquipmentSlot.CHEST || !isFullSet) { return amount; }
-//
-//        //If taking damage from Fire source, reduce damage taken.
-//        if (ModUtils.getDamageCategory(source) == ModUtils.DamageCategory.FIRE) {
-//            //TODO: RE-IMPLEMENT CONFIGS
-//            //return amount * (1 - ((float)ModCommonConfigs.NETHERITE_FIRE_DAMAGE_REDUCTION.get() / 100));
-//            return amount * 0.67f;
-//        }
-        return amount;  //if reaches here, return original amount
+    public boolean canReceiveEffect(StatusEffect effect) {
+        //Can receive effect UNLESS full set and effect is slowness.
+        //ModMain.LOGGER.info("Full set: " + isFullSet + " | Effect: " + effect.getName());
+        return !(isFullSet && effect == StatusEffects.SLOWNESS);
     }
+
+
 
     /**
      * Gets whether Entities of this Item are fireproof (true).

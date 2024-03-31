@@ -2,7 +2,7 @@
   "type": "minecraft:blasting",
   "category": "misc",
   "cookingtime": 100,
-  "experience": 1.0,
+  "experience": 1.2,
   "group": "sapphire",
   "ingredient": {
     "item": "simplegear:deepslate_sapphire_ore"

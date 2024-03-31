@@ -65,19 +65,19 @@ public class ModBlocks {
     public static final Block RUBY_ORE = registerBlock("ruby_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.EMERALD_ORE)
                     .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY),
-                    UniformIntProvider.create(3, 7)));
+                    UniformIntProvider.create(4, 8)));  //Diamond is 3, 7
     public static final Block DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_EMERALD_ORE)
                     .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY),
-                    UniformIntProvider.create(3, 7)));
+                    UniformIntProvider.create(4, 8)));  //Diamond is 3, 7
     public static final Block SAPPHIRE_ORE = registerBlock("sapphire_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.EMERALD_ORE)
                     .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY),
-                    UniformIntProvider.create(3, 7)));
+                    UniformIntProvider.create(4, 8)));  //Diamond is 3, 7
     public static final Block DEEPSLATE_SAPPHIRE_ORE = registerBlock("deepslate_sapphire_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_EMERALD_ORE)
                     .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY),
-                    UniformIntProvider.create(3, 7)));
+                    UniformIntProvider.create(4, 8)));  //Diamond is 3, 7
     public static final Block COBALT_ORE = registerBlock("cobalt_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.IRON_ORE)
                     .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY),
@@ -89,11 +89,11 @@ public class ModBlocks {
     public static final Block PHOSPHATE_ORE = registerBlock("phosphate_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.IRON_ORE)
                     .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY),
-                    UniformIntProvider.create(0, 2)));  //Equivalent to Coal
+                    UniformIntProvider.create(1, 3)));  //Coal is 0, 2
     public static final Block DEEPSLATE_PHOSPHATE_ORE = registerBlock("deepslate_phosphate_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_IRON_ORE)
                     .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY),
-                    UniformIntProvider.create(0, 2)));  //Equivalent to Coal
+                    UniformIntProvider.create(1, 3)));  //Coal is 0, 2
 
 
 

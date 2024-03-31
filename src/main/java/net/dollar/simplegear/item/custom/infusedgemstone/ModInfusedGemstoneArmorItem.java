@@ -1,14 +1,15 @@
 package net.dollar.simplegear.item.custom.infusedgemstone;
 
 import net.dollar.simplegear.item.ModItems;
-import net.dollar.simplegear.util.IDamageHandlingArmor;
+import net.dollar.simplegear.util.IFullSetEffectArmor;
 import net.dollar.simplegear.util.IInfusedGemstoneItem;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -20,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModInfusedGemstoneArmorItem extends ArmorItem implements IDamageHandlingArmor, IInfusedGemstoneItem {
+public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEffectArmor, IInfusedGemstoneItem {
     boolean isFullSet;
 
     public ModInfusedGemstoneArmorItem(ArmorMaterial material, Type type, Settings settings) {
@@ -40,16 +41,18 @@ public class ModInfusedGemstoneArmorItem extends ArmorItem implements IDamageHan
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         //Do nothing if on client side OR if not chestplate (isFullSet will never be true on clients).
-        if (world.isClient() || slot != 38) { return; }   //Slot 38 corresponds to chestplate slot
+        if (world.isClient() || slot != 2) {
+            //Slot 2 corresponds to chestplate slot
+            return;
+        }
 
-        //TODO: COMPARE CORRECT INFUSED GEMSTONE ITEMS
         //Check for correct equipment, then set isFullSet accordingly
         if (entity instanceof PlayerEntity player) {
-            boolean hasBoots = player.getEquippedStack(EquipmentSlot.FEET).getItem() == ModItems.INFUSED_GEMSTONE.asItem();
-            boolean hasLegs = player.getEquippedStack(EquipmentSlot.LEGS).getItem() == ModItems.INFUSED_GEMSTONE.asItem();
-            boolean hasChest = player.getEquippedStack(EquipmentSlot.CHEST).getItem() == ModItems.INFUSED_GEMSTONE.asItem();
-            boolean hasHelm = player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ModItems.INFUSED_GEMSTONE.asItem();
-            isFullSet = hasBoots && hasLegs && hasChest && hasHelm;
+            boolean hasHelm = player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ModItems.INFUSED_GEMSTONE_HELMET;
+            boolean hasChest = player.getEquippedStack(EquipmentSlot.CHEST).getItem() == ModItems.INFUSED_GEMSTONE_CHESTPLATE;
+            boolean hasLegs = player.getEquippedStack(EquipmentSlot.LEGS).getItem() == ModItems.INFUSED_GEMSTONE_LEGGINGS;
+            boolean hasBoots = player.getEquippedStack(EquipmentSlot.FEET).getItem() == ModItems.INFUSED_GEMSTONE_BOOTS;
+            isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
         } else {
             //If not player, always false.
             isFullSet = false;
@@ -57,26 +60,17 @@ public class ModInfusedGemstoneArmorItem extends ArmorItem implements IDamageHan
     }
 
     /**
-     * Intercepts the damage taken operation to reduce Magic damage taken.
-     * @param entity Attacked LivingEntity (wearer)
-     * @param slot EquipmentSlot of this item
-     * @param source Source of damage to be dealt
-     * @param amount Initial damage amount
-     * @return Updated damage amount
+     * IFullSetEffectArmor interface method that prevents an effect from being applied if a full set is worn.
+     * @param effect Effect trying to be applied
+     * @return Whether the effect can be applied to this armor's wearer
      */
     @Override
-    public float onDamaged(LivingEntity entity, EquipmentSlot slot, DamageSource source, float amount) {
-        //If not chestplate OR not full set, do not alter damage.
-//        if (slot != EquipmentSlot.CHEST || !isFullSet) { return amount; }
-//
-//        //if taking damage from Magic source, reduce damage taken
-//        if (ModUtils.getDamageCategory(source) == ModUtils.DamageCategory.MAGIC) {
-//            //TODO: RE-IMPLEMENT CONFIGS
-//            //return amount * (1 - ((float)ModCommonConfigs.infused_gemstone_MAGIC_DAMAGE_REDUCTION.get() / 100));
-//            return amount * 0.67f;
-//        }
-        return amount;  //if reaches here, return original amount
+    public boolean canReceiveEffect(StatusEffect effect) {
+        //Can receive effect UNLESS full set and effect is wither.
+        return !(isFullSet && effect == StatusEffects.WITHER);
     }
+
+
 
     /**
      * Gets whether Entities of this Item are fireproof (true).
