@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-31T00:13:12.2881856	Simple Gearing Expansion (Fabric)/Model Definitions
+// 1.20.1	2024-03-31T00:54:44.4891129	Simple Gearing Expansion (Fabric)/Model Definitions
 cd0f5727a88c41242d43a40af9cd1b838d41fa84 assets\simplegear\models\item\obsidian_golem_spawn_egg.json
 43dca5c86191b496690eb6d3d88383202cae9728 assets\simplegear\models\item\diamond_paxel.json
 95702d0f0f5f80945fb7b03ae5ecba9a7049834e assets\simplegear\models\block\sapphire_ore.json
@@ -38,8 +38,8 @@ e987c3f913a563c8c217f731818b835377206adf assets\simplegear\blockstates\tungsten_
 1e0909714542eaaacfc397f1164ef2f2e25e67e0 assets\simplegear\models\item\deepslate_ruby_ore.json
 768045520fce6d41ce9f3b5896e6e4ff52d1f8e9 assets\simplegear\models\item\infusion_upgrade_smithing_template.json
 506fddb674100ba0a2f7a690fe596fbfd03cb557 assets\simplegear\models\item\carbide_upgrade_smithing_template.json
-db7a366587b3180a96f441b89b57cf05c939b2a8 assets\simplegear\models\block\ruby_block.json
 d9e6bc80339516cd828b64966a06e14b46396477 assets\simplegear\blockstates\raw_tungsten_block.json
+db7a366587b3180a96f441b89b57cf05c939b2a8 assets\simplegear\models\block\ruby_block.json
 c8d32f45e7d02a5c0d4524d1914806f7bfac0adf assets\simplegear\models\item\bronze_compound.json
 6e236a9a8be71edf70d28798c3f8ee14f4b21452 assets\simplegear\models\item\cobalt_ore.json
 7e7cd515e135a8ef3d2546bc2df7f54ac4352305 assets\simplegear\models\item\compound_gemstone.json
@@ -93,8 +93,8 @@ dc702f873a2201cd4af08d6f48bc943ddc5a307d assets\simplegear\models\item\raw_tungs
 30cd1013068df99dd9cc8726b009a3183d2d2c18 assets\simplegear\models\item\raw_tungsten.json
 afa66466cc29f532cdec09b30ae1df96ffbb4fdb assets\simplegear\blockstates\deepslate_tin_ore.json
 c54849867b97dc4680625814a73ae27e94a4f1c6 assets\simplegear\blockstates\deepslate_sapphire_ore.json
-687193c2b7d2ab74d6143405caa6ac7a9f96f41f assets\simplegear\models\item\handful_of_stardust.json
 7b32ddb853c7ba921cc5c494c0f73767163abd3b assets\simplegear\models\item\raw_tin_block.json
+687193c2b7d2ab74d6143405caa6ac7a9f96f41f assets\simplegear\models\item\handful_of_stardust.json
 4f3167c33b7833194dcbd94e775c2a5aea515daf assets\simplegear\models\item\tin_block.json
 94853689b0b056c6c1a6dbe01523d19b7875acb1 assets\simplegear\models\item\tungsten_carbide_pickaxe.json
 9b14b1234c1400f81a4606bf95c64fc8cfca2de8 assets\simplegear\models\item\infused_gemstone_shovel.json
@@ -110,8 +110,8 @@ cbf418ef0110e2c73ed83cf9e8d57869b9211db0 assets\simplegear\models\item\deepslate
 2a5ec03031cd85c57f7765136f187d2791a88cf3 assets\simplegear\models\item\deepslate_sapphire_ore.json
 e09160a29d715a1780e2453f33e5bc59cdac470b assets\simplegear\models\item\collector_obsidian_dust.json
 d37b86f9ef0d9673ab3443de29dc869c64f49f48 assets\simplegear\models\item\cobalt_steel_axe.json
-d32c94d4ac25fb6507419c716d3fd3d619c9662e assets\simplegear\models\item\deepslate_tungsten_ore.json
 303b1d75939d49bfd0770801a5c52979f17af8a5 assets\simplegear\models\item\tungsten_ingot.json
+d32c94d4ac25fb6507419c716d3fd3d619c9662e assets\simplegear\models\item\deepslate_tungsten_ore.json
 13d252429d5f36b2f8a5b3477a7a42bff7cd329a assets\simplegear\models\item\diamond_battleaxe.json
 2112a18ccc318489c66d79375addfc00fa04efbd assets\simplegear\models\item\ruby_block.json
 7e8c2bd72c576036329015e87c8d5791100329b7 assets\simplegear\blockstates\tungsten_ore.json

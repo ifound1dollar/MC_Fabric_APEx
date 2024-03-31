@@ -1,7 +1,7 @@
 package net.dollar.simplegear.item.custom.bow;
 
 import net.dollar.simplegear.item.custom.arrow.ArrowUtil;
-import net.dollar.simplegear.util.IInfusedGemstoneItem;
+import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -38,7 +38,6 @@ public class ModTungstenCarbideBowItem extends BowItem {
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         boolean bl2;
-        int i;
         float f;
         if (!(user instanceof PlayerEntity playerEntity)) {
             return;
@@ -51,10 +50,10 @@ public class ModTungstenCarbideBowItem extends BowItem {
         if (itemStack.isEmpty()) {
             itemStack = new ItemStack(Items.ARROW);
         }
-        if ((double)(f = BowItem.getPullProgress(i = this.getMaxUseTime(stack) - remainingUseTicks)) < 0.1) {
+        if ((double)(f = BowItem.getPullProgress(this.getMaxUseTime(stack) - remainingUseTicks)) < 0.1) {
             return;
         }
-        boolean bl3 = bl2 = bl && itemStack.isOf(Items.ARROW);
+        bl2 = bl && itemStack.isOf(Items.ARROW);
         if (!world.isClient) {
             int k;
             int j;
@@ -125,7 +124,6 @@ public class ModTungstenCarbideBowItem extends BowItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.tungsten_carbide_bow_crossbow"));
-        tooltip.add(Text.translatable("tooltip.tungsten_carbide_onhit"));
+        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
     }
 }

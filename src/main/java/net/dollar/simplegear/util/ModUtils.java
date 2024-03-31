@@ -1,14 +1,10 @@
 package net.dollar.simplegear.util;
 
-import net.minecraft.block.Block;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 
 import java.util.List;
 
@@ -16,12 +12,13 @@ import java.util.List;
  * Contains a handful of misc. helper methods used in various parts of the mod.
  */
 public class ModUtils {
+    public enum EquipmentType { ARMOR, TOOL, RANGED }
+
     /**
      * Applies special effect on attack using Cobalt-Steel tools/weapons.
      * @param target Attacked (target) entity
-     * @param attacker Attacking (user) entity
      */
-    public static void applyCobaltSteelOnHit(LivingEntity target, LivingEntity attacker) {
+    public static void applyCobaltSteelOnHit(LivingEntity target) {
         //Apply Slowness effect to target (attackedEntity) for configurable duration in seconds.
         //TODO: RE-IMPLEMENT CONFIGS
         //Level 2 slow (third argument) for 30% reduction, 15%/level.
@@ -34,9 +31,9 @@ public class ModUtils {
      * Generates special tooltip for all Cobalt-Steel equipment and appends to Text list,
      *  different for armor and tools/weapons.
      * @param tooltip List of Texts to be appended
-     * @param isArmor What type of equipment to generate the tooltip for (different for each)
+     * @param type What type of equipment to generate the tooltip for (different for each)
      */
-    public static void appendCobaltSteelEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
+    public static void appendCobaltSteelEquipmentTooltip(List<Text> tooltip, EquipmentType type) {
         //This method should only ever be called client-side, so no null risk here.
         //If the player is holding shift, show detailed info.
         if (Screen.hasShiftDown()) {
@@ -46,11 +43,14 @@ public class ModUtils {
             tooltip.add(Text.translatable("tooltip.cobalt_steel_details_3"));
 
             //TODO: RE-IMPLEMENT CONFIGS
-            if (isArmor) {
+            if (type == EquipmentType.ARMOR) {
                 tooltip.add(Text.translatable("tooltip.cobalt_steel_armor"));
-            } else {
-//            tooltip.add(Text.literal(String.format("§4> On-hit: Wither target for %ss",
+            } else if (type == EquipmentType.TOOL) {
+//            tooltip.add(Text.literal(String.format("§8> On-hit: Slow target for %ss",
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
+                tooltip.add(Text.translatable("tooltip.cobalt_steel_onhit"));
+            } else {
+                tooltip.add(Text.translatable("tooltip.cobalt_steel_bow_crossbow"));
                 tooltip.add(Text.translatable("tooltip.cobalt_steel_onhit"));
             }
         } else {
@@ -63,9 +63,8 @@ public class ModUtils {
     /**
      * Applies special effect on attack using Infused Gemstone tools/weapons.
      * @param target Attacked (target) entity
-     * @param attacker Attacking (user) entity
      */
-    public static void applyInfusedGemstoneOnHit(LivingEntity target, LivingEntity attacker) {
+    public static void applyInfusedGemstoneOnHit(LivingEntity target) {
         //Apply Wither effect to target (attackedEntity) for configurable duration in seconds.
         //TODO: RE-IMPLEMENT CONFIGS
         //Level 2 wither for once-per-second damage tick (duration +1 tick so ticks 4 times).
@@ -78,9 +77,9 @@ public class ModUtils {
      * Generates special tooltip for all Infused Gemstone equipment and appends to Text list,
      *  different for armor and tools/weapons.
      * @param tooltip List of Texts to be appended
-     * @param isArmor What type of equipment to generate the tooltip for (different for each)
+     * @param type What type of equipment to generate the tooltip for (different for each)
      */
-    public static void appendInfusedGemstoneEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
+    public static void appendInfusedGemstoneEquipmentTooltip(List<Text> tooltip, EquipmentType type) {
         //This method should only ever be called client-side, so no null risk here.
         //If the player is holding shift, show detailed info.
         if (Screen.hasShiftDown()) {
@@ -89,11 +88,14 @@ public class ModUtils {
             tooltip.add(Text.translatable("tooltip.infused_gemstone_details_2"));
 
             //TODO: RE-IMPLEMENT CONFIGS
-            if (isArmor) {
+            if (type == EquipmentType.ARMOR) {
                 tooltip.add(Text.translatable("tooltip.infused_gemstone_armor"));
-            } else {
-//            tooltip.add(Text.literal(String.format("§5> Withers target for %ss",
+            } else if (type == EquipmentType.TOOL) {
+//            tooltip.add(Text.literal(String.format("§8> On-hit: Slow target for %ss",
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
+                tooltip.add(Text.translatable("tooltip.infused_gemstone_onhit"));
+            } else {
+                tooltip.add(Text.translatable("tooltip.infused_gemstone_bow_crossbow"));
                 tooltip.add(Text.translatable("tooltip.infused_gemstone_onhit"));
             }
         } else {
@@ -106,9 +108,8 @@ public class ModUtils {
     /**
      * Applies special effect on attack using Tungsten-Carbide tools/weapons.
      * @param target Attacked (target) entity
-     * @param attacker Attacking (user) entity
      */
-    public static void applyTungstenCarbideOnHit(LivingEntity target, LivingEntity attacker) {
+    public static void applyTungstenCarbideOnHit(LivingEntity target) {
         //Apply Weakness effect to target for configurable duration in seconds.
         //TODO: RE-IMPLEMENT CONFIGS
         //Level 1 (third argument) for 4 heart melee damage reduction.
@@ -121,9 +122,9 @@ public class ModUtils {
      * Generates special tooltip for all Tungsten-Carbide equipment and appends to Text list,
      *  different for armor and tools/weapons.
      * @param tooltip List of Texts to be appended
-     * @param isArmor What type of equipment to generate the tooltip for (different for each)
+     * @param type What type of equipment to generate the tooltip for (different for each)
      */
-    public static void appendTungstenCarbideEquipmentTooltip(List<Text> tooltip, boolean isArmor) {
+    public static void appendTungstenCarbideEquipmentTooltip(List<Text> tooltip, EquipmentType type) {
         //This method should only ever be called client-side, so no null risk here.
         //If the player is holding shift, show detailed info.
         if (Screen.hasShiftDown()) {
@@ -133,11 +134,14 @@ public class ModUtils {
             tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_3"));
 
             //TODO: RE-IMPLEMENT CONFIGS
-            if (isArmor) {
+            if (type == EquipmentType.ARMOR) {
                 tooltip.add(Text.translatable("tooltip.tungsten_carbide_armor"));
-            } else {
+            } else if (type == EquipmentType.TOOL) {
 //            tooltip.add(Text.literal(String.format("§8> On-hit: Slow target for %ss",
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
+                tooltip.add(Text.translatable("tooltip.tungsten_carbide_onhit"));
+            } else {
+                tooltip.add(Text.translatable("tooltip.tungsten_carbide_bow_crossbow"));
                 tooltip.add(Text.translatable("tooltip.tungsten_carbide_onhit"));
             }
         } else {

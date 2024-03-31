@@ -31,7 +31,7 @@ public class ModInfusedGemstoneHoeItem extends HoeItem implements IInfusedGemsto
      */
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyInfusedGemstoneOnHit(target, attacker);
+        ModUtils.applyInfusedGemstoneOnHit(target);
         return super.postHit(stack, target, attacker);
     }
 
@@ -63,6 +63,6 @@ public class ModInfusedGemstoneHoeItem extends HoeItem implements IInfusedGemsto
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, false);
+        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
     }
 }

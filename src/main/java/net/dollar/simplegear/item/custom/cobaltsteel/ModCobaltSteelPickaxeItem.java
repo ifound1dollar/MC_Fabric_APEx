@@ -1,6 +1,5 @@
 package net.dollar.simplegear.item.custom.cobaltsteel;
 
-import net.dollar.simplegear.ModMain;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -41,7 +40,7 @@ public class ModCobaltSteelPickaxeItem extends PickaxeItem {
      */
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyCobaltSteelOnHit(target, attacker);
+        ModUtils.applyCobaltSteelOnHit(target);
         return super.postHit(stack, target, attacker);
     }
 
@@ -73,6 +72,6 @@ public class ModCobaltSteelPickaxeItem extends PickaxeItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, false);
+        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
     }
 }

@@ -102,6 +102,6 @@ public class ModCobaltSteelArmorItem extends ArmorItem implements IDamageHandlin
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, true);
+        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.ARMOR);
     }
 }

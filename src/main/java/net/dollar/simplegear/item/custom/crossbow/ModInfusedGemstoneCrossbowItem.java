@@ -3,6 +3,7 @@ package net.dollar.simplegear.item.custom.crossbow;
 import com.google.common.collect.Lists;
 import net.dollar.simplegear.item.custom.arrow.ArrowUtil;
 import net.dollar.simplegear.util.IInfusedGemstoneItem;
+import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -118,7 +119,7 @@ public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInf
         if (projectile.isEmpty()) {
             return false;
         }
-        boolean bl2 = bl = creative && projectile.getItem() instanceof ArrowItem;
+        bl = creative && projectile.getItem() instanceof ArrowItem;
         if (!(bl || creative || simulated)) {
             itemStack = projectile.split(1);
             if (projectile.isEmpty() && shooter instanceof PlayerEntity) {
@@ -191,11 +192,11 @@ public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInf
             }
         }
         if (shooter instanceof CrossbowUser) {
-            CrossbowUser crossbowUser = (CrossbowUser)((Object)shooter);
+            CrossbowUser crossbowUser = (CrossbowUser)(shooter);
             crossbowUser.shoot(crossbowUser.getTarget(), crossbow, projectileEntity, simulated);
         } else {
             Vec3d vec3d = shooter.getOppositeRotationVector(1.0f);
-            Quaternionf quaternionf = new Quaternionf().setAngleAxis((double)(simulated * ((float)Math.PI / 180)), vec3d.x, vec3d.y, vec3d.z);
+            Quaternionf quaternionf = new Quaternionf().setAngleAxis((simulated * ((float)Math.PI / 180)), vec3d.x, vec3d.y, vec3d.z);
             Vec3d vec3d2 = shooter.getRotationVec(1.0f);
             Vector3f vector3f = vec3d2.toVector3f().rotate(quaternionf);
             projectileEntity.setVelocity(vector3f.x(), vector3f.y(), vector3f.z(), speed, divergence);
@@ -229,7 +230,7 @@ public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInf
         for (int i = 0; i < list.size(); ++i) {
             boolean bl;
             ItemStack itemStack = list.get(i);
-            boolean bl2 = bl = entity instanceof PlayerEntity && ((PlayerEntity)entity).getAbilities().creativeMode;
+            bl = entity instanceof PlayerEntity && ((PlayerEntity) entity).getAbilities().creativeMode;
             if (itemStack.isEmpty()) continue;
             if (i == 0) {
                 shoot(world, entity, hand, stack, itemStack, fs[i], bl, speed, divergence, 0.0f);
@@ -293,18 +294,12 @@ public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInf
     }
 
     private SoundEvent getQuickChargeSound(int stage) {
-        switch (stage) {
-            case 1: {
-                return SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_1;
-            }
-            case 2: {
-                return SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_2;
-            }
-            case 3: {
-                return SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_3;
-            }
-        }
-        return SoundEvents.ITEM_CROSSBOW_LOADING_START;
+        return switch (stage) {
+            case 1 -> SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_1;
+            case 2 -> SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_2;
+            case 3 -> SoundEvents.ITEM_CROSSBOW_QUICK_CHARGE_3;
+            default -> SoundEvents.ITEM_CROSSBOW_LOADING_START;
+        };
     }
 
     private static float getPullProgress(int useTicks, ItemStack stack) {
@@ -317,11 +312,9 @@ public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInf
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
+
         //Call super function because it has return statement if not charged.
         super.appendTooltip(stack, world, tooltip, context);
-
-        //Append special tooltip info here.
-        tooltip.add(Text.translatable("tooltip.infused_gemstone_bow_crossbow"));
-        tooltip.add(Text.translatable("tooltip.infused_gemstone_onhit"));
     }
 }

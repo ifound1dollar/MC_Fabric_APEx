@@ -30,7 +30,7 @@ public class ModCobaltSteelShovelItem extends ShovelItem {
      */
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyCobaltSteelOnHit(target, attacker);
+        ModUtils.applyCobaltSteelOnHit(target);
         return super.postHit(stack, target, attacker);
     }
 
@@ -62,6 +62,6 @@ public class ModCobaltSteelShovelItem extends ShovelItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, false);
+        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
     }
 }

@@ -105,6 +105,6 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IDamageHan
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, true);
+        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.ARMOR);
     }
 }

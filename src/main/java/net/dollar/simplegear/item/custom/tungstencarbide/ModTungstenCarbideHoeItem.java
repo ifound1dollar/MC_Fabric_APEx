@@ -30,7 +30,7 @@ public class ModTungstenCarbideHoeItem extends HoeItem {
      */
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyTungstenCarbideOnHit(target, attacker);
+        ModUtils.applyTungstenCarbideOnHit(target);
         return super.postHit(stack, target, attacker);
     }
 
@@ -62,6 +62,6 @@ public class ModTungstenCarbideHoeItem extends HoeItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, false);
+        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
     }
 }

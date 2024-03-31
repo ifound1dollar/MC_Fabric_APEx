@@ -27,9 +27,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private static final List<ItemConvertible> PHOSPHATE_SMELTABLES = List.of(
             ModBlocks.PHOSPHATE_ORE, ModBlocks.DEEPSLATE_PHOSPHATE_ORE);
     private static final List<ItemConvertible> RUBY_SMELTABLES = List.of(
-            ModBlocks.COBALT_ORE, ModBlocks.DEEPSLATE_COBALT_ORE);
+            ModBlocks.RUBY_ORE, ModBlocks.DEEPSLATE_RUBY_ORE);
     private static final List<ItemConvertible> SAPPHIRE_SMELTABLES = List.of(
-            ModBlocks.COBALT_ORE, ModBlocks.DEEPSLATE_COBALT_ORE);
+            ModBlocks.SAPPHIRE_ORE, ModBlocks.DEEPSLATE_SAPPHIRE_ORE);
     private static final List<ItemConvertible> TIN_SMELTABLES = List.of(
             ModItems.RAW_TIN, ModBlocks.TIN_ORE, ModBlocks.DEEPSLATE_TIN_ORE);
     private static final List<ItemConvertible> TUNGSTEN_SMELTABLES = List.of(
