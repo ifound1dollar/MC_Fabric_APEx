@@ -6,9 +6,11 @@ import net.dollar.simplegear.item.ModItemGroups;
 import net.dollar.simplegear.item.ModItems;
 import net.dollar.simplegear.util.ModLootTableModifiers;
 import net.dollar.simplegear.util.ModModelPredicateProvider;
+import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.client.MinecraftClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,8 +24,10 @@ public class ModMain implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerModTileEntities();
-		ModModelPredicateProvider.registerModModels();
+		//ModModelPredicateProvider.registerModModels();  //Must be done in ModMainClient
 		ModLootTableModifiers.modifyLootTables();
+
+
 
 		handleFuelRegistries();
 	}

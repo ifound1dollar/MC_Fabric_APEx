@@ -16,11 +16,6 @@ import java.util.List;
  * Contains a handful of misc. helper methods used in various parts of the mod.
  */
 public class ModUtils {
-    public static final TagKey<Block> TAG_PAXEL_MINEABLE = TagKey.of(RegistryKeys.BLOCK,
-            new Identifier("simplegear", "paxel_mineable"));
-
-
-
     /**
      * Applies special effect on attack using Cobalt-Steel tools/weapons.
      * @param target Attacked (target) entity

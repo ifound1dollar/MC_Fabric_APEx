@@ -26,6 +26,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
+    //region Misc.
+    public static final Item OBSIDIAN_GOLEM_SPAWN_EGG = registerItem("obsidian_golem_spawn_egg",
+            new Item(new FabricItemSettings()));    //TEMP FIX THIS
+    //endregion
+
     //region Raw Items, Gems, Compounds
     public static final Item RUBY = registerItem("ruby",
             new Item(new FabricItemSettings()));

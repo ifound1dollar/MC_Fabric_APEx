@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cobalt_steel_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "simplegear:cobalt_steel_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_cobalt_upgrade_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "simplegear:cobalt_upgrade_smithing_template"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:cobalt_steel_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cobalt_upgrade_smithing_template",
+      "has_cobalt_steel_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:cobalt_steel_sword"
+    ]
+  },
+  "sends_telemetry_event": false
+}

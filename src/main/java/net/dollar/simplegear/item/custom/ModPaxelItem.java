@@ -1,5 +1,6 @@
 package net.dollar.simplegear.item.custom;
 
+import net.dollar.simplegear.util.ModTags;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.item.*;
 
@@ -8,6 +9,6 @@ import net.minecraft.item.*;
  */
 public class ModPaxelItem extends MiningToolItem {
     public ModPaxelItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
-        super(attackDamage, attackSpeed, material, ModUtils.TAG_PAXEL_MINEABLE, settings);
+        super(attackDamage, attackSpeed, material, ModTags.Blocks.MOD_PAXEL_MINEABLE, settings);
     }
 }

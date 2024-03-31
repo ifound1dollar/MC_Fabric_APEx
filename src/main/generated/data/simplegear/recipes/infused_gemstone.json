@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "simplegear:compound_gemstone"
+    },
+    {
+      "item": "simplegear:handful_of_stardust"
+    }
+  ],
+  "result": {
+    "item": "simplegear:infused_gemstone"
+  }
+}

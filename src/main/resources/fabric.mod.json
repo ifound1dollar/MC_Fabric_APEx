@@ -18,6 +18,9 @@
 		"main": [
 			"net.dollar.simplegear.ModMain"
 		],
+		"client": [
+			"net.dollar.simplegear.ModMainClient"
+		],
 		"fabric-datagen": [
 			"net.dollar.simplegear.ModMainDataGenerator"
 		]

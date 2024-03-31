@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "simplegear:shears_from_tin_forward"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tin_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:tin_ingots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_tin_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "simplegear:shears_from_tin_forward"
+    ]
+  },
+  "sends_telemetry_event": false
+}

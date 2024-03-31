@@ -1,6 +1,8 @@
 package net.dollar.simplegear.util;
 
 import net.dollar.simplegear.item.ModItems;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
@@ -9,6 +11,7 @@ import net.minecraft.util.Identifier;
  * Handles setting up complex model predicates that are used for Bows and Crossbows (which render different
  *  textures depending on duration of use).
  */
+@Environment(EnvType.CLIENT)
 public class ModModelPredicateProvider {
     public static void registerModModels() {
         registerBow(ModItems.INFUSED_GEMSTONE_BOW);
