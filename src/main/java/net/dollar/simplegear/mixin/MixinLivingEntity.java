@@ -2,9 +2,11 @@ package net.dollar.simplegear.mixin;
 
 import net.dollar.simplegear.ModMain;
 import net.dollar.simplegear.util.IFullSetEffectArmor;
+import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -15,6 +17,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LivingEntity.class)
 public abstract class MixinLivingEntity {
     @Shadow public abstract ItemStack getEquippedStack(EquipmentSlot var1);
+
+    @Shadow public abstract EntityGroup getGroup();
 
     /**
      * Injects at tail of LivingEntity.canHaveStatusEffect() to prevent receiving certain status effects while
@@ -28,8 +32,17 @@ public abstract class MixinLivingEntity {
         //  certain status effects from being applied. If so, check if the StatusEffectInstance matches.
         boolean value = true;   //Default allow any status effect
 
-        //If the equipped chestplate item is an effect-preventing armor, check if the effect is valid.
-        if (this.getEquippedStack(EquipmentSlot.CHEST).getItem() instanceof IFullSetEffectArmor specialArmor) {
+        //If this LivingEntity is undead, set value to false if effect is Regeneration or Poison (effectively
+        // implements functionality from original method).
+        if (this.getGroup() == EntityGroup.UNDEAD) {
+            if (effect.getEffectType() == StatusEffects.REGENERATION || effect.getEffectType() == StatusEffects.POISON) {
+                value = false;
+            }
+        }
+
+        //If value has been set to false already, must remain false because is not valid otherwise. Then,
+        // if the equipped chestplate item is an effect-preventing armor, check if the effect is valid.
+        if (value && this.getEquippedStack(EquipmentSlot.CHEST).getItem() instanceof IFullSetEffectArmor specialArmor) {
             value = specialArmor.canReceiveEffect(effect.getEffectType(), (LivingEntity)(Object)this);
 
             ModMain.LOGGER.info("Return value: " + value);
