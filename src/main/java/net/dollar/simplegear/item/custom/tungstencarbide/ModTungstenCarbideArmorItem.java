@@ -4,8 +4,8 @@ import net.dollar.simplegear.item.ModItems;
 import net.dollar.simplegear.util.IFullSetEffectArmor;
 import net.dollar.simplegear.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
@@ -21,8 +21,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEffectArmor {
-    boolean isFullSet;
-
     public ModTungstenCarbideArmorItem(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }
@@ -30,42 +28,24 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEf
 
 
     /**
-     * Checks each tick if the player has a full set of Infused Gemstone armor, setting isFullSet if so.
-     * @param stack The ItemStack associated with this Object
-     * @param world Active world
-     * @param entity The entity holding the item; usually a player
-     * @param slot The slot this item is equipped in
-     * @param selected Whether the item is in the selected hotbar slot
-     */
-    @Override
-    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        //Do nothing if on client side OR if not chestplate (isFullSet will never be true on clients).
-        if (world.isClient() || slot != 2) {
-            //Slot 2 corresponds to chestplate slot
-            return;
-        }
-
-        //Check for correct equipment, then set isFullSet accordingly
-        if (entity instanceof PlayerEntity player) {
-            boolean hasHelm = player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ModItems.TUNGSTEN_CARBIDE_HELMET;
-            boolean hasChest = player.getEquippedStack(EquipmentSlot.CHEST).getItem() == ModItems.TUNGSTEN_CARBIDE_CHESTPLATE;
-            boolean hasLegs = player.getEquippedStack(EquipmentSlot.LEGS).getItem() == ModItems.TUNGSTEN_CARBIDE_LEGGINGS;
-            boolean hasBoots = player.getEquippedStack(EquipmentSlot.FEET).getItem() == ModItems.TUNGSTEN_CARBIDE_BOOTS;
-            isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
-        } else {
-            //If not player, always false.
-            isFullSet = false;
-        }
-    }
-
-    /**
      * IFullSetEffectArmor interface method that prevents an effect from being applied if a full set is worn.
      * @param effect Effect trying to be applied
      * @return Whether the effect can be applied to this armor's wearer
      */
     @Override
-    public boolean canReceiveEffect(StatusEffect effect) {
+    public boolean canReceiveEffect(StatusEffect effect, LivingEntity wearer) {
         //Can receive effect UNLESS full set and effect is weakness.
+        boolean isFullSet = false;
+
+        //Check for correct equipment, then set isFullSet accordingly
+        if (wearer instanceof PlayerEntity player) {
+            boolean hasHelm = player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ModItems.TUNGSTEN_CARBIDE_HELMET;
+            boolean hasChest = player.getEquippedStack(EquipmentSlot.CHEST).getItem() == ModItems.TUNGSTEN_CARBIDE_CHESTPLATE;
+            boolean hasLegs = player.getEquippedStack(EquipmentSlot.LEGS).getItem() == ModItems.TUNGSTEN_CARBIDE_LEGGINGS;
+            boolean hasBoots = player.getEquippedStack(EquipmentSlot.FEET).getItem() == ModItems.TUNGSTEN_CARBIDE_BOOTS;
+            isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
+        }
+
         return !(isFullSet && effect == StatusEffects.WEAKNESS);
     }
 

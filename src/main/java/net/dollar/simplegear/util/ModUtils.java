@@ -41,6 +41,7 @@ public class ModUtils {
             tooltip.add(Text.translatable("tooltip.cobalt_steel_details_1"));
             tooltip.add(Text.translatable("tooltip.cobalt_steel_details_2"));
             tooltip.add(Text.translatable("tooltip.cobalt_steel_details_3"));
+            tooltip.add(Text.translatable("tooltip.cobalt_steel_details_4"));
 
             //TODO: RE-IMPLEMENT CONFIGS
             if (type == EquipmentType.ARMOR) {
@@ -86,6 +87,8 @@ public class ModUtils {
             tooltip.add(Text.translatable("tooltip.infused_gemstone_details_0"));
             tooltip.add(Text.translatable("tooltip.infused_gemstone_details_1"));
             tooltip.add(Text.translatable("tooltip.infused_gemstone_details_2"));
+            tooltip.add(Text.translatable("tooltip.infused_gemstone_details_3"));
+            tooltip.add(Text.translatable("tooltip.infused_gemstone_details_4"));
 
             //TODO: RE-IMPLEMENT CONFIGS
             if (type == EquipmentType.ARMOR) {
@@ -132,6 +135,7 @@ public class ModUtils {
             tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_1"));
             tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_2"));
             tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_3"));
+            tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_4"));
 
             //TODO: RE-IMPLEMENT CONFIGS
             if (type == EquipmentType.ARMOR) {

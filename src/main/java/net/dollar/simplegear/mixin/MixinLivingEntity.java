@@ -30,7 +30,7 @@ public abstract class MixinLivingEntity {
 
         //If the equipped chestplate item is an effect-preventing armor, check if the effect is valid.
         if (this.getEquippedStack(EquipmentSlot.CHEST).getItem() instanceof IFullSetEffectArmor specialArmor) {
-            value = specialArmor.canReceiveEffect(effect.getEffectType());
+            value = specialArmor.canReceiveEffect(effect.getEffectType(), (LivingEntity)(Object)this);
 
             ModMain.LOGGER.info("Return value: " + value);
         }
