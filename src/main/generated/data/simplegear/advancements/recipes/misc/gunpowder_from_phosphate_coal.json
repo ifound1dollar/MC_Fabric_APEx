@@ -1,0 +1,46 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_coal": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:coals"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_phosphate_powder": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "simplegear:phosphate_powder"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "simplegear:gunpowder_from_phosphate_coal"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_phosphate_powder",
+      "has_coal",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "simplegear:gunpowder_from_phosphate_coal"
+    ]
+  },
+  "sends_telemetry_event": false
+}

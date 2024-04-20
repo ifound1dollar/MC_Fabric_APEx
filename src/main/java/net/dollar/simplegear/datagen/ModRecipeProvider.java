@@ -13,6 +13,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
@@ -45,7 +46,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
-        //SMELTING AND BLASTING
+        //region SMELTING AND BLASTING
         offerSmelting(exporter, COBALT_SMELTABLES, RecipeCategory.MISC, ModItems.COBALT_SHARD,
                 0.9f, 200, "cobalt_shard"); //Diamond is 1.0
         offerBlasting(exporter, COBALT_SMELTABLES, RecipeCategory.MISC, ModItems.COBALT_SHARD,
@@ -70,8 +71,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 1.0f, 200, "tungsten_ingot");   //Diamond is 1.0
         offerBlasting(exporter, TUNGSTEN_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
                 1.0f, 100, "tungsten_ingot");
+        //endregion
 
-        //STORAGE BLOCKS
+        //region STORAGE BLOCKS
         //NOTE: FIRST IS FOR BLOCK->ITEM, SECOND IS FOR ITEM->BLOCK
         offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.RUBY,
                 RecipeCategory.DECORATIONS, ModBlocks.RUBY_BLOCK);
@@ -91,8 +93,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 RecipeCategory.DECORATIONS, ModBlocks.BRONZE_BLOCK);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.STEEL_INGOT,
                 RecipeCategory.DECORATIONS, ModBlocks.STEEL_BLOCK);
+        //endregion
 
-        //SPECIAL TIN RECIPES
+        //region PHOSPHATE POWDER RECIPES
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GUNPOWDER, 2)
+                .input(Ingredient.ofItems(ModItems.PHOSPHATE_POWDER), 1)
+                .input(Ingredient.fromTag(ItemTags.COALS), 1)
+                .criterion("has_phosphate_powder", conditionsFromItem(ModItems.PHOSPHATE_POWDER))
+                .criterion("has_coal", conditionsFromTag(ItemTags.COALS))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "gunpowder_from_phosphate_coal"));
+        //FERTILIZER HERE
+
+        //endregion
+
+        //region SPECIAL TIN RECIPES
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BUCKET, 1)
                 .input('d', ModTags.Items.COMMON_TIN_INGOTS)
                 .pattern("d d")
@@ -111,8 +125,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern(" d")
                 .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
                 .offerTo(exporter, new Identifier(ModMain.MOD_ID, "shears_from_tin_backward"));
+        //endregion
 
-        //COMPOUNDS AND ENDGAME INGREDIENT ITEMS (shapeless)
+        //region COMPOUNDS AND ENDGAME INGREDIENT ITEMS (shapeless)
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BRONZE_COMPOUND, 3)
                 .input(Ingredient.fromTag(ModTags.Items.COMMON_COPPER_INGOTS), 3)
                 .input(Ingredient.fromTag(ModTags.Items.COMMON_TIN_INGOTS), 1)
@@ -159,8 +174,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_coal", conditionsFromItem(Items.COAL))
                 .criterion("has_molten_core", conditionsFromItem(ModItems.MOLTEN_CORE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.TUNGSTEN_CARBIDE_INGOT)));
+        //endregion
 
-        //UPGRADE TEMPLATES
+        //region UPGRADE TEMPLATES
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, 1)
                 .input('d', ModItems.BASIC_UPGRADE_TEMPLATE)
                 .input('i', ModTags.Items.COMMON_NETHERRACKS)
@@ -231,8 +247,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_basic_upgrade_template", conditionsFromItem(ModItems.BASIC_UPGRADE_TEMPLATE))
                 .criterion("has_tungsten_ingot", conditionsFromTag(ModTags.Items.COMMON_TUNGSTEN_INGOTS))
                 .offerTo(exporter, new Identifier(ModMain.MOD_ID, "carbide_upgrade_smithing_template_from_basic"));
+        //endregion
 
-        //VANILLA TIER BATTLEAXES AND PAXELS
+        //region VANILLA TIER BATTLEAXES AND PAXELS
         toolRecipeBuilder(exporter, ToolType.BATTLEAXE, ModTags.Items.COMMON_DIAMONDS, ModItems.DIAMOND_BATTLEAXE,
                 "has_diamond");
         toolRecipeBuilder(exporter, ToolType.PAXEL, ModTags.Items.COMMON_DIAMONDS, ModItems.DIAMOND_PAXEL,
@@ -243,8 +260,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         smithingUpgradeRecipeBuilder(exporter, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ModItems.DIAMOND_PAXEL,
                 Items.NETHERITE_INGOT, RecipeCategory.TOOLS, ModItems.NETHERITE_PAXEL,
                 "has_netherite_upgrade_smithing_template", "has_netherite_ingot");
+        //endregion
 
-        //BOWS
+        //region BOWS
         smithingUpgradeRecipeBuilder(exporter, ModItems.COBALT_UPGRADE_TEMPLATE, Items.BOW,
                 ModItems.COBALT_STEEL_INGOT, RecipeCategory.COMBAT, ModItems.COBALT_STEEL_BOW,
                 "has_cobalt_upgrade_smithing_template", "has_cobalt_steel_ingot");
@@ -254,8 +272,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         smithingUpgradeRecipeBuilder(exporter, ModItems.CARBIDE_UPGRADE_TEMPLATE, Items.BOW,
                 ModItems.TUNGSTEN_CARBIDE_INGOT, RecipeCategory.COMBAT, ModItems.TUNGSTEN_CARBIDE_BOW,
                 "has_carbide_upgrade_smithing_template", "has_tungsten_carbide_ingot");
+        //endregion
 
-        //CROSSBOWS
+        //region CROSSBOWS
         smithingUpgradeRecipeBuilder(exporter, ModItems.COBALT_UPGRADE_TEMPLATE, Items.CROSSBOW,
                 ModItems.COBALT_STEEL_INGOT, RecipeCategory.COMBAT, ModItems.COBALT_STEEL_CROSSBOW,
                 "has_cobalt_upgrade_smithing_template", "has_cobalt_steel_ingot");
@@ -265,8 +284,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         smithingUpgradeRecipeBuilder(exporter, ModItems.CARBIDE_UPGRADE_TEMPLATE, Items.CROSSBOW,
                 ModItems.TUNGSTEN_CARBIDE_INGOT, RecipeCategory.COMBAT, ModItems.TUNGSTEN_CARBIDE_CROSSBOW,
                 "has_carbide_upgrade_smithing_template", "has_tungsten_carbide_ingot");
+        //endregion
 
-        //BRONZE EQUIPMENT
+        //region BRONZE EQUIPMENT
         armorRecipeBuilder(exporter, EquipmentSlot.HEAD, ModTags.Items.COMMON_BRONZE_INGOTS, ModItems.BRONZE_HELMET,
                 "has_bronze_ingot");
         armorRecipeBuilder(exporter, EquipmentSlot.CHEST, ModTags.Items.COMMON_BRONZE_INGOTS, ModItems.BRONZE_CHESTPLATE,
@@ -286,8 +306,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 "has_bronze_ingot");
         toolRecipeBuilder(exporter, ToolType.SWORD, ModTags.Items.COMMON_BRONZE_INGOTS, ModItems.BRONZE_SWORD,
                 "has_bronze_ingot");
+        //endregion
 
-        //GILDED BRONZE EQUIPMENT
+        //region GILDED BRONZE EQUIPMENT
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GILDED_BRONZE_HELMET, 1)
                 .input('d', ModTags.Items.COMMON_GOLD_INGOTS)
                 .input('i', ModItems.BRONZE_HELMET)
@@ -361,8 +382,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("ddd")
                 .criterion("has_bronze_sword", conditionsFromItem(ModItems.BRONZE_SWORD))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.GILDED_BRONZE_SWORD)));
+        //endregion
 
-        //COBALT-STEEL EQUIPMENT
+        //region COBALT-STEEL EQUIPMENT
         smithingUpgradeRecipeBuilder(exporter, ModItems.COBALT_UPGRADE_TEMPLATE, Items.DIAMOND_HELMET,
                 ModItems.COBALT_STEEL_INGOT, RecipeCategory.COMBAT, ModItems.COBALT_STEEL_HELMET,
                 "has_cobalt_upgrade_smithing_template", "has_cobalt_steel_ingot");
@@ -397,8 +419,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         smithingUpgradeRecipeBuilder(exporter, ModItems.COBALT_UPGRADE_TEMPLATE, Items.DIAMOND_SWORD,
                 ModItems.COBALT_STEEL_INGOT, RecipeCategory.COMBAT, ModItems.COBALT_STEEL_SWORD,
                 "has_cobalt_upgrade_smithing_template", "has_cobalt_steel_ingot");
+        //endregion
 
-        //INFUSED GEMSTONE EQUIPMENT
+        //region INFUSED GEMSTONE EQUIPMENT
         smithingUpgradeRecipeBuilder(exporter, ModItems.INFUSION_UPGRADE_TEMPLATE, Items.DIAMOND_HELMET,
                 ModItems.INFUSED_GEMSTONE, RecipeCategory.COMBAT, ModItems.INFUSED_GEMSTONE_HELMET,
                 "has_infusion_upgrade_smithing_template", "has_infused_gemstone");
@@ -433,8 +456,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         smithingUpgradeRecipeBuilder(exporter, ModItems.INFUSION_UPGRADE_TEMPLATE, Items.DIAMOND_SWORD,
                 ModItems.INFUSED_GEMSTONE, RecipeCategory.COMBAT, ModItems.INFUSED_GEMSTONE_SWORD,
                 "has_infusion_upgrade_smithing_template", "has_infused_gemstone");
+        //endregion
 
-        //TUNGSTEN-CARBIDE EQUIPMENT
+        //region TUNGSTEN-CARBIDE EQUIPMENT
         smithingUpgradeRecipeBuilder(exporter, ModItems.CARBIDE_UPGRADE_TEMPLATE, Items.DIAMOND_HELMET,
                 ModItems.TUNGSTEN_CARBIDE_INGOT, RecipeCategory.COMBAT, ModItems.TUNGSTEN_CARBIDE_HELMET,
                 "has_carbide_upgrade_smithing_template", "has_tungsten_carbide_ingot");
@@ -469,6 +493,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         smithingUpgradeRecipeBuilder(exporter, ModItems.CARBIDE_UPGRADE_TEMPLATE, Items.DIAMOND_SWORD,
                 ModItems.TUNGSTEN_CARBIDE_INGOT, RecipeCategory.COMBAT, ModItems.TUNGSTEN_CARBIDE_SWORD,
                 "has_carbide_upgrade_smithing_template", "has_tungsten_carbide_ingot");
+        //endregion
     }
 
 

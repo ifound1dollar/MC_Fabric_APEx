@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-17T16:21:28.2277061	Simple Gearing Expansion (Fabric)/Model Definitions
+// 1.20.1	2024-04-20T13:21:01.8487199	Simple Gearing Expansion (Fabric)/Model Definitions
 cd0f5727a88c41242d43a40af9cd1b838d41fa84 assets\simplegear\models\item\obsidian_golem_spawn_egg.json
 43dca5c86191b496690eb6d3d88383202cae9728 assets\simplegear\models\item\diamond_paxel.json
 95702d0f0f5f80945fb7b03ae5ecba9a7049834e assets\simplegear\models\block\sapphire_ore.json
@@ -38,8 +38,8 @@ e987c3f913a563c8c217f731818b835377206adf assets\simplegear\blockstates\tungsten_
 1e0909714542eaaacfc397f1164ef2f2e25e67e0 assets\simplegear\models\item\deepslate_ruby_ore.json
 768045520fce6d41ce9f3b5896e6e4ff52d1f8e9 assets\simplegear\models\item\infusion_upgrade_smithing_template.json
 506fddb674100ba0a2f7a690fe596fbfd03cb557 assets\simplegear\models\item\carbide_upgrade_smithing_template.json
-db7a366587b3180a96f441b89b57cf05c939b2a8 assets\simplegear\models\block\ruby_block.json
 d9e6bc80339516cd828b64966a06e14b46396477 assets\simplegear\blockstates\raw_tungsten_block.json
+db7a366587b3180a96f441b89b57cf05c939b2a8 assets\simplegear\models\block\ruby_block.json
 c8d32f45e7d02a5c0d4524d1914806f7bfac0adf assets\simplegear\models\item\bronze_compound.json
 6e236a9a8be71edf70d28798c3f8ee14f4b21452 assets\simplegear\models\item\cobalt_ore.json
 7e7cd515e135a8ef3d2546bc2df7f54ac4352305 assets\simplegear\models\item\compound_gemstone.json
