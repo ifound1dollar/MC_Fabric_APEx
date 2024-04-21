@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-20T13:21:01.8487199	Simple Gearing Expansion (Fabric)/Model Definitions
+// 1.20.1	2024-04-20T18:23:55.77974	Simple Gearing Expansion (Fabric)/Model Definitions
 cd0f5727a88c41242d43a40af9cd1b838d41fa84 assets\simplegear\models\item\obsidian_golem_spawn_egg.json
 43dca5c86191b496690eb6d3d88383202cae9728 assets\simplegear\models\item\diamond_paxel.json
 95702d0f0f5f80945fb7b03ae5ecba9a7049834e assets\simplegear\models\block\sapphire_ore.json
@@ -46,6 +46,7 @@ c8d32f45e7d02a5c0d4524d1914806f7bfac0adf assets\simplegear\models\item\bronze_co
 a860e38e9f15d3ebe7ce5497825e219060f059b3 assets\simplegear\blockstates\ruby_ore.json
 a89438f3387e6498ecc5e095d6cf7bdaad7a6684 assets\simplegear\models\item\cobalt_steel_battleaxe.json
 9805441e0807f2213da2ac5be3597f49d78106bc assets\simplegear\models\item\deepslate_phosphate_ore.json
+e623a5e69f75f39c75fab95a6b7074642e6f29e1 assets\simplegear\models\item\fertilizer.json
 aa937e7d2ba9f726517069012c97017078e7e023 assets\simplegear\models\item\bronze_pickaxe.json
 7d7a0ef69b0a894469f7f4dff756279538e0e681 assets\simplegear\models\item\infused_gemstone_axe.json
 b4c1a4518168cfc3aee4fd027a5b02e3404bb1cd assets\simplegear\models\item\infused_gemstone_hoe.json

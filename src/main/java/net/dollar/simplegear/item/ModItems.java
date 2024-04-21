@@ -20,6 +20,7 @@ import net.dollar.simplegear.util.ModToolMaterials;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -27,8 +28,22 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
     //region Misc.
+    //TODO: Replace EntityType with correct entity type (WRONG ENTITY TYPE OVERWRITES PREVIOUS COLORS).
     public static final Item OBSIDIAN_GOLEM_SPAWN_EGG = registerItem("obsidian_golem_spawn_egg",
-            new Item(new FabricItemSettings()));    //TEMP FIX THIS
+            new SpawnEggItem(EntityType.ALLAY, 0x12031E, 0xED4D0E,
+                    new FabricItemSettings()));
+    public static final Item KATHLEEN_THE_WICKED_SPAWN_EGG = registerItem("kathleen_the_wicked_spawn_egg",
+            new SpawnEggItem(EntityType.ALLAY, 10489616, 0xB7B7B7,
+                    new FabricItemSettings()));
+    public static final Item OLD_LADY_MUFF_SPAWN_EGG = registerItem("old_lady_muff_spawn_egg",
+            new SpawnEggItem(EntityType.ALLAY, 0x340000, 5349438,
+                    new FabricItemSettings()));
+    public static final Item HELIROOSTER_SPAWN_EGG = registerItem("helirooster_spawn_egg",
+            new SpawnEggItem(EntityType.ALLAY, 0xA1A1A1, 0xFF0000,
+                    new FabricItemSettings()));
+
+    public static final Item FERTILIZER = registerItem("fertilizer",
+            new BoneMealItem((new FabricItemSettings())));
     //endregion
 
     //region Raw Items, Gems, Compounds

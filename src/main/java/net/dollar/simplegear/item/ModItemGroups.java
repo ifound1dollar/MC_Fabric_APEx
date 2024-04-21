@@ -46,6 +46,13 @@ public class ModItemGroups {
 
 
 
+                        //Misc. Items
+                        entries.add(ModItems.OBSIDIAN_GOLEM_SPAWN_EGG);
+                        entries.add(ModItems.KATHLEEN_THE_WICKED_SPAWN_EGG);
+                        entries.add(ModItems.OLD_LADY_MUFF_SPAWN_EGG);
+                        entries.add(ModItems.HELIROOSTER_SPAWN_EGG);
+                        entries.add(ModItems.FERTILIZER);
+
                         //Raw Items, Gems, Compounds
                         entries.add(ModItems.RUBY);
                         entries.add(ModItems.SAPPHIRE);

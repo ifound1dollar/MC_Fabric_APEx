@@ -46,7 +46,7 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         //GENERATED
-        itemModelGenerator.register(ModItems.OBSIDIAN_GOLEM_SPAWN_EGG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FERTILIZER, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.SAPPHIRE, Models.GENERATED);

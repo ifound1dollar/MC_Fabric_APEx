@@ -102,8 +102,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_phosphate_powder", conditionsFromItem(ModItems.PHOSPHATE_POWDER))
                 .criterion("has_coal", conditionsFromTag(ItemTags.COALS))
                 .offerTo(exporter, new Identifier(ModMain.MOD_ID, "gunpowder_from_phosphate_coal"));
-        //FERTILIZER HERE
-
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.FERTILIZER, 2)
+                .input(Ingredient.ofItems(ModItems.PHOSPHATE_POWDER), 1)
+                .input(Ingredient.ofItems(Items.ROTTEN_FLESH), 1)
+                .criterion("has_phosphate_powder", conditionsFromItem(ModItems.PHOSPHATE_POWDER))
+                .criterion("has_rotten_flesh", conditionsFromItem(Items.ROTTEN_FLESH))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.FERTILIZER)));
         //endregion
 
         //region SPECIAL TIN RECIPES

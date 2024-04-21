@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "simplegear:item/obsidian_golem_spawn_egg"
+    "layer0": "simplegear:item/fertilizer"
   }
 }
