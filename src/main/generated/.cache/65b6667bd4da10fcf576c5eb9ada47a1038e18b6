@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-20T18:23:55.7767407	Simple Gearing Expansion (Fabric)/Recipes
+// 1.20.1	2024-05-13T02:04:55.9621935	Simple Gearing Expansion (Fabric)/Recipes
 d6b1bbe7860bacdc02c0eb1cf51509b920a249c7 data\simplegear\advancements\recipes\misc\fertilizer.json
 b7f576086a38984f46332c4bad584db0059f4327 data\simplegear\recipes\cobalt_steel_helmet_smithing.json
 416569e6a20adf7f3faae7a2586dabc512bb1d26 data\simplegear\advancements\recipes\tools\tungsten_carbide_shovel_smithing.json
@@ -214,8 +214,8 @@ a07168072f9b5b849759b59de74a0aebd35525d4 data\simplegear\recipes\bronze_chestpla
 bcdf3d03c9c652181f5a54e4016a66eb49df9b09 data\simplegear\advancements\recipes\misc\phosphate_powder_from_smelting_deepslate_phosphate_ore.json
 2cbb7b0542ab0e0d5f5354b7223af254f84e54b2 data\simplegear\advancements\recipes\misc\carbide_upgrade_smithing_template_from_basic.json
 c1ec7a838a9b598c77ca77abb6668ca9da9e3ada data\simplegear\advancements\recipes\misc\tungsten_ingot_from_smelting_deepslate_tungsten_ore.json
-206ea81b9094c2882875076486f59d6ea7c8dbe4 data\simplegear\recipes\tungsten_carbide_sword_smithing.json
 18ffad55628c1851fde8b1846cb5c6b8c22327c9 data\simplegear\recipes\fertilizer.json
+206ea81b9094c2882875076486f59d6ea7c8dbe4 data\simplegear\recipes\tungsten_carbide_sword_smithing.json
 66a51a047dceebc2998aacf0b3eea52aa1682272 data\simplegear\recipes\ruby_from_smelting_ruby_ore.json
 44086c06e8c324549fa5cad79d0f48c44b6d43ce data\simplegear\advancements\recipes\tools\bronze_shovel.json
 970b0ebf432a816f9128c674fbfca164bff50d5d data\simplegear\recipes\phosphate_powder_from_smelting_deepslate_phosphate_ore.json
