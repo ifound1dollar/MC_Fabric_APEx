@@ -147,6 +147,7 @@ public class ModLootTableModifiers {
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         builder.pool(poolBuilder.build());
