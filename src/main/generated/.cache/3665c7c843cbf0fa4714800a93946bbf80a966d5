@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-14T02:34:15.2782702	Simple Gearing Expansion (Fabric)/Model Definitions
+// 1.20.1	2024-05-14T04:10:03.4946802	Simple Gearing Expansion (Fabric)/Model Definitions
 43dca5c86191b496690eb6d3d88383202cae9728 assets\simplegear\models\item\diamond_paxel.json
 95702d0f0f5f80945fb7b03ae5ecba9a7049834e assets\simplegear\models\block\sapphire_ore.json
 986d3d55d2022263e6455aa7e211e09b016a863a assets\simplegear\models\item\cobalt_steel_paxel.json
@@ -91,8 +91,8 @@ f96ff99bf8fc05e8d78fd43e98f3f9bcdf22850f assets\simplegear\models\item\gilded_br
 c38e1096ad78bf3915131debb7b6e0f9d6783e1d assets\simplegear\models\item\tungsten_block.json
 dc702f873a2201cd4af08d6f48bc943ddc5a307d assets\simplegear\models\item\raw_tungsten_block.json
 3f4c42c4850c9dbd675c2dbfa368983d68ded7af assets\simplegear\models\item\decorative_amethyst_block.json
-12d62bd6e304889a64d6e0bd18d6e34f83b2871e assets\simplegear\models\item\infused_gemstone.json
 1bad0e70a359c212537299381bd0e95f5e60d6e5 assets\simplegear\blockstates\deepslate_tungsten_ore.json
+12d62bd6e304889a64d6e0bd18d6e34f83b2871e assets\simplegear\models\item\infused_gemstone.json
 2c92b29dd75391deb45a2f60137c49deb1ca3ee9 assets\simplegear\models\item\netherite_paxel.json
 30cd1013068df99dd9cc8726b009a3183d2d2c18 assets\simplegear\models\item\raw_tungsten.json
 afa66466cc29f532cdec09b30ae1df96ffbb4fdb assets\simplegear\blockstates\deepslate_tin_ore.json

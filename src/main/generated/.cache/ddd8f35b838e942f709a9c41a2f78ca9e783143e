@@ -1,9 +1,9 @@
-// 1.20.1	2024-05-14T02:34:15.2772689	Simple Gearing Expansion (Fabric)/Block Loot Tables
-676cf51a70665af54d8a76c90986ab14c14c250c data\simplegear\loot_tables\blocks\bronze_block.json
+// 1.20.1	2024-05-14T04:10:03.4946802	Simple Gearing Expansion (Fabric)/Block Loot Tables
 b33d7cab6134e0a8e5ae5fd41c2675709fd96ddf data\simplegear\loot_tables\blocks\tin_ore.json
+676cf51a70665af54d8a76c90986ab14c14c250c data\simplegear\loot_tables\blocks\bronze_block.json
 078fd776bf09f35ecaafc7fec8663ab5657621ca data\simplegear\loot_tables\blocks\deepslate_ruby_ore.json
-efc837118673a0bbc7b59aa40a7b150f6d17be93 data\simplegear\loot_tables\blocks\decorative_amethyst_block.json
 b65b57d4f184336326b2ad56f7ade04dc6258def data\simplegear\loot_tables\blocks\raw_tin_block.json
+efc837118673a0bbc7b59aa40a7b150f6d17be93 data\simplegear\loot_tables\blocks\decorative_amethyst_block.json
 f55ffe7c0f507bc2e03441efe87a24d3c477648c data\simplegear\loot_tables\blocks\deepslate_cobalt_ore.json
 c667aa4453026842d31a001d5ec2331d7221b700 data\simplegear\loot_tables\blocks\tungsten_ore.json
 dc90b4455618514e79c2469dd9dfb9acbf5d7037 data\simplegear\loot_tables\blocks\raw_tungsten_block.json
@@ -15,8 +15,8 @@ a9201a38addd7a21d5043ced7b43d8690eef5ae6 data\simplegear\loot_tables\blocks\deep
 5e6fdf7bbc0da2bc6a043fbea4ae92a798b2be4c data\simplegear\loot_tables\blocks\tin_block.json
 0229ca5c128726e6a72b5d2f0530ff08a1c04ce6 data\simplegear\loot_tables\blocks\steel_block.json
 5d598abbb62657fb280b17f3fc7cfb0116c0adb3 data\simplegear\loot_tables\blocks\sapphire_ore.json
-1272a7ff7e0ef337d6340495cabe2a930e9cf0cc data\simplegear\loot_tables\blocks\tungsten_block.json
 fa968cbe8bb09dbe74a4616146ff6b9846c9644b data\simplegear\loot_tables\blocks\deepslate_sapphire_ore.json
+1272a7ff7e0ef337d6340495cabe2a930e9cf0cc data\simplegear\loot_tables\blocks\tungsten_block.json
 3c9a08dab1b54ba175656860237eb00d590edd42 data\simplegear\loot_tables\blocks\sapphire_block.json
-a9fa628f4a2898aad25915e16ab322d5e497f2be data\simplegear\loot_tables\blocks\ruby_ore.json
 595153cedd3799de6960f05ba55f9c186d4e6c80 data\simplegear\loot_tables\blocks\deepslate_tungsten_ore.json
+a9fa628f4a2898aad25915e16ab322d5e497f2be data\simplegear\loot_tables\blocks\ruby_ore.json

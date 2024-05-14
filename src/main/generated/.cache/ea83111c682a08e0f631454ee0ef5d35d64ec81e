@@ -1,8 +1,8 @@
-// 1.20.1	2024-05-14T02:34:15.2792703	Simple Gearing Expansion (Fabric)/World Gen
+// 1.20.1	2024-05-14T04:10:03.4956797	Simple Gearing Expansion (Fabric)/World Gen
 3440ec98459b70819b8b9e0ebbf41af3b6dada3a data\simplegear\worldgen\configured_feature\phosphate_ore.json
 6a2bc97b8025aa0722cb103ca66cd00c92c780a6 data\simplegear\worldgen\configured_feature\tin_ore.json
-7628e88d146d7c46e175f4f1615b7fef0c488911 data\simplegear\worldgen\placed_feature\cobalt_ore_placed.json
 986e65c6d191ee5037e199fd60ce1f2d9f4d853e data\simplegear\worldgen\placed_feature\phosphate_ore_placed.json
+7628e88d146d7c46e175f4f1615b7fef0c488911 data\simplegear\worldgen\placed_feature\cobalt_ore_placed.json
 03cc0993f495f7cfdfe435de9e4c7849a739a23c data\simplegear\worldgen\configured_feature\ruby_ore.json
 2722fefd3c49e8618a67cb8607bf2936762bf549 data\simplegear\worldgen\configured_feature\tungsten_ore.json
 892353ee2c8134f2a017e662a6387fee1f2094cb data\simplegear\worldgen\placed_feature\tin_ore_small_placed.json

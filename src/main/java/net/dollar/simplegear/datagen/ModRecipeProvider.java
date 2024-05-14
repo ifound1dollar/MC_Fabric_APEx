@@ -35,6 +35,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             ModItems.RAW_TIN, ModBlocks.TIN_ORE, ModBlocks.DEEPSLATE_TIN_ORE);
     private static final List<ItemConvertible> TUNGSTEN_SMELTABLES = List.of(
             ModItems.RAW_TUNGSTEN, ModBlocks.TUNGSTEN_ORE, ModBlocks.DEEPSLATE_TUNGSTEN_ORE);
+    private static final List<ItemConvertible> BRONZE_SMELTABLES = List.of(
+            ModItems.BRONZE_COMPOUND);
+    private static final List<ItemConvertible> STEEL_SMELTABLES = List.of(
+            ModItems.STEEL_COMPOUND);
 
 
 
@@ -71,6 +75,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 1.0f, 200, "tungsten_ingot");   //Diamond is 1.0
         offerBlasting(exporter, TUNGSTEN_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
                 1.0f, 100, "tungsten_ingot");
+        offerSmelting(exporter, BRONZE_SMELTABLES, RecipeCategory.MISC, ModItems.BRONZE_INGOT,
+                0.7f, 200, "bronze_ingot");    //Iron is 0.7
+        offerBlasting(exporter, BRONZE_SMELTABLES, RecipeCategory.MISC, ModItems.BRONZE_INGOT,
+                0.7f, 100, "bronze_ingot");
+        offerSmelting(exporter, STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL_INGOT,
+                0.7f, 200, "steel_ingot");   //Diamond is 1.0
+        offerBlasting(exporter, STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL_INGOT,
+                0.7f, 100, "steel_ingot");
         //endregion
 
         //region STORAGE BLOCKS

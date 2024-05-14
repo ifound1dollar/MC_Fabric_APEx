@@ -62,14 +62,12 @@
 
 
 
-  "item.simplegear.cobalt_steel_bow": "Cobalt Steel Bow",
+  "item.simplegear.cobalt_steel_bow": "Cobalt-Steel Bow",
   "item.simplegear.infused_gemstone_bow": "Infused Gemstone Bow",
-  "item.simplegear.netherite_bow": "Netherite Bow",
   "item.simplegear.tungsten_carbide_bow": "Tungsten-Carbide Bow",
 
-  "item.simplegear.cobalt_steel_crossbow": "Cobalt Steel Crossbow",
+  "item.simplegear.cobalt_steel_crossbow": "Cobalt-Steel Crossbow",
   "item.simplegear.infused_gemstone_crossbow": "Infused Gemstone Crossbow",
-  "item.simplegear.netherite_crossbow": "Netherite Crossbow",
   "item.simplegear.tungsten_carbide_crossbow": "Tungsten-Carbide Crossbow",
 
   "item.simplegear.bronze_helmet": "Bronze Helmet",
@@ -137,11 +135,6 @@
   "item.simplegear.collector_kathleens_lost_diadem": "§eKathleen's Lost Diadem",
   "item.simplegear.collector_potion_of_everlasting_youth": "§ePotion of Everlasting Youth",
   "item.simplegear.collector_slightly_overcooked_chicken": "§eSlightly Overcooked Chicken",
-
-
-
-  "enchantment.simplegear.hardness": "Hardness",
-  "enchantment.simplegear.poison_edge": "Poison Edge",
 
 
 
