@@ -3,15 +3,17 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "simplegear:shears_from_tin_forward"
+        "recipe": "simplegear:tin_ingot_from_nugget"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_tin_ingot": {
+    "has_tin_nugget": {
       "conditions": {
         "items": [
           {
-            "tag": "c:tin_ingots"
+            "items": [
+              "simplegear:tin_nugget"
+            ]
           }
         ]
       },
@@ -20,13 +22,13 @@
   },
   "requirements": [
     [
-      "has_tin_ingot",
+      "has_tin_nugget",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "simplegear:shears_from_tin_forward"
+      "simplegear:tin_ingot_from_nugget"
     ]
   },
   "sends_telemetry_event": false

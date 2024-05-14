@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "simplegear:bucket_from_tin"
+        "recipe": "simplegear:compass_from_tin_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "simplegear:bucket_from_tin"
+      "simplegear:compass_from_tin_ingot"
     ]
   },
   "sends_telemetry_event": false

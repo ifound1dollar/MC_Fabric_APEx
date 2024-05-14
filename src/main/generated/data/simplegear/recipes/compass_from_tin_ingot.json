@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": {
+      "tag": "c:tin_ingots"
+    },
+    "i": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    " d ",
+    "did",
+    " d "
+  ],
+  "result": {
+    "item": "minecraft:compass"
+  },
+  "show_notification": true
+}

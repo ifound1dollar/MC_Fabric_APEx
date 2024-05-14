@@ -95,6 +95,44 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 RecipeCategory.DECORATIONS, ModBlocks.STEEL_BLOCK);
         //endregion
 
+        //region NUGGETS (cannot use compacting recipes helper because duplicate ingot recipe names)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TIN_NUGGET, 9)
+                .input(Ingredient.fromTag(ModTags.Items.COMMON_TIN_INGOTS), 1)
+                .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "tin_nugget_from_ingot"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TIN_INGOT, 1)
+                .input(Ingredient.ofItems(ModItems.TIN_NUGGET), 9)
+                .criterion("has_tin_nugget", conditionsFromItem(ModItems.TIN_NUGGET))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "tin_ingot_from_nugget"));
+        
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TUNGSTEN_NUGGET, 9)
+                .input(Ingredient.fromTag(ModTags.Items.COMMON_TUNGSTEN_INGOTS), 1)
+                .criterion("has_tungsten_ingot", conditionsFromTag(ModTags.Items.COMMON_TUNGSTEN_INGOTS))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "tungsten_nugget_from_ingot"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT, 1)
+                .input(Ingredient.ofItems(ModItems.TUNGSTEN_NUGGET), 9)
+                .criterion("has_tungsten_nugget", conditionsFromItem(ModItems.TUNGSTEN_NUGGET))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "tungsten_ingot_from_nugget"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BRONZE_NUGGET, 9)
+                .input(Ingredient.fromTag(ModTags.Items.COMMON_BRONZE_INGOTS), 1)
+                .criterion("has_bronze_ingot", conditionsFromTag(ModTags.Items.COMMON_BRONZE_INGOTS))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "bronze_nugget_from_ingot"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BRONZE_INGOT, 1)
+                .input(Ingredient.ofItems(ModItems.BRONZE_NUGGET), 9)
+                .criterion("has_bronze_nugget", conditionsFromItem(ModItems.BRONZE_NUGGET))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "bronze_ingot_from_nugget"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STEEL_NUGGET, 9)
+                .input(Ingredient.fromTag(ModTags.Items.COMMON_STEEL_INGOTS), 1)
+                .criterion("has_steel_ingot", conditionsFromTag(ModTags.Items.COMMON_STEEL_INGOTS))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "steel_nugget_from_ingot"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STEEL_INGOT, 1)
+                .input(Ingredient.ofItems(ModItems.STEEL_NUGGET), 9)
+                .criterion("has_steel_nugget", conditionsFromItem(ModItems.STEEL_NUGGET))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "steel_ingot_from_nugget"));
+        //endregion
+
         //region PHOSPHATE POWDER RECIPES
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GUNPOWDER, 2)
                 .input(Ingredient.ofItems(ModItems.PHOSPHATE_POWDER), 1)
@@ -110,25 +148,81 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.FERTILIZER)));
         //endregion
 
-        //region SPECIAL TIN RECIPES
+        //region IRON-REPLACEMENT TIN RECIPES
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BUCKET, 1)
                 .input('d', ModTags.Items.COMMON_TIN_INGOTS)
                 .pattern("d d")
                 .pattern(" d ")
                 .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
-                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "bucket_from_tin"));
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "bucket_from_tin_ingot"));
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.SHEARS, 1)
                 .input('d', ModTags.Items.COMMON_TIN_INGOTS)
                 .pattern(" d")
                 .pattern("d ")
                 .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
-                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "shears_from_tin_forward"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.SHEARS, 1)
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "shears_from_tin_ingot"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.LANTERN, 1)
+                .input('d', ModItems.TIN_NUGGET)
+                .input('i', Items.TORCH)
+                .pattern("ddd")
+                .pattern("did")
+                .pattern("ddd")
+                .criterion("has_tin_nugget", conditionsFromItem(ModItems.TIN_NUGGET))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "lantern_from_tin_nugget"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.SOUL_LANTERN, 1)
+                .input('d', ModItems.TIN_NUGGET)
+                .input('i', Items.SOUL_TORCH)
+                .pattern("ddd")
+                .pattern("did")
+                .pattern("ddd")
+                .criterion("has_tin_nugget", conditionsFromItem(ModItems.TIN_NUGGET))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "soul_lantern_from_tin_nugget"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.TRIPWIRE_HOOK, 2)
                 .input('d', ModTags.Items.COMMON_TIN_INGOTS)
-                .pattern("d ")
-                .pattern(" d")
+                .input('i', ModTags.Items.COMMON_WOODEN_RODS)
+                .input('n', ItemTags.PLANKS)
+                .pattern("d")
+                .pattern("i")
+                .pattern("n")
                 .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
-                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "shears_from_tin_backward"));
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "tripwire_hook_from_tin_ingot"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.HOPPER, 1)
+                .input('d', ModTags.Items.COMMON_TIN_INGOTS)
+                .input('i', ModTags.Items.COMMON_CHESTS)
+                .pattern("d d")
+                .pattern("did")
+                .pattern(" d ")
+                .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "hopper_from_tin_ingot"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FLINT_AND_STEEL, 1)
+                .input(Ingredient.fromTag(ModTags.Items.COMMON_TIN_INGOTS), 1)
+                .input(Ingredient.ofItems(Items.FLINT), 1)
+                .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "flint_and_steel_from_tin_ingot"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.COMPASS, 1)
+                .input('d', ModTags.Items.COMMON_TIN_INGOTS)
+                .input('i', Items.REDSTONE)
+                .pattern(" d ")
+                .pattern("did")
+                .pattern(" d ")
+                .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "compass_from_tin_ingot"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.CHAIN, 1)
+                .input('d', ModItems.TIN_NUGGET)
+                .input('i', ModTags.Items.COMMON_TIN_INGOTS)
+                .pattern("d")
+                .pattern("i")
+                .pattern("d")
+                .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
+                .criterion("has_tin_nugget", conditionsFromItem(ModItems.TIN_NUGGET))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "chain_from_tin_ingot_and_nugget"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.CAULDRON, 1)
+                .input('d', ModTags.Items.COMMON_TIN_INGOTS)
+                .pattern("d d")
+                .pattern("d d")
+                .pattern("ddd")
+                .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
+                .offerTo(exporter, new Identifier(ModMain.MOD_ID, "cauldron_from_tin_ingot"));
         //endregion
 
         //region COMPOUNDS AND ENDGAME INGREDIENT ITEMS (shapeless)

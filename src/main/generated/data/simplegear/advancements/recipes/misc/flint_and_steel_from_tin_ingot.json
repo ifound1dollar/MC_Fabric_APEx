@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "simplegear:shears_from_tin_backward"
+        "recipe": "simplegear:flint_and_steel_from_tin_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "simplegear:shears_from_tin_backward"
+      "simplegear:flint_and_steel_from_tin_ingot"
     ]
   },
   "sends_telemetry_event": false

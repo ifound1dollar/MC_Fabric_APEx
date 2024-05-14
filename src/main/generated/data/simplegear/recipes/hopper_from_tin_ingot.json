@@ -4,14 +4,18 @@
   "key": {
     "d": {
       "tag": "c:tin_ingots"
+    },
+    "i": {
+      "tag": "c:chests"
     }
   },
   "pattern": [
-    "d ",
-    " d"
+    "d d",
+    "did",
+    " d "
   ],
   "result": {
-    "item": "minecraft:shears"
+    "item": "minecraft:hopper"
   },
   "show_notification": true
 }

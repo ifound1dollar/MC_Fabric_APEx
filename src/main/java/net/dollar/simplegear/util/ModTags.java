@@ -64,6 +64,8 @@ public class ModTags {
                 new Identifier("c", "bronze_ingots"));
         public static final TagKey<Item> COMMON_CHESTPLATES = TagKey.of(RegistryKeys.ITEM,
                 new Identifier("c", "chestplates"));
+        public static final TagKey<Item> COMMON_CHESTS = TagKey.of(RegistryKeys.ITEM,
+                new Identifier("c", "chests"));
         public static final TagKey<Item> COMMON_COPPER_INGOTS = TagKey.of(RegistryKeys.ITEM,
                 new Identifier("c", "copper_ingots"));
         public static final TagKey<Item> COMMON_CROSSBOWS = TagKey.of(RegistryKeys.ITEM,

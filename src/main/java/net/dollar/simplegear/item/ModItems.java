@@ -59,17 +59,25 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item TIN_INGOT = registerItem("tin_ingot",
             new Item(new FabricItemSettings()));
+    public static final Item TIN_NUGGET = registerItem("tin_nugget",
+            new Item(new FabricItemSettings()));
     public static final Item BRONZE_COMPOUND = registerItem("bronze_compound",
             new Item(new FabricItemSettings()));
     public static final Item BRONZE_INGOT = registerItem("bronze_ingot",
+            new Item(new FabricItemSettings()));
+    public static final Item BRONZE_NUGGET = registerItem("bronze_nugget",
             new Item(new FabricItemSettings()));
     public static final Item STEEL_COMPOUND = registerItem("steel_compound",
             new Item(new FabricItemSettings()));
     public static final Item STEEL_INGOT = registerItem("steel_ingot",
             new Item(new FabricItemSettings()));
+    public static final Item STEEL_NUGGET = registerItem("steel_nugget",
+            new Item(new FabricItemSettings()));
     public static final Item RAW_TUNGSTEN = registerItem("raw_tungsten",
             new Item(new FabricItemSettings()));
     public static final Item TUNGSTEN_INGOT = registerItem("tungsten_ingot",
+            new Item(new FabricItemSettings()));
+    public static final Item TUNGSTEN_NUGGET = registerItem("tungsten_nugget",
             new Item(new FabricItemSettings()));
     //endregion
 

@@ -54,12 +54,16 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PHOSPHATE_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_TIN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TIN_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TIN_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_TUNGSTEN, Models.GENERATED);
         itemModelGenerator.register(ModItems.TUNGSTEN_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TUNGSTEN_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.BRONZE_COMPOUND, Models.GENERATED);
         itemModelGenerator.register(ModItems.BRONZE_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BRONZE_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.STEEL_COMPOUND, Models.GENERATED);
         itemModelGenerator.register(ModItems.STEEL_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.STEEL_NUGGET, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.COMPOUND_GEMSTONE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HANDFUL_OF_STARDUST, Models.GENERATED);

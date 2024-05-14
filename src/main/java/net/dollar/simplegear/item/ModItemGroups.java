@@ -60,12 +60,16 @@ public class ModItemGroups {
                         entries.add(ModItems.PHOSPHATE_POWDER);
                         entries.add(ModItems.RAW_TIN);
                         entries.add(ModItems.TIN_INGOT);
+                        entries.add(ModItems.TIN_NUGGET);
                         entries.add(ModItems.RAW_TUNGSTEN);
                         entries.add(ModItems.TUNGSTEN_INGOT);
+                        entries.add(ModItems.TUNGSTEN_NUGGET);
                         entries.add(ModItems.BRONZE_COMPOUND);
                         entries.add(ModItems.BRONZE_INGOT);
+                        entries.add(ModItems.BRONZE_NUGGET);
                         entries.add(ModItems.STEEL_COMPOUND);
                         entries.add(ModItems.STEEL_INGOT);
+                        entries.add(ModItems.STEEL_NUGGET);
 
                         //Endgame upgrade items
                         entries.add(ModItems.MOLTEN_CORE);
