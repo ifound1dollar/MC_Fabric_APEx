@@ -87,6 +87,8 @@ public class ModLootTableModifiers {
 
             if (END_CITY_TREASURE_ID.equals(id)) endCityTreasureBuilder(tablebuilder);
 
+            if (IGLOO_CHEST_ID.equals(id)) iglooChestBuilder(tablebuilder);
+
             if (JUNGLE_TEMPLE_ID.equals(id)) jungleTempleBuilder(tablebuilder);
 
             if (NETHER_BRIDGE_ID.equals(id)) netherBridgeBuilder(tablebuilder);
@@ -94,6 +96,8 @@ public class ModLootTableModifiers {
             if (PILLAGER_OUTPOST_ID.equals(id)) pillagerOutpostBuilder(tablebuilder);
 
             if (RUINED_PORTAL_ID.equals(id)) ruinedPortalBuilder(tablebuilder);
+
+            if (SHIPWRECK_SUPPLY_ID.equals(id)) shipwreckSupplyBuilder(tablebuilder);
 
             if (SHIPWRECK_TREASURE_ID.equals(id)) shipwreckTreasureBuilder(tablebuilder);
 
@@ -144,11 +148,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
-                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        builder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         builder.pool(poolBuilder.build());
     }
@@ -170,6 +184,18 @@ public class ModLootTableModifiers {
                 .with(ItemEntry.builder(ModItems.INFUSION_UPGRADE_TEMPLATE))
                 .with(ItemEntry.builder(ModItems.CARBIDE_UPGRADE_TEMPLATE))
                 .with(ItemEntry.builder(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        builder.pool(poolBuilder.build());
+
+        //UPGRADE INGREDIENTS, RARE (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
+                .with(ItemEntry.builder(ModItems.RUBY))
+                .with(ItemEntry.builder(ModItems.SAPPHIRE))
+                .with(ItemEntry.builder(ModItems.STEEL_INGOT))
+                .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         builder.pool(poolBuilder.build());
     }
@@ -257,10 +283,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        builder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         builder.pool(poolBuilder.build());
     }
@@ -282,6 +319,16 @@ public class ModLootTableModifiers {
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, RARE (MULTIPLE ROLLS, SINGLE ITEM PER STACK) (REMEMBER: 4 chests)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -306,14 +353,47 @@ public class ModLootTableModifiers {
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
 
-        //UPGRADE INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        //UPGRADE INGREDIENTS, RARE (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+    }
+
+    private static void iglooChestBuilder(LootTable.Builder tablebuilder) {
+        //BASIC, VERY RARE
+        LootPool.Builder poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.1f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BASIC_UPGRADE_TEMPLATE))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //UPGRADE INGREDIENTS, RARE (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
+                .with(ItemEntry.builder(ModItems.RUBY))
+                .with(ItemEntry.builder(ModItems.SAPPHIRE))
+                .with(ItemEntry.builder(ModItems.STEEL_INGOT))
+                .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -331,10 +411,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -373,10 +464,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -394,10 +496,53 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+    }
+
+    private static void shipwreckSupplyBuilder(LootTable.Builder tablebuilder) {
+        //BASIC, VERY RARE
+        LootPool.Builder poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.1f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BASIC_UPGRADE_TEMPLATE))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //UPGRADE INGREDIENTS, RARE (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
+                .with(ItemEntry.builder(ModItems.RUBY))
+                .with(ItemEntry.builder(ModItems.SAPPHIRE))
+                .with(ItemEntry.builder(ModItems.STEEL_INGOT))
+                .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -415,10 +560,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -432,13 +588,14 @@ public class ModLootTableModifiers {
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
 
-        //FINISHED, VERY RARE
+        //FINISHED, (INCLUDE NETHERITE TEMPLATE HERE TOO) VERY RARE
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.1f)) //Chance to drop 0.0-1.0
                 .with(ItemEntry.builder(ModItems.COBALT_UPGRADE_TEMPLATE))
                 .with(ItemEntry.builder(ModItems.INFUSION_UPGRADE_TEMPLATE))
                 .with(ItemEntry.builder(ModItems.CARBIDE_UPGRADE_TEMPLATE))
+                .with(ItemEntry.builder(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
 
@@ -446,10 +603,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -474,10 +642,11 @@ public class ModLootTableModifiers {
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
 
-        //UPGRADE INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        //UPGRADE INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
@@ -506,10 +675,11 @@ public class ModLootTableModifiers {
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
 
-        //UPGRADE INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        //UPGRADE INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
@@ -538,10 +708,11 @@ public class ModLootTableModifiers {
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
 
-        //UPGRADE INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        //UPGRADE INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
@@ -563,10 +734,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -584,10 +766,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -605,10 +798,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -626,10 +830,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -647,10 +862,21 @@ public class ModLootTableModifiers {
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
                 .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
                 .with(ItemEntry.builder(ModItems.TUNGSTEN_INGOT))
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
+        tablebuilder.pool(poolBuilder.build());
+
+        //BASIC INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        poolBuilder = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
+                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
+                .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
+                .with(ItemEntry.builder(ModItems.TIN_INGOT))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
     }
@@ -675,10 +901,11 @@ public class ModLootTableModifiers {
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
 
-        //UPGRADE INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        //UPGRADE INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .with(ItemEntry.builder(ModItems.COBALT_SHARD))
                 .with(ItemEntry.builder(ModItems.RUBY))
                 .with(ItemEntry.builder(ModItems.SAPPHIRE))
                 .with(ItemEntry.builder(ModItems.STEEL_INGOT))
