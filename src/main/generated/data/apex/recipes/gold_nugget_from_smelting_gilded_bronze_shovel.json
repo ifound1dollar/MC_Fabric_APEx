@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "gold_nugget",
+  "ingredient": {
+    "item": "apex:gilded_bronze_shovel"
+  },
+  "result": "minecraft:gold_nugget"
+}

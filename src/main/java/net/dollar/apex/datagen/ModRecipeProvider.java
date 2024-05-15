@@ -40,6 +40,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private static final List<ItemConvertible> STEEL_SMELTABLES = List.of(
             ModItems.STEEL_COMPOUND);
 
+    private static final List<ItemConvertible> BRONZE_NUGGET_SMELTABLE_TOOLS = List.of(
+            ModItems.BRONZE_AXE, ModItems.BRONZE_HOE, ModItems.BRONZE_PICKAXE,
+            ModItems.BRONZE_SHOVEL, ModItems.BRONZE_SWORD, ModItems.BRONZE_HELMET,
+            ModItems.BRONZE_CHESTPLATE, ModItems.BRONZE_LEGGINGS, ModItems.BRONZE_BOOTS
+    );
+    private static final List<ItemConvertible> GOLD_NUGGET_SMELTABLE_TOOLS = List.of(
+            ModItems.GILDED_BRONZE_AXE, ModItems.GILDED_BRONZE_HOE, ModItems.GILDED_BRONZE_PICKAXE,
+            ModItems.GILDED_BRONZE_SHOVEL, ModItems.GILDED_BRONZE_SWORD, ModItems.GILDED_BRONZE_HELMET,
+            ModItems.GILDED_BRONZE_CHESTPLATE, ModItems.GILDED_BRONZE_LEGGINGS, ModItems.GILDED_BRONZE_BOOTS
+    );
+
 
 
     public ModRecipeProvider(FabricDataOutput output) {
@@ -83,6 +94,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 0.7f, 200, "steel_ingot");   //Diamond is 1.0
         offerBlasting(exporter, STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL_INGOT,
                 0.7f, 100, "steel_ingot");
+
+        offerSmelting(exporter, BRONZE_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, ModItems.BRONZE_NUGGET,
+                0.1f, 200, "bronze_nugget");   //Diamond is 1.0
+        offerBlasting(exporter, BRONZE_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, ModItems.BRONZE_NUGGET,
+                0.1f, 100, "bronze_nugget");
+        offerSmelting(exporter, GOLD_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, Items.GOLD_NUGGET,
+                0.1f, 200, "gold_nugget");   //Diamond is 1.0
+        offerBlasting(exporter, GOLD_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, Items.GOLD_NUGGET,
+                0.1f, 100, "gold_nugget");
         //endregion
 
         //region STORAGE BLOCKS

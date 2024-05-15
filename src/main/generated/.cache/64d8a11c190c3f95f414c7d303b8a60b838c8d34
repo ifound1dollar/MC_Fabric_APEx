@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-15T01:45:06.1569144	APEx - A Proper Equipment Expansion (Fabric)/Model Definitions
+// 1.20.1	2024-05-15T16:06:03.4677343	APEx - A Proper Equipment Expansion/Model Definitions
 88c351235db0a1ec3ccc79993132c5b26f41f32b assets\apex\models\item\bronze_ingot.json
 c7f81c2a568cf852b773c1a1437e5428b0bdd9aa assets\apex\models\item\carbide_upgrade_smithing_template.json
 2546b7752f4d0bb110f8485a5aefa19927f92f97 assets\apex\models\item\tungsten_carbide_paxel.json
@@ -118,8 +118,8 @@ be1c6dee59025c06915730a009cd17385b869ab5 assets\apex\models\item\collector_obsid
 f14f01174843263ac2d3e89c7387fa0880a24b70 assets\apex\models\item\phosphate_powder.json
 b750b53dbe448a3d46132be442713338a3519e3f assets\apex\models\item\collector_slightly_overcooked_chicken.json
 4290d6a818e2d4cd215cc1e529f661fdac3487bb assets\apex\blockstates\phosphate_ore.json
-33522f1949306c997a4b712c64e02a73a85c372e assets\apex\blockstates\sapphire_ore.json
 e3df9dcdb1f8342ff974a73de7ffbf2d9f89a5fb assets\apex\models\item\bronze_block.json
+33522f1949306c997a4b712c64e02a73a85c372e assets\apex\blockstates\sapphire_ore.json
 f46960f245c77d386ebcec6e3e03817dedf6d3a9 assets\apex\models\item\raw_tungsten_block.json
 ff2485896e06b14a4f521eb3ecf20f52ae46eb54 assets\apex\models\item\cobalt_steel_hoe.json
 30b041b3ab8c7d1ff7c4ec114b0c2d0ce1112f3f assets\apex\blockstates\sapphire_block.json

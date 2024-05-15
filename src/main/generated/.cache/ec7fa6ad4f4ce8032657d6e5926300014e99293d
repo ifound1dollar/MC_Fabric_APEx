@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-15T01:45:06.1579144	APEx - A Proper Equipment Expansion (Fabric)/World Gen
+// 1.20.1	2024-05-15T16:06:03.4687411	APEx - A Proper Equipment Expansion/World Gen
 16a26dfdffaa5f3ebeaf33eb600aa7d0344525ff data\apex\worldgen\placed_feature\tin_ore_placed.json
 792d38847b2dc72b65fc0e4f25a4f38483d00ce5 data\apex\worldgen\configured_feature\ruby_ore.json
 ea4b912f87ba3b1f874f15ebcf24dff643501101 data\apex\worldgen\placed_feature\ruby_ore_placed.json
@@ -7,8 +7,8 @@ a41b9d1260d7886cf5c8b1b943e9840345eb1a49 data\apex\worldgen\configured_feature\p
 8a18342266b128744ee3ea0e93b3d99c668dee2e data\apex\worldgen\configured_feature\tungsten_ore.json
 2063f704ded36f81d33aaa4a17d0404374bb2dcb data\apex\worldgen\configured_feature\tin_ore_small.json
 a81aabc8566206decc2e8a8843843386faed39d1 data\apex\worldgen\placed_feature\phosphate_ore_placed.json
-97aedf4570fb20884ae90b5005d142e188b85dbd data\apex\worldgen\configured_feature\sapphire_ore.json
 82cbcfa4a3aef82e1e8b2257fe34c8ca59ecbffa data\apex\worldgen\configured_feature\tin_ore.json
+97aedf4570fb20884ae90b5005d142e188b85dbd data\apex\worldgen\configured_feature\sapphire_ore.json
 be983cc87cffe796beb63423b8eb3fd0705003b9 data\apex\worldgen\placed_feature\tin_ore_small_placed.json
 d7a157d416ca92e04e4b63d8795df87c069fe5c5 data\apex\worldgen\configured_feature\cobalt_ore.json
 cc2d4fd84a3178e74932e688458c170f4d23a269 data\apex\worldgen\placed_feature\cobalt_ore_placed.json

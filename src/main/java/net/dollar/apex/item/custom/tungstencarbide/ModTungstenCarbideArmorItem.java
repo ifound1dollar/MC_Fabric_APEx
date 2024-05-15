@@ -46,7 +46,7 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEf
             isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
         }
 
-        return !(isFullSet && effect == StatusEffects.WEAKNESS);
+        return !(isFullSet && (effect == StatusEffects.SLOWNESS || effect == StatusEffects.LEVITATION));
     }
 
 

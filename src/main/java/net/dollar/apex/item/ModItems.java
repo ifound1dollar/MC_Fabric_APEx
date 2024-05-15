@@ -127,7 +127,7 @@ public class ModItems {
             new AxeItem(ModToolMaterials.BRONZE, 6.0f, -3.1f,
                     new FabricItemSettings()));
     public static final Item GILDED_BRONZE_AXE = registerItem("gilded_bronze_axe",
-            new AxeItem(ModToolMaterials.GILDED_BRONZE, 6.0f, -2.8f,
+            new AxeItem(ModToolMaterials.GILDED_BRONZE, 6.0f, -2.9f,
                     new FabricItemSettings()));
     public static final Item INFUSED_GEMSTONE_AXE = registerItem("infused_gemstone_axe",
             new ModInfusedGemstoneAxeItem(ModToolMaterials.INFUSED_GEMSTONE, 5.0f, -2.9f,

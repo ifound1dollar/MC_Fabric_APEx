@@ -19,13 +19,13 @@ public class ModUtils {
      * @param target Attacked (target) entity
      */
     public static void applyCobaltSteelOnHit(LivingEntity target) {
-        //Apply Slowness effect to target (attackedEntity) for configurable duration in seconds.
+        //Apply Weakness effect to target for configurable duration in seconds.
         //TODO: RE-IMPLEMENT CONFIGS
-        //Level 2 slow (third argument) for 30% reduction, 15%/level.
-//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
-//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 1));
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
-                4 * 20, 1));
+        //Level 1 (third argument) for 4 heart melee damage reduction.
+//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
+//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 0));
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
+                4 * 20, 0));
     }
     /**
      * Generates special tooltip for all Cobalt-Steel equipment and appends to Text list,
@@ -66,7 +66,7 @@ public class ModUtils {
      * @param target Attacked (target) entity
      */
     public static void applyInfusedGemstoneOnHit(LivingEntity target) {
-        //Apply Wither effect to target (attackedEntity) for configurable duration in seconds.
+        //Apply Wither effect to target for configurable duration in seconds.
         //TODO: RE-IMPLEMENT CONFIGS
         //Level 2 wither for once-per-second damage tick (duration +1 tick so ticks 4 times).
 //            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
@@ -113,13 +113,13 @@ public class ModUtils {
      * @param target Attacked (target) entity
      */
     public static void applyTungstenCarbideOnHit(LivingEntity target) {
-        //Apply Weakness effect to target for configurable duration in seconds.
+        //Apply Slowness effect to target for configurable duration in seconds.
         //TODO: RE-IMPLEMENT CONFIGS
-        //Level 1 (third argument) for 4 heart melee damage reduction.
-//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
-//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 0));
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
-                4 * 20, 0));
+        //Level 2 slow (third argument) for 30% reduction, 15%/level.
+//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
+//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 1));
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
+                4 * 20, 1));
     }
     /**
      * Generates special tooltip for all Tungsten-Carbide equipment and appends to Text list,
