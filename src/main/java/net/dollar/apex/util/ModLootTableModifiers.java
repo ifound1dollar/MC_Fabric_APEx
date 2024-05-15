@@ -126,10 +126,10 @@ public class ModLootTableModifiers {
 
 
     static void abandonedMineshaftBuilder(LootTable.Builder builder) {
-        //BASIC TEMPLATE, UNCOMMON
+        //BASIC TEMPLATE, RARE
         LootPool.Builder poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
                 .with(ItemEntry.builder(ModItems.BASIC_UPGRADE_TEMPLATE))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop PER ROLL
         builder.pool(poolBuilder.build());
@@ -399,10 +399,10 @@ public class ModLootTableModifiers {
     }
 
     private static void jungleTempleBuilder(LootTable.Builder tablebuilder) {
-        //BASIC, UNCOMMON
+        //BASIC, RARE
         LootPool.Builder poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
                 .with(ItemEntry.builder(ModItems.BASIC_UPGRADE_TEMPLATE))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
@@ -452,10 +452,10 @@ public class ModLootTableModifiers {
     }
 
     private static void pillagerOutpostBuilder(LootTable.Builder tablebuilder) {
-        //BASIC, COMMON
+        //BASIC, UNCOMMON
         LootPool.Builder poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
                 .with(ItemEntry.builder(ModItems.BASIC_UPGRADE_TEMPLATE))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
@@ -484,10 +484,10 @@ public class ModLootTableModifiers {
     }
 
     private static void ruinedPortalBuilder(LootTable.Builder tablebuilder) {
-        //BASIC, UNCOMMON
+        //BASIC, RARE
         LootPool.Builder poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
                 .with(ItemEntry.builder(ModItems.BASIC_UPGRADE_TEMPLATE))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
@@ -548,10 +548,10 @@ public class ModLootTableModifiers {
     }
 
     private static void shipwreckTreasureBuilder(LootTable.Builder tablebuilder) {
-        //BASIC, UNCOMMON
+        //BASIC, RARE
         LootPool.Builder poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
                 .with(ItemEntry.builder(ModItems.BASIC_UPGRADE_TEMPLATE))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
@@ -580,10 +580,10 @@ public class ModLootTableModifiers {
     }
 
     private static void simpleDungeonBuilder(LootTable.Builder tablebuilder) {
-        //BASIC, UNCOMMON
+        //BASIC, RARE
         LootPool.Builder poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
                 .with(ItemEntry.builder(ModItems.BASIC_UPGRADE_TEMPLATE))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
@@ -611,10 +611,10 @@ public class ModLootTableModifiers {
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
 
-        //BASIC INGREDIENTS, COMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
+        //BASIC INGREDIENTS, UNCOMMON (MULTIPLE ROLLS, SINGLE ITEM PER STACK)
         poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(2))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.5f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
                 .with(ItemEntry.builder(ModItems.BRONZE_INGOT))
                 .with(ItemEntry.builder(ModItems.PHOSPHATE_POWDER))
                 .with(ItemEntry.builder(ModItems.TIN_INGOT))
@@ -722,10 +722,10 @@ public class ModLootTableModifiers {
     }
 
     private static void underwaterRuinBigBuilder(LootTable.Builder tablebuilder) {
-        //BASIC, UNCOMMON
+        //BASIC, RARE
         LootPool.Builder poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
                 .with(ItemEntry.builder(ModItems.BASIC_UPGRADE_TEMPLATE))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
@@ -754,10 +754,10 @@ public class ModLootTableModifiers {
     }
 
     private static void underwaterRuinSmallBuilder(LootTable.Builder tablebuilder) {
-        //BASIC, UNCOMMON
+        //BASIC, RARE
         LootPool.Builder poolBuilder = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))    //Number of rolls
-                .conditionally(RandomChanceLootCondition.builder(0.33f)) //Chance to drop 0.0-1.0
+                .conditionally(RandomChanceLootCondition.builder(0.2f)) //Chance to drop 0.0-1.0
                 .with(ItemEntry.builder(ModItems.BASIC_UPGRADE_TEMPLATE))
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build()); //Range of items that will drop
         tablebuilder.pool(poolBuilder.build());
