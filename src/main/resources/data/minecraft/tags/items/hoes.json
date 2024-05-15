@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "simplegear:bronze_hoe",
-    "simplegear:gilded_bronze_hoe",
-    "simplegear:cobalt_steel_hoe",
-    "simplegear:infused_gemstone_hoe",
-    "simplegear:tungsten_carbide_hoe"
+    "apex:bronze_hoe",
+    "apex:gilded_bronze_hoe",
+    "apex:cobalt_steel_hoe",
+    "apex:infused_gemstone_hoe",
+    "apex:tungsten_carbide_hoe"
   ]
 }

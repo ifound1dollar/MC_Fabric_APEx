@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "simplegear:bronze_pickaxe",
-    "simplegear:gilded_bronze_pickaxe",
-    "simplegear:cobalt_steel_pickaxe",
-    "simplegear:infused_gemstone_pickaxe",
-    "simplegear:tungsten_carbide_pickaxe"
+    "apex:bronze_pickaxe",
+    "apex:gilded_bronze_pickaxe",
+    "apex:cobalt_steel_pickaxe",
+    "apex:infused_gemstone_pickaxe",
+    "apex:tungsten_carbide_pickaxe"
   ]
 }

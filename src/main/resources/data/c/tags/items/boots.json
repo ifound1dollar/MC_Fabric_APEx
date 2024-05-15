@@ -8,10 +8,10 @@
     "minecraft:diamond_boots",
     "minecraft:netherite_boots",
 
-    "simplegear:bronze_boots",
-    "simplegear:gilded_bronze_boots",
-    "simplegear:cobalt_steel_boots",
-    "simplegear:infused_gemstone_boots",
-    "simplegear:tungsten_carbide_boots"
+    "apex:bronze_boots",
+    "apex:gilded_bronze_boots",
+    "apex:cobalt_steel_boots",
+    "apex:infused_gemstone_boots",
+    "apex:tungsten_carbide_boots"
   ]
 }

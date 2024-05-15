@@ -6,9 +6,9 @@
     "minecraft:gold_ingot",
     "minecraft:netherite_ingot",
 
-    "simplegear:bronze_ingot",
-    "simplegear:steel_ingot",
-    "simplegear:tin_ingot",
-    "simplegear:tungsten_ingot"
+    "apex:bronze_ingot",
+    "apex:steel_ingot",
+    "apex:tin_ingot",
+    "apex:tungsten_ingot"
   ]
 }

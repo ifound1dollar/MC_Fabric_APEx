@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "apex:tungsten_carbide_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_shovel"
+  },
+  "result": {
+    "item": "apex:tungsten_carbide_shovel"
+  },
+  "template": {
+    "item": "apex:carbide_upgrade_smithing_template"
+  }
+}

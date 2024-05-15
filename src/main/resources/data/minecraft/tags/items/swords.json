@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "simplegear:bronze_sword",
-    "simplegear:gilded_bronze_sword",
-    "simplegear:cobalt_steel_sword",
-    "simplegear:infused_gemstone_sword",
-    "simplegear:tungsten_carbide_sword"
+    "apex:bronze_sword",
+    "apex:gilded_bronze_sword",
+    "apex:cobalt_steel_sword",
+    "apex:infused_gemstone_sword",
+    "apex:tungsten_carbide_sword"
   ]
 }

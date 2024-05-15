@@ -3,8 +3,8 @@
   "values": [
     "minecraft:bow",
 
-    "simplegear:cobalt_steel_bow",
-    "simplegear:infused_gemstone_bow",
-    "simplegear:tungsten_carbide_bow"
+    "apex:cobalt_steel_bow",
+    "apex:infused_gemstone_bow",
+    "apex:tungsten_carbide_bow"
   ]
 }

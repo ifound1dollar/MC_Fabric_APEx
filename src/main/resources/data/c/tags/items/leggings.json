@@ -8,10 +8,10 @@
     "minecraft:diamond_leggings",
     "minecraft:netherite_leggings",
     
-    "simplegear:bronze_leggings",
-    "simplegear:gilded_bronze_leggings",
-    "simplegear:cobalt_steel_leggings",
-    "simplegear:infused_gemstone_leggings",
-    "simplegear:tungsten_carbide_leggings"
+    "apex:bronze_leggings",
+    "apex:gilded_bronze_leggings",
+    "apex:cobalt_steel_leggings",
+    "apex:infused_gemstone_leggings",
+    "apex:tungsten_carbide_leggings"
   ]
 }

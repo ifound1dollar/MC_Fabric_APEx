@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:steel_ingots"
+    },
+    {
+      "tag": "c:steel_ingots"
+    },
+    {
+      "tag": "c:steel_ingots"
+    },
+    {
+      "tag": "c:steel_ingots"
+    },
+    {
+      "item": "apex:cobalt_shard"
+    },
+    {
+      "item": "apex:cobalt_shard"
+    },
+    {
+      "item": "apex:cobalt_shard"
+    },
+    {
+      "item": "apex:cobalt_shard"
+    },
+    {
+      "item": "apex:molten_core"
+    }
+  ],
+  "result": {
+    "item": "apex:cobalt_steel_ingot"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": {
+      "tag": "c:gold_ingots"
+    },
+    "i": {
+      "item": "apex:bronze_leggings"
+    }
+  },
+  "pattern": [
+    "ddd",
+    "did",
+    "ddd"
+  ],
+  "result": {
+    "item": "apex:gilded_bronze_leggings"
+  },
+  "show_notification": true
+}

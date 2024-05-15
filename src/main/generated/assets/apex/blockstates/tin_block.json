@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "apex:block/tin_block"
+    }
+  }
+}

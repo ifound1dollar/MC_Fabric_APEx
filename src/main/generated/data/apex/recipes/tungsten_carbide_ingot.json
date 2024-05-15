@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:tungsten_ingots"
+    },
+    {
+      "tag": "c:tungsten_ingots"
+    },
+    {
+      "tag": "c:tungsten_ingots"
+    },
+    {
+      "tag": "c:tungsten_ingots"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "apex:molten_core"
+    }
+  ],
+  "result": {
+    "item": "apex:tungsten_carbide_ingot"
+  }
+}

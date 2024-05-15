@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "apex:cobalt_steel_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_boots"
+  },
+  "result": {
+    "item": "apex:cobalt_steel_boots"
+  },
+  "template": {
+    "item": "apex:cobalt_upgrade_smithing_template"
+  }
+}

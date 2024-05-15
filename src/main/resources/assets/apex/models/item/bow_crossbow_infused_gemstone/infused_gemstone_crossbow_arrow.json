@@ -1,0 +1,6 @@
+{
+    "parent": "apex:item/infused_gemstone_crossbow",
+    "textures": {
+        "layer0": "apex:item/infused_gemstone_crossbow_arrow"
+    }
+}

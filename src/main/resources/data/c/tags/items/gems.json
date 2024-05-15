@@ -5,7 +5,7 @@
     "minecraft:diamond",
     "minecraft:emerald",
 
-    "simplegear:ruby",
-    "simplegear:sapphire"
+    "apex:ruby",
+    "apex:sapphire"
   ]
 }

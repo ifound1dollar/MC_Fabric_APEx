@@ -1,11 +1,12 @@
 {
   "replace": false,
   "values": [
-    "simplegear:bronze_block",
-    "simplegear:steel_block",
-    "simplegear:tungsten_block",
-    "simplegear:ruby_block",
-    "simplegear:sapphire_block",
-    "simplegear:decorative_amethyst_block"
+    "apex:bronze_block",
+    "apex:steel_block",
+    "apex:tungsten_block",
+    "apex:ruby_block",
+    "apex:sapphire_block",
+    "apex:decorative_amethyst_block",
+    "apex:cobalt_block"
   ]
 }

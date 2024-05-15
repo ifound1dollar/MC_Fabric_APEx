@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "apex:item/infused_gemstone_helmet",
+    "layer1": "minecraft:trims/items/helmet_trim_netherite"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "apex:block/bronze_block"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "apex:item/cobalt_steel_crossbow",
+    "textures": {
+        "layer0": "apex:item/cobalt_steel_crossbow_arrow"
+    }
+}

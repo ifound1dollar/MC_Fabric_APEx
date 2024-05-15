@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "apex:tungsten_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "apex:tungsten_ingot"
+  }
+}

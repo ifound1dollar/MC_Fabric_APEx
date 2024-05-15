@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "simplegear:obsidian_golem",
-    "simplegear:kathleen_the_wicked",
-    "simplegear:old_lady_muff",
-    "simplegear:the_helirooster"
+    "apex:obsidian_golem",
+    "apex:kathleen_the_wicked",
+    "apex:old_lady_muff",
+    "apex:the_helirooster"
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "apex:compound_gemstone"
+    },
+    {
+      "item": "apex:handful_of_stardust"
+    }
+  ],
+  "result": {
+    "item": "apex:infused_gemstone"
+  }
+}

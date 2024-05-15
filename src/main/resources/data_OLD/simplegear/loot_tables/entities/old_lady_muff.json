@@ -1,4 +1,4 @@
 {
   "type": "minecraft:entity",
-  "random_sequence": "simplegear:entities/old_lady_muff"
+  "random_sequence": "apex:entities/old_lady_muff"
 }

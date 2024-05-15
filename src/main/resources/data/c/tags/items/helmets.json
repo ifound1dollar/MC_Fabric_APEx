@@ -8,10 +8,10 @@
     "minecraft:diamond_helmet",
     "minecraft:netherite_helmet",
     
-    "simplegear:bronze_helmet",
-    "simplegear:gilded_bronze_helmet",
-    "simplegear:cobalt_steel_helmet",
-    "simplegear:infused_gemstone_helmet",
-    "simplegear:tungsten_carbide_helmet"
+    "apex:bronze_helmet",
+    "apex:gilded_bronze_helmet",
+    "apex:cobalt_steel_helmet",
+    "apex:infused_gemstone_helmet",
+    "apex:tungsten_carbide_helmet"
   ]
 }

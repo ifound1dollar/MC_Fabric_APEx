@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "apex:item/cobalt_steel_battleaxe"
+  }
+}

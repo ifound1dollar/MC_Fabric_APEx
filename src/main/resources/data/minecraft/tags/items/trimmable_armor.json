@@ -1,29 +1,29 @@
 {
   "replace": false,
   "values": [
-    "simplegear:bronze_helmet",
-    "simplegear:bronze_chestplate",
-    "simplegear:bronze_leggings",
-    "simplegear:bronze_boots",
+    "apex:bronze_helmet",
+    "apex:bronze_chestplate",
+    "apex:bronze_leggings",
+    "apex:bronze_boots",
 
-    "simplegear:gilded_bronze_helmet",
-    "simplegear:gilded_bronze_chestplate",
-    "simplegear:gilded_bronze_leggings",
-    "simplegear:gilded_bronze_boots",
+    "apex:gilded_bronze_helmet",
+    "apex:gilded_bronze_chestplate",
+    "apex:gilded_bronze_leggings",
+    "apex:gilded_bronze_boots",
 
-    "simplegear:cobalt_steel_helmet",
-    "simplegear:cobalt_steel_chestplate",
-    "simplegear:cobalt_steel_leggings",
-    "simplegear:cobalt_steel_boots",
+    "apex:cobalt_steel_helmet",
+    "apex:cobalt_steel_chestplate",
+    "apex:cobalt_steel_leggings",
+    "apex:cobalt_steel_boots",
 
-    "simplegear:infused_gemstone_helmet",
-    "simplegear:infused_gemstone_chestplate",
-    "simplegear:infused_gemstone_leggings",
-    "simplegear:infused_gemstone_boots",
+    "apex:infused_gemstone_helmet",
+    "apex:infused_gemstone_chestplate",
+    "apex:infused_gemstone_leggings",
+    "apex:infused_gemstone_boots",
 
-    "simplegear:tungsten_carbide_helmet",
-    "simplegear:tungsten_carbide_chestplate",
-    "simplegear:tungsten_carbide_leggings",
-    "simplegear:tungsten_carbide_boots"
+    "apex:tungsten_carbide_helmet",
+    "apex:tungsten_carbide_chestplate",
+    "apex:tungsten_carbide_leggings",
+    "apex:tungsten_carbide_boots"
   ]
 }

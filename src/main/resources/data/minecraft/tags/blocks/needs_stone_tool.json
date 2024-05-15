@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "simplegear:tin_block",
-    "simplegear:raw_tin_block",
-    "simplegear:tin_ore",
-    "simplegear:deepslate_tin_ore",
+    "apex:tin_block",
+    "apex:raw_tin_block",
+    "apex:tin_ore",
+    "apex:deepslate_tin_ore",
 
-    "simplegear:bronze_block",
+    "apex:bronze_block",
 
-    "simplegear:phosphate_ore",
-    "simplegear:deepslate_phosphate_ore"
+    "apex:phosphate_ore",
+    "apex:deepslate_phosphate_ore"
   ]
 }

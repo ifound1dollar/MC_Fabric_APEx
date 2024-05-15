@@ -1,0 +1,23 @@
+// 1.20.1	2024-05-15T01:45:06.1569144	APEx - A Proper Equipment Expansion (Fabric)/Block Loot Tables
+e4287f00a755a20baa19d83091e2f532dfd27dac data\apex\loot_tables\blocks\deepslate_phosphate_ore.json
+323a5bdc2e374263027e1554c9ddcd993d388a81 data\apex\loot_tables\blocks\sapphire_ore.json
+3ea10c4a8f94cd3f80ab517547aedaf6f17b55f1 data\apex\loot_tables\blocks\tungsten_block.json
+e75c1dd5abf1438c6c7475752df09dec6384b59e data\apex\loot_tables\blocks\bronze_block.json
+d5c53bb4a8eafeeab8a1cc9e3f47857bfab641f7 data\apex\loot_tables\blocks\phosphate_ore.json
+6ac06696038caa8f1232cff55b06ef0eaa303c57 data\apex\loot_tables\blocks\steel_block.json
+e2655e8c51e98207f5cf0e31a262e41c2d8234b3 data\apex\loot_tables\blocks\deepslate_sapphire_ore.json
+e7f3fc16ad42ab6520843ac2a713c4d652488117 data\apex\loot_tables\blocks\tungsten_ore.json
+2552d2ac09f9125d9f35056f0a21fb3a1721b632 data\apex\loot_tables\blocks\ruby_ore.json
+2ba6dc2dd72e8d5562a88d41230c4e5def997c32 data\apex\loot_tables\blocks\deepslate_tungsten_ore.json
+3087d17781d7c6c242ce9e1564fc45f648bafd2b data\apex\loot_tables\blocks\cobalt_block.json
+036d4fe70e72f6e7050958332e1ac90b5c884b85 data\apex\loot_tables\blocks\deepslate_ruby_ore.json
+f6e36d3024fd35b9165ab9a4325ac08d012cc974 data\apex\loot_tables\blocks\decorative_amethyst_block.json
+9f5705e2f9a3201e3d9f260f05b2a4439cca2383 data\apex\loot_tables\blocks\deepslate_cobalt_ore.json
+dd7a43246dff855997eeee61948d91a85ed7e12d data\apex\loot_tables\blocks\sapphire_block.json
+b6b6a12bf3e2e12a682d40bf94d7cbc351f0e97a data\apex\loot_tables\blocks\tin_block.json
+e11c46dfdd8359ce57ddf4ff61e6f506b87a1b36 data\apex\loot_tables\blocks\ruby_block.json
+a85708fa05aaa3f0daa26d2ebb9c8e78997d6acf data\apex\loot_tables\blocks\tin_ore.json
+4c926f68ee5c379b436f32ae9699b06b11581bcb data\apex\loot_tables\blocks\cobalt_ore.json
+a5962bdb053132032609512d3bef7191d7b9358d data\apex\loot_tables\blocks\raw_tin_block.json
+d3d4ceaab4c9e8ec71a101dd641e5925cb27612a data\apex\loot_tables\blocks\raw_tungsten_block.json
+98b84a271b18d8b08dddfc0d2f544ab264cea60d data\apex\loot_tables\blocks\deepslate_tin_ore.json

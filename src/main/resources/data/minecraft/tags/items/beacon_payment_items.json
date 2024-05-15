@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "simplegear:bronze_ingot",
-    "simplegear:steel_ingot",
-    "simplegear:tungsten_ingot",
-    "simplegear:ruby",
-    "simplegear:sapphire"
+    "apex:bronze_ingot",
+    "apex:steel_ingot",
+    "apex:tungsten_ingot",
+    "apex:ruby",
+    "apex:sapphire"
   ]
 }

@@ -38,5 +38,6 @@ hs_err_*.log
 replay_*.log
 *.hprof
 *.jfr
-/src/main/resources/assets/simplegear/textures/item/deprecated/
-/src/main/resources/assets/simplegear/textures/item/TEMP
+/src/main/resources/assets/apex/textures/item/deprecated/
+/src/main/resources/assets/apex/textures/item/TEMP
+/src/main/resources/assets/apex/textures/block/TEMP

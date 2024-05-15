@@ -1,4 +1,4 @@
 {
   "type": "minecraft:entity",
-  "random_sequence": "simplegear:entities/obsidian_golem"
+  "random_sequence": "apex:entities/obsidian_golem"
 }

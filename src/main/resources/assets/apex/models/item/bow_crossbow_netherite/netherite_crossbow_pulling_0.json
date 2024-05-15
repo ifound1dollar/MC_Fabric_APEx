@@ -1,0 +1,6 @@
+{
+    "parent": "apex:item/netherite_crossbow",
+    "textures": {
+        "layer0": "apex:item/netherite_crossbow_pulling_0"
+    }
+}

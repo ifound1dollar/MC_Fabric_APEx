@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "apex:item/infused_gemstone_leggings",
+    "layer1": "minecraft:trims/items/leggings_trim_quartz"
+  }
+}

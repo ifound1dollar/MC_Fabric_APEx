@@ -37,17 +37,17 @@
       "id": "#c:quartz_ores",
       "required": false
     },
-    "simplegear:cobalt_ore",
-    "simplegear:deepslate_cobalt_ore",
-    "simplegear:phosphate_ore",
-    "simplegear:deepslate_phosphate_ore",
-    "simplegear:ruby_ore",
-    "simplegear:deepslate_ruby_ore",
-    "simplegear:sapphire_ore",
-    "simplegear:deepslate_sapphire_ore",
-    "simplegear:tin_ore",
-    "simplegear:deepslate_tin_ore",
-    "simplegear:tungsten_ore",
-    "simplegear:deepslate_tungsten_ore"
+    "apex:cobalt_ore",
+    "apex:deepslate_cobalt_ore",
+    "apex:phosphate_ore",
+    "apex:deepslate_phosphate_ore",
+    "apex:ruby_ore",
+    "apex:deepslate_ruby_ore",
+    "apex:sapphire_ore",
+    "apex:deepslate_sapphire_ore",
+    "apex:tin_ore",
+    "apex:deepslate_tin_ore",
+    "apex:tungsten_ore",
+    "apex:deepslate_tungsten_ore"
   ]
 }

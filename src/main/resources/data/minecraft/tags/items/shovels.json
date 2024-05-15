@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "simplegear:bronze_shovel",
-    "simplegear:gilded_bronze_shovel",
-    "simplegear:cobalt_steel_shovel",
-    "simplegear:infused_gemstone_shovel",
-    "simplegear:tungsten_carbide_shovel"
+    "apex:bronze_shovel",
+    "apex:gilded_bronze_shovel",
+    "apex:cobalt_steel_shovel",
+    "apex:infused_gemstone_shovel",
+    "apex:tungsten_carbide_shovel"
   ]
 }

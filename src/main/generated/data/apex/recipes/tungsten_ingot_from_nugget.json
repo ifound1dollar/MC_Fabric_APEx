@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "apex:tungsten_nugget"
+    },
+    {
+      "item": "apex:tungsten_nugget"
+    },
+    {
+      "item": "apex:tungsten_nugget"
+    },
+    {
+      "item": "apex:tungsten_nugget"
+    },
+    {
+      "item": "apex:tungsten_nugget"
+    },
+    {
+      "item": "apex:tungsten_nugget"
+    },
+    {
+      "item": "apex:tungsten_nugget"
+    },
+    {
+      "item": "apex:tungsten_nugget"
+    },
+    {
+      "item": "apex:tungsten_nugget"
+    }
+  ],
+  "result": {
+    "item": "apex:tungsten_ingot"
+  }
+}

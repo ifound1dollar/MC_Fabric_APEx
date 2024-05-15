@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": {
+      "tag": "c:gold_ingots"
+    },
+    "i": {
+      "item": "apex:bronze_sword"
+    }
+  },
+  "pattern": [
+    "ddd",
+    "did",
+    "ddd"
+  ],
+  "result": {
+    "item": "apex:gilded_bronze_sword"
+  },
+  "show_notification": true
+}

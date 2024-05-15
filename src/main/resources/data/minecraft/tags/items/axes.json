@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "simplegear:bronze_axe",
-    "simplegear:gilded_bronze_axe",
-    "simplegear:cobalt_steel_axe",
-    "simplegear:infused_gemstone_axe",
-    "simplegear:tungsten_carbide_axe"
+    "apex:bronze_axe",
+    "apex:gilded_bronze_axe",
+    "apex:cobalt_steel_axe",
+    "apex:infused_gemstone_axe",
+    "apex:tungsten_carbide_axe"
   ]
 }

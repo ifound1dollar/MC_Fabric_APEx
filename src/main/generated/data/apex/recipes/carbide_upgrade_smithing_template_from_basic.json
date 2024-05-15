@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": {
+      "item": "apex:basic_upgrade_template"
+    },
+    "i": {
+      "item": "minecraft:obsidian"
+    },
+    "n": {
+      "tag": "c:tungsten_ingots"
+    }
+  },
+  "pattern": [
+    " d ",
+    "nin",
+    " n "
+  ],
+  "result": {
+    "item": "apex:carbide_upgrade_smithing_template"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,49 @@
+{
+  "display": {
+    "icon": {
+      "item": "apex:bronze_helmet"
+    },
+    "title": "Suit Up, But Better!",
+    "description": "Obtain any new armor item from Simple Gearing Expansion",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "apex:simple_gearing_expansion",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "apex:bronze_helmet",
+              "apex:gilded_bronze_helmet",
+              "apex:cobalt_steel_helmet",
+              "apex:infused_gemstone_helmet",
+              "apex:tungsten_carbide_helmet",
+
+              "apex:bronze_chestplate",
+              "apex:gilded_bronze_chestplate",
+              "apex:cobalt_steel_chestplate",
+              "apex:infused_gemstone_chestplate",
+              "apex:tungsten_carbide_chestplate",
+
+              "apex:bronze_leggings",
+              "apex:gilded_bronze_leggings",
+              "apex:cobalt_steel_leggings",
+              "apex:infused_gemstone_leggings",
+              "apex:tungsten_carbide_leggings",
+
+              "apex:bronze_boots",
+              "apex:gilded_bronze_boots",
+              "apex:cobalt_steel_boots",
+              "apex:infused_gemstone_boots",
+              "apex:tungsten_carbide_boots"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

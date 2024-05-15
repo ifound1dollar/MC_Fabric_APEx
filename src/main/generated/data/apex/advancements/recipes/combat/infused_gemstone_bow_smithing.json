@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_infused_gemstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "apex:infused_gemstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_infusion_upgrade_smithing_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "apex:infusion_upgrade_smithing_template"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:infused_gemstone_bow_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_infusion_upgrade_smithing_template",
+      "has_infused_gemstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:infused_gemstone_bow_smithing"
+    ]
+  },
+  "sends_telemetry_event": false
+}

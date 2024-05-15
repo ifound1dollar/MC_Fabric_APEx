@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "group": "bronze_ingot",
+  "ingredient": {
+    "item": "apex:bronze_compound"
+  },
+  "result": "apex:bronze_ingot"
+}

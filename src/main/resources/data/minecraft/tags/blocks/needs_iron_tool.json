@@ -1,21 +1,22 @@
 {
   "replace": false,
   "values": [
-    "simplegear:ruby_block",
-    "simplegear:ruby_ore",
-    "simplegear:deepslate_ruby_ore",
-    "simplegear:sapphire_block",
-    "simplegear:sapphire_ore",
-    "simplegear:deepslate_sapphire_ore",
-    "simplegear:decorative_amethyst_block",
+    "apex:ruby_block",
+    "apex:ruby_ore",
+    "apex:deepslate_ruby_ore",
+    "apex:sapphire_block",
+    "apex:sapphire_ore",
+    "apex:deepslate_sapphire_ore",
+    "apex:decorative_amethyst_block",
 
-    "simplegear:steel_block",
-    "simplegear:tungsten_block",
-    "simplegear:raw_tungsten_block",
-    "simplegear:tungsten_ore",
-    "simplegear:deepslate_tungsten_ore",
+    "apex:steel_block",
+    "apex:tungsten_block",
+    "apex:raw_tungsten_block",
+    "apex:tungsten_ore",
+    "apex:deepslate_tungsten_ore",
 
-    "simplegear:cobalt_ore",
-    "simplegear:deepslate_cobalt_ore"
+    "apex:cobalt_block",
+    "apex:cobalt_ore",
+    "apex:deepslate_cobalt_ore"
   ]
 }

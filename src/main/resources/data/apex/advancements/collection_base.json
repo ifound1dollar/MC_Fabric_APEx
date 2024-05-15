@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "apex:bronze_sword"
+    },
+    "title": "To Collect Artifacts",
+    "description": "Attack any new mob from Simple Gearing Expansion",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "apex:simple_gearing_expansion",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "entity": {
+          "types": [
+            "apex:obsidian_golem",
+            "apex:kathleen_the_wicked",
+            "apex:old_lady_muff",
+            "apex:rooster_from_hell"
+          ]
+        }
+      }
+    }
+  }
+}

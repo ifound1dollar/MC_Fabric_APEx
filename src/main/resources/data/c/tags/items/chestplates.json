@@ -8,10 +8,10 @@
     "minecraft:diamond_chestplate",
     "minecraft:netherite_chestplate",
     
-    "simplegear:bronze_chestplate",
-    "simplegear:gilded_bronze_chestplate",
-    "simplegear:cobalt_steel_chestplate",
-    "simplegear:infused_gemstone_chestplate",
-    "simplegear:tungsten_carbide_chestplate"
+    "apex:bronze_chestplate",
+    "apex:gilded_bronze_chestplate",
+    "apex:cobalt_steel_chestplate",
+    "apex:infused_gemstone_chestplate",
+    "apex:tungsten_carbide_chestplate"
   ]
 }

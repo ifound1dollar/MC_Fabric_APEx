@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "apex:block/steel_block"
+    }
+  }
+}

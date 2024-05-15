@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "apex:item/tungsten_carbide_shovel"
+  }
+}

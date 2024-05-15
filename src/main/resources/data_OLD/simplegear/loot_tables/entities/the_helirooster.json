@@ -1,4 +1,4 @@
 {
   "type": "minecraft:entity",
-  "random_sequence": "simplegear:entities/the_helirooster"
+  "random_sequence": "apex:entities/the_helirooster"
 }

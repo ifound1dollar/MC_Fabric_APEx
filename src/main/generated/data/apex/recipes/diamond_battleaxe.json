@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "d": {
+      "tag": "c:diamonds"
+    },
+    "i": {
+      "tag": "c:wooden_rods"
+    }
+  },
+  "pattern": [
+    "ddd",
+    "did",
+    " i "
+  ],
+  "result": {
+    "item": "apex:diamond_battleaxe"
+  },
+  "show_notification": true
+}

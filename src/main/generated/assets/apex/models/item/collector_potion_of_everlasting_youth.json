@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "apex:item/collector_potion_of_everlasting_youth"
+  }
+}
