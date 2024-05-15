@@ -18,7 +18,7 @@ public enum ModToolMaterials implements ToolMaterial {
     GILDED_BRONZE(3,
             666,
             12,
-            3.0f,
+            2.0f,
             22,
             () -> Ingredient.ofItems(Items.GOLD_INGOT)),
     INFUSED_GEMSTONE(4,
