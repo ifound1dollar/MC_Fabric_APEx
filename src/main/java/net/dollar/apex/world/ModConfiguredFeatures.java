@@ -70,7 +70,7 @@ public class ModConfiguredFeatures {
 
         //Vein size 12 is regular Diamond equivalent, 4 is small Diamond equivalent.
         register(context, COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(cobaltOres, 4));
-        register(context, TUNGSTEN_ORE_KEY, Feature.ORE, new OreFeatureConfig(tungstenOres, 12));
+        register(context, TUNGSTEN_ORE_KEY, Feature.ORE, new OreFeatureConfig(tungstenOres, 12, 0.33f));
 
         //Vein size 7 is Lapis equivalent.
         register(context, PHOSPHATE_ORE_KEY, Feature.ORE, new OreFeatureConfig(phosphateOres, 7));

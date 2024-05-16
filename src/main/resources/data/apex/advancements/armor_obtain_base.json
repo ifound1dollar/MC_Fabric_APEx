@@ -4,12 +4,12 @@
       "item": "apex:bronze_helmet"
     },
     "title": "Suit Up, But Better!",
-    "description": "Obtain any new armor item from Simple Gearing Expansion",
+    "description": "Obtain any new armor item from APEx",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "apex:simple_gearing_expansion",
+  "parent": "apex:a_proper_equipment_expansion",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:inventory_changed",

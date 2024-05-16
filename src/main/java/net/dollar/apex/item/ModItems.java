@@ -1,6 +1,7 @@
 package net.dollar.apex.item;
 
 import net.dollar.apex.ModMain;
+import net.dollar.apex.entity.ModEntities;
 import net.dollar.apex.item.custom.ModBattleaxeItem;
 import net.dollar.apex.item.custom.ModCollectorItem;
 import net.dollar.apex.item.custom.ModGildedBronzeArmorItem;
@@ -30,7 +31,7 @@ public class ModItems {
     //region Misc.
     //TODO: Replace EntityType with correct entity type (WRONG ENTITY TYPE OVERWRITES PREVIOUS COLORS).
     public static final Item OBSIDIAN_GOLEM_SPAWN_EGG = registerItem("obsidian_golem_spawn_egg",
-            new SpawnEggItem(EntityType.ALLAY, 0x12031E, 0xED4D0E,
+            new SpawnEggItem(ModEntities.OBSIDIAN_GOLEM, 0x12031E, 0xED4D0E,
                     new FabricItemSettings()));
     public static final Item KATHLEEN_THE_WICKED_SPAWN_EGG = registerItem("kathleen_the_wicked_spawn_egg",
             new SpawnEggItem(EntityType.ALLAY, 10489616, 0xB7B7B7,
