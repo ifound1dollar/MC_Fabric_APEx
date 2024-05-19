@@ -49,9 +49,8 @@
   "item.apex.tungsten_ingot": "Tungsten Ingot",
   "item.apex.tungsten_nugget": "Tungsten Nugget",
 
-  "item.apex.molten_core": "Molten Core",
-  "item.apex.compound_gemstone": "Compound Gemstone",
   "item.apex.handful_of_stardust": "Handful of Stardust",
+  "item.apex.molten_core": "Molten Core",
   "item.apex.infused_gemstone": "Infused Gemstone",
   "item.apex.tungsten_carbide_ingot": "Tungsten-Carbide Ingot",
   "item.apex.cobalt_steel_ingot": "Cobalt-Steel Ingot",
@@ -132,17 +131,12 @@
   "item.apex.tungsten_carbide_shovel": "Tungsten-Carbide Shovel",
   "item.apex.tungsten_carbide_sword": "Tungsten-Carbide Sword",
 
-  "item.apex.collector_obsidian_dust": "§eObsidian Dust",
-  "item.apex.collector_kathleens_lost_diadem": "§eKathleen's Lost Diadem",
-  "item.apex.collector_potion_of_everlasting_youth": "§ePotion of Everlasting Youth",
-  "item.apex.collector_slightly_overcooked_chicken": "§eSlightly Overcooked Chicken",
+  "item.apex.trophy_obsidian_dust": "§eObsidian Dust",
 
 
 
   "entity.apex.obsidian_golem": "Obsidian Golem",
-  "entity.apex.kathleen_the_wicked": "Kathleen the Wicked",
-  "entity.apex.old_lady_muff": "Old Lady Muff",
-  "entity.apex.the_helirooster": "The Helirooster",
+  "entity.apex.mysterious_specter": "Mysterious Specter",
 
 
 
@@ -150,6 +144,8 @@
 
 
 
+  "tooltip.handful_of_stardust": "§dRemains of a Mysterious Specter",
+  "tooltip.molten_core": "§cCore of an Obsidian Golem",
   "tooltip.cobalt_steel_ingot": "§3Forged with extreme precision",
   "tooltip.infused_gemstone": "§5Empowered by an ancient magic",
   "tooltip.tungsten_carbide_ingot": "§8The densest material known to exist",
@@ -182,8 +178,6 @@
   "tooltip.tungsten_carbide_armor": "§8Full set: Slowness and Levitation immunity",
   "tooltip.tungsten_carbide_onhit": "§8On-hit: Slow target for 4s",
 
-  "spectral_lantern.not_ready_yet": "§4The Spectral Lantern is not ready yet!",
-  "spectral_lantern.area_not_clear": "§4The Spectral Lantern rejected the Compound Gemstone! The area underneath is not clear.",
   "spectral_lantern.kathleen_the_wicked": "§cKathleen is coming...",
   "spectral_lantern.old_lady_muff": "§dShe's back...",
   "spectral_lantern.the_helirooster": "§dSpicy nuggets, anyone?"

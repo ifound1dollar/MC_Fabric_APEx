@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModCollectorItem extends Item {
+public class ModTrophyItem extends Item {
     private final String numberString;
 
     /**
@@ -17,7 +17,7 @@ public class ModCollectorItem extends Item {
      * @param settings Item settings
      * @param numberString Collector item number (as string) that will be appended to the tooltip
      */
-    public ModCollectorItem(Settings settings, String numberString) {
+    public ModTrophyItem(Settings settings, String numberString) {
         super(settings);
         this.numberString = numberString;
     }
@@ -33,6 +33,6 @@ public class ModCollectorItem extends Item {
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.literal("§6Collector item #" + numberString));
+        tooltip.add(Text.literal("§6Trophy item #" + numberString));
     }
 }

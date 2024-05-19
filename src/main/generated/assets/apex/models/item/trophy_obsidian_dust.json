@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "apex:item/collector_kathleens_lost_diadem"
+    "layer0": "apex:item/trophy_obsidian_dust"
   }
 }

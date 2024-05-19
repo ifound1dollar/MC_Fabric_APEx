@@ -3,22 +3,22 @@
   "category": "misc",
   "key": {
     "d": {
-      "tag": "c:tungsten_ingots"
+      "tag": "c:steel_ingots"
     },
     "i": {
-      "item": "minecraft:coal"
+      "item": "apex:cobalt_shard"
     },
     "n": {
       "item": "apex:molten_core"
     }
   },
   "pattern": [
-    "did",
-    "ini",
-    "did"
+    "idi",
+    "dnd",
+    "idi"
   ],
   "result": {
-    "item": "apex:tungsten_carbide_ingot"
+    "item": "apex:cobalt_steel_ingot"
   },
   "show_notification": true
 }

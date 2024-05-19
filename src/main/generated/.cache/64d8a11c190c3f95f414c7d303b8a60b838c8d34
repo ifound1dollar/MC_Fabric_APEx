@@ -1,14 +1,15 @@
-// 1.20.1	2024-05-15T16:06:03.4677343	APEx - A Proper Equipment Expansion/Model Definitions
+// 1.20.1	2024-05-18T22:27:48.2493263	APEx - A Proper Equipment Expansion/Model Definitions
 88c351235db0a1ec3ccc79993132c5b26f41f32b assets\apex\models\item\bronze_ingot.json
 c7f81c2a568cf852b773c1a1437e5428b0bdd9aa assets\apex\models\item\carbide_upgrade_smithing_template.json
 2546b7752f4d0bb110f8485a5aefa19927f92f97 assets\apex\models\item\tungsten_carbide_paxel.json
-bcccced7918e1e55af15b05ed76c35b49680c6b3 assets\apex\models\item\tungsten_carbide_shovel.json
 76cef61a2858f83840d4f7acb7f6e2bb60e3d89e assets\apex\models\item\tungsten_nugget.json
+bcccced7918e1e55af15b05ed76c35b49680c6b3 assets\apex\models\item\tungsten_carbide_shovel.json
 e3196a9cdf7409d099b74db6f3e6517bda98b396 assets\apex\blockstates\deepslate_tin_ore.json
 d9bb62ea7252e5340a80005f6757ea04f37bad9e assets\apex\models\block\raw_tungsten_block.json
 c5d0ea359ccab09f62059c0a2d25d313fbba2ce3 assets\apex\models\block\deepslate_tungsten_ore.json
 cd7e14d88e81733126028fea607706fae6d2da22 assets\apex\blockstates\ruby_ore.json
 aec94518af248bf3833174cd56db311a065d157f assets\apex\models\item\infused_gemstone_paxel.json
+4c957634a103d0058360ea9cc1f9cfcee46e132c assets\apex\models\item\trophy_obsidian_dust.json
 7ebb22b96e2d921ddcf01e38c9fe6136d81a813a assets\apex\models\item\molten_core.json
 edfad71e2d007b5281ce8c73bcb78336f7cbb510 assets\apex\models\item\tungsten_carbide_battleaxe.json
 5fb9cafc6a92d7441e9373946f4ad52e4b13fd61 assets\apex\models\item\steel_compound.json
@@ -51,8 +52,8 @@ c302d81a362a66298ead9971711eaa13ce5a4b35 assets\apex\models\item\tungsten_ore.js
 467504f68f6a65690d98453a70acdcc0601ab62e assets\apex\models\item\deepslate_phosphate_ore.json
 a53d2d34cd577296e16381b7f5897bc6bc2ff20b assets\apex\models\item\ruby_block.json
 d80e6fb5668f0e091bfcccef86199b1bde5cde9e assets\apex\blockstates\deepslate_tungsten_ore.json
-9cc29a9f2fc13618e426c4413298b23b850a7563 assets\apex\models\block\deepslate_cobalt_ore.json
 41f6a8b0681c955b5790d5917d2f1d29235214ed assets\apex\models\item\bronze_hoe.json
+9cc29a9f2fc13618e426c4413298b23b850a7563 assets\apex\models\block\deepslate_cobalt_ore.json
 d5fbe48ca7920cdeba375eedac45da0b11227396 assets\apex\blockstates\deepslate_sapphire_ore.json
 a15f049c2311da3d7399fbc1afb4184334af9858 assets\apex\models\block\ruby_ore.json
 45803b4dc1c4c7e7fa12f685d08559c93b04d362 assets\apex\models\block\deepslate_phosphate_ore.json
@@ -87,11 +88,9 @@ a2f5f8af110ab3201d9cd05dc70bcecc3b435b0a assets\apex\models\block\sapphire_block
 777ea3f4489e9298eb1929e2af91613a1c2fa571 assets\apex\models\block\cobalt_block.json
 fe6a2a59c362e62f087d75ca77ac1b82ce5e2fda assets\apex\models\item\tin_ingot.json
 a96a0cd8f1aaf9d464822e33f428a6af1413dae0 assets\apex\models\item\cobalt_steel_axe.json
-fc32d4843604e2941b5e1437a51479ee7930f57d assets\apex\models\item\compound_gemstone.json
 7feeace9c080f1d6036e2128574a8d8bd85e9aae assets\apex\models\item\steel_ingot.json
 68661382c7ebc948da49beda53743b6b8bd0f733 assets\apex\models\item\raw_tungsten.json
 14c6a60c5222f563ded90a7f6060db4015b97984 assets\apex\models\item\tin_ore.json
-9527426aedd1005cb7157f4eb550bd64e2d622a9 assets\apex\models\item\collector_kathleens_lost_diadem.json
 029fb91a81b03f35a85fb12d9319108bd73d95a7 assets\apex\models\item\sapphire_ore.json
 facddc6b8732542aff6a6cadf9e07f92187172fb assets\apex\blockstates\raw_tin_block.json
 6252f53e7c1635990a44c3f2f8a0af36413021e3 assets\apex\models\block\deepslate_tin_ore.json
@@ -105,7 +104,6 @@ ee7dcb0b0d2fbc8249e4973e266e4275d3f6d3e9 assets\apex\models\item\ruby_ore.json
 b93a42565755bd810af0e7cb655f4558f4e85e34 assets\apex\models\item\infused_gemstone_shovel.json
 918435d894d49c69120c7532bde685abdfa39afa assets\apex\models\item\raw_tin_block.json
 ed26325f939579caafa323e22e886c989740d84e assets\apex\models\item\decorative_amethyst_block.json
-95f5cf72b622ed647e9c566bb00396a46d57985a assets\apex\models\item\collector_potion_of_everlasting_youth.json
 8a22140be6a41f69ecf665f9887197f6f211d985 assets\apex\models\item\tungsten_block.json
 74363ad56484b4476af06796de8a9971261bee5b assets\apex\blockstates\tin_ore.json
 a6dbc6628b151fed3ef14835818bfe7ed63aa8d9 assets\apex\models\item\bronze_pickaxe.json
@@ -113,10 +111,8 @@ a6dbc6628b151fed3ef14835818bfe7ed63aa8d9 assets\apex\models\item\bronze_pickaxe.
 f2fcf96294ab248b04a503eafcb6ac805a8537dd assets\apex\models\item\sapphire_block.json
 f12b3b89d6df0fcdb58a622009895eefb43005f9 assets\apex\models\item\infused_gemstone_axe.json
 3a17a92ec1619c1cc619795857262a5c1a166a4c assets\apex\models\item\gilded_bronze_hoe.json
-be1c6dee59025c06915730a009cd17385b869ab5 assets\apex\models\item\collector_obsidian_dust.json
 2e6937c799bb000a0c3f8aa920c41cfdceaac0a2 assets\apex\blockstates\raw_tungsten_block.json
 f14f01174843263ac2d3e89c7387fa0880a24b70 assets\apex\models\item\phosphate_powder.json
-b750b53dbe448a3d46132be442713338a3519e3f assets\apex\models\item\collector_slightly_overcooked_chicken.json
 4290d6a818e2d4cd215cc1e529f661fdac3487bb assets\apex\blockstates\phosphate_ore.json
 e3df9dcdb1f8342ff974a73de7ffbf2d9f89a5fb assets\apex\models\item\bronze_block.json
 33522f1949306c997a4b712c64e02a73a85c372e assets\apex\blockstates\sapphire_ore.json

@@ -2,10 +2,7 @@ package net.dollar.apex.item;
 
 import net.dollar.apex.ModMain;
 import net.dollar.apex.entity.ModEntities;
-import net.dollar.apex.item.custom.ModBattleaxeItem;
-import net.dollar.apex.item.custom.ModCollectorItem;
-import net.dollar.apex.item.custom.ModGildedBronzeArmorItem;
-import net.dollar.apex.item.custom.ModPaxelItem;
+import net.dollar.apex.item.custom.*;
 import net.dollar.apex.item.custom.bow.ModInfusedGemstoneBowItem;
 import net.dollar.apex.item.custom.bow.ModCobaltSteelBowItem;
 import net.dollar.apex.item.custom.bow.ModTungstenCarbideBowItem;
@@ -21,7 +18,6 @@ import net.dollar.apex.util.ModToolMaterials;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -33,15 +29,15 @@ public class ModItems {
     public static final Item OBSIDIAN_GOLEM_SPAWN_EGG = registerItem("obsidian_golem_spawn_egg",
             new SpawnEggItem(ModEntities.OBSIDIAN_GOLEM, 0x12031E, 0xED4D0E,
                     new FabricItemSettings()));
-    public static final Item KATHLEEN_THE_WICKED_SPAWN_EGG = registerItem("kathleen_the_wicked_spawn_egg",
-            new SpawnEggItem(EntityType.ALLAY, 10489616, 0xB7B7B7,
-                    new FabricItemSettings()));
-    public static final Item OLD_LADY_MUFF_SPAWN_EGG = registerItem("old_lady_muff_spawn_egg",
-            new SpawnEggItem(EntityType.ALLAY, 0x340000, 5349438,
-                    new FabricItemSettings()));
-    public static final Item HELIROOSTER_SPAWN_EGG = registerItem("helirooster_spawn_egg",
-            new SpawnEggItem(EntityType.ALLAY, 0xA1A1A1, 0xFF0000,
-                    new FabricItemSettings()));
+//    public static final Item KATHLEEN_THE_WICKED_SPAWN_EGG = registerItem("kathleen_the_wicked_spawn_egg",
+//            new SpawnEggItem(EntityType.ALLAY, 10489616, 0xB7B7B7,
+//                    new FabricItemSettings()));
+//    public static final Item OLD_LADY_MUFF_SPAWN_EGG = registerItem("old_lady_muff_spawn_egg",
+//            new SpawnEggItem(EntityType.ALLAY, 0x340000, 5349438,
+//                    new FabricItemSettings()));
+//    public static final Item HELIROOSTER_SPAWN_EGG = registerItem("helirooster_spawn_egg",
+//            new SpawnEggItem(EntityType.ALLAY, 0xA1A1A1, 0xFF0000,
+//                    new FabricItemSettings()));
 
     public static final Item FERTILIZER = registerItem("fertilizer",
             new BoneMealItem((new FabricItemSettings())));
@@ -84,17 +80,20 @@ public class ModItems {
 
     //Region End-game upgrade items
     public static final Item MOLTEN_CORE = registerItem("molten_core",
-            new Item(new FabricItemSettings().fireproof()));
+            new ModCustomItem(new FabricItemSettings().fireproof(),
+                    "tooltip.molten_core", false, false));
     public static final Item HANDFUL_OF_STARDUST = registerItem("handful_of_stardust",
-            new Item(new FabricItemSettings()));
-    public static final Item COMPOUND_GEMSTONE = registerItem("compound_gemstone",
-            new Item(new FabricItemSettings()));
+            new ModCustomItem(new FabricItemSettings(),
+                    "tooltip.handful_of_stardust", false, false));
     public static final Item INFUSED_GEMSTONE = registerItem("infused_gemstone",
-            new ModInfusedGemstoneItem(new FabricItemSettings()));
+            new ModCustomItem(new FabricItemSettings().fireproof(),
+                    "tooltip.infused_gemstone", true, true));
     public static final Item COBALT_STEEL_INGOT = registerItem("cobalt_steel_ingot",
-            new ModCobaltSteelIngotItem(new FabricItemSettings()));
+            new ModCustomItem(new FabricItemSettings().fireproof(),
+                    "tooltip.cobalt_steel_ingot", false, true));
     public static final Item TUNGSTEN_CARBIDE_INGOT = registerItem("tungsten_carbide_ingot",
-            new ModTungstenCarbideIngotItem(new FabricItemSettings()));
+            new ModCustomItem(new FabricItemSettings().fireproof(),
+                    "tooltip.tungsten_carbide_ingot", false, true));
     //endregion
 
     //region Upgrade Templates
@@ -320,16 +319,16 @@ public class ModItems {
                     new FabricItemSettings()));
     //endregion
 
-    //region Collector items
+    //region Trophy items
     //Set maxCount here instead of in the item class.
-    public static final Item COLLECTOR_OBSIDIAN_DUST = registerItem("collector_obsidian_dust",
-            new ModCollectorItem(new FabricItemSettings().maxCount(1), "1"));
-    public static final Item COLLECTOR_KATHLEENS_LOST_DIADEM = registerItem("collector_kathleens_lost_diadem",
-            new ModCollectorItem(new FabricItemSettings().maxCount(1), "2"));
-    public static final Item COLLECTOR_POTION_OF_EVERLASTING_YOUTH = registerItem("collector_potion_of_everlasting_youth",
-            new ModCollectorItem(new FabricItemSettings().maxCount(1), "3"));
-    public static final Item COLLECTOR_SLIGHTLY_OVERCOOKED_CHICKEN = registerItem("collector_slightly_overcooked_chicken",
-            new ModCollectorItem(new FabricItemSettings().maxCount(1), "4"));
+    public static final Item TROPHY_OBSIDIAN_DUST = registerItem("trophy_obsidian_dust",
+            new ModTrophyItem(new FabricItemSettings().maxCount(1), "1"));
+//    public static final Item COLLECTOR_KATHLEENS_LOST_DIADEM = registerItem("collector_kathleens_lost_diadem",
+//            new ModTrophyItem(new FabricItemSettings().maxCount(1), "2"));
+//    public static final Item COLLECTOR_POTION_OF_EVERLASTING_YOUTH = registerItem("collector_potion_of_everlasting_youth",
+//            new ModTrophyItem(new FabricItemSettings().maxCount(1), "3"));
+//    public static final Item COLLECTOR_SLIGHTLY_OVERCOOKED_CHICKEN = registerItem("collector_slightly_overcooked_chicken",
+//            new ModTrophyItem(new FabricItemSettings().maxCount(1), "4"));
     //endregion
 
 

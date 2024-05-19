@@ -37,7 +37,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "apex:cobalt_steel_ingot"
+        "recipe": "apex:cobalt_steel_ingot_reversed"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -52,7 +52,7 @@
   ],
   "rewards": {
     "recipes": [
-      "apex:cobalt_steel_ingot"
+      "apex:cobalt_steel_ingot_reversed"
     ]
   },
   "sends_telemetry_event": false

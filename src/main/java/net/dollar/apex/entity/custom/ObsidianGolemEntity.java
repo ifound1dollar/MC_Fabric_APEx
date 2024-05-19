@@ -455,7 +455,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
             if (heldItem.getItem() == ModItems.TUNGSTEN_CARBIDE_BATTLEAXE &&
                     EnchantmentHelper.getLevel(Enchantments.SHARPNESS, heldItem) >= 5) {
                 //Drop Obsidian Dust collector item and give it a long despawn delay.
-                ItemEntity collectorItem = this.dropItem(ModItems.COLLECTOR_OBSIDIAN_DUST);
+                ItemEntity collectorItem = this.dropItem(ModItems.TROPHY_OBSIDIAN_DUST);
                 if (collectorItem != null) {
                     collectorItem.setCovetedItem();
                 }

@@ -3,7 +3,7 @@
     "icon": {
       "item": "apex:bronze_sword"
     },
-    "title": "To Collect Artifacts",
+    "title": "To Collect Trophies",
     "description": "Attack any new mob from APEx",
     "frame": "task",
     "show_toast": true,
@@ -17,9 +17,7 @@
         "entity": {
           "types": [
             "apex:obsidian_golem",
-            "apex:kathleen_the_wicked",
-            "apex:old_lady_muff",
-            "apex:rooster_from_hell"
+            "apex:mysterious_specter"
           ]
         }
       }

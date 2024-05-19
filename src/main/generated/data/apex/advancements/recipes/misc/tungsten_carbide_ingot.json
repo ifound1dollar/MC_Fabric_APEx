@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:tungsten_carbide_ingot"
+        "recipe": "apex:tungsten_carbide_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -52,7 +52,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:tungsten_carbide_ingot"
+      "apex:tungsten_carbide_ingot"
     ]
   },
   "sends_telemetry_event": false

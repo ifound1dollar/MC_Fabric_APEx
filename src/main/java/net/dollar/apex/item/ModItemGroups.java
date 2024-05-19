@@ -17,28 +17,29 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.main"))
                     .icon(() -> new ItemStack(ModItems.INFUSED_GEMSTONE)).entries((displayContext, entries) -> {
                         //Ores and Raw Blocks
-                        entries.add(ModBlocks.RUBY_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_RUBY_ORE);
-                        entries.add(ModBlocks.SAPPHIRE_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_SAPPHIRE_ORE);
                         entries.add(ModBlocks.COBALT_ORE);
                         entries.add(ModBlocks.DEEPSLATE_COBALT_ORE);
+                        entries.add(ModBlocks.COBALT_BLOCK);
                         entries.add(ModBlocks.PHOSPHATE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_PHOSPHATE_ORE);
+                        entries.add(ModBlocks.RUBY_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_RUBY_ORE);
+                        entries.add(ModBlocks.RUBY_BLOCK);
+                        entries.add(ModBlocks.SAPPHIRE_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_SAPPHIRE_ORE);
+                        entries.add(ModBlocks.SAPPHIRE_BLOCK);
                         entries.add(ModBlocks.TIN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
                         entries.add(ModBlocks.RAW_TIN_BLOCK);
+                        entries.add(ModBlocks.TIN_BLOCK);
                         entries.add(ModBlocks.TUNGSTEN_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TUNGSTEN_ORE);
                         entries.add(ModBlocks.RAW_TUNGSTEN_BLOCK);
+                        entries.add(ModBlocks.TUNGSTEN_BLOCK);
+
 
                         //Crafted Blocks
                         entries.add(ModBlocks.DECORATIVE_AMETHYST_BLOCK);
-                        entries.add(ModBlocks.RUBY_BLOCK);
-                        entries.add(ModBlocks.SAPPHIRE_BLOCK);
-                        entries.add(ModBlocks.COBALT_BLOCK);
-                        entries.add(ModBlocks.TIN_BLOCK);
-                        entries.add(ModBlocks.TUNGSTEN_BLOCK);
                         entries.add(ModBlocks.BRONZE_BLOCK);
                         entries.add(ModBlocks.STEEL_BLOCK);
 
@@ -49,16 +50,14 @@ public class ModItemGroups {
 
                         //Misc. Items
                         entries.add(ModItems.OBSIDIAN_GOLEM_SPAWN_EGG);
-                        entries.add(ModItems.KATHLEEN_THE_WICKED_SPAWN_EGG);
-                        entries.add(ModItems.OLD_LADY_MUFF_SPAWN_EGG);
-                        entries.add(ModItems.HELIROOSTER_SPAWN_EGG);
+//                        entries.add(ModItems.MYSTERIOUS_SPECTER_SPAWN_EGG);
                         entries.add(ModItems.FERTILIZER);
 
                         //Raw Items, Gems, Compounds
-                        entries.add(ModItems.RUBY);
-                        entries.add(ModItems.SAPPHIRE);
                         entries.add(ModItems.COBALT_SHARD);
                         entries.add(ModItems.PHOSPHATE_POWDER);
+                        entries.add(ModItems.RUBY);
+                        entries.add(ModItems.SAPPHIRE);
                         entries.add(ModItems.RAW_TIN);
                         entries.add(ModItems.TIN_INGOT);
                         entries.add(ModItems.TIN_NUGGET);
@@ -73,11 +72,10 @@ public class ModItemGroups {
                         entries.add(ModItems.STEEL_NUGGET);
 
                         //Endgame upgrade items
-                        entries.add(ModItems.MOLTEN_CORE);
                         entries.add(ModItems.HANDFUL_OF_STARDUST);
-                        entries.add(ModItems.COMPOUND_GEMSTONE);
-                        entries.add(ModItems.INFUSED_GEMSTONE);
+                        entries.add(ModItems.MOLTEN_CORE);
                         entries.add(ModItems.COBALT_STEEL_INGOT);
+                        entries.add(ModItems.INFUSED_GEMSTONE);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_INGOT);
 
                         //Upgrade templates
@@ -162,10 +160,10 @@ public class ModItemGroups {
                         entries.add(ModItems.TUNGSTEN_CARBIDE_BOOTS);
 
                         //Collector items
-                        entries.add(ModItems.COLLECTOR_OBSIDIAN_DUST);
-                        entries.add(ModItems.COLLECTOR_KATHLEENS_LOST_DIADEM);
-                        entries.add(ModItems.COLLECTOR_POTION_OF_EVERLASTING_YOUTH);
-                        entries.add(ModItems.COLLECTOR_SLIGHTLY_OVERCOOKED_CHICKEN);
+                        entries.add(ModItems.TROPHY_OBSIDIAN_DUST);
+//                        entries.add(ModItems.COLLECTOR_KATHLEENS_LOST_DIADEM);
+//                        entries.add(ModItems.COLLECTOR_POTION_OF_EVERLASTING_YOUTH);
+//                        entries.add(ModItems.COLLECTOR_SLIGHTLY_OVERCOOKED_CHICKEN);
                     }).build());
 
 
