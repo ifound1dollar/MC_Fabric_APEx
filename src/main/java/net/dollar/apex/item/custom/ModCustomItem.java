@@ -11,6 +11,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+/**
+ * Used to create Items with special information and functionality like custom tooltips, explosion immunity,
+ *  etc. Convenience class to avoid creating custom classes for any item that needs a tooltip, for example.
+ */
 public class ModCustomItem extends Item {
     private final String tooltipLang;
     private final boolean hasGlint;
@@ -18,6 +22,14 @@ public class ModCustomItem extends Item {
 
 
 
+    /**
+     * Creates a custom Item instance with Settings (as usual), but with extra parameters for
+     *  commonly-relevant data like custom tooltips, whether it has enchantment glint, etc.
+     * @param settings FabricItemSettings for this Item
+     * @param tooltipLang String pointing to the lang entry for this Item's custom tooltip
+     * @param hasGlint Whether this item should have enchantment glint
+     * @param isFireAndBlastImmune Whether this item (Entity when dropped) should be Fire and Explosion immune
+     */
     public ModCustomItem(Settings settings, String tooltipLang, boolean hasGlint, boolean isFireAndBlastImmune) {
         super(settings);
         this.tooltipLang = tooltipLang;

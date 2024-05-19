@@ -18,6 +18,7 @@ import net.dollar.apex.util.ModToolMaterials;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -29,16 +30,9 @@ public class ModItems {
     public static final Item OBSIDIAN_GOLEM_SPAWN_EGG = registerItem("obsidian_golem_spawn_egg",
             new SpawnEggItem(ModEntities.OBSIDIAN_GOLEM, 0x12031E, 0xED4D0E,
                     new FabricItemSettings()));
-//    public static final Item KATHLEEN_THE_WICKED_SPAWN_EGG = registerItem("kathleen_the_wicked_spawn_egg",
-//            new SpawnEggItem(EntityType.ALLAY, 10489616, 0xB7B7B7,
-//                    new FabricItemSettings()));
-//    public static final Item OLD_LADY_MUFF_SPAWN_EGG = registerItem("old_lady_muff_spawn_egg",
-//            new SpawnEggItem(EntityType.ALLAY, 0x340000, 5349438,
-//                    new FabricItemSettings()));
-//    public static final Item HELIROOSTER_SPAWN_EGG = registerItem("helirooster_spawn_egg",
-//            new SpawnEggItem(EntityType.ALLAY, 0xA1A1A1, 0xFF0000,
-//                    new FabricItemSettings()));
-
+    public static final Item MYSTERIOUS_SPECTER_SPAWN_EGG = registerItem("mysterious_specter_spawn_egg",
+            new SpawnEggItem(EntityType.ALLAY, 10489616, 0xB7B7B7,
+                    new FabricItemSettings()));
     public static final Item FERTILIZER = registerItem("fertilizer",
             new BoneMealItem((new FabricItemSettings())));
     //endregion

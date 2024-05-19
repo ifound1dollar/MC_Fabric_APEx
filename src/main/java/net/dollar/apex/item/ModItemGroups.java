@@ -50,7 +50,7 @@ public class ModItemGroups {
 
                         //Misc. Items
                         entries.add(ModItems.OBSIDIAN_GOLEM_SPAWN_EGG);
-//                        entries.add(ModItems.MYSTERIOUS_SPECTER_SPAWN_EGG);
+                        entries.add(ModItems.MYSTERIOUS_SPECTER_SPAWN_EGG);
                         entries.add(ModItems.FERTILIZER);
 
                         //Raw Items, Gems, Compounds
