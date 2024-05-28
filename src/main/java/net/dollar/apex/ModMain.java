@@ -3,6 +3,7 @@ package net.dollar.apex;
 import net.dollar.apex.block.ModBlocks;
 import net.dollar.apex.block.entity.ModBlockEntities;
 import net.dollar.apex.entity.ModEntities;
+import net.dollar.apex.entity.custom.MysteriousSpecterEntity;
 import net.dollar.apex.entity.custom.ObsidianGolemEntity;
 import net.dollar.apex.item.ModItemGroups;
 import net.dollar.apex.item.ModItems;
@@ -54,6 +55,7 @@ public class ModMain implements ModInitializer {
 	 */
 	private void handleEntityRegistries() {
 		FabricDefaultAttributeRegistry.register(ModEntities.OBSIDIAN_GOLEM, ObsidianGolemEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.MYSTERIOUS_SPECTER, MysteriousSpecterEntity.createAttributes());
 	}
 
 	void registerEventHandlers() {

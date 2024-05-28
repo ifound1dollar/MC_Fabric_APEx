@@ -18,7 +18,6 @@ import net.dollar.apex.util.ModToolMaterials;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -31,7 +30,7 @@ public class ModItems {
             new SpawnEggItem(ModEntities.OBSIDIAN_GOLEM, 0x12031E, 0xED4D0E,
                     new FabricItemSettings()));
     public static final Item MYSTERIOUS_SPECTER_SPAWN_EGG = registerItem("mysterious_specter_spawn_egg",
-            new SpawnEggItem(EntityType.ALLAY, 10489616, 0xB7B7B7,
+            new SpawnEggItem(ModEntities.MYSTERIOUS_SPECTER, 0x965F41, 0x00AFAF,
                     new FabricItemSettings()));
     public static final Item FERTILIZER = registerItem("fertilizer",
             new BoneMealItem((new FabricItemSettings())));
