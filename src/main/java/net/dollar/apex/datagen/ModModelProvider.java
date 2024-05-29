@@ -66,7 +66,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.STEEL_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.STEEL_NUGGET, Models.GENERATED);
 
-//        itemModelGenerator.register(ModItems.COMPOUND_GEMSTONE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HANDFUL_OF_STARDUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.MOLTEN_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.COBALT_STEEL_INGOT, Models.GENERATED);
@@ -79,7 +78,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.INFUSION_UPGRADE_TEMPLATE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TROPHY_OBSIDIAN_DUST, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.COLLECTOR_KATHLEENS_LOST_DIADEM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TROPHY_OMINOUS_LETTER, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.COLLECTOR_POTION_OF_EVERLASTING_YOUTH, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.COLLECTOR_SLIGHTLY_OVERCOOKED_CHICKEN, Models.GENERATED);
 

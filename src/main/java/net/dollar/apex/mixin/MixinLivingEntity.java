@@ -1,6 +1,5 @@
 package net.dollar.apex.mixin;
 
-import net.dollar.apex.ModMain;
 import net.dollar.apex.util.IFullSetEffectArmor;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
@@ -45,7 +44,7 @@ public abstract class MixinLivingEntity {
         if (value && this.getEquippedStack(EquipmentSlot.CHEST).getItem() instanceof IFullSetEffectArmor specialArmor) {
             value = specialArmor.canReceiveEffect(effect.getEffectType(), (LivingEntity)(Object)this);
 
-            ModMain.LOGGER.info("Return value: " + value);
+            //ModMain.LOGGER.info("Return value: " + value);
         }
 
         //Return the variable because only successfully supports setReturnValue() once.

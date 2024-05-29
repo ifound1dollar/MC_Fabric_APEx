@@ -1,10 +1,10 @@
 {
   "display": {
     "icon": {
-      "item": "apex:trophy_obsidian_dust"
+      "item": "apex:trophy_ominous_letter"
     },
-    "title": "Pulverizing Obsidian",
-    "description": "Slay an Obsidian Golem using a Tungsten-Carbide Battleaxe with Sharpness V",
+    "title": "Reaping the Reaper",
+    "description": "Slay a Mysterious Specter using an endgame-tier Hoe",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
@@ -18,19 +18,16 @@
           "equipment": {
             "mainhand": {
               "items": [
-                "apex:tungsten_carbide_battleaxe"
-              ],
-              "enchantments": [
-                {
-                  "enchantment": "minecraft:sharpness",
-                  "levels": 5
-                }
+                "minecraft:netherite_hoe",
+                "apex:cobalt_steel_hoe",
+                "apex:infused_gemstone_hoe",
+                "apex:tungsten_carbide_hoe"
               ]
             }
           }
         },
         "entity": {
-          "type": "apex:obsidian_golem"
+          "type": "apex:mysterious_specter"
         }
       }
     }

@@ -27,9 +27,7 @@
 
 
   "item.apex.obsidian_golem_spawn_egg": "Obsidian Golem Spawn Egg",
-  "item.apex.kathleen_the_wicked_spawn_egg": "Kathleen the Wicked Spawn Egg",
-  "item.apex.old_lady_muff_spawn_egg": "Old Lady Muff Spawn Egg",
-  "item.apex.helirooster_spawn_egg": "Helirooster Spawn Egg",
+  "item.apex.mysterious_specter_spawn_egg": "Mysterious Specter Spawn Egg",
   "item.apex.fertilizer": "Fertilizer",
 
   "item.apex.ruby": "Ruby",
@@ -132,11 +130,12 @@
   "item.apex.tungsten_carbide_sword": "Tungsten-Carbide Sword",
 
   "item.apex.trophy_obsidian_dust": "§eObsidian Dust",
+  "item.apex.trophy_ominous_letter": "§eOminous Letter",
 
 
 
-  "entity.apex.obsidian_golem": "Obsidian Golem",
-  "entity.apex.mysterious_specter": "Mysterious Specter",
+  "entity.apex.obsidian_golem": "§4Obsidian Golem",
+  "entity.apex.mysterious_specter": "§7Mysterious Specter",
 
 
 

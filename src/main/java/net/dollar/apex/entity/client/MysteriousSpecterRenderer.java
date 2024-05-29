@@ -12,8 +12,7 @@ import net.minecraft.util.Identifier;
 @Environment(value= EnvType.CLIENT)
 public class MysteriousSpecterRenderer
         extends BipedEntityRenderer<MysteriousSpecterEntity, MysteriousSpecterModel<MysteriousSpecterEntity>> {
-    private static final Identifier TEXTURE = new Identifier(
-            ModMain.MOD_ID, "textures/entities/mysterious_specter0.png");
+    private static final String TEXTURE_BASE = "textures/entities/mysterious_specter";
 
     public MysteriousSpecterRenderer(EntityRendererFactory.Context context) {
         super(context, new MysteriousSpecterModel<>(context.getPart(ModModelLayers.MYSTERIOUS_SPECTER)), 0.6f);
@@ -28,7 +27,8 @@ public class MysteriousSpecterRenderer
 
     @Override
     public Identifier getTexture(MysteriousSpecterEntity entity) {
-        //TODO: Get value from Entity class which determines which texture to return.
-        return TEXTURE;
+        //Generate and return a new identifier using the TEXTURE_BASE string appended with the texture
+        //  ID from the Entity instance (plus the .png extension).
+        return new Identifier(ModMain.MOD_ID, TEXTURE_BASE + entity.getTextureID() + ".png");
     }
 }

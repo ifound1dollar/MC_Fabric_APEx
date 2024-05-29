@@ -159,9 +159,9 @@ public class ModItemGroups {
                         entries.add(ModItems.TUNGSTEN_CARBIDE_LEGGINGS);
                         entries.add(ModItems.TUNGSTEN_CARBIDE_BOOTS);
 
-                        //Collector items
+                        //Trophy items
                         entries.add(ModItems.TROPHY_OBSIDIAN_DUST);
-//                        entries.add(ModItems.COLLECTOR_KATHLEENS_LOST_DIADEM);
+                        entries.add(ModItems.TROPHY_OMINOUS_LETTER);
 //                        entries.add(ModItems.COLLECTOR_POTION_OF_EVERLASTING_YOUTH);
 //                        entries.add(ModItems.COLLECTOR_SLIGHTLY_OVERCOOKED_CHICKEN);
                     }).build());

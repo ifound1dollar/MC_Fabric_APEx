@@ -16,8 +16,6 @@ import net.dollar.apex.util.ModArmorMaterials;
 import net.dollar.apex.util.ModSmithingUpgradeItemHelper;
 import net.dollar.apex.util.ModToolMaterials;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -25,7 +23,6 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
     //region Misc.
-    //TODO: Replace EntityType with correct entity type (WRONG ENTITY TYPE OVERWRITES PREVIOUS COLORS).
     public static final Item OBSIDIAN_GOLEM_SPAWN_EGG = registerItem("obsidian_golem_spawn_egg",
             new SpawnEggItem(ModEntities.OBSIDIAN_GOLEM, 0x12031E, 0xED4D0E,
                     new FabricItemSettings()));
@@ -34,6 +31,16 @@ public class ModItems {
                     new FabricItemSettings()));
     public static final Item FERTILIZER = registerItem("fertilizer",
             new BoneMealItem((new FabricItemSettings())));
+    //endregion
+
+
+    //region Trophy items
+    //Set maxCount here instead of in the item class.
+    public static final Item TROPHY_OBSIDIAN_DUST = registerItem("trophy_obsidian_dust",
+            new ModTrophyItem(new FabricItemSettings().maxCount(1), "1"));
+    public static final Item TROPHY_OMINOUS_LETTER = registerItem("trophy_ominous_letter",
+            new ModTrophyItem(new FabricItemSettings().maxCount(1), "2"));
+
     //endregion
 
     //region Raw Items, Gems, Compounds
@@ -312,51 +319,21 @@ public class ModItems {
                     new FabricItemSettings()));
     //endregion
 
-    //region Trophy items
-    //Set maxCount here instead of in the item class.
-    public static final Item TROPHY_OBSIDIAN_DUST = registerItem("trophy_obsidian_dust",
-            new ModTrophyItem(new FabricItemSettings().maxCount(1), "1"));
-//    public static final Item COLLECTOR_KATHLEENS_LOST_DIADEM = registerItem("collector_kathleens_lost_diadem",
-//            new ModTrophyItem(new FabricItemSettings().maxCount(1), "2"));
-//    public static final Item COLLECTOR_POTION_OF_EVERLASTING_YOUTH = registerItem("collector_potion_of_everlasting_youth",
-//            new ModTrophyItem(new FabricItemSettings().maxCount(1), "3"));
-//    public static final Item COLLECTOR_SLIGHTLY_OVERCOOKED_CHICKEN = registerItem("collector_slightly_overcooked_chicken",
-//            new ModTrophyItem(new FabricItemSettings().maxCount(1), "4"));
-    //endregion
 
 
 
 
-    /**
-     * Adds items (specified in-method) to the Ingredients creative mode tab.
-     * @param entries The Entries object to add the new Items to
-     */
-    private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
-        //REMEMBER TO ADD EACH ITEM HERE
-        //entries.add(RUBY);
-        //entries.add(SAPPHIRE);
-        //entries.add(INFUSED_GEMSTONE);
-        //entries.add(MOLTEN_CORE);
-    }
-
-    /**
-     * Adds items (specified in-method) to the Ingredients creative mode tab.
-     * @param entries The Entries object to add the new Items to
-     */
-    private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
-        //REMEMBER TO ADD EACH ITEM HERE
-        //entries.add(STEEL_BOW);
-        //entries.add(STEEL_CROSSBOW);
-    }
-
-    /**
-     * Adds items (specified in-method) to the Ingredients creative mode tab.
-     * @param entries The Entries object to add the new Items to
-     */
-    private static void addItemsToMiscItemGroup(FabricItemGroupEntries entries) {
-        //REMEMBER TO ADD EACH ITEM HERE
-        //entries.add(KATHLEENS_LOST_DIADEM);
-    }
+//    /**
+//     * Adds items (specified in-method) to the Ingredients creative mode tab.
+//     * @param entries The Entries object to add the new Items to
+//     */
+//    private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
+//        //REMEMBER TO ADD EACH ITEM HERE
+//        //entries.add(RUBY);
+//        //entries.add(SAPPHIRE);
+//        //entries.add(INFUSED_GEMSTONE);
+//        //entries.add(MOLTEN_CORE);
+//    }
 
     /**
      * Registers a single item
@@ -374,9 +351,6 @@ public class ModItems {
     public static void registerModItems() {
         ModMain.LOGGER.info("Registering Mod Items for " + ModMain.MOD_ID);
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientItemGroup);
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
-        //TODO: FIGURE OUT WHICH TAB IS THE MISC. ONE THEN REPLACE INGREDIENTS
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToMiscItemGroup);
+        //ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientItemGroup);
     }
 }

@@ -1,9 +1,9 @@
-// 1.20.1	2024-05-18T22:27:48.2493263	APEx - A Proper Equipment Expansion/Model Definitions
+// 1.20.1	2024-05-29T02:26:48.9047395	APEx - A Proper Equipment Expansion/Model Definitions
 88c351235db0a1ec3ccc79993132c5b26f41f32b assets\apex\models\item\bronze_ingot.json
 c7f81c2a568cf852b773c1a1437e5428b0bdd9aa assets\apex\models\item\carbide_upgrade_smithing_template.json
 2546b7752f4d0bb110f8485a5aefa19927f92f97 assets\apex\models\item\tungsten_carbide_paxel.json
-76cef61a2858f83840d4f7acb7f6e2bb60e3d89e assets\apex\models\item\tungsten_nugget.json
 bcccced7918e1e55af15b05ed76c35b49680c6b3 assets\apex\models\item\tungsten_carbide_shovel.json
+76cef61a2858f83840d4f7acb7f6e2bb60e3d89e assets\apex\models\item\tungsten_nugget.json
 e3196a9cdf7409d099b74db6f3e6517bda98b396 assets\apex\blockstates\deepslate_tin_ore.json
 d9bb62ea7252e5340a80005f6757ea04f37bad9e assets\apex\models\block\raw_tungsten_block.json
 c5d0ea359ccab09f62059c0a2d25d313fbba2ce3 assets\apex\models\block\deepslate_tungsten_ore.json
@@ -52,8 +52,8 @@ c302d81a362a66298ead9971711eaa13ce5a4b35 assets\apex\models\item\tungsten_ore.js
 467504f68f6a65690d98453a70acdcc0601ab62e assets\apex\models\item\deepslate_phosphate_ore.json
 a53d2d34cd577296e16381b7f5897bc6bc2ff20b assets\apex\models\item\ruby_block.json
 d80e6fb5668f0e091bfcccef86199b1bde5cde9e assets\apex\blockstates\deepslate_tungsten_ore.json
-41f6a8b0681c955b5790d5917d2f1d29235214ed assets\apex\models\item\bronze_hoe.json
 9cc29a9f2fc13618e426c4413298b23b850a7563 assets\apex\models\block\deepslate_cobalt_ore.json
+41f6a8b0681c955b5790d5917d2f1d29235214ed assets\apex\models\item\bronze_hoe.json
 d5fbe48ca7920cdeba375eedac45da0b11227396 assets\apex\blockstates\deepslate_sapphire_ore.json
 a15f049c2311da3d7399fbc1afb4184334af9858 assets\apex\models\block\ruby_ore.json
 45803b4dc1c4c7e7fa12f685d08559c93b04d362 assets\apex\models\block\deepslate_phosphate_ore.json
@@ -64,6 +64,7 @@ a131ad63fadd6e8e9d9d49c16bf20a2ae4fcabcd assets\apex\models\item\deepslate_ruby_
 625120e9bf458e4ce235ac41c6552c26b8019914 assets\apex\blockstates\steel_block.json
 bbdb66a9cd8d8e977a5d74f9e7c9e136ec88322d assets\apex\models\item\cobalt_steel_battleaxe.json
 5a5255e62e27cfb4216361f11702e4c32c995232 assets\apex\models\item\gilded_bronze_shovel.json
+c9a1d379be2027c65d2558f9e362b17ac325c246 assets\apex\models\item\trophy_ominous_letter.json
 fea60ecefe2536093484415a2c7e082b6f8d1f7a assets\apex\models\item\bronze_axe.json
 85174d7aff967e495e62542fd1fedd2910413deb assets\apex\models\item\cobalt_steel_paxel.json
 cdf20f7411a9cc009c86327398bffe14d140b4b1 assets\apex\blockstates\cobalt_ore.json
@@ -76,8 +77,8 @@ ab1e3651c4af194a3ed4833ece5cadf12be32fc0 assets\apex\models\block\tin_ore.json
 c2d3fd702be7ce473b38cba6fa2d2a80ce9ec6e4 assets\apex\models\item\cobalt_steel_shovel.json
 9907fce1c8ce0c89d7b834989b44e8d43133b942 assets\apex\models\item\infused_gemstone_pickaxe.json
 38e0101b7722167e90840da60f79e5e8f5104883 assets\apex\blockstates\deepslate_phosphate_ore.json
-5445e3643da0d4890a862a6b20173443b31dd44e assets\apex\models\item\cobalt_steel_pickaxe.json
 65b952028268e2c9385691fd520d092ed1c00942 assets\apex\models\item\infusion_upgrade_smithing_template.json
+5445e3643da0d4890a862a6b20173443b31dd44e assets\apex\models\item\cobalt_steel_pickaxe.json
 5c9220346949fb4c16d4e1b50bed3977175f5a25 assets\apex\models\item\tin_block.json
 0442e1a3ea865b60a178afb48d491c5caad9f53c assets\apex\models\item\steel_block.json
 39722c47f003a1dc22e9824da3737b2b718a177a assets\apex\models\block\steel_block.json
@@ -114,8 +115,8 @@ f12b3b89d6df0fcdb58a622009895eefb43005f9 assets\apex\models\item\infused_gemston
 2e6937c799bb000a0c3f8aa920c41cfdceaac0a2 assets\apex\blockstates\raw_tungsten_block.json
 f14f01174843263ac2d3e89c7387fa0880a24b70 assets\apex\models\item\phosphate_powder.json
 4290d6a818e2d4cd215cc1e529f661fdac3487bb assets\apex\blockstates\phosphate_ore.json
-e3df9dcdb1f8342ff974a73de7ffbf2d9f89a5fb assets\apex\models\item\bronze_block.json
 33522f1949306c997a4b712c64e02a73a85c372e assets\apex\blockstates\sapphire_ore.json
+e3df9dcdb1f8342ff974a73de7ffbf2d9f89a5fb assets\apex\models\item\bronze_block.json
 f46960f245c77d386ebcec6e3e03817dedf6d3a9 assets\apex\models\item\raw_tungsten_block.json
 ff2485896e06b14a4f521eb3ecf20f52ae46eb54 assets\apex\models\item\cobalt_steel_hoe.json
 30b041b3ab8c7d1ff7c4ec114b0c2d0ce1112f3f assets\apex\blockstates\sapphire_block.json
