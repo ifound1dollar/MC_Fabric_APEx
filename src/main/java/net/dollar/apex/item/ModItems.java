@@ -27,7 +27,7 @@ public class ModItems {
             new SpawnEggItem(ModEntities.OBSIDIAN_GOLEM, 0x12031E, 0xED4D0E,
                     new FabricItemSettings()));
     public static final Item MYSTERIOUS_SPECTER_SPAWN_EGG = registerItem("mysterious_specter_spawn_egg",
-            new SpawnEggItem(ModEntities.MYSTERIOUS_SPECTER, 0x965F41, 0x00AFAF,
+            new SpawnEggItem(ModEntities.MYSTERIOUS_SPECTER, 0xE3E3E3, 0xB8B8B8,
                     new FabricItemSettings()));
     public static final Item FERTILIZER = registerItem("fertilizer",
             new BoneMealItem((new FabricItemSettings())));
