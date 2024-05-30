@@ -2,8 +2,8 @@
 	"schemaVersion": 1,
 	"id": "apex",
 	"version": "${version}",
-	"name": "APEx - A Proper Equipment expansion",
-	"description": "APEx (pronounced \"ape-x\" with emphasis on \"ape\") is a proper equipment expansion mod that adds new ores with respective gems and metals, tool types, equipment tiers, and many other equipment-related items.",
+	"name": "APEx",
+	"description": "APEx (pronounced \"ape-x\" with emphasis on \"ape\") is A Proper Equipment expansion mod that adds new ores with respective gems and metals, tool types, equipment tiers, and many other equipment-related items.",
 	"authors": [
 		"ifound1dollar"
 	],

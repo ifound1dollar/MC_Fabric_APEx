@@ -36,38 +36,38 @@ public class ModPlacedFeatures {
 
         //Both as rare as small Diamond, BUT triangle base is 16 higher (however very small veins).
         register(context, RUBY_ORE_PLACED_KEY, registryEntryLookup.getOrThrow(ModConfiguredFeatures.RUBY_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(8, //Veins per chunk
+                ModOrePlacement.modifiersWithCount(9, //Veins per chunk
                         HeightRangePlacementModifier.trapezoid(
                                 YOffset.aboveBottom(-64),
                                 YOffset.aboveBottom(80))));
         register(context, SAPPHIRE_ORE_PLACED_KEY, registryEntryLookup.getOrThrow(ModConfiguredFeatures.SAPPHIRE_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(8, //Veins per chunk
+                ModOrePlacement.modifiersWithCount(9, //Veins per chunk
                         HeightRangePlacementModifier.trapezoid(
                                 YOffset.aboveBottom(-64),
                                 YOffset.aboveBottom(80))));
 
         //Less frequent than Diamond, but smaller veins and higher.
         register(context, COBALT_ORE_PLACED_KEY, registryEntryLookup.getOrThrow(ModConfiguredFeatures.COBALT_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(4, //Veins per chunk
+                ModOrePlacement.modifiersWithCount(3, //Veins per chunk
                         HeightRangePlacementModifier.trapezoid(
                                 YOffset.fixed(-48),
                                 YOffset.fixed(32)))); //Largest concentration at -8
 
         //Less frequent than coal (20/chunk) and lower.
         register(context, PHOSPHATE_ORE_PLACED_KEY, registryEntryLookup.getOrThrow(ModConfiguredFeatures.PHOSPHATE_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(10, //Veins per chunk
+                ModOrePlacement.modifiersWithCount(8, //Veins per chunk
                         HeightRangePlacementModifier.trapezoid(
                                 YOffset.fixed(-16),
                                 YOffset.fixed(80))));
 
         //Slightly less frequent than Iron, and slightly smaller veins.
         register(context, TIN_ORE_PLACED_KEY, registryEntryLookup.getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(6, //Veins per chunk
+                ModOrePlacement.modifiersWithCount(5, //Veins per chunk
                         HeightRangePlacementModifier.trapezoid(
                                 YOffset.fixed(16),
                                 YOffset.fixed(96))));
         register(context, TIN_ORE_SMALL_PLACED_KEY, registryEntryLookup.getOrThrow(ModConfiguredFeatures.TIN_ORE_SMALL_KEY),
-                ModOrePlacement.modifiersWithCount(7, //Veins per chunk
+                ModOrePlacement.modifiersWithCount(6, //Veins per chunk
                         HeightRangePlacementModifier.trapezoid(
                                 YOffset.fixed(-32),
                                 YOffset.fixed(64))));   //Maximum distribution at 16

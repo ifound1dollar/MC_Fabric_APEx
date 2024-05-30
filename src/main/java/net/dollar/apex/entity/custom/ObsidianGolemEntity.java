@@ -504,7 +504,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      */
     @Override
     public boolean shouldRenderName() {
-        return true;
+        return false;
     }
 
     /**

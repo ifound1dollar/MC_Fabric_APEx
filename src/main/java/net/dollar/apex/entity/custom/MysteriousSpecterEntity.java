@@ -469,7 +469,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
      */
     @Override
     public boolean shouldRenderName() {
-        return true;
+        return false;
     }
 
 
