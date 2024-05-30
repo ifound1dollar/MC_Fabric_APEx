@@ -54,9 +54,9 @@
   "item.apex.cobalt_steel_ingot": "Cobalt-Steel Ingot",
 
   "item.apex.basic_upgrade_template": "Basic Upgrade Template",
-  "item.apex.cobalt_upgrade_smithing_template": "Cobalt Upgrade Smithing Template",
-  "item.apex.carbide_upgrade_smithing_template": "Carbide Upgrade Smithing Template",
-  "item.apex.infusion_upgrade_smithing_template": "Infusion Upgrade Smithing Template",
+  "item.apex.cobalt_upgrade_smithing_template": "Cobalt-Steel Upgrade Smithing Template",
+  "item.apex.infusion_upgrade_smithing_template": "Infused Gemstone Upgrade Smithing Template",
+  "item.apex.carbide_upgrade_smithing_template": "Tungsten-Carbide Upgrade Smithing Template",
 
 
 

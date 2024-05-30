@@ -47,7 +47,7 @@ public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEf
             isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
         }
 
-        return !(isFullSet && effect == StatusEffects.WITHER);
+        return !(isFullSet && (effect == StatusEffects.WITHER || effect == StatusEffects.POISON));
     }
 
 

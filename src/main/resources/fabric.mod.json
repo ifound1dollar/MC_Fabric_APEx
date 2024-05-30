@@ -2,14 +2,14 @@
 	"schemaVersion": 1,
 	"id": "apex",
 	"version": "${version}",
-	"name": "APEx - A Proper Equipment Expansion",
+	"name": "APEx - A Proper Equipment expansion",
 	"description": "APEx (pronounced \"ape-x\" with emphasis on \"ape\") is a proper equipment expansion mod that adds new ores with respective gems and metals, tool types, equipment tiers, and many other equipment-related items.",
 	"authors": [
 		"ifound1dollar"
 	],
 	"contact": {
 		"homepage": "https://github.com/ifound1dollar",
-		"sources": "https://github.com/ifound1dollar/MC_Fabric_Simple_Gearing_Expansion"
+		"sources": "https://github.com/ifound1dollar/MC_Fabric_APEx"
 	},
 	"license": "MIT",
 	"icon": "assets/apex/icon.png",
