@@ -12,13 +12,13 @@ import net.minecraft.world.Heightmap;
 public class ModEntityGeneration {
     public static void addSpawns() {
         BiomeModifications.addSpawn(BiomeSelectors.foundInOverworld(), SpawnGroup.MONSTER,
-                ModEntities.OBSIDIAN_GOLEM, 100, 1, 1);
+                ModEntities.OBSIDIAN_GOLEM, 85, 1, 1);
         SpawnRestriction.register(ModEntities.OBSIDIAN_GOLEM, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ObsidianGolemEntity::checkObsidianGolemSpawnRules);
 
         BiomeModifications.addSpawn(BiomeSelectors.foundInOverworld(), SpawnGroup.MONSTER,
-                ModEntities.MYSTERIOUS_SPECTER, 100, 1, 1);
+                ModEntities.MYSTERIOUS_SPECTER, 85, 1, 1);
         SpawnRestriction.register(ModEntities.MYSTERIOUS_SPECTER, SpawnRestriction.Location.ON_GROUND,
-                Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MysteriousSpecterEntity::checkMysteriousSpecterSpawnRules);
+                Heightmap.Type.WORLD_SURFACE, MysteriousSpecterEntity::checkMysteriousSpecterSpawnRules);
     }
 }

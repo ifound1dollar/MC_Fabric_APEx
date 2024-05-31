@@ -39,7 +39,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     private UUID angryAt;
 
     private int ticksSinceLastAttack = 0;
-    private int auraCounterTicks = 50;
+    private int auraCounterTicks = 60;
     private final int textureID;
 
     public MysteriousSpecterEntity(EntityType<? extends HostileEntity> entityType, World world) {
@@ -92,7 +92,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 120)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25)
-                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.75)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.0)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 15.0)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 0.5)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 30f);
@@ -192,8 +192,8 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
      */
     @Override
     public boolean tryAttack(Entity target) {
-        //Verify it has been at least 30 ticks (1.5 seconds) since last attack.
-        if (ticksSinceLastAttack < 30) { return false; }
+        //Verify it has been at least 20 ticks (1 second) since last attack.
+        if (ticksSinceLastAttack < 20) { return false; }
 
         //Actual attack operation done here.
         this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_ATTACK_SOUND);
@@ -223,19 +223,27 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
             if (target instanceof LivingEntity livingEntity) {
                 //Roll chance to apply a negative effect to target here.
                 if (random.nextInt(100) < 50) {
-                    //Only Wither 1.
-                    livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 80, 0));
+                    //Increase Wither level based on missing Health (split into 3 parts, 33% HP each).
+                    livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 81,
+                            calcWitherStrength()));
                 }
-
-                //Also roll chance to set target on fire based on % missing HP (loosely corresponds to crackiness).
-//                if (random.nextFloat() > (this.getHealth() / this.getMaxHealth()) - 0.1f) {
-//                    livingEntity.setOnFireFor(4);   //100% chance at 10% Health because of -0.1f above
-//                }
             }
         }
 
         this.playSound(SoundEvents.ENTITY_GHAST_SHOOT, 1.0f, 1.0f);
         return bl;
+    }
+
+    /**
+     * Calculates strength of Wither effect to apply to targets based on missing Health.
+     * @return The calculated Wither effect strength as an integer
+     */
+    private int calcWitherStrength() {
+        //EXAMPLE: At 25% Health: 1.0 - .25 = 0.75 | 0.75 * 3.0 = 2.25 | floor(2.25) = 2
+        double strength = 1.0 - (this.getHealth() / this.getMaxHealth());   //Inverted missing Health
+        strength *= 3.0;                                                    //Convert to range 0-3
+        strength = Math.floor(strength);                                    //Floor, guarantees between 0-2
+        return (int)strength;   //Convert to integer before returning
     }
 
     /**
@@ -291,7 +299,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         auraCounterTicks--;
         if (auraCounterTicks <= 0) {
             applyWeaknessHungerAura();
-            auraCounterTicks = 50;
+            auraCounterTicks = 60;
         }
 
         //If there is no target, ensure that ticksSinceLastAttack remains at 0 and return.
@@ -345,8 +353,8 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
      * Applies Blindness and Slowness effects to all nearby LivingEntities and plays aggressive sound.
      */
     private void weakenAndSlowNearbyEntities() {
-        //Store xyz coordinates and get all entities within 30 block radius of this Entity.
-        double radius = 30.0;
+        //Store xyz coordinates and get all entities within radius of this Entity.
+        double radius = 24.0;
         double x = this.getX();
         double y = this.getY();
         double z = this.getZ();

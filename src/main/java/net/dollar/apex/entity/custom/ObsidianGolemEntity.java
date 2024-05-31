@@ -86,9 +86,10 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 120)
+                .add(EntityAttributes.GENERIC_ARMOR, 5)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.0)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 18.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 15.0)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.0)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 30f);
     }
@@ -381,13 +382,14 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      * Applies Blindness and Slowness effects to all nearby LivingEntities and plays aggressive sound.
      */
     private void blindAndSlowNearbyEntities() {
-        //Store xyz coordinates and get all entities within 30 block radius of this Entity.
+        //Store xyz coordinates and get all entities within radius of this Entity.
+        double radius = 24.0;
         double x = this.getX();
         double y = this.getY();
         double z = this.getZ();
         List<Entity> entities = this.getWorld().getOtherEntities(this,
-                new Box(x - 30, y - 30, z - 30,
-                        x + 30, y + 30, z + 30));
+                new Box(x - radius, y - radius, z - radius,
+                        x + radius, y + radius, z + radius));
 
         //Play aggressive sound, then apply effects to all nearby LivingEntities.
         this.playSound(SoundEvents.ENTITY_RAVAGER_ROAR, 1.0f, 1.0f);

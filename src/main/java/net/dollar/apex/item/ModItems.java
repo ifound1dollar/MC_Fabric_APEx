@@ -33,7 +33,6 @@ public class ModItems {
             new BoneMealItem((new FabricItemSettings())));
     //endregion
 
-
     //region Trophy items
     //Set maxCount here instead of in the item class.
     public static final Item TROPHY_OBSIDIAN_DUST = registerItem("trophy_obsidian_dust",

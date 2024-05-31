@@ -62,10 +62,10 @@ public class ModPlacedFeatures {
 
         //Slightly less frequent than Iron, and slightly smaller veins.
         register(context, TIN_ORE_PLACED_KEY, registryEntryLookup.getOrThrow(ModConfiguredFeatures.TIN_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(5, //Veins per chunk
+                ModOrePlacement.modifiersWithCount(7, //Veins per chunk
                         HeightRangePlacementModifier.trapezoid(
-                                YOffset.fixed(16),
-                                YOffset.fixed(96))));
+                                YOffset.fixed(-16),
+                                YOffset.fixed(112))));   //Maximum distribution at 48
         register(context, TIN_ORE_SMALL_PLACED_KEY, registryEntryLookup.getOrThrow(ModConfiguredFeatures.TIN_ORE_SMALL_KEY),
                 ModOrePlacement.modifiersWithCount(6, //Veins per chunk
                         HeightRangePlacementModifier.trapezoid(
@@ -74,7 +74,7 @@ public class ModPlacedFeatures {
 
         //Less frequent than Diamond (more common than gems), but larger veins and slightly higher.
         register(context, TUNGSTEN_ORE_PLACED_KEY, registryEntryLookup.getOrThrow(ModConfiguredFeatures.TUNGSTEN_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(4, //Veins per chunk
+                ModOrePlacement.modifiersWithCount(3, //Veins per chunk
                         HeightRangePlacementModifier.trapezoid(
                                 YOffset.aboveBottom(-48),   //Maximum distribution at 16 above bottom (-48)
                                 YOffset.aboveBottom(80))));
