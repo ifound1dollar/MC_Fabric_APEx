@@ -368,7 +368,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
             if (entity instanceof LivingEntity livingEntity) {
                 //Slow and Weaken ALL nearby LivingEntities regardless of whether angry at.
                 livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 1));
-                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 1));
+                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 60));
 
                 //Knockback the LivingEntity with half default strength.
                 //KNOCKBACK NOT WORKING FOR SOME REASON
