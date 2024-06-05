@@ -72,13 +72,13 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_amethyst_shard",
       "has_diamond",
       "has_emerald",
       "has_ruby",
       "has_sapphire",
-      "has_handful_of_stardust",
-      "has_the_recipe"
+      "has_handful_of_stardust"
     ]
   ],
   "rewards": {

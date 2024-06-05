@@ -44,10 +44,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_tungsten_ingot",
       "has_coal",
-      "has_molten_core",
-      "has_the_recipe"
+      "has_molten_core"
     ]
   ],
   "rewards": {

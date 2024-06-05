@@ -61,16 +61,6 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     }
 
     /**
-     * Returns the attack range squared of the mob.
-     * @param target Target attempting to be attacked
-     * @return The calculated attack range of this Entity
-     */
-    @Override
-    public double squaredAttackRange(LivingEntity target) {
-        return super.squaredAttackRange(target);
-    }
-
-    /**
      * Register mob goals (AI).
      */
     @Override

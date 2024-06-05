@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_phosphate_ore",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_phosphate_ore"
     ]
   ],
   "rewards": {

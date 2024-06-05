@@ -27,7 +27,6 @@ public class ModCobaltSteelBowItem extends BowItem {
 
 
 
-    //TODO: REPLACE WITH ORIGINAL FUNCTION THAT CONSUMES ARROWS, BUT USE ARROWUTIL TO GENERATE CORRECT ARROW
     /**
      * Handles firing of the arrow once the user stops using the Bow.
      * @param stack ItemStack corresponding to this Item

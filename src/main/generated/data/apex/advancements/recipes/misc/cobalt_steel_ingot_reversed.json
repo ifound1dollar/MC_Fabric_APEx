@@ -44,10 +44,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_steel_ingot",
       "has_cobalt_shard",
-      "has_molten_core",
-      "has_the_recipe"
+      "has_molten_core"
     ]
   ],
   "rewards": {

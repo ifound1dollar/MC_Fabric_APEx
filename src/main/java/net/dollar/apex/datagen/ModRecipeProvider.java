@@ -18,7 +18,6 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
     private enum ToolType { AXE, BATTLEAXE, HOE, PAXEL, PICKAXE, SHOVEL, SWORD }
@@ -60,7 +59,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 
     @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
+    public void generate(RecipeExporter exporter) {
         //region SMELTING AND BLASTING
         offerSmelting(exporter, COBALT_SMELTABLES, RecipeCategory.MISC, ModItems.COBALT_SHARD,
                 0.9f, 200, "cobalt_shard"); //Diamond is 1.0
@@ -658,13 +657,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     /**
      * Helper to automatically generate shaped recipes for the four armor slots.
-     * @param exporter Consumer of RecipeJsonProvider that exports the recipe
+     * @param exporter RecipeExporter that exports the recipe
      * @param slot This armor piece's EquipmentSlot
      * @param ingredient Crafting ingredient
      * @param result Crafting result
      * @param hasString String in "has_[item]" format that defines how the recipe is unlocked
      */
-    private void armorRecipeBuilder(Consumer<RecipeJsonProvider> exporter, EquipmentSlot slot,
+    private void armorRecipeBuilder(RecipeExporter exporter, EquipmentSlot slot,
                                     TagKey<Item> ingredient, Item result, String hasString) {
         switch (slot) {
             case HEAD -> ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, result, 1)
@@ -701,13 +700,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     /**
      * Helper to automatically generate shaped recipes for axe, battleaxe, hoe, paxel, pickaxe, shovel, and sword.
-     * @param exporter Consumer of RecipeJsonProvider that exports the recipe
+     * @param exporter RecipeExporter that exports the recipe
      * @param toolType Tool type of the item being crafted
      * @param ingredient Crafting ingredient
      * @param result Crafting result
      * @param hasString String in "has_[item]" format that defines how the recipe is unlocked
      */
-    private void toolRecipeBuilder(Consumer<RecipeJsonProvider> exporter, ToolType toolType,
+    private void toolRecipeBuilder(RecipeExporter exporter, ToolType toolType,
                                    TagKey<Item> ingredient, Item result, String hasString) {
         switch (toolType) {
             case AXE -> ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, result, 1)
@@ -773,7 +772,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     /**
      * Helper to automatically generate smithing recipes (1.20+). NOTE: Smithing recipes are
      *  specifically item-to-item, and should never use tags.
-     * @param exporter Consumer of RecipeJsonProvider that exports the recipe
+     * @param exporter RecipeExporter that exports the recipe
      * @param template Required upgrade template Item
      * @param upgradeTarget Item being upgraded
      * @param ingredient Upgrade ingredient Item
@@ -782,7 +781,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
      * @param hasStringTemplate String in "has_[item]" format corresponding to the upgrade template
      * @param hasStringIngredient String in "has_[item]" format corresponding to the upgrade ingredient
      */
-    private void smithingUpgradeRecipeBuilder(Consumer<RecipeJsonProvider> exporter, Item template, Item upgradeTarget,
+    private void smithingUpgradeRecipeBuilder(RecipeExporter exporter, Item template, Item upgradeTarget,
                                               Item ingredient, RecipeCategory category, Item result,
                                               String hasStringTemplate, String hasStringIngredient) {
         SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(template), Ingredient.ofItems(upgradeTarget),
