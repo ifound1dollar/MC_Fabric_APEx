@@ -44,8 +44,9 @@ public class ObsidianGolemRenderer
     }
 
     @Override
-    protected void setupTransforms(ObsidianGolemEntity obsidianGolemEntity, MatrixStack matrixStack, float f, float g, float h) {
-        super.setupTransforms(obsidianGolemEntity, matrixStack, f, g, h);
+    protected void setupTransforms(ObsidianGolemEntity obsidianGolemEntity, MatrixStack matrixStack,
+                                   float f, float g, float h, float i) {
+        super.setupTransforms(obsidianGolemEntity, matrixStack, f, g, h, i);
         if ((double)obsidianGolemEntity.limbAnimator.getSpeed() < 0.01) {
             return;
         }

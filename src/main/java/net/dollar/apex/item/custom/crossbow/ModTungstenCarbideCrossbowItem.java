@@ -5,6 +5,7 @@ import net.dollar.apex.item.custom.arrow.ArrowUtil;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.item.TooltipType;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.CrossbowUser;
@@ -309,11 +310,18 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
         return f;
     }
 
+    /**
+     * Appends text to the Item's hover tooltip.
+     * @param stack ItemStack corresponding to this item
+     * @param context TooltipContext
+     * @param tooltip List of tooltip texts to render
+     * @param type TooltipType determining data like simple or advanced
+     */
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
 
         //Call super function because it has return statement if not charged.
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

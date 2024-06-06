@@ -1,13 +1,9 @@
 package net.dollar.apex.item.custom;
 
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.client.item.TooltipType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -18,7 +14,6 @@ import java.util.List;
 public class ModCustomItem extends Item {
     private final String tooltipLang;
     private final boolean hasGlint;
-    private final boolean hasImmunities;
 
 
 
@@ -34,24 +29,9 @@ public class ModCustomItem extends Item {
         super(settings);
         this.tooltipLang = tooltipLang;
         this.hasGlint = hasGlint;
-        hasImmunities = isFireAndBlastImmune;
     }
 
 
-
-    /**
-     * Gets whether Entities of this Item can be damaged by a specific DamageSource (false for fire and explosion).
-     * @param source DamageSource being checked
-     * @return Whether this Item can be damaged by the DamageSource
-     */
-    @Override
-    public boolean damage(DamageSource source) {
-        if (hasImmunities) {
-            return !(source.isIn(DamageTypeTags.IS_FIRE) || source.isIn(DamageTypeTags.IS_EXPLOSION));
-        } else {
-            return super.damage(source);
-        }
-    }
 
     /**
      * Gets whether this Item should render with enchantment glint (true).
@@ -64,14 +44,14 @@ public class ModCustomItem extends Item {
     }
 
     /**
-     * Appends text to the Item's hover tooltip (lore).
-     * @param stack ItemStack corresponding to this Item
-     * @param world Active world
-     * @param tooltip List of tooltip texts to show
-     * @param context TooltipContext denoting data like simple or advanced
+     * Appends text to the Item's hover tooltip.
+     * @param stack ItemStack corresponding to this item
+     * @param context TooltipContext
+     * @param tooltip List of tooltip texts to render
+     * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable(tooltipLang));
     }
 }

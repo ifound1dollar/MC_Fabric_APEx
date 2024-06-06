@@ -30,7 +30,7 @@ public class ModCobaltSteelArmorItem extends ArmorItem implements IFullSetEffect
      * @return Whether the effect can be applied to this armor's wearer
      */
     @Override
-    public boolean canReceiveEffect(StatusEffect effect, LivingEntity wearer) {
+    public boolean canReceiveEffect(RegistryEntry<StatusEffect> effect, LivingEntity wearer) {
         //Can receive effect UNLESS full set and effect is slowness.
         boolean isFullSet = false;
 
@@ -45,7 +45,6 @@ public class ModCobaltSteelArmorItem extends ArmorItem implements IFullSetEffect
 
         //ModMain.LOGGER.info("Full set: " + isFullSet + " | Effect: " + effect.getName());
 
-        //TODO: FIX THIS WARNING
         return !(isFullSet && (effect == StatusEffects.WEAKNESS || effect == StatusEffects.MINING_FATIGUE));
     }
 

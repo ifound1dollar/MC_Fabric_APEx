@@ -30,7 +30,7 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEf
      * @return Whether the effect can be applied to this armor's wearer
      */
     @Override
-    public boolean canReceiveEffect(StatusEffect effect, LivingEntity wearer) {
+    public boolean canReceiveEffect(RegistryEntry<StatusEffect> effect, LivingEntity wearer) {
         //Can receive effect UNLESS full set and effect is weakness.
         boolean isFullSet = false;
 
@@ -43,7 +43,6 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEf
             isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
         }
 
-        //TODO: FIX THIS WARNING
         return !(isFullSet && (effect == StatusEffects.SLOWNESS || effect == StatusEffects.LEVITATION));
     }
 

@@ -41,10 +41,7 @@ public class ArrowUtil {
                 arrowEntity = temp;
             }
         }
-
-        //Before returning and implicitly casting the ArrowEntity to a PersistentProjectileEntity, initialize
-        //  the ArrowEntity from the ItemStack (for Tipped Arrow behaviors).
-        arrowEntity.initFromStack(arrowStack);
+        
         return arrowEntity;
     }
 }

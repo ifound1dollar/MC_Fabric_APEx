@@ -4,6 +4,8 @@ import net.dollar.apex.item.ModItems;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.ChargedProjectilesComponent;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 
@@ -71,8 +73,9 @@ public class ModModelPredicateProvider {
                         CrossbowItem.isCharged(stack) ? 1.0f : 0.0f);
 
         ModelPredicateProviderRegistry.register(crossbow, new Identifier("firework"),
-                (stack, world, entity, seed) ->
-                        CrossbowItem.isCharged(stack) &&
-                                CrossbowItem.hasProjectile(stack, Items.FIREWORK_ROCKET) ? 1.0f : 0.0f);
+                (stack, world, entity, seed) -> {
+                    ChargedProjectilesComponent chargedProjectilesComponent = stack.get(DataComponentTypes.CHARGED_PROJECTILES);
+                    return chargedProjectilesComponent != null && chargedProjectilesComponent.contains(Items.FIREWORK_ROCKET) ? 1.0f : 0.0f;
+                });
     }
 }

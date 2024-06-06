@@ -7,6 +7,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -20,13 +21,14 @@ public class MixinEnchantmentHelper {
     /**
      * Injects at final return of EnchantmentHelper.getPossibleEntries() to add Mending and weapon enchantments
      *  to list IF the passed-in item is Infused Gemstone or a Battleaxe (respectively).
+     * @param enabledFeatures FeatureSet
      * @param power Power of the enchanting source (typically table)
      * @param stack ItemStack attempting to be enchanted
      * @param treasureAllowed Whether treasure is allowed on this item
      * @param cir Returnable callback info of List:EnchantmentLevelEntry type, used for replacing return value
      */
     @Inject(at = @At("RETURN"), method = "getPossibleEntries", cancellable = true)
-    private static void injectReturnGetPossibleEntries(int power, ItemStack stack, boolean treasureAllowed,
+    private static void injectReturnGetPossibleEntries(FeatureSet enabledFeatures, int power, ItemStack stack, boolean treasureAllowed,
                                                        CallbackInfoReturnable<List<EnchantmentLevelEntry>> cir) {
         //HERE, checks if the ItemStack trying to be enchanted is an Infused Gemstone item. If so, it should
         //  be allowed to receive Mending at an Enchanting Table.

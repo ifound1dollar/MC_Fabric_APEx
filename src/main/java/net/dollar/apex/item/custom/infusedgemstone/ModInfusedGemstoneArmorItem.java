@@ -31,7 +31,7 @@ public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEf
      * @return Whether the effect can be applied to this armor's wearer
      */
     @Override
-    public boolean canReceiveEffect(StatusEffect effect, LivingEntity wearer) {
+    public boolean canReceiveEffect(RegistryEntry<StatusEffect> effect, LivingEntity wearer) {
         //Can receive effect UNLESS full set and effect is wither.
         boolean isFullSet = false;
 
@@ -44,7 +44,6 @@ public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEf
             isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
         }
 
-        //TODO: FIX THIS WARNING
         return !(isFullSet && (effect == StatusEffects.WITHER || effect == StatusEffects.POISON));
     }
 

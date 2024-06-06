@@ -107,17 +107,17 @@ public class ModItems {
 
     //region Bows/Crossbows 
     public static final Item COBALT_STEEL_BOW = registerItem("cobalt_steel_bow",
-            new ModCobaltSteelBowItem(new Item.Settings().maxDamage(1200)));
+            new ModCobaltSteelBowItem(new Item.Settings().maxDamage(1200).fireproof()));
     public static final Item COBALT_STEEL_CROSSBOW = registerItem("cobalt_steel_crossbow",
-            new ModCobaltSteelCrossbowItem(new Item.Settings().maxDamage(1500)));
+            new ModCobaltSteelCrossbowItem(new Item.Settings().maxDamage(1500).fireproof()));
     public static final Item INFUSED_GEMSTONE_BOW = registerItem("infused_gemstone_bow",
-            new ModInfusedGemstoneBowItem(new Item.Settings().maxDamage(1200)));   //Base durability (maxDamage) is 384
+            new ModInfusedGemstoneBowItem(new Item.Settings().maxDamage(1200).fireproof()));   //Vanilla maxDamage is 384
     public static final Item INFUSED_GEMSTONE_CROSSBOW = registerItem("infused_gemstone_crossbow",
-            new ModInfusedGemstoneCrossbowItem(new Item.Settings().maxDamage(1500)));  //Base durability (maxDamage) is 465
+            new ModInfusedGemstoneCrossbowItem(new Item.Settings().maxDamage(1500).fireproof()));  //Vanilla maxDamage is 465
     public static final Item TUNGSTEN_CARBIDE_BOW = registerItem("tungsten_carbide_bow",
-            new ModTungstenCarbideBowItem(new Item.Settings().maxDamage(1200)));
+            new ModTungstenCarbideBowItem(new Item.Settings().maxDamage(1200).fireproof()));
     public static final Item TUNGSTEN_CARBIDE_CROSSBOW = registerItem("tungsten_carbide_crossbow",
-            new ModTungstenCarbideCrossbowItem(new Item.Settings().maxDamage(1500)));
+            new ModTungstenCarbideCrossbowItem(new Item.Settings().maxDamage(1500).fireproof()));
     //endregion
 
     //region Axes

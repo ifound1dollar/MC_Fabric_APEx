@@ -53,7 +53,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 
     public ModRecipeProvider(FabricDataOutput output) {
-        super(output);
+        super(output, null);    //TODO: FIX NULL HERE
     }
 
 

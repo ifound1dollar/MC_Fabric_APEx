@@ -12,12 +12,15 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.*;
-import net.minecraft.entity.passive.IronGolemEntity;
+import net.minecraft.entity.mob.Angerable;
+import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.Cracks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -36,6 +39,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.UUID;
 
+import static net.minecraft.entity.passive.Cracks.IRON_GOLEM;
+
 public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     private int attackTicksLeft;
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
@@ -48,7 +53,6 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
 
     public ObsidianGolemEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setStepHeight(1.0f);
     }
 
 
@@ -240,7 +244,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      */
     @Override
     public boolean damage(DamageSource source, float amount) {
-        IronGolemEntity.Crack crack = this.getCrack();
+        Cracks.CrackLevel crack = this.getCrack();
         boolean bl = super.damage(source, amount);
         if (bl && this.getCrack() != crack) {
             this.playSound(SoundEvents.ENTITY_IRON_GOLEM_DAMAGE, 1.0f, 1.0f);
@@ -251,10 +255,10 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
 
     /**
      * Gets Crack enum value based on % Health remaining.
-     * @return IronGolemEntity.Crack value that determines render visuals
+     * @return Cracks.CrackLevel value that determines render visuals
      */
-    public IronGolemEntity.Crack getCrack() {
-        return IronGolemEntity.Crack.from(this.getHealth() / this.getMaxHealth());
+    public Cracks.CrackLevel getCrack() {
+        return IRON_GOLEM.getCrackLevel(this.getHealth() / this.getMaxHealth());
     }
 
     @Override
@@ -427,7 +431,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      */
     @Override
     public boolean canHaveStatusEffect(StatusEffectInstance effect) {
-        StatusEffect statusEffect = effect.getEffectType();
+        RegistryEntry<StatusEffect> statusEffect = effect.getEffectType();
         return statusEffect != StatusEffects.POISON && statusEffect != StatusEffects.WITHER;
     }
 

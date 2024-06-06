@@ -1,7 +1,5 @@
 package net.dollar.apex.util;
 
-
-
 import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;

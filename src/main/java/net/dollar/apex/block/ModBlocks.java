@@ -1,102 +1,110 @@
 package net.dollar.apex.block;
 
 import net.dollar.apex.ModMain;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.ExperienceDroppingBlock;
 import net.minecraft.block.MapColor;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 public class ModBlocks {
     public static final Block RUBY_BLOCK = registerBlock("ruby_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK)
-                    .strength(6.0f).requiresTool().mapColor(MapColor.BRIGHT_RED)));
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_RED)
+                    .instrument(Instrument.BIT).requiresTool()
+                    .strength(5.0f, 6.0f).sounds(BlockSoundGroup.METAL)));
     public static final Block SAPPHIRE_BLOCK = registerBlock("sapphire_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK)
-                    .strength(6.0f).requiresTool().mapColor(MapColor.LAPIS_BLUE)));
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.LAPIS_BLUE)
+                    .instrument(Instrument.BIT).requiresTool()
+                    .strength(5.0f, 6.0f).sounds(BlockSoundGroup.METAL)));
     public static final Block DECORATIVE_AMETHYST_BLOCK = registerBlock("decorative_amethyst_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK)
-                    .strength(6.0f).requiresTool().mapColor(MapColor.PURPLE)));
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.PURPLE)
+                    .instrument(Instrument.BIT).requiresTool()
+                    .strength(5.0f, 6.0f).sounds(BlockSoundGroup.METAL)));
 
 
     public static final Block TIN_BLOCK = registerBlock("tin_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
-                    .strength(6.0f).requiresTool().mapColor(MapColor.LIGHT_GRAY)));
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.LIGHT_GRAY)
+                    .instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0f, 6.0f)));
     public static final Block RAW_TIN_BLOCK = registerBlock("raw_tin_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.RAW_IRON_BLOCK)
-                    .strength(5.0f).requiresTool().mapColor(MapColor.LIGHT_GRAY)));
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.RAW_IRON_PINK)
+                    .instrument(Instrument.BASEDRUM).requiresTool().strength(5.0f, 6.0f)));
     public static final Block TIN_ORE = registerBlock("tin_ore",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_ORE)
-                    .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY)));
+            new ExperienceDroppingBlock(ConstantIntProvider.create(0), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.STONE_GRAY).instrument(Instrument.BASEDRUM).requiresTool()
+                    .strength(3.0f, 3.0f)));
     public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore",
-            new Block(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_IRON_ORE)
-                    .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY)));
+            new ExperienceDroppingBlock(ConstantIntProvider.create(0), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASEDRUM)
+                    .strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));
 
 
     public static final Block BRONZE_BLOCK = registerBlock("bronze_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
-                    .strength(6.0f).requiresTool().mapColor(MapColor.TERRACOTTA_ORANGE)));
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_ORANGE)
+                    .instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0f, 6.0f)));
     public static final Block STEEL_BLOCK = registerBlock("steel_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
-                    .strength(6.0f).requiresTool().mapColor(MapColor.STONE_GRAY)));
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY)
+                    .instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0f, 6.0f)));
     public static final Block COBALT_BLOCK = registerBlock("cobalt_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
-                    .strength(6.0f).requiresTool().mapColor(MapColor.LAPIS_BLUE)));
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.LAPIS_BLUE)
+                    .instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0f, 6.0f)));
 
 
     public static final Block TUNGSTEN_BLOCK = registerBlock("tungsten_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
-                    .strength(6.0f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY)));
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY)
+                    .instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0f, 6.0f)));
     public static final Block RAW_TUNGSTEN_BLOCK = registerBlock("raw_tungsten_block",
-            new Block(FabricBlockSettings.copyOf(Blocks.RAW_IRON_BLOCK)
-                    .strength(5.0f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY)));
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.DEEPSLATE_GRAY)
+                    .instrument(Instrument.BASEDRUM).requiresTool().strength(5.0f, 6.0f)));
     public static final Block TUNGSTEN_ORE = registerBlock("tungsten_ore",
-            new Block(FabricBlockSettings.copyOf(Blocks.IRON_ORE)
-                    .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY)));
+            new ExperienceDroppingBlock(ConstantIntProvider.create(0), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.STONE_GRAY).instrument(Instrument.BASEDRUM).requiresTool()
+                    .strength(3.0f, 3.0f)));
     public static final Block DEEPSLATE_TUNGSTEN_ORE = registerBlock("deepslate_tungsten_ore",
-            new Block(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_IRON_ORE)
-                    .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY)));
+            new ExperienceDroppingBlock(ConstantIntProvider.create(0), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASEDRUM)
+                    .strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));
 
 
     public static final Block RUBY_ORE = registerBlock("ruby_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(4, 8),
-                    FabricBlockSettings.copyOf(Blocks.EMERALD_ORE)
-                    .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY)));  //Diamond is 3, 7
+            new ExperienceDroppingBlock(UniformIntProvider.create(4, 8), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.STONE_GRAY).instrument(Instrument.BASEDRUM).requiresTool()
+                    .strength(3.0f, 3.0f)));  //Diamond is 3, 7
     public static final Block DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(4, 8),
-                    FabricBlockSettings.copyOf(Blocks.DEEPSLATE_EMERALD_ORE)
-                    .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY)));  //Diamond is 3, 7
+            new ExperienceDroppingBlock(UniformIntProvider.create(4, 8), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASEDRUM)
+                    .strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));  //Diamond is 3, 7
     public static final Block SAPPHIRE_ORE = registerBlock("sapphire_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(4, 8),
-                    FabricBlockSettings.copyOf(Blocks.EMERALD_ORE)
-                    .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY)));  //Diamond is 3, 7
+            new ExperienceDroppingBlock(UniformIntProvider.create(4, 8), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.STONE_GRAY).instrument(Instrument.BASEDRUM).requiresTool()
+                    .strength(3.0f, 3.0f)));  //Diamond is 3, 7
     public static final Block DEEPSLATE_SAPPHIRE_ORE = registerBlock("deepslate_sapphire_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(4, 8),
-                    FabricBlockSettings.copyOf(Blocks.DEEPSLATE_EMERALD_ORE)
-                    .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY)));  //Diamond is 3, 7
+            new ExperienceDroppingBlock(UniformIntProvider.create(4, 8), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASEDRUM)
+                    .strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));  //Diamond is 3, 7
     public static final Block COBALT_ORE = registerBlock("cobalt_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(3, 6),
-                    FabricBlockSettings.copyOf(Blocks.IRON_ORE)
-                    .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY)));  //Diamond is 3, 7
+            new ExperienceDroppingBlock(UniformIntProvider.create(3, 6), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.STONE_GRAY).instrument(Instrument.BASEDRUM).requiresTool()
+                    .strength(3.0f, 3.0f)));  //Diamond is 3, 7
     public static final Block DEEPSLATE_COBALT_ORE = registerBlock("deepslate_cobalt_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(3, 6),
-                    FabricBlockSettings.copyOf(Blocks.DEEPSLATE_IRON_ORE)
-                    .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY)));  //Diamond is 3, 7
+            new ExperienceDroppingBlock(UniformIntProvider.create(3, 6), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASEDRUM)
+                    .strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));  //Diamond is 3, 7
     public static final Block PHOSPHATE_ORE = registerBlock("phosphate_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(1, 3),
-                    FabricBlockSettings.copyOf(Blocks.IRON_ORE)
-                    .strength(3.0f).requiresTool().mapColor(MapColor.STONE_GRAY)));  //Coal is 0, 2
+            new ExperienceDroppingBlock(UniformIntProvider.create(1, 3), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.STONE_GRAY).instrument(Instrument.BASEDRUM).requiresTool()
+                    .strength(3.0f, 3.0f)));  //Coal is 0, 2
     public static final Block DEEPSLATE_PHOSPHATE_ORE = registerBlock("deepslate_phosphate_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(1, 3),
-                    FabricBlockSettings.copyOf(Blocks.DEEPSLATE_IRON_ORE)
-                    .strength(4.5f).requiresTool().mapColor(MapColor.DEEPSLATE_GRAY)));  //Coal is 0, 2
+            new ExperienceDroppingBlock(UniformIntProvider.create(1, 3), AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASEDRUM)
+                    .strength(4.5f, 3.0f).sounds(BlockSoundGroup.DEEPSLATE)));  //Coal is 0, 2
 
 
 
@@ -119,7 +127,7 @@ public class ModBlocks {
      */
     private static Item registerBlockItem(String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(ModMain.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings()));
+                new BlockItem(block, new Item.Settings()));
     }
 
     /**
