@@ -3,23 +3,22 @@ package net.dollar.apex.item.custom.cobaltsteel;
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.IFullSetEffectArmor;
 import net.dollar.apex.util.ModUtils;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.item.TooltipType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
-import net.minecraft.registry.tag.DamageTypeTags;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class ModCobaltSteelArmorItem extends ArmorItem implements IFullSetEffectArmor {
-    public ModCobaltSteelArmorItem(ArmorMaterial material, Type type, Settings settings) {
+    public ModCobaltSteelArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
 
@@ -45,39 +44,20 @@ public class ModCobaltSteelArmorItem extends ArmorItem implements IFullSetEffect
         }
 
         //ModMain.LOGGER.info("Full set: " + isFullSet + " | Effect: " + effect.getName());
+
+        //TODO: FIX THIS WARNING
         return !(isFullSet && (effect == StatusEffects.WEAKNESS || effect == StatusEffects.MINING_FATIGUE));
     }
 
-
-
     /**
-     * Gets whether Entities of this Item are fireproof (true).
-     * @return Whether this Item is fireproof
+     * Appends text to the Item's hover tooltip.
+     * @param stack ItemStack corresponding to this item
+     * @param context TooltipContext
+     * @param tooltip List of tooltip texts to render
+     * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public boolean isFireproof() {
-        return true;
-    }
-
-    /**
-     * Gets whether Entities of this Item can be damaged by a specific DamageSource (false for fire and explosion).
-     * @param source DamageSource being checked
-     * @return Whether this Item can be damaged by the DamageSource
-     */
-    @Override
-    public boolean damage(DamageSource source) {
-        return !(source.isIn(DamageTypeTags.IS_FIRE) || source.isIn(DamageTypeTags.IS_EXPLOSION));
-    }
-
-    /**
-     * Appends text to the Item's hover tooltip (lore).
-     * @param stack ItemStack corresponding to this Item
-     * @param world Active world
-     * @param tooltip List of tooltip texts to show
-     * @param context TooltipContext denoting data like simple or advanced
-     */
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.ARMOR);
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
     }
 }

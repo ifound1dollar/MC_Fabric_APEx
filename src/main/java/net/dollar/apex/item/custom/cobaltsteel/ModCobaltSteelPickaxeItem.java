@@ -1,33 +1,39 @@
 package net.dollar.apex.item.custom.cobaltsteel;
 
+import net.dollar.apex.util.ModToolMaterials;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.item.TooltipType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.registry.tag.DamageTypeTags;
+import net.minecraft.item.*;
 import net.minecraft.text.Text;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class ModCobaltSteelPickaxeItem extends PickaxeItem {
-    public ModCobaltSteelPickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+    public ModCobaltSteelPickaxeItem(ToolMaterial material, float attackDamage, float attackSpeed) {
+        super(material, new Item.Settings()
+                .attributeModifiers(MiningToolItem.createAttributeModifiers(
+                        ModToolMaterials.COBALT_STEEL, attackDamage, attackSpeed))
+                .fireproof());
     }
 
 
-    @Override
-    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-        float baseVal = super.getMiningSpeedMultiplier(stack, state);
 
-        //If the block being mined contains deepslate, increase mining speed by a further 100% (allows instant
-        //  mining with Cobalt Steel Pickaxe w/Efficiency V & Haste II : results in total mining speed of 92.4, needs 90).
+    /**
+     * Gets the mining speed of this Tool, depending on the Block being mined.
+     * @param stack Stack corresponding to this Tool
+     * @param state BlockState corresponding to Block attempting to be mined
+     * @return The calculated mining speed
+     */
+    @Override
+    public float getMiningSpeed(ItemStack stack, BlockState state) {
+        float baseVal = super.getMiningSpeed(stack, state);
+
+        //If the block being mined is Deepslate, increase mining speed by a further 100% (allows instant
+        //  mining with Cobalt Steel Paxel/Pickaxe w/Efficiency V & Haste II : results in total mining speed
+        //  of 92.4, needs 90).
         return (state.getBlock() == Blocks.DEEPSLATE) ? baseVal * 2.0f : baseVal;
     }
 
@@ -45,33 +51,14 @@ public class ModCobaltSteelPickaxeItem extends PickaxeItem {
     }
 
     /**
-     * Gets whether Entities of this Item are fireproof (true).
-     * @return Whether this Item is fireproof
+     * Appends text to the Item's hover tooltip.
+     * @param stack ItemStack corresponding to this item
+     * @param context TooltipContext
+     * @param tooltip List of tooltip texts to render
+     * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public boolean isFireproof() {
-        return true;
-    }
-
-    /**
-     * Gets whether Entities of this Item can be damaged by a specific DamageSource (false for fire and explosion).
-     * @param source DamageSource being checked
-     * @return Whether this Item can be damaged by the DamageSource
-     */
-    @Override
-    public boolean damage(DamageSource source) {
-        return !(source.isIn(DamageTypeTags.IS_FIRE) || source.isIn(DamageTypeTags.IS_EXPLOSION));
-    }
-
-    /**
-     * Appends text to the Item's hover tooltip (lore).
-     * @param stack ItemStack corresponding to this Item
-     * @param world Active world
-     * @param tooltip List of tooltip texts to show
-     * @param context TooltipContext denoting data like simple or advanced
-     */
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
     }
 }

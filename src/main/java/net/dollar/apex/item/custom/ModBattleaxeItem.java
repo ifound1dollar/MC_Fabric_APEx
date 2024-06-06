@@ -1,39 +1,61 @@
 package net.dollar.apex.item.custom;
 
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
 import net.minecraft.block.BlockState;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.AttributeModifierSlot;
+import net.minecraft.component.type.AttributeModifiersComponent;
+import net.minecraft.component.type.ToolComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ToolItem;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 /**
  * Defines behavior for all Battleaxe items, which cannot mine anything and are meant as weapons (derives
  *  from SwordItem).
  */
-public class ModBattleaxeItem extends ToolItem implements Vanishable {
-    private final float attackDamage;
-    private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
+public class ModBattleaxeItem extends ToolItem {
 
-    public ModBattleaxeItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Item.Settings settings) {
-        super(toolMaterial, settings);
-        this.attackDamage = (float)attackDamage + toolMaterial.getAttackDamage();
-        ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", this.attackDamage, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
-        this.attributeModifiers = builder.build();
+    public ModBattleaxeItem(ToolMaterial toolMaterial, Item.Settings settings) {
+        super(toolMaterial, settings.component(DataComponentTypes.TOOL, createToolComponent()));
     }
 
+    /**
+     * Creates a tool component for this item, which determines mineable blocks, mining speed, and damage per mine.
+     * @return The generated ToolComponent
+     */
+    private static ToolComponent createToolComponent() {
+        return new ToolComponent(List.of(ToolComponent.Rule.ofAlwaysDropping(List.of(), 1.0F),
+                    ToolComponent.Rule.of(List.of(), 1.0F)),
+                1.0F,
+                2);
+    }
 
-
-    public float getAttackDamage() {
-        return this.attackDamage;
+    /**
+     * Creates attribute modifiers for this item, which determines the tool's functionality.
+     * @param material ToolMaterial for this Item
+     * @param baseAttackDamage This Item's base Attack Damage
+     * @param attackSpeed This Item's Attack Speed
+     * @return The generated AttributeModifiersComponent
+     */
+    public static AttributeModifiersComponent createAttributeModifiers(ToolMaterial material, int baseAttackDamage, float attackSpeed) {
+        return AttributeModifiersComponent.builder().add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier",
+                        ((float)baseAttackDamage + material.getAttackDamage()),
+                        EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND)
+                .add(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID,
+                        "Weapon modifier", attackSpeed, EntityAttributeModifier.Operation.ADD_VALUE),
+                        AttributeModifierSlot.MAINHAND)
+                .build();
     }
 
     @Override
@@ -43,47 +65,7 @@ public class ModBattleaxeItem extends ToolItem implements Vanishable {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        stack.damage(1, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+        stack.damage(1, attacker, EquipmentSlot.MAINHAND);
         return true;
-    }
-
-    @Override
-    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-        if (state.getHardness(world, pos) != 0.0f) {
-            stack.damage(2, miner, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-        }
-        return true;
-    }
-
-    @Override
-    public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
-        if (slot == EquipmentSlot.MAINHAND) {
-            return this.attributeModifiers;
-        }
-        return super.getAttributeModifiers(slot);
-    }
-
-
-
-    /**
-     * Get the mining speed multiplier of this tool (always 1.0f).
-     * @param stack ItemStack corresponding to this Item
-     * @param state BlockState of Block attempting to be mined
-     * @return This Item's mining speed multiplier for the targeted Block
-     */
-    @Override
-    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-        //Not efficient at breaking anything.
-        return 1.0f;
-    }
-
-    /**
-     * Gets whether this tool is suitable for breaking a specific block.
-     * @param state BlockState of Block attempting to be mined
-     * @return Whether this tool is suitable for the associated BlockState
-     */
-    @Override
-    public boolean isSuitableFor(BlockState state) {
-        return false;
     }
 }

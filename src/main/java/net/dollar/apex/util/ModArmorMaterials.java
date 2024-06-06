@@ -2,121 +2,96 @@ package net.dollar.apex.util;
 
 import net.dollar.apex.ModMain;
 import net.dollar.apex.item.ModItems;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.Util;
+
+import java.util.EnumMap;
+import java.util.List;
 import java.util.function.Supplier;
 
-public enum ModArmorMaterials implements ArmorMaterial {
-    //NETHERITE: 37, {3,8,6,3}, 15, 3.0, 0.1
-    BRONZE("bronze",
-            15,
-            new int[] { 2, 6, 5, 2 },
-            9,
-            SoundEvents.ITEM_ARMOR_EQUIP_IRON,
-            0.0f,
-            0.0f,
-            () -> Ingredient.ofItems(ModItems.BRONZE_INGOT)),
-    GILDED_BRONZE("gilded_bronze",
-            23,
-            new int[] { 3, 6, 5, 3 },
-            25,
-            SoundEvents.ITEM_ARMOR_EQUIP_GOLD,
-            1.0f,
-            0.0f,
-            () -> Ingredient.ofItems(Items.GOLD_INGOT)),
-    INFUSED_GEMSTONE("infused_gemstone",
-            37,
-            new int[] { 3, 8, 6, 3 },
-            25,
-            SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
-            3.0f,
-            0.05f,
-            () -> Ingredient.ofItems(ModItems.INFUSED_GEMSTONE)),
-    COBALT_STEEL("cobalt_steel",
-            37,
-            new int[] { 3, 8, 6, 3 },
-            20,
-            SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
-            3.0f,
-            0.1f,
-            () -> Ingredient.ofItems(ModItems.COBALT_STEEL_INGOT)),
-    TUNGSTEN_CARBIDE("tungsten_carbide",
-            41,
-            new int[] { 3, 8, 6, 3 },
-            15,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
-            3.0f,
-            0.1f,
+public class ModArmorMaterials {
+    public static final RegistryEntry<ArmorMaterial> BRONZE = register("bronze", Util.make(
+            new EnumMap<>(ArmorItem.Type.class), (map) -> {
+                map.put(ArmorItem.Type.BOOTS, 2);
+                map.put(ArmorItem.Type.LEGGINGS, 5);
+                map.put(ArmorItem.Type.CHESTPLATE, 6);
+                map.put(ArmorItem.Type.HELMET, 2);
+                map.put(ArmorItem.Type.BODY, 5);
+            }), 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.BRONZE_INGOT));
+    public static final RegistryEntry<ArmorMaterial> GILDED_BRONZE = register("gilded_bronze", Util.make(
+            new EnumMap<>(ArmorItem.Type.class), (map) -> {
+                map.put(ArmorItem.Type.BOOTS, 3);
+                map.put(ArmorItem.Type.LEGGINGS, 6);
+                map.put(ArmorItem.Type.CHESTPLATE, 5);
+                map.put(ArmorItem.Type.HELMET, 3);
+                map.put(ArmorItem.Type.BODY, 9);
+            }), 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.0f, 0.0f,
+            () -> Ingredient.ofItems(Items.GOLD_INGOT));
+    public static final RegistryEntry<ArmorMaterial> COBALT_STEEL = register("cobalt_steel", Util.make(
+            new EnumMap<>(ArmorItem.Type.class), (map) -> {
+                map.put(ArmorItem.Type.BOOTS, 3);
+                map.put(ArmorItem.Type.LEGGINGS, 8);
+                map.put(ArmorItem.Type.CHESTPLATE, 6);
+                map.put(ArmorItem.Type.HELMET, 3);
+                map.put(ArmorItem.Type.BODY, 11);
+            }), 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.1f,
+            () -> Ingredient.ofItems(ModItems.COBALT_STEEL_INGOT));
+    public static final RegistryEntry<ArmorMaterial> INFUSED_GEMSTONE = register("infused_gemstone", Util.make(
+                    new EnumMap<>(ArmorItem.Type.class), (map) -> {
+                        map.put(ArmorItem.Type.BOOTS, 3);
+                        map.put(ArmorItem.Type.LEGGINGS, 8);
+                        map.put(ArmorItem.Type.CHESTPLATE, 6);
+                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BODY, 11);
+                    }), 25, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.05f,
+            () -> Ingredient.ofItems(ModItems.INFUSED_GEMSTONE));
+    public static final RegistryEntry<ArmorMaterial> TUNGSTEN_CARBIDE = register("tungsten_carbide", Util.make(
+                    new EnumMap<>(ArmorItem.Type.class), (map) -> {
+                        map.put(ArmorItem.Type.BOOTS, 3);
+                        map.put(ArmorItem.Type.LEGGINGS, 8);
+                        map.put(ArmorItem.Type.CHESTPLATE, 6);
+                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BODY, 11);
+                    }), 15, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0f, 0.1f,
             () -> Ingredient.ofItems(ModItems.TUNGSTEN_CARBIDE_INGOT));
 
 
-    private final String name;
-    private final int durabilityMultiplier;
-    private final int[] protectionAmounts;
-    private final int enchantability;
-    private final SoundEvent equipSound;
-    private final float toughness;
-    private final float knockbackResistance;
-    private final Supplier<Ingredient> repairIngredient;
 
-    private static final int[] BASE_DURABILITY = { 11, 16, 15, 13 };    //Helmet, Chestplate, Leggings, Boots
+    public ModArmorMaterials() {
 
-
-
-    ModArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability,
-                      SoundEvent equipSound, float toughness, float knockbackResistance,
-                      Supplier<Ingredient> repairIngredientSupplier) {
-        this.name = name;
-        this.durabilityMultiplier = durabilityMultiplier;
-        this.protectionAmounts = protectionAmounts;
-        this.enchantability = enchantability;
-        this.equipSound = equipSound;
-        this.toughness = toughness;
-        this.knockbackResistance = knockbackResistance;
-        this.repairIngredient = repairIngredientSupplier;
     }
 
-    @Override
-    public int getDurability(ArmorItem.Type type) {
-        return BASE_DURABILITY[type.ordinal()] * this.durabilityMultiplier;
+
+
+    private static RegistryEntry<ArmorMaterial> register(String id, EnumMap<ArmorItem.Type, Integer> defense,
+                                                         int enchantability, RegistryEntry<SoundEvent> equipSound,
+                                                         float toughness, float knockbackResistance,
+                                                         Supplier<Ingredient> repairIngredient) {
+        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(new Identifier(ModMain.MOD_ID, id)));
+        return register(id, defense, enchantability, equipSound, toughness, knockbackResistance, repairIngredient, list);
     }
 
-    @Override
-    public int getProtection(ArmorItem.Type type) {
-        return this.protectionAmounts[type.ordinal()];
-    }
+    private static RegistryEntry<ArmorMaterial> register(String id, EnumMap<ArmorItem.Type, Integer> defense,
+                                                         int enchantability, RegistryEntry<SoundEvent> equipSound,
+                                                         float toughness, float knockbackResistance,
+                                                         Supplier<Ingredient> repairIngredient,
+                                                         List<ArmorMaterial.Layer> layers) {
+        EnumMap<ArmorItem.Type, Integer> enumMap = new EnumMap<>(ArmorItem.Type.class);
+        ArmorItem.Type[] var9 = ArmorItem.Type.values();
 
-    @Override
-    public int getEnchantability() {
-        return this.enchantability;
-    }
+        for (ArmorItem.Type type : var9) {
+            enumMap.put(type, defense.get(type));
+        }
 
-    @Override
-    public SoundEvent getEquipSound() {
-        return this.equipSound;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient() {
-        return this.repairIngredient.get();
-    }
-
-    @Override
-    public String getName() {
-        return ModMain.MOD_ID + ":" + this.name;
-    }
-
-    @Override
-    public float getToughness() {
-        return this.toughness;
-    }
-
-    @Override
-    public float getKnockbackResistance() {
-        return this.knockbackResistance;
+        return Registry.registerReference(Registries.ARMOR_MATERIAL, new Identifier(ModMain.MOD_ID, id),
+                new ArmorMaterial(enumMap, enchantability, equipSound, repairIngredient, layers, toughness, knockbackResistance));
     }
 }
