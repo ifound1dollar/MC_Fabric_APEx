@@ -11,8 +11,8 @@ import net.minecraft.world.World;
 public class TungstenCarbideArrowEntity extends ArrowEntity {
     private boolean isSpectral;
 
-    public TungstenCarbideArrowEntity(World world, LivingEntity owner) {
-        super(world, owner);
+    public TungstenCarbideArrowEntity(World world, LivingEntity owner, ItemStack stack) {
+        super(world, owner, stack);
     }
 
 

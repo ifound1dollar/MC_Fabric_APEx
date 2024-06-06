@@ -26,17 +26,17 @@ public class ArrowUtil {
         //  spectral. Finally, implicitly cast it to the ArrowEntity class by assigning it to arrowEntity.
         switch (type) {
             case INFUSED -> {
-                InfusedGemstoneArrowEntity temp = new InfusedGemstoneArrowEntity(world, shooter);
+                InfusedGemstoneArrowEntity temp = new InfusedGemstoneArrowEntity(world, shooter, arrowStack);
                 temp.checkIsSpectral(arrowStack);
                 arrowEntity = temp;
             }
             case CARBIDE -> {
-                TungstenCarbideArrowEntity temp = new TungstenCarbideArrowEntity(world, shooter);
+                TungstenCarbideArrowEntity temp = new TungstenCarbideArrowEntity(world, shooter, arrowStack);
                 temp.checkIsSpectral(arrowStack);
                 arrowEntity = temp;
             }
             default -> {    //Guaranteed to be COBALT
-                CobaltSteelArrowEntity temp = new CobaltSteelArrowEntity(world, shooter);
+                CobaltSteelArrowEntity temp = new CobaltSteelArrowEntity(world, shooter, arrowStack);
                 temp.checkIsSpectral(arrowStack);
                 arrowEntity = temp;
             }

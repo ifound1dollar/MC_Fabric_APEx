@@ -11,8 +11,8 @@ import net.minecraft.world.World;
 public class InfusedGemstoneArrowEntity extends ArrowEntity {
     private boolean isSpectral;
 
-    public InfusedGemstoneArrowEntity(World world, LivingEntity owner) {
-        super(world, owner);
+    public InfusedGemstoneArrowEntity(World world, LivingEntity owner, ItemStack stack) {
+        super(world, owner, stack);
     }
 
 
