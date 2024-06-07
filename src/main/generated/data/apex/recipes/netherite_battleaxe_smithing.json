@@ -7,7 +7,8 @@
     "item": "apex:diamond_battleaxe"
   },
   "result": {
-    "item": "apex:netherite_battleaxe"
+    "count": 1,
+    "id": "apex:netherite_battleaxe"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

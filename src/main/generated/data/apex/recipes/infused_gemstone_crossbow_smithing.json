@@ -7,7 +7,8 @@
     "item": "minecraft:crossbow"
   },
   "result": {
-    "item": "apex:infused_gemstone_crossbow"
+    "count": 1,
+    "id": "apex:infused_gemstone_crossbow"
   },
   "template": {
     "item": "apex:infusion_upgrade_smithing_template"

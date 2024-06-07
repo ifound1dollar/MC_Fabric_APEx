@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:raw_tin"
-            ]
+            "items": "apex:raw_tin"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:raw_tin_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

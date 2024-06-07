@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:deepslate_tin_ore"
-            ]
+            "items": "apex:deepslate_tin_ore"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:tin_ingot_from_smelting_deepslate_tin_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

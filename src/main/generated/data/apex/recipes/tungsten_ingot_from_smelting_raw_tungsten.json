@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "apex:raw_tungsten"
   },
-  "result": "apex:tungsten_ingot"
+  "result": {
+    "id": "apex:tungsten_ingot"
+  }
 }

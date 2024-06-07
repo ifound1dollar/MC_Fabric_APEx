@@ -7,7 +7,8 @@
     "item": "apex:diamond_paxel"
   },
   "result": {
-    "item": "apex:infused_gemstone_paxel"
+    "count": 1,
+    "id": "apex:infused_gemstone_paxel"
   },
   "template": {
     "item": "apex:infusion_upgrade_smithing_template"

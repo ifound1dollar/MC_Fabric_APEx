@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:carbide_upgrade_smithing_template"
-            ]
+            "items": "apex:carbide_upgrade_smithing_template"
           }
         ]
       },
@@ -23,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:tungsten_ingots"
+            "items": "#c:tungsten_ingots"
           }
         ]
       },
@@ -41,6 +39,5 @@
     "recipes": [
       "minecraft:carbide_upgrade_smithing_template"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

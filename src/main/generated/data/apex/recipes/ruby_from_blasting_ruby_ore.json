@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "apex:ruby_ore"
   },
-  "result": "apex:ruby"
+  "result": {
+    "id": "apex:ruby"
+  }
 }

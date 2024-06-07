@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:cobalt_shard"
-            ]
+            "items": "apex:cobalt_shard"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:cobalt_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

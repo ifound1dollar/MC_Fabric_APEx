@@ -7,7 +7,8 @@
     "item": "minecraft:diamond_hoe"
   },
   "result": {
-    "item": "apex:cobalt_steel_hoe"
+    "count": 1,
+    "id": "apex:cobalt_steel_hoe"
   },
   "template": {
     "item": "apex:cobalt_upgrade_smithing_template"

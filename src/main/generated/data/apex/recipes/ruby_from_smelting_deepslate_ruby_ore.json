@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "apex:deepslate_ruby_ore"
   },
-  "result": "apex:ruby"
+  "result": {
+    "id": "apex:ruby"
+  }
 }

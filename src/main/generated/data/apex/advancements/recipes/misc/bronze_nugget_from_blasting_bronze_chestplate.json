@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:bronze_chestplate"
-            ]
+            "items": "apex:bronze_chestplate"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:bronze_nugget_from_blasting_bronze_chestplate"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

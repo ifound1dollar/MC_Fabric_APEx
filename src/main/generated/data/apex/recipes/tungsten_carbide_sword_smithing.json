@@ -7,7 +7,8 @@
     "item": "minecraft:diamond_sword"
   },
   "result": {
-    "item": "apex:tungsten_carbide_sword"
+    "count": 1,
+    "id": "apex:tungsten_carbide_sword"
   },
   "template": {
     "item": "apex:carbide_upgrade_smithing_template"

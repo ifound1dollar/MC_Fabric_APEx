@@ -15,7 +15,7 @@
     "d"
   ],
   "result": {
-    "item": "minecraft:chain"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "minecraft:chain"
+  }
 }

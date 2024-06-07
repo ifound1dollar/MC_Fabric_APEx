@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:gilded_bronze_shovel"
-            ]
+            "items": "apex:gilded_bronze_shovel"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:gold_nugget_from_blasting_gilded_bronze_shovel"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

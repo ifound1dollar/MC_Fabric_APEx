@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "apex:bronze_chestplate"
   },
-  "result": "apex:bronze_nugget"
+  "result": {
+    "id": "apex:bronze_nugget"
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:raw_tungsten"
-            ]
+            "items": "apex:raw_tungsten"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:tungsten_ingot_from_blasting_raw_tungsten"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

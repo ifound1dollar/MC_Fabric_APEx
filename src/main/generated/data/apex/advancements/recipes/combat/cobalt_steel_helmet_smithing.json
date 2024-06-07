@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:cobalt_steel_ingot"
-            ]
+            "items": "apex:cobalt_steel_ingot"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:cobalt_upgrade_smithing_template"
-            ]
+            "items": "apex:cobalt_upgrade_smithing_template"
           }
         ]
       },
@@ -43,6 +39,5 @@
     "recipes": [
       "minecraft:cobalt_steel_helmet_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

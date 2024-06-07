@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "apex:deepslate_tungsten_ore"
   },
-  "result": "apex:tungsten_ingot"
+  "result": {
+    "id": "apex:tungsten_ingot"
+  }
 }

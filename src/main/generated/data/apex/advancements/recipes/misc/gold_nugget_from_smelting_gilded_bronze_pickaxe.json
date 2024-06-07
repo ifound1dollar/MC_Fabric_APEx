@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:gilded_bronze_pickaxe"
-            ]
+            "items": "apex:gilded_bronze_pickaxe"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:gold_nugget_from_smelting_gilded_bronze_pickaxe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:gilded_bronze_axe"
-            ]
+            "items": "apex:gilded_bronze_axe"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:gold_nugget_from_smelting_gilded_bronze_axe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

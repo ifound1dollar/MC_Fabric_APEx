@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:copper_ingots"
+            "items": "#c:copper_ingots"
           }
         ]
       },
@@ -21,7 +21,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:tin_ingots"
+            "items": "#c:tin_ingots"
           }
         ]
       },
@@ -39,6 +39,5 @@
     "recipes": [
       "minecraft:bronze_compound"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

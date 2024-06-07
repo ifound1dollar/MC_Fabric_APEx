@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:diamonds"
+            "items": "#c:diamonds"
           }
         ]
       },
@@ -15,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:infusion_upgrade_smithing_template"
-            ]
+            "items": "apex:infusion_upgrade_smithing_template"
           }
         ]
       },
@@ -41,6 +39,5 @@
     "recipes": [
       "minecraft:infusion_upgrade_smithing_template"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

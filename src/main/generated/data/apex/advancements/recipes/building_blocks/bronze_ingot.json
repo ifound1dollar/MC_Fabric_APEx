@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:bronze_block"
-            ]
+            "items": "apex:bronze_block"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:bronze_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

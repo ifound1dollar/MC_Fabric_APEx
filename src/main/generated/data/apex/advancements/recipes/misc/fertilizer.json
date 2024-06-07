@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:phosphate_powder"
-            ]
+            "items": "apex:phosphate_powder"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:rotten_flesh"
-            ]
+            "items": "minecraft:rotten_flesh"
           }
         ]
       },
@@ -43,6 +39,5 @@
     "recipes": [
       "minecraft:fertilizer"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

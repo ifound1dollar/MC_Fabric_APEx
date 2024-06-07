@@ -12,7 +12,7 @@
     "###"
   ],
   "result": {
-    "item": "apex:raw_tin_block"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:raw_tin_block"
+  }
 }

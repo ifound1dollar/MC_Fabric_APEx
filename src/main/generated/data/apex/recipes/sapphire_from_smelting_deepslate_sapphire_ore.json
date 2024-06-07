@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "apex:deepslate_sapphire_ore"
   },
-  "result": "apex:sapphire"
+  "result": {
+    "id": "apex:sapphire"
+  }
 }

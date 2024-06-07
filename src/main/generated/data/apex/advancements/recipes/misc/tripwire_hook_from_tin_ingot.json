@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:tin_ingots"
+            "items": "#c:tin_ingots"
           }
         ]
       },
@@ -28,6 +28,5 @@
     "recipes": [
       "apex:tripwire_hook_from_tin_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

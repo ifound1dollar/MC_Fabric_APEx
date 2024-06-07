@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "apex:tin_ore"
   },
-  "result": "apex:tin_ingot"
+  "result": {
+    "id": "apex:tin_ingot"
+  }
 }

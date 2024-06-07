@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:tungsten_ingot"
-            ]
+            "items": "apex:tungsten_ingot"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:tungsten_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

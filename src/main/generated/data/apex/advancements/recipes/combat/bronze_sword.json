@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:bronze_ingots"
+            "items": "#c:bronze_ingots"
           }
         ]
       },
@@ -28,6 +28,5 @@
     "recipes": [
       "minecraft:bronze_sword"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

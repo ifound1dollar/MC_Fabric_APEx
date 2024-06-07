@@ -15,7 +15,7 @@
     "ddd"
   ],
   "result": {
-    "item": "minecraft:soul_lantern"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "minecraft:soul_lantern"
+  }
 }

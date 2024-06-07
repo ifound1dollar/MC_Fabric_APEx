@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:deepslate_sapphire_ore"
-            ]
+            "items": "apex:deepslate_sapphire_ore"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:sapphire_from_smelting_deepslate_sapphire_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -11,7 +11,7 @@
     "d "
   ],
   "result": {
-    "item": "minecraft:shears"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "minecraft:shears"
+  }
 }

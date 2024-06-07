@@ -11,7 +11,7 @@
     "d d"
   ],
   "result": {
-    "item": "apex:bronze_helmet"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:bronze_helmet"
+  }
 }

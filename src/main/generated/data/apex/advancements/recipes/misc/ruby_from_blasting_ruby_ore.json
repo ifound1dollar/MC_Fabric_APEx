@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:ruby_ore"
-            ]
+            "items": "apex:ruby_ore"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:ruby_from_blasting_ruby_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

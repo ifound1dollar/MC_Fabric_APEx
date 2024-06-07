@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "apex:cobalt_ore"
   },
-  "result": "apex:cobalt_shard"
+  "result": {
+    "id": "apex:cobalt_shard"
+  }
 }

@@ -18,7 +18,7 @@
     " n "
   ],
   "result": {
-    "item": "apex:cobalt_upgrade_smithing_template"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:cobalt_upgrade_smithing_template"
+  }
 }

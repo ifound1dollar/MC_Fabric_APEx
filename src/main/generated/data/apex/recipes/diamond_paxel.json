@@ -15,7 +15,7 @@
     " i "
   ],
   "result": {
-    "item": "apex:diamond_paxel"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:diamond_paxel"
+  }
 }

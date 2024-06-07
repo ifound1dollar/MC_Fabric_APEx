@@ -15,7 +15,7 @@
     " d "
   ],
   "result": {
-    "item": "minecraft:hopper"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "minecraft:hopper"
+  }
 }

@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:tungsten_ingots"
+            "items": "#c:tungsten_ingots"
           }
         ]
       },
@@ -28,6 +28,5 @@
     "recipes": [
       "apex:tungsten_nugget_from_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

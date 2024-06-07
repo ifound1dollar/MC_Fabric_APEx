@@ -7,7 +7,8 @@
     "item": "minecraft:bow"
   },
   "result": {
-    "item": "apex:tungsten_carbide_bow"
+    "count": 1,
+    "id": "apex:tungsten_carbide_bow"
   },
   "template": {
     "item": "apex:carbide_upgrade_smithing_template"

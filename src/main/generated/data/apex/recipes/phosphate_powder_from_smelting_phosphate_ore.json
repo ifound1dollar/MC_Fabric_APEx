@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "apex:phosphate_ore"
   },
-  "result": "apex:phosphate_powder"
+  "result": {
+    "id": "apex:phosphate_powder"
+  }
 }

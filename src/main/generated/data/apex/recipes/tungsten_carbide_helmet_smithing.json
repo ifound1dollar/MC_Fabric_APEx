@@ -7,7 +7,8 @@
     "item": "minecraft:diamond_helmet"
   },
   "result": {
-    "item": "apex:tungsten_carbide_helmet"
+    "count": 1,
+    "id": "apex:tungsten_carbide_helmet"
   },
   "template": {
     "item": "apex:carbide_upgrade_smithing_template"

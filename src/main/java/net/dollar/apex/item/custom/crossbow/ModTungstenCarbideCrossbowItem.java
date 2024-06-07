@@ -106,7 +106,7 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
+        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
 
         //Call super function because it has return statement if not charged.
         super.appendTooltip(stack, context, tooltip, type);

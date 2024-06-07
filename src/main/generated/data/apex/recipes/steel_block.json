@@ -12,7 +12,7 @@
     "###"
   ],
   "result": {
-    "item": "apex:steel_block"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:steel_block"
+  }
 }

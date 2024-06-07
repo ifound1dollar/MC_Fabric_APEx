@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:tin_block"
-            ]
+            "items": "apex:tin_block"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:tin_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

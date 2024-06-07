@@ -15,7 +15,7 @@
     " i"
   ],
   "result": {
-    "item": "apex:bronze_axe"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:bronze_axe"
+  }
 }

@@ -15,7 +15,7 @@
     "ddd"
   ],
   "result": {
-    "item": "apex:gilded_bronze_chestplate"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:gilded_bronze_chestplate"
+  }
 }

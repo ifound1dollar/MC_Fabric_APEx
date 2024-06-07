@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:steel_nugget"
-            ]
+            "items": "apex:steel_nugget"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "apex:steel_ingot_from_nugget"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

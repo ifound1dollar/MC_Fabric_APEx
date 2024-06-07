@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:netherite_ingot"
-            ]
+            "items": "minecraft:netherite_ingot"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:netherite_upgrade_smithing_template"
-            ]
+            "items": "minecraft:netherite_upgrade_smithing_template"
           }
         ]
       },
@@ -43,6 +39,5 @@
     "recipes": [
       "minecraft:netherite_paxel_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

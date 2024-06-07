@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:coal"
-            ]
+            "items": "minecraft:coal"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:molten_core"
-            ]
+            "items": "apex:molten_core"
           }
         ]
       },
@@ -35,7 +31,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:tungsten_ingots"
+            "items": "#c:tungsten_ingots"
           }
         ]
       },
@@ -54,6 +50,5 @@
     "recipes": [
       "apex:tungsten_carbide_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

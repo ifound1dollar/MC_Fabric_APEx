@@ -7,7 +7,8 @@
     "item": "apex:diamond_battleaxe"
   },
   "result": {
-    "item": "apex:tungsten_carbide_battleaxe"
+    "count": 1,
+    "id": "apex:tungsten_carbide_battleaxe"
   },
   "template": {
     "item": "apex:carbide_upgrade_smithing_template"

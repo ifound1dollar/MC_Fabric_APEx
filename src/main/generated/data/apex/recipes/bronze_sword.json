@@ -15,7 +15,7 @@
     "i"
   ],
   "result": {
-    "item": "apex:bronze_sword"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:bronze_sword"
+  }
 }

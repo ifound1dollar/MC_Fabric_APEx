@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:infused_gemstone"
-            ]
+            "items": "apex:infused_gemstone"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:infusion_upgrade_smithing_template"
-            ]
+            "items": "apex:infusion_upgrade_smithing_template"
           }
         ]
       },
@@ -43,6 +39,5 @@
     "recipes": [
       "minecraft:infused_gemstone_battleaxe_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

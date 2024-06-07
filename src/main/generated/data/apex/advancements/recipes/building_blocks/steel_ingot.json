@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:steel_block"
-            ]
+            "items": "apex:steel_block"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:steel_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

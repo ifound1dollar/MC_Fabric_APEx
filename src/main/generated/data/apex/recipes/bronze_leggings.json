@@ -12,7 +12,7 @@
     "d d"
   ],
   "result": {
-    "item": "apex:bronze_leggings"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:bronze_leggings"
+  }
 }

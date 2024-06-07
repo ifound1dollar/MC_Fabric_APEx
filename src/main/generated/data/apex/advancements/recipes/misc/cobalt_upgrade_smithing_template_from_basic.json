@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:basic_upgrade_template"
-            ]
+            "items": "apex:basic_upgrade_template"
           }
         ]
       },
@@ -17,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:steel_ingots"
+            "items": "#c:steel_ingots"
           }
         ]
       },
@@ -41,6 +39,5 @@
     "recipes": [
       "apex:cobalt_upgrade_smithing_template_from_basic"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

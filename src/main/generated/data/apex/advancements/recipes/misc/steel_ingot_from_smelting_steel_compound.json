@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:steel_compound"
-            ]
+            "items": "apex:steel_compound"
           }
         ]
       },
@@ -30,6 +28,5 @@
     "recipes": [
       "minecraft:steel_ingot_from_smelting_steel_compound"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

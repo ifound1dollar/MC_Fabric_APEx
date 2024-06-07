@@ -18,7 +18,7 @@
     " n "
   ],
   "result": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "minecraft:netherite_upgrade_smithing_template"
+  }
 }

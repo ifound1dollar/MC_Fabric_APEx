@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:amethyst"
+            "items": "#c:amethyst"
           }
         ]
       },
@@ -15,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:diamonds"
+            "items": "#c:diamonds"
           }
         ]
       },
@@ -25,7 +25,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:emeralds"
+            "items": "#c:emeralds"
           }
         ]
       },
@@ -35,9 +35,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:handful_of_stardust"
-            ]
+            "items": "apex:handful_of_stardust"
           }
         ]
       },
@@ -47,7 +45,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:rubies"
+            "items": "#c:rubies"
           }
         ]
       },
@@ -57,7 +55,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:sapphires"
+            "items": "#c:sapphires"
           }
         ]
       },
@@ -85,6 +83,5 @@
     "recipes": [
       "minecraft:infused_gemstone"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

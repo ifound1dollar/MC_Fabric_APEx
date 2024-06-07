@@ -7,7 +7,8 @@
     "item": "minecraft:diamond_boots"
   },
   "result": {
-    "item": "apex:cobalt_steel_boots"
+    "count": 1,
+    "id": "apex:cobalt_steel_boots"
   },
   "template": {
     "item": "apex:cobalt_upgrade_smithing_template"

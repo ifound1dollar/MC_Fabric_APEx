@@ -12,7 +12,7 @@
     "###"
   ],
   "result": {
-    "item": "apex:sapphire_block"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:sapphire_block"
+  }
 }

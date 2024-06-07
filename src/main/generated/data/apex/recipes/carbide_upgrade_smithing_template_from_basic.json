@@ -18,7 +18,7 @@
     " n "
   ],
   "result": {
-    "item": "apex:carbide_upgrade_smithing_template"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "apex:carbide_upgrade_smithing_template"
+  }
 }

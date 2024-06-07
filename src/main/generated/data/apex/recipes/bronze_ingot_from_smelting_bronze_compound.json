@@ -7,5 +7,7 @@
   "ingredient": {
     "item": "apex:bronze_compound"
   },
-  "result": "apex:bronze_ingot"
+  "result": {
+    "id": "apex:bronze_ingot"
+  }
 }

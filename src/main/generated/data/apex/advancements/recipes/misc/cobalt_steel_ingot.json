@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:cobalt_shard"
-            ]
+            "items": "apex:cobalt_shard"
           }
         ]
       },
@@ -17,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:molten_core"
-            ]
+            "items": "apex:molten_core"
           }
         ]
       },
@@ -29,7 +25,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:steel_ingots"
+            "items": "#c:steel_ingots"
           }
         ]
       },
@@ -54,6 +50,5 @@
     "recipes": [
       "apex:cobalt_steel_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

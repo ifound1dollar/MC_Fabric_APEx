@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:tin_ingots"
+            "items": "#c:tin_ingots"
           }
         ]
       },
@@ -21,9 +21,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:tin_nugget"
-            ]
+            "items": "apex:tin_nugget"
           }
         ]
       },
@@ -41,6 +39,5 @@
     "recipes": [
       "apex:chain_from_tin_ingot_and_nugget"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

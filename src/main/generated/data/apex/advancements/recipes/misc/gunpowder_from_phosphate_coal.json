@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "minecraft:coals"
+            "items": "#minecraft:coals"
           }
         ]
       },
@@ -15,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "apex:phosphate_powder"
-            ]
+            "items": "apex:phosphate_powder"
           }
         ]
       },
@@ -41,6 +39,5 @@
     "recipes": [
       "apex:gunpowder_from_phosphate_coal"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

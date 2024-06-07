@@ -7,7 +7,8 @@
     "item": "minecraft:diamond_pickaxe"
   },
   "result": {
-    "item": "apex:cobalt_steel_pickaxe"
+    "count": 1,
+    "id": "apex:cobalt_steel_pickaxe"
   },
   "template": {
     "item": "apex:cobalt_upgrade_smithing_template"

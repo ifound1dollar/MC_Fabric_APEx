@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:diamonds"
+            "items": "#c:diamonds"
           }
         ]
       },
@@ -28,6 +28,5 @@
     "recipes": [
       "minecraft:diamond_battleaxe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

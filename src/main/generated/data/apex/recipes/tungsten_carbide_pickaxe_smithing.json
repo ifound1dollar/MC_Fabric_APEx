@@ -7,7 +7,8 @@
     "item": "minecraft:diamond_pickaxe"
   },
   "result": {
-    "item": "apex:tungsten_carbide_pickaxe"
+    "count": 1,
+    "id": "apex:tungsten_carbide_pickaxe"
   },
   "template": {
     "item": "apex:carbide_upgrade_smithing_template"
