@@ -23,7 +23,7 @@ public class MixinPiglinBrain {
         //  to true, following similar behavior to the original function.
         boolean value = false;
 
-        Iterable<ItemStack> iterable = entity.getArmorItems();  //CAN RETURN EMPTY ITEMS WHICH ARE NOT ARMORITEMS
+        Iterable<ItemStack> iterable = entity.getAllArmorItems();   //CAN RETURN EMPTY ITEMS WHICH ARE NOT ARMORITEMS
         for (ItemStack itemStack : iterable) {
             //Set value to true and break if at least one Gilded Bronze armor item is detected.
             Item item = itemStack.getItem();

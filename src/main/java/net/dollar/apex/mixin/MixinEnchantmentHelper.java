@@ -22,13 +22,13 @@ public class MixinEnchantmentHelper {
      * Injects at final return of EnchantmentHelper.getPossibleEntries() to add Mending and weapon enchantments
      *  to list IF the passed-in item is Infused Gemstone or a Battleaxe (respectively).
      * @param enabledFeatures FeatureSet
-     * @param power Power of the enchanting source (typically table)
+     * @param level Power/Level of the enchanting source (typically table)
      * @param stack ItemStack attempting to be enchanted
      * @param treasureAllowed Whether treasure is allowed on this item
      * @param cir Returnable callback info of List:EnchantmentLevelEntry type, used for replacing return value
      */
     @Inject(at = @At("RETURN"), method = "getPossibleEntries", cancellable = true)
-    private static void injectReturnGetPossibleEntries(FeatureSet enabledFeatures, int power, ItemStack stack, boolean treasureAllowed,
+    private static void injectReturnGetPossibleEntries(FeatureSet enabledFeatures, int level, ItemStack stack, boolean treasureAllowed,
                                                        CallbackInfoReturnable<List<EnchantmentLevelEntry>> cir) {
         //HERE, checks if the ItemStack trying to be enchanted is an Infused Gemstone item. If so, it should
         //  be allowed to receive Mending at an Enchanting Table.
@@ -37,7 +37,7 @@ public class MixinEnchantmentHelper {
         //If the passed-in ItemStack is an Infused Gemstone item, add Mending as a list of valid enchantments.
         if (stack.getItem() instanceof IInfusedGemstoneItem) {
             //If within enchanting table power range, add mending as a possible enchantment to receive.
-            if (power >= Enchantments.MENDING.getMinPower(1) && power <= Enchantments.MENDING.getMaxPower(1)) {
+            if (level >= Enchantments.MENDING.getMinPower(1) && level <= Enchantments.MENDING.getMaxPower(1)) {
                 list.add(new EnchantmentLevelEntry(Enchantments.MENDING, 1));   //Has to be level 1, apparently.
             }
         }
@@ -59,7 +59,7 @@ public class MixinEnchantmentHelper {
                 //Iterate in range of all valid levels for this enchantment.
                 for (int i = enchantment.getMaxLevel(); i > enchantment.getMinLevel() - 1; --i) {
                     //Skip if outside enchanting table power range, else add the enchantment then return to outer loop.
-                    if (power < enchantment.getMinPower(i) || power > enchantment.getMaxPower(i)) {
+                    if (level < enchantment.getMinPower(i) || level > enchantment.getMaxPower(i)) {
                         continue;
                     }
 

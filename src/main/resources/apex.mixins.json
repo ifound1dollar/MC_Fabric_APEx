@@ -1,7 +1,7 @@
 {
   "required": true,
   "package": "net.dollar.apex.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
     "MixinEnchantmentHelper",
     "MixinLivingEntity",
