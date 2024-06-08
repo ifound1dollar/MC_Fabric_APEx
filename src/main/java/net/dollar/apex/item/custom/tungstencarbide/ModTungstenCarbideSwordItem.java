@@ -44,16 +44,6 @@ public class ModTungstenCarbideSwordItem extends SwordItem {
     }
 
     /**
-     * Gets whether Entities of this Item can be damaged by a specific DamageSource (false for fire and explosion).
-     * @param source DamageSource being checked
-     * @return Whether this Item can be damaged by the DamageSource
-     */
-    @Override
-    public boolean damage(DamageSource source) {
-        return !(source.isIn(DamageTypeTags.IS_FIRE) || source.isIn(DamageTypeTags.IS_EXPLOSION));
-    }
-
-    /**
      * Appends text to the Item's hover tooltip (lore).
      * @param stack ItemStack corresponding to this Item
      * @param world Active world
