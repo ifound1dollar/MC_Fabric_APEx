@@ -3,11 +3,9 @@ package net.dollar.apex.item.custom.cobaltsteel;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -41,16 +39,6 @@ public class ModCobaltSteelSwordItem extends SwordItem {
     @Override
     public boolean isFireproof() {
         return true;
-    }
-
-    /**
-     * Gets whether Entities of this Item can be damaged by a specific DamageSource (false for fire and explosion).
-     * @param source DamageSource being checked
-     * @return Whether this Item can be damaged by the DamageSource
-     */
-    @Override
-    public boolean damage(DamageSource source) {
-        return !(source.isIn(DamageTypeTags.IS_FIRE) || source.isIn(DamageTypeTags.IS_EXPLOSION));
     }
 
     /**

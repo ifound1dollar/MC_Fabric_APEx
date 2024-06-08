@@ -1,10 +1,8 @@
 package net.dollar.apex.item.custom;
 
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -18,7 +16,7 @@ import java.util.List;
 public class ModCustomItem extends Item {
     private final String tooltipLang;
     private final boolean hasGlint;
-    private final boolean hasImmunities;
+    private final boolean isFireImmune;
 
 
 
@@ -28,29 +26,24 @@ public class ModCustomItem extends Item {
      * @param settings FabricItemSettings for this Item
      * @param tooltipLang String pointing to the lang entry for this Item's custom tooltip
      * @param hasGlint Whether this item should have enchantment glint
-     * @param isFireAndBlastImmune Whether this item (Entity when dropped) should be Fire and Explosion immune
+     * @param isFireImmune Whether this item (Entity when dropped) should be Fire immune
      */
-    public ModCustomItem(Settings settings, String tooltipLang, boolean hasGlint, boolean isFireAndBlastImmune) {
+    public ModCustomItem(Settings settings, String tooltipLang, boolean hasGlint, boolean isFireImmune) {
         super(settings);
         this.tooltipLang = tooltipLang;
         this.hasGlint = hasGlint;
-        hasImmunities = isFireAndBlastImmune;
+        this.isFireImmune = isFireImmune;
     }
 
 
 
     /**
-     * Gets whether Entities of this Item can be damaged by a specific DamageSource (false for fire and explosion).
-     * @param source DamageSource being checked
-     * @return Whether this Item can be damaged by the DamageSource
+     * Gets whether Entities of this Item are fireproof (true).
+     * @return Whether this Item is fireproof
      */
     @Override
-    public boolean damage(DamageSource source) {
-        if (hasImmunities) {
-            return !(source.isIn(DamageTypeTags.IS_FIRE) || source.isIn(DamageTypeTags.IS_EXPLOSION));
-        } else {
-            return super.damage(source);
-        }
+    public boolean isFireproof() {
+        return isFireImmune;
     }
 
     /**
