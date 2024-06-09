@@ -57,6 +57,6 @@ public class ModCobaltSteelArmorItem extends ArmorItem implements IFullSetEffect
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
+        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.ARMOR);
     }
 }

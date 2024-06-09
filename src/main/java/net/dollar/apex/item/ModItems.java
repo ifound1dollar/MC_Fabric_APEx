@@ -79,19 +79,19 @@ public class ModItems {
     //Region End-game upgrade items
     public static final Item MOLTEN_CORE = registerItem("molten_core",
             new ModCustomItem(new Item.Settings().fireproof(),
-                    "tooltip.molten_core", false, false));
+                    "tooltip.molten_core", false));
     public static final Item HANDFUL_OF_STARDUST = registerItem("handful_of_stardust",
-            new ModCustomItem(new Item.Settings(),
-                    "tooltip.handful_of_stardust", false, false));
+            new ModCustomItem(new Item.Settings().fireproof(),
+                    "tooltip.handful_of_stardust", false));
     public static final Item INFUSED_GEMSTONE = registerItem("infused_gemstone",
             new ModCustomItem(new Item.Settings().fireproof(),
-                    "tooltip.infused_gemstone", true, true));
+                    "tooltip.infused_gemstone", true));
     public static final Item COBALT_STEEL_INGOT = registerItem("cobalt_steel_ingot",
             new ModCustomItem(new Item.Settings().fireproof(),
-                    "tooltip.cobalt_steel_ingot", false, true));
+                    "tooltip.cobalt_steel_ingot", false));
     public static final Item TUNGSTEN_CARBIDE_INGOT = registerItem("tungsten_carbide_ingot",
             new ModCustomItem(new Item.Settings().fireproof(),
-                    "tooltip.tungsten_carbide_ingot", false, true));
+                    "tooltip.tungsten_carbide_ingot", false));
     //endregion
 
     //region Upgrade Templates

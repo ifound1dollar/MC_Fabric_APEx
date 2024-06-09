@@ -23,9 +23,8 @@ public class ModCustomItem extends Item {
      * @param settings FabricItemSettings for this Item
      * @param tooltipLang String pointing to the lang entry for this Item's custom tooltip
      * @param hasGlint Whether this item should have enchantment glint
-     * @param isFireAndBlastImmune Whether this item (Entity when dropped) should be Fire and Explosion immune
      */
-    public ModCustomItem(Settings settings, String tooltipLang, boolean hasGlint, boolean isFireAndBlastImmune) {
+    public ModCustomItem(Settings settings, String tooltipLang, boolean hasGlint) {
         super(settings);
         this.tooltipLang = tooltipLang;
         this.hasGlint = hasGlint;

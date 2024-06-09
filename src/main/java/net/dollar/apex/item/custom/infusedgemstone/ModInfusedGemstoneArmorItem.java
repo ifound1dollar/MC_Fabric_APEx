@@ -58,6 +58,6 @@ public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEf
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
+        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, ModUtils.EquipmentType.ARMOR);
     }
 }
