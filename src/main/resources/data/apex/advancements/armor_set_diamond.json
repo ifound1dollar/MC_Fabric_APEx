@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:diamond_chestplate"
+      "id": "minecraft:diamond_chestplate"
     },
     "title": "Cover Me with Diamonds (Again!)",
     "description": "Equip a full set of Diamond armor",
@@ -17,24 +17,16 @@
         "player": {
           "equipment": {
             "head": {
-              "items": [
-                "minecraft:diamond_helmet"
-              ]
+              "items": "minecraft:diamond_helmet"
             },
             "chest": {
-              "items": [
-                "minecraft:diamond_chestplate"
-              ]
+              "items": "minecraft:diamond_chestplate"
             },
             "legs": {
-              "items": [
-                "minecraft:diamond_leggings"
-              ]
+              "items": "minecraft:diamond_leggings"
             },
             "feet": {
-              "items": [
-                "minecraft:diamond_boots"
-              ]
+              "items": "minecraft:diamond_boots"
             }
           }
         }

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "apex:infused_gemstone_chestplate"
+      "id": "apex:infused_gemstone_chestplate"
     },
     "title": "Cover Me with Infused Gemstone",
     "description": "Equip a full set of Infused Gemstone armor",
@@ -17,24 +17,16 @@
         "player": {
           "equipment": {
             "head": {
-              "items": [
-                "apex:infused_gemstone_helmet"
-              ]
+              "items": "apex:infused_gemstone_helmet"
             },
             "chest": {
-              "items": [
-                "apex:infused_gemstone_chestplate"
-              ]
+              "items": "apex:infused_gemstone_chestplate"
             },
             "legs": {
-              "items": [
-                "apex:infused_gemstone_leggings"
-              ]
+              "items": "apex:infused_gemstone_leggings"
             },
             "feet": {
-              "items": [
-                "apex:infused_gemstone_boots"
-              ]
+              "items": "apex:infused_gemstone_boots"
             }
           }
         }

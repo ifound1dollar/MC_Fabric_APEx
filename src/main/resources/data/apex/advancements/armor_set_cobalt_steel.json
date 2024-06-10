@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "apex:cobalt_steel_chestplate"
+      "id": "apex:cobalt_steel_chestplate"
     },
     "title": "Cover Me with Cobalt-Steel",
     "description": "Equip a full set of Cobalt-Steel armor",
@@ -17,24 +17,16 @@
         "player": {
           "equipment": {
             "head": {
-              "items": [
-                "apex:cobalt_steel_helmet"
-              ]
+              "items": "apex:cobalt_steel_helmet"
             },
             "chest": {
-              "items": [
-                "apex:cobalt_steel_chestplate"
-              ]
+              "items": "apex:cobalt_steel_chestplate"
             },
             "legs": {
-              "items": [
-                "apex:cobalt_steel_leggings"
-              ]
+              "items": "apex:cobalt_steel_leggings"
             },
             "feet": {
-              "items": [
-                "apex:cobalt_steel_boots"
-              ]
+              "items": "apex:cobalt_steel_boots"
             }
           }
         }

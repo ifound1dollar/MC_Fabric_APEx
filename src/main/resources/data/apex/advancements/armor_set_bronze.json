@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "apex:bronze_chestplate"
+      "id": "apex:bronze_chestplate"
     },
     "title": "Cover Me with Bronze",
     "description": "Equip a full set of Bronze armor",
@@ -17,24 +17,16 @@
         "player": {
           "equipment": {
             "head": {
-              "items": [
-                "apex:bronze_helmet"
-              ]
+              "items": "apex:bronze_helmet"
             },
             "chest": {
-              "items": [
-                "apex:bronze_chestplate"
-              ]
+              "items": "apex:bronze_chestplate"
             },
             "legs": {
-              "items": [
-                "apex:bronze_leggings"
-              ]
+              "items": "apex:bronze_leggings"
             },
             "feet": {
-              "items": [
-                "apex:bronze_boots"
-              ]
+              "items": "apex:bronze_boots"
             }
           }
         }

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "apex:tungsten_carbide_chestplate"
+      "id": "apex:tungsten_carbide_chestplate"
     },
     "title": "Cover Me with Tungsten-Carbide",
     "description": "Equip a full set of Tungsten-Carbide armor",
@@ -17,24 +17,16 @@
         "player": {
           "equipment": {
             "head": {
-              "items": [
-                "apex:tungsten_carbide_helmet"
-              ]
+              "items": "apex:tungsten_carbide_helmet"
             },
             "chest": {
-              "items": [
-                "apex:tungsten_carbide_chestplate"
-              ]
+              "items": "apex:tungsten_carbide_chestplate"
             },
             "legs": {
-              "items": [
-                "apex:tungsten_carbide_leggings"
-              ]
+              "items": "apex:tungsten_carbide_leggings"
             },
             "feet": {
-              "items": [
-                "apex:tungsten_carbide_boots"
-              ]
+              "items": "apex:tungsten_carbide_boots"
             }
           }
         }

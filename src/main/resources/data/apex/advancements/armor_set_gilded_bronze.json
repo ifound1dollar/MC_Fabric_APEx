@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "apex:gilded_bronze_chestplate"
+      "id": "apex:gilded_bronze_chestplate"
     },
     "title": "Cover Me with Gilded Bronze",
     "description": "Equip a full set of Gilded Bronze armor",
@@ -17,24 +17,16 @@
         "player": {
           "equipment": {
             "head": {
-              "items": [
-                "apex:gilded_bronze_helmet"
-              ]
+              "items": "apex:gilded_bronze_helmet"
             },
             "chest": {
-              "items": [
-                "apex:gilded_bronze_chestplate"
-              ]
+              "items": "apex:gilded_bronze_chestplate"
             },
             "legs": {
-              "items": [
-                "apex:gilded_bronze_leggings"
-              ]
+              "items": "apex:gilded_bronze_leggings"
             },
             "feet": {
-              "items": [
-                "apex:gilded_bronze_boots"
-              ]
+              "items": "apex:gilded_bronze_boots"
             }
           }
         }

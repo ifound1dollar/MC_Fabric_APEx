@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "apex:trophy_obsidian_dust"
+      "id": "apex:trophy_obsidian_dust"
     },
     "title": "Pulverizing Obsidian",
     "description": "Slay an Obsidian Golem using a Tungsten-Carbide Battleaxe with Sharpness V",

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "apex:infused_gemstone"
+      "id": "apex:infused_gemstone"
     },
     "title": "§bAPEx - A Proper Equipment Expansion",
     "description": "Joyous Journeys!",
@@ -15,11 +15,14 @@
     "requirement": {
       "trigger": "minecraft:location",
       "conditions": {
-        "player": {
-          "location": {
-            "dimension": "minecraft:overworld"
+        "player": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "dimension": "minecraft:overworld"
+            }
           }
-        }
+        ]
       }
     }
   }

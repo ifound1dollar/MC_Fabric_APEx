@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "apex:bronze_sword"
+      "id": "apex:bronze_sword"
     },
     "title": "To Collect Trophies",
     "description": "Attack any new mob from APEx",

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "apex:bronze_helmet"
+      "id": "apex:bronze_helmet"
     },
     "title": "Suit Up, But Better!",
     "description": "Obtain any new armor item from APEx",
