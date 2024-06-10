@@ -230,7 +230,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
             }
         }
 
-        this.playSound(SoundEvents.ENTITY_GHAST_SHOOT, 1.0f, 1.0f);
+        this.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_STRONG, 1.0f, 1.0f);
         return bl;
     }
 
