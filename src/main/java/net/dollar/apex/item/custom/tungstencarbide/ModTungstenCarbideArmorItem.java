@@ -57,6 +57,6 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEf
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, ModUtils.EquipmentType.ARMOR);
+        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.ARMOR);
     }
 }
