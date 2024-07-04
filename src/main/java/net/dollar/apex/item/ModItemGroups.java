@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 public class ModItemGroups {
     //Contains all items from the mod that should show up in the Simple Gearing Expansion tab.
     public static final ItemGroup MAIN_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(ModMain.MOD_ID, "main"),
+            Identifier.of(ModMain.MOD_ID, "main"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.main"))
                     .icon(() -> new ItemStack(ModItems.INFUSED_GEMSTONE)).entries((displayContext, entries) -> {
                         //Ores and Raw Blocks

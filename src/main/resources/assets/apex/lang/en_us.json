@@ -145,9 +145,9 @@
 
   "tooltip.handful_of_stardust": "§dRemains of a Mysterious Specter",
   "tooltip.molten_core": "§cCore of an Obsidian Golem",
-  "tooltip.cobalt_steel_ingot": "§3Forged with extreme precision",
-  "tooltip.infused_gemstone": "§5Empowered by an ancient magic",
-  "tooltip.tungsten_carbide_ingot": "§8The densest material known to exist",
+  "tooltip.cobalt_steel_ingot": "§3Upgrade Ingredient",
+  "tooltip.infused_gemstone": "§5Upgrade Ingredient",
+  "tooltip.tungsten_carbide_ingot": "§8Upgrade Ingredient",
   "tooltip.gilded_bronze_armor": "§6Pacifies Piglins",
   "tooltip.cobalt_steel_bow_crossbow": "§350% bonus damage",
   "tooltip.cobalt_steel_hold_shift": "§3Hold Shift for details...",

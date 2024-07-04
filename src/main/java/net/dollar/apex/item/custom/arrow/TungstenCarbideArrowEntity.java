@@ -12,7 +12,7 @@ public class TungstenCarbideArrowEntity extends ArrowEntity {
     private boolean isSpectral;
 
     public TungstenCarbideArrowEntity(World world, LivingEntity owner, ItemStack stack) {
-        super(world, owner, stack);
+        super(world, owner, stack, null);
     }
 
 

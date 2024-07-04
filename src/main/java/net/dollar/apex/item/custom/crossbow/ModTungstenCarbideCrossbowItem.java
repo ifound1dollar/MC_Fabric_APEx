@@ -2,7 +2,7 @@ package net.dollar.apex.item.custom.crossbow;
 
 import net.dollar.apex.item.custom.arrow.ArrowUtil;
 import net.dollar.apex.util.ModUtils;
-import net.minecraft.client.item.TooltipType;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;

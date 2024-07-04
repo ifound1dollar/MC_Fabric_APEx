@@ -18,9 +18,9 @@ import java.util.Map;
 public class ObsidianGolemCrackRenderer
         extends FeatureRenderer<ObsidianGolemEntity, ObsidianGolemModel<ObsidianGolemEntity>> {
     private static final Map<Cracks.CrackLevel, Identifier> DAMAGE_TO_TEXTURE = ImmutableMap.of(
-            Cracks.CrackLevel.LOW, new Identifier(ModMain.MOD_ID, "textures/entities/obsidian_golem_crackiness_low.png"),
-            Cracks.CrackLevel.MEDIUM, new Identifier(ModMain.MOD_ID, "textures/entities/obsidian_golem_crackiness_medium.png"),
-            Cracks.CrackLevel.HIGH, new Identifier(ModMain.MOD_ID, "textures/entities/obsidian_golem_crackiness_high.png"));
+            Cracks.CrackLevel.LOW, Identifier.of(ModMain.MOD_ID, "textures/entities/obsidian_golem_crackiness_low.png"),
+            Cracks.CrackLevel.MEDIUM, Identifier.of(ModMain.MOD_ID, "textures/entities/obsidian_golem_crackiness_medium.png"),
+            Cracks.CrackLevel.HIGH, Identifier.of(ModMain.MOD_ID, "textures/entities/obsidian_golem_crackiness_high.png"));
 
     public ObsidianGolemCrackRenderer(FeatureRendererContext<ObsidianGolemEntity,
             ObsidianGolemModel<ObsidianGolemEntity>> featureRendererContext) {

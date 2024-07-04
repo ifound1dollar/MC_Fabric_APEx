@@ -359,7 +359,7 @@ public class ModItems {
      * @return The registered Minecraft Item
      */
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(ModMain.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, Identifier.of(ModMain.MOD_ID, name), item);
     }
 
     /**

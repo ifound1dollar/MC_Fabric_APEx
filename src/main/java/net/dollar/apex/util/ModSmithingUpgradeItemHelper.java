@@ -43,17 +43,17 @@ public class ModSmithingUpgradeItemHelper {
     //endregion
 
     //region EMPTY SLOT RESOURCE LOCATIONS
-    private static final Identifier EMPTY_SLOT_HELMET = new Identifier("item/empty_armor_slot_helmet");
-    private static final Identifier EMPTY_SLOT_CHESTPLATE = new Identifier("item/empty_armor_slot_chestplate");
-    private static final Identifier EMPTY_SLOT_LEGGINGS = new Identifier("item/empty_armor_slot_leggings");
-    private static final Identifier EMPTY_SLOT_BOOTS = new Identifier("item/empty_armor_slot_boots");
-    private static final Identifier EMPTY_SLOT_HOE = new Identifier("item/empty_slot_hoe");
-    private static final Identifier EMPTY_SLOT_AXE = new Identifier("item/empty_slot_axe");
-    private static final Identifier EMPTY_SLOT_SWORD = new Identifier("item/empty_slot_sword");
-    private static final Identifier EMPTY_SLOT_SHOVEL = new Identifier("item/empty_slot_shovel");
-    private static final Identifier EMPTY_SLOT_PICKAXE = new Identifier("item/empty_slot_pickaxe");
-    private static final Identifier EMPTY_SLOT_INGOT = new Identifier("item/empty_slot_ingot");
-    private static final Identifier EMPTY_SLOT_DIAMOND = new Identifier("item/empty_slot_diamond");
+    private static final Identifier EMPTY_SLOT_HELMET = Identifier.of("item/empty_armor_slot_helmet");
+    private static final Identifier EMPTY_SLOT_CHESTPLATE = Identifier.of("item/empty_armor_slot_chestplate");
+    private static final Identifier EMPTY_SLOT_LEGGINGS = Identifier.of("item/empty_armor_slot_leggings");
+    private static final Identifier EMPTY_SLOT_BOOTS = Identifier.of("item/empty_armor_slot_boots");
+    private static final Identifier EMPTY_SLOT_HOE = Identifier.of("item/empty_slot_hoe");
+    private static final Identifier EMPTY_SLOT_AXE = Identifier.of("item/empty_slot_axe");
+    private static final Identifier EMPTY_SLOT_SWORD = Identifier.of("item/empty_slot_sword");
+    private static final Identifier EMPTY_SLOT_SHOVEL = Identifier.of("item/empty_slot_shovel");
+    private static final Identifier EMPTY_SLOT_PICKAXE = Identifier.of("item/empty_slot_pickaxe");
+    private static final Identifier EMPTY_SLOT_INGOT = Identifier.of("item/empty_slot_ingot");
+    private static final Identifier EMPTY_SLOT_DIAMOND = Identifier.of("item/empty_slot_diamond");
     //endregion
 
 

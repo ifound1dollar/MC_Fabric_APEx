@@ -3,7 +3,7 @@ package net.dollar.apex.item.custom.cobaltsteel;
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.IFullSetEffectArmor;
 import net.dollar.apex.util.ModUtils;
-import net.minecraft.client.item.TooltipType;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;

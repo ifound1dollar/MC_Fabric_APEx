@@ -31,7 +31,7 @@ public class ModModelPredicateProvider {
      * @param bow Bow Item to create model predicates for
      */
     private static void registerBow(Item bow) {
-        ModelPredicateProviderRegistry.register(bow, new Identifier("pull"),
+        ModelPredicateProviderRegistry.register(bow, Identifier.of("pull"),
                 (stack, world, entity, seed) -> {
                     if (entity == null) {
                         return 0.0f;
@@ -42,7 +42,7 @@ public class ModModelPredicateProvider {
                     return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0f;
                 });
 
-        ModelPredicateProviderRegistry.register(bow, new Identifier("pulling"),
+        ModelPredicateProviderRegistry.register(bow, Identifier.of("pulling"),
                 (stack, world, entity, seed) ->
                         entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0f : 0.0f);
     }
@@ -52,7 +52,7 @@ public class ModModelPredicateProvider {
      * @param crossbow Bow Item to create model predicates for
      */
     private static void registerCrossbow(Item crossbow) {
-        ModelPredicateProviderRegistry.register(crossbow, new Identifier("pull"),
+        ModelPredicateProviderRegistry.register(crossbow, Identifier.of("pull"),
                 (stack, world, entity, seed) -> {
                     if (entity == null) {
                         return 0.0f;
@@ -63,16 +63,16 @@ public class ModModelPredicateProvider {
                     return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / (float)CrossbowItem.getPullTime(stack);
                 });
 
-        ModelPredicateProviderRegistry.register(crossbow, new Identifier("pulling"),
+        ModelPredicateProviderRegistry.register(crossbow, Identifier.of("pulling"),
                 (stack, world, entity, seed) ->
                         entity != null && entity.isUsingItem() && entity.getActiveItem() == stack
                                 && !CrossbowItem.isCharged(stack) ? 1.0f : 0.0f);
 
-        ModelPredicateProviderRegistry.register(crossbow, new Identifier("charged"),
+        ModelPredicateProviderRegistry.register(crossbow, Identifier.of("charged"),
                 (stack, world, entity, seed) ->
                         CrossbowItem.isCharged(stack) ? 1.0f : 0.0f);
 
-        ModelPredicateProviderRegistry.register(crossbow, new Identifier("firework"),
+        ModelPredicateProviderRegistry.register(crossbow, Identifier.of("firework"),
                 (stack, world, entity, seed) -> {
                     ChargedProjectilesComponent chargedProjectilesComponent = stack.get(DataComponentTypes.CHARGED_PROJECTILES);
                     return chargedProjectilesComponent != null && chargedProjectilesComponent.contains(Items.FIREWORK_ROCKET) ? 1.0f : 0.0f;

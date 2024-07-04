@@ -12,12 +12,12 @@ import net.minecraft.util.Identifier;
 
 public class ModEntities {
     public static final EntityType<ObsidianGolemEntity> OBSIDIAN_GOLEM = Registry.register(Registries.ENTITY_TYPE,
-            new Identifier(ModMain.MOD_ID, "obsidian_golem"),
+            Identifier.of(ModMain.MOD_ID, "obsidian_golem"),
             EntityType.Builder.create(ObsidianGolemEntity::new, SpawnGroup.MONSTER)
                     .dimensions(1.67f, 3.33f).build());
 
     public static final EntityType<MysteriousSpecterEntity> MYSTERIOUS_SPECTER = Registry.register(Registries.ENTITY_TYPE,
-            new Identifier(ModMain.MOD_ID, "mysterious_specter"),
+            Identifier.of(ModMain.MOD_ID, "mysterious_specter"),
             EntityType.Builder.create(MysteriousSpecterEntity::new, SpawnGroup.MONSTER)
                     .dimensions(0.6f, 1.8f).build());
 

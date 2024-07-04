@@ -13,7 +13,7 @@ import net.minecraft.util.math.RotationAxis;
 @Environment(value= EnvType.CLIENT)
 public class ObsidianGolemRenderer
         extends MobEntityRenderer<ObsidianGolemEntity, ObsidianGolemModel<ObsidianGolemEntity>> {
-    private static final Identifier TEXTURE = new Identifier(
+    private static final Identifier TEXTURE = Identifier.of(
             ModMain.MOD_ID, "textures/entities/obsidian_golem.png");
 
     public ObsidianGolemRenderer(EntityRendererFactory.Context context) {

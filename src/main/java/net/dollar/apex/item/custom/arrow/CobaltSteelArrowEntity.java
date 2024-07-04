@@ -12,7 +12,7 @@ public class CobaltSteelArrowEntity extends ArrowEntity {
     private boolean isSpectral;
 
     public CobaltSteelArrowEntity(World world, LivingEntity owner, ItemStack stack) {
-        super(world, owner, stack);
+        super(world, owner, stack, null);
     }
 
 

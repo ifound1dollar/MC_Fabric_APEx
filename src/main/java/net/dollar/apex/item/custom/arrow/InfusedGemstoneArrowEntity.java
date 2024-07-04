@@ -12,7 +12,7 @@ public class InfusedGemstoneArrowEntity extends ArrowEntity {
     private boolean isSpectral;
 
     public InfusedGemstoneArrowEntity(World world, LivingEntity owner, ItemStack stack) {
-        super(world, owner, stack);
+        super(world, owner, stack, null);
     }
 
 

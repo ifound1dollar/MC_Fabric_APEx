@@ -29,6 +29,6 @@ public class MysteriousSpecterRenderer
     public Identifier getTexture(MysteriousSpecterEntity entity) {
         //Generate and return a new identifier using the TEXTURE_BASE string appended with the texture
         //  ID from the Entity instance (plus the .png extension).
-        return new Identifier(ModMain.MOD_ID, TEXTURE_BASE + entity.getTextureID() + ".png");
+        return Identifier.of(ModMain.MOD_ID, TEXTURE_BASE + entity.getTextureID() + ".png");
     }
 }

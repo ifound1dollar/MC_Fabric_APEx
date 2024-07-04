@@ -2,7 +2,7 @@ package net.dollar.apex.item.custom.cobaltsteel;
 
 import net.dollar.apex.util.ModToolMaterials;
 import net.dollar.apex.util.ModUtils;
-import net.minecraft.client.item.TooltipType;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
 import net.minecraft.text.Text;
