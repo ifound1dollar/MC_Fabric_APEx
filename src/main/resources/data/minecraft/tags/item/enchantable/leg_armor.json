@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "apex:bronze_leggings",
+    "apex:gilded_bronze_leggings",
+    "apex:cobalt_steel_leggings",
+    "apex:infused_gemstone_leggings",
+    "apex:tungsten_carbide_leggings"
+  ]
+}

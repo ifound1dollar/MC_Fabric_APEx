@@ -69,8 +69,8 @@ public class MixinHeldItemRenderer {
 				matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-11.935f));
 				matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((float)i * 65.3f));
 				matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees((float)i * -9.785f));
-				float f = (float)item.getMaxUseTime() - ((float)player.getItemUseTimeLeft() - tickDelta + 1.0f);
-				float g = f / (float)CrossbowItem.getPullTime(item);
+				float f = (float)item.getMaxUseTime(player) - ((float)player.getItemUseTimeLeft() - tickDelta + 1.0f);
+				float g = f / (float)CrossbowItem.getPullTime(item, player);
 				if (g > 1.0f) {
 					g = 1.0f;
 				}

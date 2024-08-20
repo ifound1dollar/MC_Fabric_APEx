@@ -3,7 +3,6 @@
   "package": "net.dollar.apex.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "MixinEnchantmentHelper",
     "MixinLivingEntity",
     "MixinPiglinBrain"
   ],

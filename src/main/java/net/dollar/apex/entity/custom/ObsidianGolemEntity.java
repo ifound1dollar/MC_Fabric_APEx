@@ -2,6 +2,7 @@ package net.dollar.apex.entity.custom;
 
 import net.dollar.apex.item.ModItems;
 import net.minecraft.block.BlockState;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.*;
@@ -20,6 +21,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
@@ -171,14 +174,6 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     }
 
     /**
-     * Returns the attack damage of this Entity.
-     * @return The Entity's attack damage
-     */
-    private float getAttackDamage() {
-        return (float)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-    }
-
-    /**
      * Attempts to perform attack operations against the target.
      * @param target Target being attacked by this Entity
      * @return Whether the attack was successfully performed
@@ -189,24 +184,12 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         if (ticksSinceLastAttack < 30) { return false; }
 
         //Actual attack operation done here.
-        this.attackTicksLeft = 10;
-        this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_ATTACK_SOUND);
-        float f = this.getAttackDamage();
-        float g = (int)f > 0 ? f / 2.0f + (float)this.random.nextInt((int)f) : f;
-        boolean bl = target.damage(this.getDamageSources().mobAttack(this), g);
+        boolean success = super.tryAttack(target);    //Performs all basic attack operations.
 
         //If damaging target was successful.
-        if (bl) {
-            double d;
-            if (target instanceof LivingEntity livingEntity) {
-                d = livingEntity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE);
-            } else {
-                d = 0.0;
-            }
-            double d2 = d;
-            double e = Math.max(0.0, 1.0 - d2);
-            target.setVelocity(target.getVelocity().add(0.0, (double)0.4f * e, 0.0));
-            this.applyDamageEffects(this, target);
+        if (success) {
+            //Immediately reset attack counter.
+            ticksSinceLastAttack = 0;
 
             //After applying damage effects and knockback, do special Obsidian Golem attack behaviors.
             if (target instanceof LivingEntity livingEntity) {
@@ -232,8 +215,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         //Set ticks since last attack to 0.
         ticksSinceLastAttack = 0;
 
-        this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 1.0f, 1.0f);
-        return bl;
+        return success;
     }
 
     /**
@@ -406,12 +388,14 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
             //Teleport directly on top of target, +- 0.5 blocks.
             teleport((random.nextDouble() - 0.5D) + target.getX(),
                     target.getY() + 0.5D,
-                    (random.nextDouble() - 0.5D) + target.getZ());
+                    (random.nextDouble() - 0.5D) + target.getZ(),
+                    false);
         } else {
             //Else teleport to within 5 blocks of the target.
             teleport((random.nextDouble() - 0.5D) + target.getX() + (random.nextInt(10) - 5),
                     target.getY() + 2.5D,
-                    (random.nextDouble() - 0.5D) + target.getZ() + (random.nextInt(10) - 5));
+                    (random.nextDouble() - 0.5D) + target.getZ() + (random.nextInt(10) - 5),
+                    false);
         }
 
         //Should delay any attack after teleporting by 0.5s to not be overpowered.
@@ -455,8 +439,9 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
             ItemStack heldItem = playerEntity.getEquippedStack(EquipmentSlot.MAINHAND);
 
             //If heldItem is a Tungsten-Carbide Battleaxe with Sharpness V.
+            RegistryWrapper.Impl<Enchantment> impl = this.getWorld().getRegistryManager().getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
             if (heldItem.getItem() == ModItems.TUNGSTEN_CARBIDE_BATTLEAXE &&
-                    EnchantmentHelper.getLevel(Enchantments.SHARPNESS, heldItem) >= 5) {
+                    EnchantmentHelper.getLevel(impl.getOrThrow(Enchantments.SHARPNESS), heldItem) >= 5) {
                 //Drop Obsidian Dust collector item and give it a long despawn delay.
                 ItemEntity collectorItem = this.dropItem(ModItems.TROPHY_OBSIDIAN_DUST);
                 if (collectorItem != null) {

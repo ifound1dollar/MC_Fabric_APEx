@@ -169,14 +169,6 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     }
 
     /**
-     * Returns the attack damage of this Entity.
-     * @return The Entity's attack damage
-     */
-    private float getAttackDamage() {
-        return (float)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-    }
-
-    /**
      * Attempts to perform attack operations against the target.
      * @param target Target being attacked by this Entity
      * @return Whether the attack was successfully performed
@@ -187,30 +179,15 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         if (ticksSinceLastAttack < 20) { return false; }
 
         //Actual attack operation done here.
-        this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_ATTACK_SOUND);
-        float f = this.getAttackDamage();
-        float g = (int)f > 0 ? f / 2.0f + (float)this.random.nextInt((int)f) : f;
-        boolean bl = target.damage(this.getDamageSources().mobAttack(this), g);
+        boolean success = super.tryAttack(target);    //Performs all basic attack operations.
 
         //If damaging target was successful.
-        if (bl) {
+        if (success) {
             //Immediately reset attack counter and movement speed buff.
             ticksSinceLastAttack = 0;
             resetMovementSpeed();
 
-            //REST OF BASE FUNCTION HERE.
-            double d;
-            if (target instanceof LivingEntity livingEntity) {
-                d = livingEntity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE);
-            } else {
-                d = 0.0;
-            }
-            double d2 = d;
-            double e = Math.max(0.0, 1.0 - d2);
-            target.setVelocity(target.getVelocity().add(0.0, (double)0.4f * e, 0.0));
-            this.applyDamageEffects(this, target);
-
-            //After applying damage effects and knockback, do special Obsidian Golem attack behaviors.
+            //After applying damage effects and knockback, do special Mysterious Specter attack behaviors.
             if (target instanceof LivingEntity livingEntity) {
                 //Roll chance to apply a negative effect to target here.
                 if (random.nextInt(100) < 50) {
@@ -221,8 +198,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
             }
         }
 
-        this.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_STRONG, 1.0f, 1.0f);
-        return bl;
+        return success;
     }
 
     /**
@@ -235,17 +211,6 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         strength *= 3.0;                                                    //Convert to range 0-3
         strength = Math.floor(strength);                                    //Floor, guarantees between 0-2
         return (int)strength;   //Convert to integer before returning
-    }
-
-    /**
-     * Performs taking damage operations, also updating visual cracks on the Entity.
-     * @param source Source of damage being taken
-     * @param amount Amount of damage to take
-     * @return Whether taking damage operation was successful
-     */
-    @Override
-    public boolean damage(DamageSource source, float amount) {
-        return super.damage(source, amount);
     }
 
     @Override

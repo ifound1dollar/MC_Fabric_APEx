@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#apex:equipment_bronze",
+    "#apex:equipment_gilded_bronze",
+    "#apex:equipment_cobalt_steel",
+    "#apex:equipment_infused_gemstone",
+    "#apex:equipment_tungsten_carbide",
+    "apex:diamond_battleaxe",
+    "apex:diamond_paxel",
+    "apex:netherite_battleaxe",
+    "apex:netherite_paxel"
+  ]
+}

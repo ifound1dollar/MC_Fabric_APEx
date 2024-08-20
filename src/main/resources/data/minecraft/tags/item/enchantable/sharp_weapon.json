@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "apex:diamond_battleaxe",
+    "apex:netherite_battleaxe",
+    "apex:cobalt_steel_battleaxe",
+    "apex:infused_gemstone_battleaxe",
+    "apex:tungsten_carbide_battleaxe"
+  ]
+}

@@ -39,7 +39,7 @@ public class ModModelPredicateProvider {
                     if (entity.getActiveItem() != stack) {
                         return 0.0f;
                     }
-                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0f;
+                    return (float)(stack.getMaxUseTime(entity) - entity.getItemUseTimeLeft()) / 20.0f;
                 });
 
         ModelPredicateProviderRegistry.register(bow, Identifier.of("pulling"),
@@ -60,7 +60,7 @@ public class ModModelPredicateProvider {
                     if (CrossbowItem.isCharged(stack)) {
                         return 0.0f;
                     }
-                    return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / (float)CrossbowItem.getPullTime(stack);
+                    return (float)(stack.getMaxUseTime(entity) - entity.getItemUseTimeLeft()) / (float)CrossbowItem.getPullTime(stack, entity);
                 });
 
         ModelPredicateProviderRegistry.register(crossbow, Identifier.of("pulling"),

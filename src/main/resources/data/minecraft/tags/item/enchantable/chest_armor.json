@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "apex:bronze_chestplate",
+    "apex:gilded_bronze_chestplate",
+    "apex:cobalt_steel_chestplate",
+    "apex:infused_gemstone_chestplate",
+    "apex:tungsten_carbide_chestplate"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "apex:diamond_paxel",
+    "apex:netherite_paxel",
+    "apex:cobalt_steel_paxel",
+    "apex:infused_gemstone_paxel",
+    "apex:tungsten_carbide_paxel"
+  ]
+}

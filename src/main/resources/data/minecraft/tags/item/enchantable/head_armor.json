@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "apex:bronze_helmet",
+    "apex:gilded_bronze_helmet",
+    "apex:cobalt_steel_helmet",
+    "apex:infused_gemstone_helmet",
+    "apex:tungsten_carbide_helmet"
+  ]
+}

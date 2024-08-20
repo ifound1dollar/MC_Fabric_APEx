@@ -42,6 +42,6 @@ public class ObsidianGolemCrackRenderer
         Identifier identifier = DAMAGE_TO_TEXTURE.get(crack);
         net.minecraft.client.render.entity.feature.IronGolemCrackFeatureRenderer.renderModel(
                 this.getContextModel(), identifier, matrixStack, vertexConsumerProvider, i,
-                obsidianGolemEntity, 1.0f, 1.0f, 1.0f);
+                obsidianGolemEntity, -1);   //Last param -1 is for color, unknown why is -1.
     }
 }

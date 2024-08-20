@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "apex:bronze_boots",
+    "apex:gilded_bronze_boots",
+    "apex:cobalt_steel_boots",
+    "apex:infused_gemstone_boots",
+    "apex:tungsten_carbide_boots"
+  ]
+}
