@@ -1,7 +1,7 @@
 package net.dollar.apex.util;
 
 import net.dollar.apex.item.ModItems;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -22,7 +22,7 @@ public class ModLootTableModifiers {
      *  the minimum and maximum number of items that can generate.
      */
     public static void modifyLootTables() {
-        LootTableEvents.MODIFY.register((id, tablebuilder, source) -> {
+        LootTableEvents.MODIFY.register((id, tablebuilder, source, registries) -> {
             //ROLLS -> NUMBER OF UNIQUE ROLLS (WHICH CAN EACH GENERATE ITEMS)
             //CONDITIONALLY -> CHANCE TO DROP IN RANGE OF 0.0 - 1.0
             //WITH -> THE ITEMS THAT MAY GENERATE
