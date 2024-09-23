@@ -26,7 +26,6 @@ public class ModMain implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerModTileEntities();
-		//ModModelPredicateProvider.registerModModels();  //Must be done in ModMainClient
 		ModLootTableModifiers.modifyLootTables();
 
 		ModWorldGeneration.generateModWorldGen();

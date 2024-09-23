@@ -78,7 +78,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
         this.goalSelector.add(2, new WanderNearTargetGoal(this, 0.9, 32.0f));
         this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.6, false));
-        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
+        //this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
         this.goalSelector.add(8, new LookAroundGoal(this));
         this.targetSelector.add(2, new RevengeGoal(this));
         this.targetSelector.add(4, new UniversalAngerGoal<>(this, false));
@@ -434,7 +434,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
                     heldItem.getItem() == ModItems.COBALT_STEEL_HOE ||
                     heldItem.getItem() == ModItems.INFUSED_GEMSTONE_HOE ||
                     heldItem.getItem() == ModItems.TUNGSTEN_CARBIDE_HOE) {
-                //Drop Obsidian Dust collector item and give it a long despawn delay.
+                //Drop Ominous Letter collector item and give it a long despawn delay.
                 ItemEntity collectorItem = this.dropItem(ModItems.TROPHY_OMINOUS_LETTER);
                 if (collectorItem != null) {
                     collectorItem.setCovetedItem();

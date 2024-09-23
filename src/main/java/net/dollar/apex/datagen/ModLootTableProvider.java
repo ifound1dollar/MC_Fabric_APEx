@@ -57,15 +57,15 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     /**
      * Generates a loot table for a Block that should drop multiple of the same item.
-     * @param drop The Block dropped if mined with Silk Touch
+     * @param block The Block dropped if mined with Silk Touch
      * @param item The Item to drop normally (without Silk Touch)
      * @param min The minimum number of drops
      * @param max The maximum number of drops
      * @return The newly generated loot table builder
      */
-    public LootTable.Builder multiOreDrops(Block drop, Item item, float min, float max) {
-        return BlockLootTableGenerator.dropsWithSilkTouch(drop, (LootPoolEntry.Builder)this.applyExplosionDecay(
-                drop, ((LeafEntry.Builder) ItemEntry.builder(item)
+    public LootTable.Builder multiOreDrops(Block block, Item item, float min, float max) {
+        return BlockLootTableGenerator.dropsWithSilkTouch(block, (LootPoolEntry.Builder)this.applyExplosionDecay(
+                block, ((LeafEntry.Builder) ItemEntry.builder(item)
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(min, max))))
                         .apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE))));
     }
