@@ -41,6 +41,5 @@
     "recipes": [
       "minecraft:cobalt_upgrade_smithing_template"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

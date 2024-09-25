@@ -39,6 +39,5 @@
     "recipes": [
       "minecraft:bronze_compound"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

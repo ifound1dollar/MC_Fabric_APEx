@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:infused_gemstone_hoe_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

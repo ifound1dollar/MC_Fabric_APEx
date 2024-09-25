@@ -41,6 +41,5 @@
     "recipes": [
       "apex:chain_from_tin_ingot_and_nugget"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

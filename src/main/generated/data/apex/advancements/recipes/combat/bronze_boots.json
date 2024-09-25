@@ -28,6 +28,5 @@
     "recipes": [
       "minecraft:bronze_boots"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:gold_nugget_from_smelting_gilded_bronze_pickaxe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

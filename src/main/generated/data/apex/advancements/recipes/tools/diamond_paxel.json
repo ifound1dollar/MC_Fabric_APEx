@@ -28,6 +28,5 @@
     "recipes": [
       "minecraft:diamond_paxel"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:infused_gemstone_axe_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

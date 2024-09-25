@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:cobalt_shard_from_smelting_cobalt_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:tungsten_carbide_paxel_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

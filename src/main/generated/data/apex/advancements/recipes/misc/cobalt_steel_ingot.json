@@ -54,6 +54,5 @@
     "recipes": [
       "apex:cobalt_steel_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

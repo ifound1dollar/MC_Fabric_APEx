@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:decorative_amethyst_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

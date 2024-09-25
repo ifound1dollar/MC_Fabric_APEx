@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:gold_nugget_from_blasting_gilded_bronze_sword"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

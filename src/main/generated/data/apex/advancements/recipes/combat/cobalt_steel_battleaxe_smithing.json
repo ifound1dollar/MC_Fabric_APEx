@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:cobalt_steel_battleaxe_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

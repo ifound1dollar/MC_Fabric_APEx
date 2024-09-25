@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:cobalt_steel_pickaxe_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

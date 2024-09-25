@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:gold_nugget_from_blasting_gilded_bronze_hoe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

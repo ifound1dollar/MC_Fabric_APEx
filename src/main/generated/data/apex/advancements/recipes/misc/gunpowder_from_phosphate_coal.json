@@ -41,6 +41,5 @@
     "recipes": [
       "apex:gunpowder_from_phosphate_coal"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

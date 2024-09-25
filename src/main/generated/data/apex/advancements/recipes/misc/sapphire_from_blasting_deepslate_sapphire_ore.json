@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:sapphire_from_blasting_deepslate_sapphire_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

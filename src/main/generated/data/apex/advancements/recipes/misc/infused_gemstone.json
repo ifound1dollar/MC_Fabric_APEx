@@ -85,6 +85,5 @@
     "recipes": [
       "minecraft:infused_gemstone"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

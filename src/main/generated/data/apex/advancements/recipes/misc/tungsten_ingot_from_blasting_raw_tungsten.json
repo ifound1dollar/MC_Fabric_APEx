@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:tungsten_ingot_from_blasting_raw_tungsten"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

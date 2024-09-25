@@ -28,6 +28,5 @@
     "recipes": [
       "apex:steel_nugget_from_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

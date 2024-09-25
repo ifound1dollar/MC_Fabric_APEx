@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "category": "misc",
   "cookingtime": 200,
-  "experience": 0.7,
+  "experience": 0.9,
   "group": "steel_ingot",
   "ingredient": {
     "item": "apex:steel_compound"

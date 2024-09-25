@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:steel_ingot_from_smelting_steel_compound"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

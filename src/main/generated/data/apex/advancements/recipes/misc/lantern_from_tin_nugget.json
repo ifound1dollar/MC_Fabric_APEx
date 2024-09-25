@@ -30,6 +30,5 @@
     "recipes": [
       "apex:lantern_from_tin_nugget"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

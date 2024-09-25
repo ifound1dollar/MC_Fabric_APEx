@@ -54,6 +54,5 @@
     "recipes": [
       "apex:tungsten_carbide_ingot_reversed"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

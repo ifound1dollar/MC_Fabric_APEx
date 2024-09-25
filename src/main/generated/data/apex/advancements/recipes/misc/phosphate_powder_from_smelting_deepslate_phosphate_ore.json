@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:phosphate_powder_from_smelting_deepslate_phosphate_ore"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

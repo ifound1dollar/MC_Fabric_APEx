@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:bronze_ingot_from_blasting_bronze_compound"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

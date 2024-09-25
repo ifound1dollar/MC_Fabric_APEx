@@ -41,6 +41,5 @@
     "recipes": [
       "apex:carbide_upgrade_smithing_template_from_basic"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

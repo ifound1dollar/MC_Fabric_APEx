@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:fertilizer"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

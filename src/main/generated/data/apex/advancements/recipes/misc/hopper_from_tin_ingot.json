@@ -28,6 +28,5 @@
     "recipes": [
       "apex:hopper_from_tin_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

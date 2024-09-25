@@ -90,9 +90,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerBlasting(exporter, BRONZE_SMELTABLES, RecipeCategory.MISC, ModItems.BRONZE_INGOT,
                 0.7f, 100, "bronze_ingot");
         offerSmelting(exporter, STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL_INGOT,
-                0.7f, 200, "steel_ingot");   //Diamond is 1.0
+                0.9f, 200, "steel_ingot");   //Diamond is 1.0
         offerBlasting(exporter, STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL_INGOT,
-                0.7f, 100, "steel_ingot");
+                0.9f, 100, "steel_ingot");
 
         offerSmelting(exporter, BRONZE_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, ModItems.BRONZE_NUGGET,
                 0.1f, 200, "bronze_nugget");   //Diamond is 1.0

@@ -2,7 +2,7 @@
   "type": "minecraft:blasting",
   "category": "misc",
   "cookingtime": 100,
-  "experience": 0.7,
+  "experience": 0.9,
   "group": "steel_ingot",
   "ingredient": {
     "item": "apex:steel_compound"
