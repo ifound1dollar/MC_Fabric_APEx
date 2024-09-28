@@ -1,7 +1,6 @@
 package net.dollar.apex.mixin;
 
 import net.dollar.apex.item.custom.ModBattleaxeItem;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -35,12 +34,12 @@ public class MixinEnchantmentHelper {
         List<EnchantmentLevelEntry> list = cir.getReturnValue();
 
         //If the passed-in ItemStack is an Infused Gemstone item, add Mending as a list of valid enchantments.
-        if (stack.getItem() instanceof IInfusedGemstoneItem) {
-            //If within enchanting table power range, add mending as a possible enchantment to receive.
-            if (level >= Enchantments.MENDING.getMinPower(1) && level <= Enchantments.MENDING.getMaxPower(1)) {
-                list.add(new EnchantmentLevelEntry(Enchantments.MENDING, 1));   //Has to be level 1, apparently.
-            }
-        }
+//        if (stack.getItem() instanceof IInfusedGemstoneItem) {
+//            //If within enchanting table power range, add mending as a possible enchantment to receive.
+//            if (level >= Enchantments.MENDING.getMinPower(1) && level <= Enchantments.MENDING.getMaxPower(1)) {
+//                list.add(new EnchantmentLevelEntry(Enchantments.MENDING, 1));   //Has to be level 1, apparently.
+//            }
+//        }
 
         //If the passed-in ItemStack is a Battleaxe, add most weapon enchantments.
         if (stack.getItem() instanceof ModBattleaxeItem) {

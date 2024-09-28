@@ -1,4 +1,4 @@
-// 1.20.6	2024-06-07T18:52:51.196381	APEx/Block Loot Tables
+// 1.20.6	2024-09-28T12:42:34.783565	APEx/Block Loot Tables
 b6b6a12bf3e2e12a682d40bf94d7cbc351f0e97a data\apex\loot_tables\blocks\tin_block.json
 eeb653ad29e505923a328213e56ecec80ff16456 data\apex\loot_tables\blocks\phosphate_ore.json
 d3e270b2cbb91c6590a5461e11080c3f73758353 data\apex\loot_tables\blocks\deepslate_phosphate_ore.json
@@ -14,8 +14,8 @@ e11c46dfdd8359ce57ddf4ff61e6f506b87a1b36 data\apex\loot_tables\blocks\ruby_block
 b13e90b48dcc1fd274d97fad4de11955bb9a0676 data\apex\loot_tables\blocks\deepslate_tin_ore.json
 3ea10c4a8f94cd3f80ab517547aedaf6f17b55f1 data\apex\loot_tables\blocks\tungsten_block.json
 8cdd094bbbfa0536af5087f8bc1c7e02bc8699d2 data\apex\loot_tables\blocks\cobalt_ore.json
-a5962bdb053132032609512d3bef7191d7b9358d data\apex\loot_tables\blocks\raw_tin_block.json
 6b859ad3359b7963e8e24a1830fcb184d1c761ab data\apex\loot_tables\blocks\tin_ore.json
+a5962bdb053132032609512d3bef7191d7b9358d data\apex\loot_tables\blocks\raw_tin_block.json
 dd7a43246dff855997eeee61948d91a85ed7e12d data\apex\loot_tables\blocks\sapphire_block.json
 d3d4ceaab4c9e8ec71a101dd641e5925cb27612a data\apex\loot_tables\blocks\raw_tungsten_block.json
 f6e36d3024fd35b9165ab9a4325ac08d012cc974 data\apex\loot_tables\blocks\decorative_amethyst_block.json
