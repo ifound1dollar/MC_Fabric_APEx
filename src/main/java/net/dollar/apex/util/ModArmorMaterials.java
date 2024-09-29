@@ -29,8 +29,8 @@ public class ModArmorMaterials {
     public static final RegistryEntry<ArmorMaterial> GILDED_BRONZE = register("gilded_bronze", Util.make(
             new EnumMap<>(ArmorItem.Type.class), (map) -> {
                 map.put(ArmorItem.Type.BOOTS, 3);
-                map.put(ArmorItem.Type.LEGGINGS, 6);
-                map.put(ArmorItem.Type.CHESTPLATE, 5);
+                map.put(ArmorItem.Type.LEGGINGS, 5);
+                map.put(ArmorItem.Type.CHESTPLATE, 6);
                 map.put(ArmorItem.Type.HELMET, 3);
                 map.put(ArmorItem.Type.BODY, 9);
             }), 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.0f, 0.0f,
@@ -38,8 +38,8 @@ public class ModArmorMaterials {
     public static final RegistryEntry<ArmorMaterial> COBALT_STEEL = register("cobalt_steel", Util.make(
             new EnumMap<>(ArmorItem.Type.class), (map) -> {
                 map.put(ArmorItem.Type.BOOTS, 3);
-                map.put(ArmorItem.Type.LEGGINGS, 8);
-                map.put(ArmorItem.Type.CHESTPLATE, 6);
+                map.put(ArmorItem.Type.LEGGINGS, 6);
+                map.put(ArmorItem.Type.CHESTPLATE, 8);
                 map.put(ArmorItem.Type.HELMET, 3);
                 map.put(ArmorItem.Type.BODY, 11);
             }), 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.1f,
@@ -47,8 +47,8 @@ public class ModArmorMaterials {
     public static final RegistryEntry<ArmorMaterial> INFUSED_GEMSTONE = register("infused_gemstone", Util.make(
                     new EnumMap<>(ArmorItem.Type.class), (map) -> {
                         map.put(ArmorItem.Type.BOOTS, 3);
-                        map.put(ArmorItem.Type.LEGGINGS, 8);
-                        map.put(ArmorItem.Type.CHESTPLATE, 6);
+                        map.put(ArmorItem.Type.LEGGINGS, 6);
+                        map.put(ArmorItem.Type.CHESTPLATE, 8);
                         map.put(ArmorItem.Type.HELMET, 3);
                         map.put(ArmorItem.Type.BODY, 11);
                     }), 25, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.05f,
@@ -56,8 +56,8 @@ public class ModArmorMaterials {
     public static final RegistryEntry<ArmorMaterial> TUNGSTEN_CARBIDE = register("tungsten_carbide", Util.make(
                     new EnumMap<>(ArmorItem.Type.class), (map) -> {
                         map.put(ArmorItem.Type.BOOTS, 3);
-                        map.put(ArmorItem.Type.LEGGINGS, 8);
-                        map.put(ArmorItem.Type.CHESTPLATE, 6);
+                        map.put(ArmorItem.Type.LEGGINGS, 6);
+                        map.put(ArmorItem.Type.CHESTPLATE, 8);
                         map.put(ArmorItem.Type.HELMET, 3);
                         map.put(ArmorItem.Type.BODY, 11);
                     }), 15, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0f, 0.1f,
