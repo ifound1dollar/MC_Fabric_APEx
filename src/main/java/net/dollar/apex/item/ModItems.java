@@ -249,13 +249,13 @@ public class ModItems {
 
     //region Bronze armor
     public static final Item BRONZE_HELMET = registerItem("bronze_helmet",
-            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.HELMET, new FabricItemSettings()));
+            new ModBronzeArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item BRONZE_CHESTPLATE = registerItem("bronze_chestplate",
-            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+            new ModBronzeArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
     public static final Item BRONZE_LEGGINGS = registerItem("bronze_leggings",
-            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+            new ModBronzeArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item BRONZE_BOOTS = registerItem("bronze_boots",
-            new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+            new ModBronzeArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
     //endregion
 
     //region Gilded Bronze armor
