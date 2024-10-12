@@ -68,11 +68,9 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
         this.goalSelector.add(2, new WanderNearTargetGoal(this, 0.9, 32.0f));
         this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.6, false));
-        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
+        //this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
         this.goalSelector.add(8, new LookAroundGoal(this));
         this.targetSelector.add(2, new RevengeGoal(this));
-        //this.targetSelector.add(3, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
-        //this.targetSelector.add(3, new ActiveTargetGoal<MobEntity>(this, MobEntity.class, 5, false, false, entity -> entity instanceof Monster && !(entity instanceof CreeperEntity)));
         this.targetSelector.add(4, new UniversalAngerGoal<>(this, false));
     }
 
