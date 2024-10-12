@@ -77,7 +77,6 @@ public class MixinUtils {
                         add(Enchantments.FIRE_PROTECTION);
                         add(Enchantments.PROJECTILE_PROTECTION);
                         add(Enchantments.PROTECTION);
-                        add(Enchantments.SWIFT_SNEAK);
                         add(Enchantments.UNBREAKING);
                     }
                 };
