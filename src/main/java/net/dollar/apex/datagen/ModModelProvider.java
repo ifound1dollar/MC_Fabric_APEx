@@ -2,6 +2,7 @@ package net.dollar.apex.datagen;
 
 import net.dollar.apex.block.ModBlocks;
 import net.dollar.apex.item.ModItems;
+import net.dollar.apex.util.ModEquipmentAssetKeys;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.BlockStateModelGenerator;
@@ -126,5 +127,63 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TUNGSTEN_CARBIDE_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TUNGSTEN_CARBIDE_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TUNGSTEN_CARBIDE_SWORD, Models.HANDHELD);
+
+        // BOW/CROSSBOW
+        itemModelGenerator.registerBow(ModItems.COBALT_STEEL_BOW);
+        itemModelGenerator.registerBow(ModItems.INFUSED_GEMSTONE_BOW);
+        itemModelGenerator.registerBow(ModItems.TUNGSTEN_CARBIDE_BOW);
+        itemModelGenerator.registerCrossbow(ModItems.COBALT_STEEL_CROSSBOW);
+        itemModelGenerator.registerCrossbow(ModItems.INFUSED_GEMSTONE_CROSSBOW);
+        itemModelGenerator.registerCrossbow(ModItems.TUNGSTEN_CARBIDE_CROSSBOW);
+
+        // ARMORS
+        itemModelGenerator.registerArmor(ModItems.BRONZE_HELMET, ModEquipmentAssetKeys.BRONZE,
+                "helmet", false);
+        itemModelGenerator.registerArmor(ModItems.BRONZE_CHESTPLATE, ModEquipmentAssetKeys.BRONZE,
+                "chestplate", false);
+        itemModelGenerator.registerArmor(ModItems.BRONZE_LEGGINGS, ModEquipmentAssetKeys.BRONZE,
+                "leggings", false);
+        itemModelGenerator.registerArmor(ModItems.BRONZE_BOOTS, ModEquipmentAssetKeys.BRONZE,
+                "boots", false);
+
+        itemModelGenerator.registerArmor(ModItems.GILDED_BRONZE_HELMET, ModEquipmentAssetKeys.GILDED_BRONZE,
+                "helmet", false);
+        itemModelGenerator.registerArmor(ModItems.GILDED_BRONZE_CHESTPLATE, ModEquipmentAssetKeys.GILDED_BRONZE,
+                "chestplate", false);
+        itemModelGenerator.registerArmor(ModItems.GILDED_BRONZE_LEGGINGS, ModEquipmentAssetKeys.GILDED_BRONZE,
+                "leggings", false);
+        itemModelGenerator.registerArmor(ModItems.GILDED_BRONZE_BOOTS, ModEquipmentAssetKeys.GILDED_BRONZE,
+                "boots", false);
+
+        itemModelGenerator.registerArmor(ModItems.COBALT_STEEL_HELMET, ModEquipmentAssetKeys.COBALT_STEEL,
+                "helmet", false);
+        itemModelGenerator.registerArmor(ModItems.COBALT_STEEL_CHESTPLATE, ModEquipmentAssetKeys.COBALT_STEEL,
+                "chestplate", false);
+        itemModelGenerator.registerArmor(ModItems.COBALT_STEEL_LEGGINGS, ModEquipmentAssetKeys.COBALT_STEEL,
+                "leggings", false);
+        itemModelGenerator.registerArmor(ModItems.COBALT_STEEL_BOOTS, ModEquipmentAssetKeys.COBALT_STEEL,
+                "boots", false);
+
+        itemModelGenerator.registerArmor(ModItems.INFUSED_GEMSTONE_HELMET, ModEquipmentAssetKeys.INFUSED_GEMSTONE,
+                "helmet", false);
+        itemModelGenerator.registerArmor(ModItems.INFUSED_GEMSTONE_CHESTPLATE, ModEquipmentAssetKeys.INFUSED_GEMSTONE,
+                "chestplate", false);
+        itemModelGenerator.registerArmor(ModItems.INFUSED_GEMSTONE_LEGGINGS, ModEquipmentAssetKeys.INFUSED_GEMSTONE,
+                "leggings", false);
+        itemModelGenerator.registerArmor(ModItems.INFUSED_GEMSTONE_BOOTS, ModEquipmentAssetKeys.INFUSED_GEMSTONE,
+                "boots", false);
+
+        itemModelGenerator.registerArmor(ModItems.TUNGSTEN_CARBIDE_HELMET, ModEquipmentAssetKeys.TUNGSTEN_CARBIDE,
+                "helmet", false);
+        itemModelGenerator.registerArmor(ModItems.TUNGSTEN_CARBIDE_CHESTPLATE, ModEquipmentAssetKeys.TUNGSTEN_CARBIDE,
+                "chestplate", false);
+        itemModelGenerator.registerArmor(ModItems.TUNGSTEN_CARBIDE_LEGGINGS, ModEquipmentAssetKeys.TUNGSTEN_CARBIDE,
+                "leggings", false);
+        itemModelGenerator.registerArmor(ModItems.TUNGSTEN_CARBIDE_BOOTS, ModEquipmentAssetKeys.TUNGSTEN_CARBIDE,
+                "boots", false);
+
+        // SPAWN EGGS
+        itemModelGenerator.registerSpawnEgg(ModItems.OBSIDIAN_GOLEM_SPAWN_EGG, 0x12031E, 0xED4D0E);
+        itemModelGenerator.registerSpawnEgg(ModItems.MYSTERIOUS_SPECTER_SPAWN_EGG, 0xE3E3E3, 0xB8B8B8);
     }
 }

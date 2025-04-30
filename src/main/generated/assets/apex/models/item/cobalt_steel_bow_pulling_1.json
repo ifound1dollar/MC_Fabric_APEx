@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "apex:item/cobalt_steel_bow_pulling_1"
+  }
+}

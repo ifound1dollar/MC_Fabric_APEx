@@ -457,7 +457,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      * @return Amount of XP to drop
      */
     @Override
-    public int getXpToDrop(ServerWorld world) {
+    public int getExperienceToDrop(ServerWorld world) {
         return 50;
     }
 

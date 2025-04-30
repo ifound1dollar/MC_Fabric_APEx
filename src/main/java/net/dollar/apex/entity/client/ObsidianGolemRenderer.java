@@ -14,7 +14,7 @@ import net.minecraft.util.math.RotationAxis;
 public class ObsidianGolemRenderer
         extends MobEntityRenderer<ObsidianGolemEntity, ObsidianGolemRenderState, ObsidianGolemModel> {
     private static final Identifier TEXTURE = Identifier.of(
-            ModMain.MOD_ID, "textures/entities/obsidian_golem.png");
+            ModMain.MOD_ID, "textures/entity/obsidian_golem.png");
 
     public ObsidianGolemRenderer(EntityRendererFactory.Context context) {
         super(context, new ObsidianGolemModel(context.getPart(ModModelLayers.OBSIDIAN_GOLEM)), 0.7f);

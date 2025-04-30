@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "apex:tungsten_carbide"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "apex:tungsten_carbide"
+      }
+    ]
+  }
+}

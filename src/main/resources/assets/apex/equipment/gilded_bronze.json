@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "apex:gilded_bronze"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "apex:gilded_bronze"
+      }
+    ]
+  }
+}

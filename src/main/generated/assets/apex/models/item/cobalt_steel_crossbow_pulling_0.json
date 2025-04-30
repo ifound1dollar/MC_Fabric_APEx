@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/crossbow",
+  "textures": {
+    "layer0": "apex:item/cobalt_steel_crossbow_pulling_0"
+  }
+}

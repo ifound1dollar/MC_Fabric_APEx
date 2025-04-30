@@ -26,11 +26,11 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     //region Misc.
     public static final Item OBSIDIAN_GOLEM_SPAWN_EGG = registerItem("obsidian_golem_spawn_egg",
-            new SpawnEggItem(ModEntities.OBSIDIAN_GOLEM, 0x12031E, 0xED4D0E,
-                    new Item.Settings().registryKey(generateItemKey("obsidian_golem_spawn_egg"))));
+            new SpawnEggItem(ModEntities.OBSIDIAN_GOLEM, new Item.Settings()
+                    .registryKey(generateItemKey("obsidian_golem_spawn_egg"))));
     public static final Item MYSTERIOUS_SPECTER_SPAWN_EGG = registerItem("mysterious_specter_spawn_egg",
-            new SpawnEggItem(ModEntities.MYSTERIOUS_SPECTER, 0xE3E3E3, 0xB8B8B8,
-                    new Item.Settings().registryKey(generateItemKey("mysterious_specter_spawn_egg"))));
+            new SpawnEggItem(ModEntities.MYSTERIOUS_SPECTER, new Item.Settings()
+                    .registryKey(generateItemKey("mysterious_specter_spawn_egg"))));
     public static final Item FERTILIZER = registerItem("fertilizer",
             new BoneMealItem((new Item.Settings().registryKey(generateItemKey("fertilizer")))));
     //endregion
@@ -39,10 +39,10 @@ public class ModItems {
     //Set maxCount here instead of in the item class.
     public static final Item TROPHY_OBSIDIAN_DUST = registerItem("trophy_obsidian_dust",
             new ModTrophyItem(new Item.Settings().registryKey(generateItemKey("trophy_obsidian_dust"))
-                    .maxCount(1), "1"));
+                    .maxCount(1)));
     public static final Item TROPHY_OMINOUS_LETTER = registerItem("trophy_ominous_letter",
             new ModTrophyItem(new Item.Settings().registryKey(generateItemKey("trophy_ominous_letter"))
-                    .maxCount(1), "2"));
+                    .maxCount(1)));
 
     //endregion
 
