@@ -6,7 +6,9 @@ import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.*;
+import net.minecraft.data.recipe.RecipeExporter;
+import net.minecraft.data.recipe.RecipeGenerator;
+import net.minecraft.data.recipe.SmithingTransformRecipeJsonBuilder;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
@@ -16,8 +18,6 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
@@ -25,7 +25,6 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import static net.minecraft.data.server.recipe.RecipeGenerator.getRecipeName;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
     @Override
