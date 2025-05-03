@@ -36,9 +36,9 @@ public class ModItems {
     //region Trophy items
     //Set maxCount here instead of in the item class.
     public static final Item TROPHY_OBSIDIAN_DUST = registerItem("trophy_obsidian_dust",
-            new ModTrophyItem(new FabricItemSettings().maxCount(1), "1"));
+            new ModTrophyItem(new FabricItemSettings().maxCount(1)));
     public static final Item TROPHY_OMINOUS_LETTER = registerItem("trophy_ominous_letter",
-            new ModTrophyItem(new FabricItemSettings().maxCount(1), "2"));
+            new ModTrophyItem(new FabricItemSettings().maxCount(1)));
 
     //endregion
 
