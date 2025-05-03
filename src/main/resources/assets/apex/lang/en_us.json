@@ -1,28 +1,28 @@
 {
-  "block.apex.ruby_block": "Ruby Block",
-  "block.apex.ruby_ore": "Ruby Ore",
-  "block.apex.deepslate_ruby_ore": "Deepslate Ruby Ore",
-  "block.apex.sapphire_block": "Sapphire Block",
-  "block.apex.sapphire_ore": "Sapphire Ore",
-  "block.apex.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
-  "block.apex.decorative_amethyst_block": "Decorative Amethyst Block",
+  "item.apex.ruby_block": "Ruby Block",
+  "item.apex.ruby_ore": "Ruby Ore",
+  "item.apex.deepslate_ruby_ore": "Deepslate Ruby Ore",
+  "item.apex.sapphire_block": "Sapphire Block",
+  "item.apex.sapphire_ore": "Sapphire Ore",
+  "item.apex.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
+  "item.apex.decorative_amethyst_block": "Decorative Amethyst Block",
 
-  "block.apex.cobalt_block": "Cobalt Block",
-  "block.apex.cobalt_ore": "Cobalt Ore",
-  "block.apex.deepslate_cobalt_ore": "Deepslate Cobalt Ore",
-  "block.apex.phosphate_ore": "Phosphate Ore",
-  "block.apex.deepslate_phosphate_ore": "Deepslate Phosphate Ore",
+  "item.apex.cobalt_block": "Cobalt Block",
+  "item.apex.cobalt_ore": "Cobalt Ore",
+  "item.apex.deepslate_cobalt_ore": "Deepslate Cobalt Ore",
+  "item.apex.phosphate_ore": "Phosphate Ore",
+  "item.apex.deepslate_phosphate_ore": "Deepslate Phosphate Ore",
 
-  "block.apex.tin_block": "Tin Block",
-  "block.apex.raw_tin_block": "Raw Tin Block",
-  "block.apex.tin_ore": "Tin Ore",
-  "block.apex.deepslate_tin_ore": "Deepslate Tin Ore",
-  "block.apex.bronze_block": "Bronze Block",
-  "block.apex.steel_block": "Steel Block",
-  "block.apex.tungsten_block": "Tungsten Block",
-  "block.apex.raw_tungsten_block": "Raw Tungsten Block",
-  "block.apex.tungsten_ore": "Tungsten Ore",
-  "block.apex.deepslate_tungsten_ore": "Deepslate Tungsten Ore",
+  "item.apex.tin_block": "Tin Block",
+  "item.apex.raw_tin_block": "Raw Tin Block",
+  "item.apex.tin_ore": "Tin Ore",
+  "item.apex.deepslate_tin_ore": "Deepslate Tin Ore",
+  "item.apex.bronze_block": "Bronze Block",
+  "item.apex.steel_block": "Steel Block",
+  "item.apex.tungsten_block": "Tungsten Block",
+  "item.apex.raw_tungsten_block": "Raw Tungsten Block",
+  "item.apex.tungsten_ore": "Tungsten Ore",
+  "item.apex.deepslate_tungsten_ore": "Deepslate Tungsten Ore",
 
 
 
@@ -54,9 +54,9 @@
   "item.apex.cobalt_steel_ingot": "Cobalt-Steel Ingot",
 
   "item.apex.basic_upgrade_template": "Basic Upgrade Template",
-  "item.apex.cobalt_upgrade_smithing_template": "Smithing Template",
-  "item.apex.infusion_upgrade_smithing_template": "Smithing Template",
-  "item.apex.carbide_upgrade_smithing_template": "Smithing Template",
+  "item.apex.cobalt_upgrade_smithing_template": "§eCobalt-Steel Upgrade",
+  "item.apex.infusion_upgrade_smithing_template": "§eInfused Gemstone Upgrade",
+  "item.apex.carbide_upgrade_smithing_template": "§eTungsten-Carbide Upgrade",
 
 
 
@@ -143,7 +143,7 @@
 
 
 
-  "tooltip.trophy_item": "§6Trophy item",
+  "tooltip.trophy_item": "§6Trophy Item",
   "tooltip.handful_of_stardust": "§dRemains of a Mysterious Specter",
   "tooltip.molten_core": "§cCore of an Obsidian Golem",
   "tooltip.cobalt_steel_ingot": "§3Upgrade Ingredient",

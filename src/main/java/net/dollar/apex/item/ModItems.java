@@ -39,10 +39,10 @@ public class ModItems {
     //Set maxCount here instead of in the item class.
     public static final Item TROPHY_OBSIDIAN_DUST = registerItem("trophy_obsidian_dust",
             new ModTrophyItem(new Item.Settings().registryKey(generateItemKey("trophy_obsidian_dust"))
-                    .maxCount(1), "1"));
+                    .maxCount(1)));
     public static final Item TROPHY_OMINOUS_LETTER = registerItem("trophy_ominous_letter",
             new ModTrophyItem(new Item.Settings().registryKey(generateItemKey("trophy_ominous_letter"))
-                    .maxCount(1), "2"));
+                    .maxCount(1)));
 
     //endregion
 
