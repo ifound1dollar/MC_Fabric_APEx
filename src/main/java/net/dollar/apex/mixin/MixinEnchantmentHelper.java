@@ -3,6 +3,7 @@ package net.dollar.apex.mixin;
 import net.dollar.apex.item.custom.ModBattleaxeItem;
 import net.dollar.apex.item.custom.ModBronzeArmorItem;
 import net.dollar.apex.item.custom.ModGildedBronzeArmorItem;
+import net.dollar.apex.item.custom.ModPaxelItem;
 import net.dollar.apex.item.custom.bow.ModCobaltSteelBowItem;
 import net.dollar.apex.item.custom.bow.ModInfusedGemstoneBowItem;
 import net.dollar.apex.item.custom.bow.ModTungstenCarbideBowItem;
@@ -55,6 +56,29 @@ public class MixinEnchantmentHelper {
                     add(Enchantments.KNOCKBACK);
                     add(Enchantments.FIRE_ASPECT);
                     add(Enchantments.LOOTING);
+                }
+            };
+
+            block0: for (Enchantment enchantment : enchantments) {
+                //Iterate in range of all valid levels for this enchantment.
+                for (int i = enchantment.getMaxLevel(); i > enchantment.getMinLevel() - 1; --i) {
+                    //Skip if outside enchanting table power range, else add the enchantment then return to outer loop.
+                    if (power < enchantment.getMinPower(i) || power > enchantment.getMaxPower(i)) {
+                        continue;
+                    }
+
+                    list.add(new EnchantmentLevelEntry(enchantment, i));
+                    continue block0;  //Continue to OUTER block (adds only the highest possible enchantment level).
+                }
+            }
+        } else if (item instanceof ModPaxelItem) {
+            //If the passed-in ItemStack is a Paxel, add mining tool enchantments.
+            ArrayList<Enchantment> enchantments = new ArrayList<>() {
+                {
+                    add(Enchantments.EFFICIENCY);
+                    add(Enchantments.UNBREAKING);
+                    add(Enchantments.FORTUNE);
+                    add(Enchantments.SILK_TOUCH);
                 }
             };
 
