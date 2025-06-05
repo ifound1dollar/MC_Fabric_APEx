@@ -3,24 +3,26 @@ package net.dollar.apex.item.custom.tungstencarbide;
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.IFullSetEffectArmor;
 import net.dollar.apex.util.ModUtils;
-import net.minecraft.item.equipment.ArmorMaterial;
-import net.minecraft.item.equipment.EquipmentType;
-import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.equipment.ArmorMaterial;
+import net.minecraft.item.equipment.EquipmentType;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 
-import java.util.List;
+import java.util.function.Consumer;
 
-public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEffectArmor {
-    public ModTungstenCarbideArmorItem(ArmorMaterial material, EquipmentType type, Settings settings) {
-        super(material, type, settings);
+
+public class ModTungstenCarbideArmorItem extends Item implements IFullSetEffectArmor {
+    public ModTungstenCarbideArmorItem(ArmorMaterial material, EquipmentType type, Item.Settings settings) {
+        super(settings.armor(material, type));
     }
 
 
@@ -53,11 +55,12 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEf
      * Appends text to the Item's hover tooltip.
      * @param stack ItemStack corresponding to this item
      * @param context TooltipContext
-     * @param tooltip List of tooltip texts to render
+     * @param displayComponent TooltipDisplayComponent associated with this tooltip
+     * @param textConsumer Consumer of tooltip texts to render
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.ARMOR);
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+        ModUtils.appendTungstenCarbideEquipmentTooltip(textConsumer, ModUtils.EquipmentType.ARMOR);
     }
 }

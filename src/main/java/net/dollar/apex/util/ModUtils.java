@@ -6,7 +6,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.text.Text;
 
-import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * Contains a handful of misc. helper methods used in various parts of the mod.
@@ -33,29 +33,29 @@ public class ModUtils {
      * @param tooltip List of Texts to be appended
      * @param type What type of equipment to generate the tooltip for (different for each)
      */
-    public static void appendCobaltSteelEquipmentTooltip(List<Text> tooltip, EquipmentType type) {
+    public static void appendCobaltSteelEquipmentTooltip(Consumer<Text> tooltip, EquipmentType type) {
         //This method should only ever be called client-side, so no null risk here.
         //If the player is holding shift, show detailed info.
         if (Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable("tooltip.cobalt_steel_details_0"));
-            tooltip.add(Text.translatable("tooltip.cobalt_steel_details_1"));
-            tooltip.add(Text.translatable("tooltip.cobalt_steel_details_2"));
-            tooltip.add(Text.translatable("tooltip.cobalt_steel_details_3"));
-            tooltip.add(Text.translatable("tooltip.cobalt_steel_details_4"));
+            tooltip.accept(Text.translatable("tooltip.cobalt_steel_details_0"));
+            tooltip.accept(Text.translatable("tooltip.cobalt_steel_details_1"));
+            tooltip.accept(Text.translatable("tooltip.cobalt_steel_details_2"));
+            tooltip.accept(Text.translatable("tooltip.cobalt_steel_details_3"));
+            tooltip.accept(Text.translatable("tooltip.cobalt_steel_details_4"));
 
             //TODO: RE-IMPLEMENT CONFIGS
             if (type == EquipmentType.ARMOR) {
-                tooltip.add(Text.translatable("tooltip.cobalt_steel_armor"));
+                tooltip.accept(Text.translatable("tooltip.cobalt_steel_armor"));
             } else if (type == EquipmentType.TOOL) {
-//            tooltip.add(Text.literal(String.format("§8> On-hit: Slow target for %ss",
+//            tooltip.accept(Text.literal(String.format("§8> On-hit: Slow target for %ss",
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
-                tooltip.add(Text.translatable("tooltip.cobalt_steel_onhit"));
+                tooltip.accept(Text.translatable("tooltip.cobalt_steel_onhit"));
             } else {
-                tooltip.add(Text.translatable("tooltip.cobalt_steel_bow_crossbow"));
-                tooltip.add(Text.translatable("tooltip.cobalt_steel_onhit"));
+                tooltip.accept(Text.translatable("tooltip.cobalt_steel_bow_crossbow"));
+                tooltip.accept(Text.translatable("tooltip.cobalt_steel_onhit"));
             }
         } else {
-            tooltip.add(Text.translatable("tooltip.cobalt_steel_hold_shift"));
+            tooltip.accept(Text.translatable("tooltip.cobalt_steel_hold_shift"));
         }
     }
 
@@ -80,29 +80,29 @@ public class ModUtils {
      * @param tooltip List of Texts to be appended
      * @param type What type of equipment to generate the tooltip for (different for each)
      */
-    public static void appendInfusedGemstoneEquipmentTooltip(List<Text> tooltip, EquipmentType type) {
+    public static void appendInfusedGemstoneEquipmentTooltip(Consumer<Text> tooltip, EquipmentType type) {
         //This method should only ever be called client-side, so no null risk here.
         //If the player is holding shift, show detailed info.
         if (Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable("tooltip.infused_gemstone_details_0"));
-            tooltip.add(Text.translatable("tooltip.infused_gemstone_details_1"));
-            tooltip.add(Text.translatable("tooltip.infused_gemstone_details_2"));
-            tooltip.add(Text.translatable("tooltip.infused_gemstone_details_3"));
-            tooltip.add(Text.translatable("tooltip.infused_gemstone_details_4"));
+            tooltip.accept(Text.translatable("tooltip.infused_gemstone_details_0"));
+            tooltip.accept(Text.translatable("tooltip.infused_gemstone_details_1"));
+            tooltip.accept(Text.translatable("tooltip.infused_gemstone_details_2"));
+            tooltip.accept(Text.translatable("tooltip.infused_gemstone_details_3"));
+            tooltip.accept(Text.translatable("tooltip.infused_gemstone_details_4"));
 
             //TODO: RE-IMPLEMENT CONFIGS
             if (type == EquipmentType.ARMOR) {
-                tooltip.add(Text.translatable("tooltip.infused_gemstone_armor"));
+                tooltip.accept(Text.translatable("tooltip.infused_gemstone_armor"));
             } else if (type == EquipmentType.TOOL) {
-//            tooltip.add(Text.literal(String.format("§8> On-hit: Slow target for %ss",
+//            tooltip.accept(Text.literal(String.format("§8> On-hit: Slow target for %ss",
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
-                tooltip.add(Text.translatable("tooltip.infused_gemstone_onhit"));
+                tooltip.accept(Text.translatable("tooltip.infused_gemstone_onhit"));
             } else {
-                tooltip.add(Text.translatable("tooltip.infused_gemstone_bow_crossbow"));
-                tooltip.add(Text.translatable("tooltip.infused_gemstone_onhit"));
+                tooltip.accept(Text.translatable("tooltip.infused_gemstone_bow_crossbow"));
+                tooltip.accept(Text.translatable("tooltip.infused_gemstone_onhit"));
             }
         } else {
-            tooltip.add(Text.translatable("tooltip.infused_gemstone_hold_shift"));
+            tooltip.accept(Text.translatable("tooltip.infused_gemstone_hold_shift"));
         }
     }
 
@@ -127,29 +127,29 @@ public class ModUtils {
      * @param tooltip List of Texts to be appended
      * @param type What type of equipment to generate the tooltip for (different for each)
      */
-    public static void appendTungstenCarbideEquipmentTooltip(List<Text> tooltip, EquipmentType type) {
+    public static void appendTungstenCarbideEquipmentTooltip(Consumer<Text> tooltip, EquipmentType type) {
         //This method should only ever be called client-side, so no null risk here.
         //If the player is holding shift, show detailed info.
         if (Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_0"));
-            tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_1"));
-            tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_2"));
-            tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_3"));
-            tooltip.add(Text.translatable("tooltip.tungsten_carbide_details_4"));
+            tooltip.accept(Text.translatable("tooltip.tungsten_carbide_details_0"));
+            tooltip.accept(Text.translatable("tooltip.tungsten_carbide_details_1"));
+            tooltip.accept(Text.translatable("tooltip.tungsten_carbide_details_2"));
+            tooltip.accept(Text.translatable("tooltip.tungsten_carbide_details_3"));
+            tooltip.accept(Text.translatable("tooltip.tungsten_carbide_details_4"));
 
             //TODO: RE-IMPLEMENT CONFIGS
             if (type == EquipmentType.ARMOR) {
-                tooltip.add(Text.translatable("tooltip.tungsten_carbide_armor"));
+                tooltip.accept(Text.translatable("tooltip.tungsten_carbide_armor"));
             } else if (type == EquipmentType.TOOL) {
-//            tooltip.add(Text.literal(String.format("§8> On-hit: Slow target for %ss",
+//            tooltip.accept(Text.literal(String.format("§8> On-hit: Slow target for %ss",
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get())));
-                tooltip.add(Text.translatable("tooltip.tungsten_carbide_onhit"));
+                tooltip.accept(Text.translatable("tooltip.tungsten_carbide_onhit"));
             } else {
-                tooltip.add(Text.translatable("tooltip.tungsten_carbide_bow_crossbow"));
-                tooltip.add(Text.translatable("tooltip.tungsten_carbide_onhit"));
+                tooltip.accept(Text.translatable("tooltip.tungsten_carbide_bow_crossbow"));
+                tooltip.accept(Text.translatable("tooltip.tungsten_carbide_onhit"));
             }
         } else {
-            tooltip.add(Text.translatable("tooltip.tungsten_carbide_hold_shift"));
+            tooltip.accept(Text.translatable("tooltip.tungsten_carbide_hold_shift"));
         }
     }
 }

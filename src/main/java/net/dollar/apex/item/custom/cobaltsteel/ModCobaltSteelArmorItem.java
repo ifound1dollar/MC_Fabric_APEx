@@ -3,12 +3,13 @@ package net.dollar.apex.item.custom.cobaltsteel;
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.IFullSetEffectArmor;
 import net.dollar.apex.util.ModUtils;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.equipment.ArmorMaterial;
 import net.minecraft.item.equipment.EquipmentType;
@@ -16,11 +17,11 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 
-import java.util.List;
+import java.util.function.Consumer;
 
-public class ModCobaltSteelArmorItem extends ArmorItem implements IFullSetEffectArmor {
-    public ModCobaltSteelArmorItem(ArmorMaterial material, EquipmentType type, Settings settings) {
-        super(material, type, settings);
+public class ModCobaltSteelArmorItem extends Item implements IFullSetEffectArmor {
+    public ModCobaltSteelArmorItem(ArmorMaterial material, EquipmentType type, Item.Settings settings) {
+        super(settings.armor(material, type));
     }
 
 
@@ -53,11 +54,12 @@ public class ModCobaltSteelArmorItem extends ArmorItem implements IFullSetEffect
      * Appends text to the Item's hover tooltip.
      * @param stack ItemStack corresponding to this item
      * @param context TooltipContext
-     * @param tooltip List of tooltip texts to render
+     * @param displayComponent TooltipDisplayComponent associated with this tooltip
+     * @param textConsumer Consumer of tooltip texts to render
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.ARMOR);
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+        ModUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModUtils.EquipmentType.ARMOR);
     }
 }

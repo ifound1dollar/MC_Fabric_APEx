@@ -3,13 +3,14 @@ package net.dollar.apex.item.custom.bow;
 import net.dollar.apex.item.custom.arrow.ArrowUtil;
 import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
-import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -18,6 +19,7 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class ModInfusedGemstoneBowItem extends BowItem implements IInfusedGemstoneItem {
     public ModInfusedGemstoneBowItem(Settings settings) {
@@ -91,11 +93,12 @@ public class ModInfusedGemstoneBowItem extends BowItem implements IInfusedGemsto
      * Appends text to the Item's hover tooltip.
      * @param stack ItemStack corresponding to this item
      * @param context TooltipContext
-     * @param tooltip List of tooltip texts to render
+     * @param displayComponent TooltipDisplayComponent associated with this tooltip
+     * @param textConsumer Consumer of tooltip texts to render
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+        ModUtils.appendInfusedGemstoneEquipmentTooltip(textConsumer, ModUtils.EquipmentType.RANGED);
     }
 }

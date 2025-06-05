@@ -1,5 +1,6 @@
 package net.dollar.apex.datagen;
 
+import net.dollar.apex.ModMain;
 import net.dollar.apex.block.ModBlocks;
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.ModEquipmentAssetKeys;
@@ -8,6 +9,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
+import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -138,52 +140,52 @@ public class ModModelProvider extends FabricModelProvider {
 
         // ARMORS
         itemModelGenerator.registerArmor(ModItems.BRONZE_HELMET, ModEquipmentAssetKeys.BRONZE,
-                "helmet", false);
+                Identifier.of(ModMain.MOD_ID, "bronze_helmet"), false);
         itemModelGenerator.registerArmor(ModItems.BRONZE_CHESTPLATE, ModEquipmentAssetKeys.BRONZE,
-                "chestplate", false);
+                Identifier.of(ModMain.MOD_ID, "bronze_chestplate"), false);
         itemModelGenerator.registerArmor(ModItems.BRONZE_LEGGINGS, ModEquipmentAssetKeys.BRONZE,
-                "leggings", false);
+                Identifier.of(ModMain.MOD_ID, "bronze_leggings"), false);
         itemModelGenerator.registerArmor(ModItems.BRONZE_BOOTS, ModEquipmentAssetKeys.BRONZE,
-                "boots", false);
+                Identifier.of(ModMain.MOD_ID, "bronze_boots"), false);
 
         itemModelGenerator.registerArmor(ModItems.GILDED_BRONZE_HELMET, ModEquipmentAssetKeys.GILDED_BRONZE,
-                "helmet", false);
+                Identifier.of(ModMain.MOD_ID, "gilded_bronze_helmet"), false);
         itemModelGenerator.registerArmor(ModItems.GILDED_BRONZE_CHESTPLATE, ModEquipmentAssetKeys.GILDED_BRONZE,
-                "chestplate", false);
+                Identifier.of(ModMain.MOD_ID, "gilded_bronze_chestplate"), false);
         itemModelGenerator.registerArmor(ModItems.GILDED_BRONZE_LEGGINGS, ModEquipmentAssetKeys.GILDED_BRONZE,
-                "leggings", false);
+                Identifier.of(ModMain.MOD_ID, "gilded_bronze_leggings"), false);
         itemModelGenerator.registerArmor(ModItems.GILDED_BRONZE_BOOTS, ModEquipmentAssetKeys.GILDED_BRONZE,
-                "boots", false);
+                Identifier.of(ModMain.MOD_ID, "gilded_bronze_boots"), false);
 
         itemModelGenerator.registerArmor(ModItems.COBALT_STEEL_HELMET, ModEquipmentAssetKeys.COBALT_STEEL,
-                "helmet", false);
+                Identifier.of(ModMain.MOD_ID, "cobalt_steel_helmet"), false);
         itemModelGenerator.registerArmor(ModItems.COBALT_STEEL_CHESTPLATE, ModEquipmentAssetKeys.COBALT_STEEL,
-                "chestplate", false);
+                Identifier.of(ModMain.MOD_ID, "cobalt_steel_chestplate"), false);
         itemModelGenerator.registerArmor(ModItems.COBALT_STEEL_LEGGINGS, ModEquipmentAssetKeys.COBALT_STEEL,
-                "leggings", false);
+                Identifier.of(ModMain.MOD_ID, "cobalt_steel_leggings"), false);
         itemModelGenerator.registerArmor(ModItems.COBALT_STEEL_BOOTS, ModEquipmentAssetKeys.COBALT_STEEL,
-                "boots", false);
+                Identifier.of(ModMain.MOD_ID, "cobalt_steel_boots"), false);
 
         itemModelGenerator.registerArmor(ModItems.INFUSED_GEMSTONE_HELMET, ModEquipmentAssetKeys.INFUSED_GEMSTONE,
-                "helmet", false);
+                Identifier.of(ModMain.MOD_ID, "infused_gemstone_helmet"), false);
         itemModelGenerator.registerArmor(ModItems.INFUSED_GEMSTONE_CHESTPLATE, ModEquipmentAssetKeys.INFUSED_GEMSTONE,
-                "chestplate", false);
+                Identifier.of(ModMain.MOD_ID, "infused_gemstone_chestplate"), false);
         itemModelGenerator.registerArmor(ModItems.INFUSED_GEMSTONE_LEGGINGS, ModEquipmentAssetKeys.INFUSED_GEMSTONE,
-                "leggings", false);
+                Identifier.of(ModMain.MOD_ID, "infused_gemstone_leggings"), false);
         itemModelGenerator.registerArmor(ModItems.INFUSED_GEMSTONE_BOOTS, ModEquipmentAssetKeys.INFUSED_GEMSTONE,
-                "boots", false);
+                Identifier.of(ModMain.MOD_ID, "infused_gemstone_boots"), false);
 
         itemModelGenerator.registerArmor(ModItems.TUNGSTEN_CARBIDE_HELMET, ModEquipmentAssetKeys.TUNGSTEN_CARBIDE,
-                "helmet", false);
+                Identifier.of(ModMain.MOD_ID, "tungsten_carbide_helmet"), false);
         itemModelGenerator.registerArmor(ModItems.TUNGSTEN_CARBIDE_CHESTPLATE, ModEquipmentAssetKeys.TUNGSTEN_CARBIDE,
-                "chestplate", false);
+                Identifier.of(ModMain.MOD_ID, "tungsten_carbide_chestplate"), false);
         itemModelGenerator.registerArmor(ModItems.TUNGSTEN_CARBIDE_LEGGINGS, ModEquipmentAssetKeys.TUNGSTEN_CARBIDE,
-                "leggings", false);
+                Identifier.of(ModMain.MOD_ID, "tungsten_carbide_leggings"), false);
         itemModelGenerator.registerArmor(ModItems.TUNGSTEN_CARBIDE_BOOTS, ModEquipmentAssetKeys.TUNGSTEN_CARBIDE,
-                "boots", false);
+                Identifier.of(ModMain.MOD_ID, "tungsten_carbide_boots"), false);
 
         // SPAWN EGGS
-        itemModelGenerator.registerSpawnEgg(ModItems.OBSIDIAN_GOLEM_SPAWN_EGG, 0x12031E, 0xED4D0E);
-        itemModelGenerator.registerSpawnEgg(ModItems.MYSTERIOUS_SPECTER_SPAWN_EGG, 0xE3E3E3, 0xB8B8B8);
+        itemModelGenerator.register(ModItems.OBSIDIAN_GOLEM_SPAWN_EGG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MYSTERIOUS_SPECTER_SPAWN_EGG, Models.GENERATED);
     }
 }

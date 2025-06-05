@@ -57,8 +57,8 @@ public class ObsidianGolemRenderer
     protected void setupTransforms(ObsidianGolemRenderState renderState, MatrixStack matrixStack,
                                    float f, float g) {
         super.setupTransforms(renderState, matrixStack, f, g);
-        if (!((double)renderState.limbAmplitudeMultiplier < 0.01)) {
-            float i = renderState.limbFrequency + 6.0F;
+        if (!((double)renderState.limbSwingAmplitude < 0.01)) {
+            float i = renderState.limbSwingAnimationProgress + 6.0F;
             float j = (Math.abs(i % 13.0F - 6.5F) - 3.25F) / 3.25F;
             matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(6.5F * j));
         }

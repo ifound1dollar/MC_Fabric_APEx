@@ -3,19 +3,20 @@ package net.dollar.apex.item.custom.cobaltsteel;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 
-import java.util.List;
+import java.util.function.Consumer;
 
-public class ModCobaltSteelPickaxeItem extends PickaxeItem {
+public class ModCobaltSteelPickaxeItem extends Item {
     public ModCobaltSteelPickaxeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+        super(settings.pickaxe(
+                material, attackDamage, attackSpeed));
     }
 
 
@@ -41,23 +42,22 @@ public class ModCobaltSteelPickaxeItem extends PickaxeItem {
      * @param stack ItemStack of this Item
      * @param target Attacked (target) living entity
      * @param attacker Attacker (user) living entity
-     * @return Whether attack was successfully performed
      */
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         ModUtils.applyCobaltSteelOnHit(target);
-        return super.postHit(stack, target, attacker);
     }
 
     /**
      * Appends text to the Item's hover tooltip.
      * @param stack ItemStack corresponding to this item
      * @param context TooltipContext
-     * @param tooltip List of tooltip texts to render
+     * @param displayComponent TooltipDisplayComponent associated with this tooltip
+     * @param textConsumer Consumer of tooltip texts to render
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+        ModUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModUtils.EquipmentType.TOOL);
     }
 }

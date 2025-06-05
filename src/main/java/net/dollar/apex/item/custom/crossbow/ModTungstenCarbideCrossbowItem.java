@@ -2,7 +2,7 @@ package net.dollar.apex.item.custom.crossbow;
 
 import net.dollar.apex.item.custom.arrow.ArrowUtil;
 import net.dollar.apex.util.ModUtils;
-import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -10,11 +10,12 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
-import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * Corresponds specifically to the Tungsten-Carbide Crossbow item. Overrides and creates new methods to generate
@@ -83,14 +84,15 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
      * Appends text to the Item's hover tooltip.
      * @param stack ItemStack corresponding to this item
      * @param context TooltipContext
-     * @param tooltip List of tooltip texts to render
+     * @param displayComponent TooltipDisplayComponent associated with this tooltip
+     * @param textConsumer Consumer of tooltip texts to render
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+        ModUtils.appendTungstenCarbideEquipmentTooltip(textConsumer, ModUtils.EquipmentType.RANGED);
 
         //Call super function because it has return statement if not charged.
-        super.appendTooltip(stack, context, tooltip, type);
+        super.appendTooltip(stack, context, displayComponent, textConsumer, type);
     }
 }
