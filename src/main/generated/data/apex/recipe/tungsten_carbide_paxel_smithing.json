@@ -3,7 +3,6 @@
   "addition": "apex:tungsten_carbide_ingot",
   "base": "apex:diamond_paxel",
   "result": {
-    "count": 1,
     "id": "apex:tungsten_carbide_paxel"
   },
   "template": "apex:carbide_upgrade_smithing_template"

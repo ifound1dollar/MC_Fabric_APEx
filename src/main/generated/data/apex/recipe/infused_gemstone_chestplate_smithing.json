@@ -3,7 +3,6 @@
   "addition": "apex:infused_gemstone",
   "base": "minecraft:diamond_chestplate",
   "result": {
-    "count": 1,
     "id": "apex:infused_gemstone_chestplate"
   },
   "template": "apex:infusion_upgrade_smithing_template"

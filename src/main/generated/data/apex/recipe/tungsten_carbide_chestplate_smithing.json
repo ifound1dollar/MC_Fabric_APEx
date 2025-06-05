@@ -3,7 +3,6 @@
   "addition": "apex:tungsten_carbide_ingot",
   "base": "minecraft:diamond_chestplate",
   "result": {
-    "count": 1,
     "id": "apex:tungsten_carbide_chestplate"
   },
   "template": "apex:carbide_upgrade_smithing_template"

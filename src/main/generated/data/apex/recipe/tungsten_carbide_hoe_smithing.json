@@ -3,7 +3,6 @@
   "addition": "apex:tungsten_carbide_ingot",
   "base": "minecraft:diamond_hoe",
   "result": {
-    "count": 1,
     "id": "apex:tungsten_carbide_hoe"
   },
   "template": "apex:carbide_upgrade_smithing_template"

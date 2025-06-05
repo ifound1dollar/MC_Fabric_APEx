@@ -3,7 +3,6 @@
   "addition": "apex:infused_gemstone",
   "base": "minecraft:crossbow",
   "result": {
-    "count": 1,
     "id": "apex:infused_gemstone_crossbow"
   },
   "template": "apex:infusion_upgrade_smithing_template"

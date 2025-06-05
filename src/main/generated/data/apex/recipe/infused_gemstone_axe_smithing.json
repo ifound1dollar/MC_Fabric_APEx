@@ -3,7 +3,6 @@
   "addition": "apex:infused_gemstone",
   "base": "minecraft:diamond_axe",
   "result": {
-    "count": 1,
     "id": "apex:infused_gemstone_axe"
   },
   "template": "apex:infusion_upgrade_smithing_template"

@@ -3,7 +3,6 @@
   "addition": "apex:tungsten_carbide_ingot",
   "base": "minecraft:diamond_sword",
   "result": {
-    "count": 1,
     "id": "apex:tungsten_carbide_sword"
   },
   "template": "apex:carbide_upgrade_smithing_template"

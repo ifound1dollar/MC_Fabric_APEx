@@ -3,7 +3,6 @@
   "addition": "apex:infused_gemstone",
   "base": "apex:diamond_battleaxe",
   "result": {
-    "count": 1,
     "id": "apex:infused_gemstone_battleaxe"
   },
   "template": "apex:infusion_upgrade_smithing_template"

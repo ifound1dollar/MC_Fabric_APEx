@@ -3,7 +3,6 @@
   "addition": "apex:cobalt_steel_ingot",
   "base": "minecraft:bow",
   "result": {
-    "count": 1,
     "id": "apex:cobalt_steel_bow"
   },
   "template": "apex:cobalt_upgrade_smithing_template"

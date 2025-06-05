@@ -3,7 +3,6 @@
   "addition": "apex:tungsten_carbide_ingot",
   "base": "minecraft:diamond_boots",
   "result": {
-    "count": 1,
     "id": "apex:tungsten_carbide_boots"
   },
   "template": "apex:carbide_upgrade_smithing_template"

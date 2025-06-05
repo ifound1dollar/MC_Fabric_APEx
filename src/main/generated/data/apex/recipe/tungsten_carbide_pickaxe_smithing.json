@@ -3,7 +3,6 @@
   "addition": "apex:tungsten_carbide_ingot",
   "base": "minecraft:diamond_pickaxe",
   "result": {
-    "count": 1,
     "id": "apex:tungsten_carbide_pickaxe"
   },
   "template": "apex:carbide_upgrade_smithing_template"

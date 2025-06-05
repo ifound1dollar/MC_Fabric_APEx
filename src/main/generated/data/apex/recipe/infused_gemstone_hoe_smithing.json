@@ -3,7 +3,6 @@
   "addition": "apex:infused_gemstone",
   "base": "minecraft:diamond_hoe",
   "result": {
-    "count": 1,
     "id": "apex:infused_gemstone_hoe"
   },
   "template": "apex:infusion_upgrade_smithing_template"

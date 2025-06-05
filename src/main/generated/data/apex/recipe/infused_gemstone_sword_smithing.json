@@ -3,7 +3,6 @@
   "addition": "apex:infused_gemstone",
   "base": "minecraft:diamond_sword",
   "result": {
-    "count": 1,
     "id": "apex:infused_gemstone_sword"
   },
   "template": "apex:infusion_upgrade_smithing_template"
