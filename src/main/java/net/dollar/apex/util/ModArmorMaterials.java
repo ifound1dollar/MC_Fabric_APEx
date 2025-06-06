@@ -44,7 +44,7 @@ public class ModArmorMaterials {
                 map.put(ArmorItem.Type.BODY, 11);
             }), 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.1f,
             () -> Ingredient.ofItems(ModItems.COBALT_STEEL_INGOT));
-    public static final RegistryEntry<ArmorMaterial> INFUSED_GEMSTONE = register("infused_gemstone.json", Util.make(
+    public static final RegistryEntry<ArmorMaterial> INFUSED_GEMSTONE = register("infused_gemstone", Util.make(
                     new EnumMap<>(ArmorItem.Type.class), (map) -> {
                         map.put(ArmorItem.Type.BOOTS, 3);
                         map.put(ArmorItem.Type.LEGGINGS, 6);
