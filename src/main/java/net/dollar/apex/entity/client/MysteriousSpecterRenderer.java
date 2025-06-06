@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 @Environment(value= EnvType.CLIENT)
 public class MysteriousSpecterRenderer
         extends BipedEntityRenderer<MysteriousSpecterEntity, MysteriousSpecterRenderState, MysteriousSpecterModel<MysteriousSpecterRenderState>> {
-    private static final String TEXTURE_BASE = "textures/entities/mysterious_specter";
+    private static final String TEXTURE_BASE = "textures/entity/mysterious_specter";
 
     public MysteriousSpecterRenderer(EntityRendererFactory.Context context) {
         super(context, new MysteriousSpecterModel<>(context.getPart(ModModelLayers.MYSTERIOUS_SPECTER)),

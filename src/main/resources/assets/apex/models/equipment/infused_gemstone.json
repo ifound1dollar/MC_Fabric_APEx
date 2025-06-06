@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "apex:infused_gemstone"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "apex:infused_gemstone"
+      }
+    ]
+  }
+}
