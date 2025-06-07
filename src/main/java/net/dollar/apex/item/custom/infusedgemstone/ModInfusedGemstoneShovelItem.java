@@ -1,6 +1,5 @@
 package net.dollar.apex.item.custom.infusedgemstone;
 
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
@@ -12,7 +11,7 @@ import net.minecraft.text.Text;
 
 import java.util.List;
 
-public class ModInfusedGemstoneShovelItem extends ShovelItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstoneShovelItem extends ShovelItem {
     public ModInfusedGemstoneShovelItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }

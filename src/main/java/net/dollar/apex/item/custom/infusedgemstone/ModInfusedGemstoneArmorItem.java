@@ -2,7 +2,6 @@ package net.dollar.apex.item.custom.infusedgemstone;
 
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.IFullSetEffectArmor;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.item.equipment.ArmorMaterial;
 import net.minecraft.item.equipment.EquipmentType;
@@ -19,7 +18,7 @@ import net.minecraft.text.Text;
 
 import java.util.List;
 
-public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEffectArmor, IInfusedGemstoneItem {
+public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEffectArmor {
     public ModInfusedGemstoneArmorItem(ArmorMaterial material, EquipmentType type, Settings settings) {
         super(material, type, settings);
     }

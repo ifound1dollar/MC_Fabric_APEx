@@ -101,7 +101,8 @@ public class ModItems {
 
     //region Upgrade Templates
     public static final Item BASIC_UPGRADE_TEMPLATE = registerItem("basic_upgrade_template",
-            new Item(new Item.Settings().registryKey(generateItemKey("basic_upgrade_template"))));
+            new Item(new Item.Settings()
+                    .registryKey(generateItemKey("basic_upgrade_template"))));
     public static final Item COBALT_UPGRADE_TEMPLATE = registerItem("cobalt_upgrade_smithing_template",
             ModSmithingUpgradeItemHelper.createCobaltUpgradeTemplate());
     public static final Item INFUSION_UPGRADE_TEMPLATE = registerItem("infusion_upgrade_smithing_template",
@@ -114,27 +115,39 @@ public class ModItems {
     public static final Item COBALT_STEEL_BOW = registerItem("cobalt_steel_bow",
             new ModCobaltSteelBowItem(new Item.Settings()
                     .registryKey(generateItemKey("cobalt_steel_bow"))
-                    .maxDamage(1200).fireproof()));
+                    .maxDamage(1350)                // Default maxDamage is 384
+                    .enchantable(18)    // Matches tool tier value
+                    .fireproof()));
     public static final Item COBALT_STEEL_CROSSBOW = registerItem("cobalt_steel_crossbow",
             new ModCobaltSteelCrossbowItem(new Item.Settings()
                     .registryKey(generateItemKey("cobalt_steel_crossbow"))
-                    .maxDamage(1500).fireproof()));
+                    .maxDamage(1650)                // Default maxDamage is 465
+                    .enchantable(18)
+                    .fireproof()));
     public static final Item INFUSED_GEMSTONE_BOW = registerItem("infused_gemstone_bow",
             new ModInfusedGemstoneBowItem(new Item.Settings()
                     .registryKey(generateItemKey("infused_gemstone_bow"))
-                    .maxDamage(1200).fireproof()));   //Vanilla maxDamage is 384
+                    .maxDamage(1200)
+                    .enchantable(25)    // Matches tool tier value
+                    .fireproof()));
     public static final Item INFUSED_GEMSTONE_CROSSBOW = registerItem("infused_gemstone_crossbow",
             new ModInfusedGemstoneCrossbowItem(new Item.Settings()
                     .registryKey(generateItemKey("infused_gemstone_crossbow"))
-                    .maxDamage(1500).fireproof()));  //Vanilla maxDamage is 465
+                    .maxDamage(1500)
+                    .enchantable(25)
+                    .fireproof()));
     public static final Item TUNGSTEN_CARBIDE_BOW = registerItem("tungsten_carbide_bow",
             new ModTungstenCarbideBowItem(new Item.Settings()
                     .registryKey(generateItemKey("tungsten_carbide_bow"))
-                    .maxDamage(1200).fireproof()));
+                    .maxDamage(1500)
+                    .enchantable(15)    // Matches tool tier value
+                    .fireproof()));
     public static final Item TUNGSTEN_CARBIDE_CROSSBOW = registerItem("tungsten_carbide_crossbow",
             new ModTungstenCarbideCrossbowItem(new Item.Settings()
                     .registryKey(generateItemKey("tungsten_carbide_crossbow"))
-                    .maxDamage(1500).fireproof()));
+                    .maxDamage(1800)
+                    .enchantable(15)
+                    .fireproof()));
     //endregion
 
     //region Axes

@@ -46,7 +46,7 @@ public class ModCobaltSteelArmorItem extends ArmorItem implements IFullSetEffect
 
         //ModMain.LOGGER.info("Full set: " + isFullSet + " | Effect: " + effect.getName());
 
-        return !(isFullSet && (effect == StatusEffects.WEAKNESS || effect == StatusEffects.MINING_FATIGUE));
+        return !(isFullSet && (effect == StatusEffects.SLOWNESS || effect == StatusEffects.MINING_FATIGUE));
     }
 
     /**
