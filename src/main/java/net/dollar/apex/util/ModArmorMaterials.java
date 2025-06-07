@@ -27,7 +27,7 @@ public interface ModArmorMaterials {
                 map.put(EquipmentType.BODY, 9);
             }), 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.0f, 0.0f,
             ItemTags.REPAIRS_GOLD_ARMOR, ModEquipmentModels.GILDED_BRONZE);
-    ArmorMaterial COBALT_STEEL = new ArmorMaterial(37, Util.make(
+    ArmorMaterial COBALT_STEEL = new ArmorMaterial(39, Util.make(
             new EnumMap<>(EquipmentType.class), (map) -> {
                 map.put(EquipmentType.BOOTS, 3);
                 map.put(EquipmentType.LEGGINGS, 6);
@@ -43,7 +43,7 @@ public interface ModArmorMaterials {
                 map.put(EquipmentType.CHESTPLATE, 8);
                 map.put(EquipmentType.HELMET, 3);
                 map.put(EquipmentType.BODY, 11);
-            }), 25, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.05f,
+            }), 28, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.1f,
             ModTags.Items.MOD_REPAIRS_INFUSED_GEMSTONE_EQUIPMENT, ModEquipmentModels.INFUSED_GEMSTONE);
     ArmorMaterial TUNGSTEN_CARBIDE = new ArmorMaterial(41, Util.make(
             new EnumMap<>(EquipmentType.class), (map) -> {
