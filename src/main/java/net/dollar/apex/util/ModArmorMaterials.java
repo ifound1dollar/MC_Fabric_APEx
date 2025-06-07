@@ -51,7 +51,7 @@ public class ModArmorMaterials {
                         map.put(ArmorItem.Type.CHESTPLATE, 8);
                         map.put(ArmorItem.Type.HELMET, 3);
                         map.put(ArmorItem.Type.BODY, 11);
-                    }), 25, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.05f,
+                    }), 28, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.1f,
             () -> Ingredient.ofItems(ModItems.INFUSED_GEMSTONE));
     public static final RegistryEntry<ArmorMaterial> TUNGSTEN_CARBIDE = register("tungsten_carbide", Util.make(
                     new EnumMap<>(ArmorItem.Type.class), (map) -> {

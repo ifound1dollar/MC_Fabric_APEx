@@ -78,19 +78,24 @@ public class ModItems {
 
     //Region End-game upgrade items
     public static final Item MOLTEN_CORE = registerItem("molten_core",
-            new ModCustomItem(new Item.Settings().fireproof(),
+            new ModCustomItem(new Item.Settings()
+                    .fireproof(),
                     "tooltip.molten_core", false));
     public static final Item HANDFUL_OF_STARDUST = registerItem("handful_of_stardust",
-            new ModCustomItem(new Item.Settings().fireproof(),
+            new ModCustomItem(new Item.Settings()
+                    .fireproof(),
                     "tooltip.handful_of_stardust", false));
     public static final Item INFUSED_GEMSTONE = registerItem("infused_gemstone",
-            new ModCustomItem(new Item.Settings().fireproof(),
+            new ModCustomItem(new Item.Settings()
+                    .fireproof(),
                     "tooltip.infused_gemstone", true));
     public static final Item COBALT_STEEL_INGOT = registerItem("cobalt_steel_ingot",
-            new ModCustomItem(new Item.Settings().fireproof(),
+            new ModCustomItem(new Item.Settings()
+                    .fireproof(),
                     "tooltip.cobalt_steel_ingot", false));
     public static final Item TUNGSTEN_CARBIDE_INGOT = registerItem("tungsten_carbide_ingot",
-            new ModCustomItem(new Item.Settings().fireproof(),
+            new ModCustomItem(new Item.Settings()
+                    .fireproof(),
                     "tooltip.tungsten_carbide_ingot", false));
     //endregion
 
@@ -107,17 +112,29 @@ public class ModItems {
 
     //region Bows/Crossbows 
     public static final Item COBALT_STEEL_BOW = registerItem("cobalt_steel_bow",
-            new ModCobaltSteelBowItem(new Item.Settings().maxDamage(1200).fireproof()));
+            new ModCobaltSteelBowItem(new Item.Settings()
+                    .maxDamage(1350)    // Default maxDamage is 384
+                    .fireproof()));
     public static final Item COBALT_STEEL_CROSSBOW = registerItem("cobalt_steel_crossbow",
-            new ModCobaltSteelCrossbowItem(new Item.Settings().maxDamage(1500).fireproof()));
+            new ModCobaltSteelCrossbowItem(new Item.Settings()
+                    .maxDamage(1650)    // Default maxDamage is 465
+                    .fireproof()));
     public static final Item INFUSED_GEMSTONE_BOW = registerItem("infused_gemstone_bow",
-            new ModInfusedGemstoneBowItem(new Item.Settings().maxDamage(1200).fireproof()));   //Vanilla maxDamage is 384
+            new ModInfusedGemstoneBowItem(new Item.Settings()
+                    .maxDamage(1200)
+                    .fireproof()));
     public static final Item INFUSED_GEMSTONE_CROSSBOW = registerItem("infused_gemstone_crossbow",
-            new ModInfusedGemstoneCrossbowItem(new Item.Settings().maxDamage(1500).fireproof()));  //Vanilla maxDamage is 465
+            new ModInfusedGemstoneCrossbowItem(new Item.Settings()
+                    .maxDamage(1500)
+                    .fireproof()));
     public static final Item TUNGSTEN_CARBIDE_BOW = registerItem("tungsten_carbide_bow",
-            new ModTungstenCarbideBowItem(new Item.Settings().maxDamage(1200).fireproof()));
+            new ModTungstenCarbideBowItem(new Item.Settings()
+                    .maxDamage(1500)
+                    .fireproof()));
     public static final Item TUNGSTEN_CARBIDE_CROSSBOW = registerItem("tungsten_carbide_crossbow",
-            new ModTungstenCarbideCrossbowItem(new Item.Settings().maxDamage(1500).fireproof()));
+            new ModTungstenCarbideCrossbowItem(new Item.Settings()
+                    .maxDamage(1800)
+                    .fireproof()));
     //endregion
 
     //region Axes
@@ -295,16 +312,16 @@ public class ModItems {
     //region Cobalt-Steel armor
     public static final Item COBALT_STEEL_HELMET = registerItem("cobalt_steel_helmet",
             new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, ArmorItem.Type.HELMET, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(37))));  //37
+                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(39))));  //39 halfway between IG and TC
     public static final Item COBALT_STEEL_CHESTPLATE = registerItem("cobalt_steel_chestplate",
             new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(37))));
+                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(39))));
     public static final Item COBALT_STEEL_LEGGINGS = registerItem("cobalt_steel_leggings",
             new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, ArmorItem.Type.LEGGINGS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(37))));
+                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(39))));
     public static final Item COBALT_STEEL_BOOTS = registerItem("cobalt_steel_boots",
             new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, ArmorItem.Type.BOOTS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(37))));
+                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(39))));
     //endregion
 
     //region Infused Gemstone armor

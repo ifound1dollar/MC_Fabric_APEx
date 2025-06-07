@@ -369,6 +369,10 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         this.playSound(SoundEvents.ENTITY_RAVAGER_ROAR, 1.0f, 1.0f);
         for (Entity entity : entities) {
             if (entity instanceof LivingEntity livingEntity) {
+                // Do not apply effect to creative mode players or other Obsidian Golems.
+                if (livingEntity instanceof PlayerEntity player && player.isCreative()) continue;
+                if (livingEntity instanceof ObsidianGolemEntity) continue;
+
                 //Blind and slow ALL nearby LivingEntities regardless of whether angry at.
                 livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 60));
                 livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 1));
