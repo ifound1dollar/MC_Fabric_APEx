@@ -1,6 +1,5 @@
 package net.dollar.apex.item.custom.infusedgemstone;
 
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
@@ -13,7 +12,7 @@ import net.minecraft.text.Text;
 
 import java.util.function.Consumer;
 
-public class ModInfusedGemstoneHoeItem extends HoeItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstoneHoeItem extends HoeItem {
     public ModInfusedGemstoneHoeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }

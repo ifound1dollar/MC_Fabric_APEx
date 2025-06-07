@@ -14,6 +14,7 @@ import net.dollar.apex.item.custom.crossbow.ModTungstenCarbideCrossbowItem;
 import net.dollar.apex.item.custom.infusedgemstone.*;
 import net.dollar.apex.util.ModArmorMaterials;
 import net.dollar.apex.util.ModSmithingUpgradeItemHelper;
+import net.dollar.apex.util.ModTags;
 import net.dollar.apex.util.ModToolMaterials;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
@@ -83,25 +84,31 @@ public class ModItems {
 
     //Region End-game upgrade items
     public static final Item MOLTEN_CORE = registerItem("molten_core",
-            new ModCustomItem(new Item.Settings().registryKey(generateItemKey("molten_core"))
+            new ModCustomItem(new Item.Settings()
+                    .registryKey(generateItemKey("molten_core"))
                     .fireproof(), "tooltip.molten_core", false));
     public static final Item HANDFUL_OF_STARDUST = registerItem("handful_of_stardust",
-            new ModCustomItem(new Item.Settings().registryKey(generateItemKey("handful_of_stardust"))
+            new ModCustomItem(new Item.Settings()
+                    .registryKey(generateItemKey("handful_of_stardust"))
                     .fireproof(), "tooltip.handful_of_stardust", false));
     public static final Item INFUSED_GEMSTONE = registerItem("infused_gemstone",
-            new ModCustomItem(new Item.Settings().registryKey(generateItemKey("infused_gemstone"))
+            new ModCustomItem(new Item.Settings()
+                    .registryKey(generateItemKey("infused_gemstone"))
                     .fireproof(), "tooltip.infused_gemstone", true));
     public static final Item COBALT_STEEL_INGOT = registerItem("cobalt_steel_ingot",
-            new ModCustomItem(new Item.Settings().registryKey(generateItemKey("cobalt_steel_ingot"))
+            new ModCustomItem(new Item.Settings()
+                    .registryKey(generateItemKey("cobalt_steel_ingot"))
                     .fireproof(), "tooltip.cobalt_steel_ingot", false));
     public static final Item TUNGSTEN_CARBIDE_INGOT = registerItem("tungsten_carbide_ingot",
-            new ModCustomItem(new Item.Settings().registryKey(generateItemKey("tungsten_carbide_ingot"))
+            new ModCustomItem(new Item.Settings()
+                    .registryKey(generateItemKey("tungsten_carbide_ingot"))
                     .fireproof(), "tooltip.tungsten_carbide_ingot", false));
     //endregion
 
     //region Upgrade Templates
     public static final Item BASIC_UPGRADE_TEMPLATE = registerItem("basic_upgrade_template",
-            new Item(new Item.Settings().registryKey(generateItemKey("basic_upgrade_template"))));
+            new Item(new Item.Settings()
+                    .registryKey(generateItemKey("basic_upgrade_template"))));
     public static final Item COBALT_UPGRADE_TEMPLATE = registerItem("cobalt_upgrade_smithing_template",
             ModSmithingUpgradeItemHelper.createCobaltUpgradeTemplate());
     public static final Item INFUSION_UPGRADE_TEMPLATE = registerItem("infusion_upgrade_smithing_template",
@@ -114,27 +121,38 @@ public class ModItems {
     public static final Item COBALT_STEEL_BOW = registerItem("cobalt_steel_bow",
             new ModCobaltSteelBowItem(new Item.Settings()
                     .registryKey(generateItemKey("cobalt_steel_bow"))
-                    .maxDamage(1200).fireproof()));
+                    .maxDamage(1350)                // Default maxDamage is 384
+                    .enchantable(18)    // Matches tool tiers exactly
+                    .fireproof()));
     public static final Item COBALT_STEEL_CROSSBOW = registerItem("cobalt_steel_crossbow",
             new ModCobaltSteelCrossbowItem(new Item.Settings()
                     .registryKey(generateItemKey("cobalt_steel_crossbow"))
-                    .maxDamage(1500).fireproof()));
+                    .maxDamage(1650)                // Default maxDamage is 465
+                    .enchantable(18)
+                    .fireproof()));
     public static final Item INFUSED_GEMSTONE_BOW = registerItem("infused_gemstone_bow",
             new ModInfusedGemstoneBowItem(new Item.Settings()
                     .registryKey(generateItemKey("infused_gemstone_bow"))
-                    .maxDamage(1200).fireproof()));   //Vanilla maxDamage is 384
+                    .maxDamage(1200)
+                    .enchantable(25)    // Matches tool tiers exactly
+                    .fireproof()));
     public static final Item INFUSED_GEMSTONE_CROSSBOW = registerItem("infused_gemstone_crossbow",
             new ModInfusedGemstoneCrossbowItem(new Item.Settings()
                     .registryKey(generateItemKey("infused_gemstone_crossbow"))
-                    .maxDamage(1500).fireproof()));  //Vanilla maxDamage is 465
+                    .maxDamage(1500)
+                    .fireproof()));
     public static final Item TUNGSTEN_CARBIDE_BOW = registerItem("tungsten_carbide_bow",
             new ModTungstenCarbideBowItem(new Item.Settings()
                     .registryKey(generateItemKey("tungsten_carbide_bow"))
-                    .maxDamage(1200).fireproof()));
+                    .maxDamage(1500)
+                    .enchantable(15)    // Matches tool tiers exactly
+                    .fireproof()));
     public static final Item TUNGSTEN_CARBIDE_CROSSBOW = registerItem("tungsten_carbide_crossbow",
             new ModTungstenCarbideCrossbowItem(new Item.Settings()
                     .registryKey(generateItemKey("tungsten_carbide_crossbow"))
-                    .maxDamage(1500).fireproof()));
+                    .maxDamage(1800)
+                    .enchantable(15)
+                    .fireproof()));
     //endregion
 
     //region Axes
@@ -165,32 +183,29 @@ public class ModItems {
 
     //region Battleaxes
     public static final Item DIAMOND_BATTLEAXE = registerItem("diamond_battleaxe",
-            new ModBattleaxeItem(ToolMaterial.DIAMOND, 5, -3.0f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("diamond_battleaxe"))));
+            new Item(new Item.Settings()
+                    .sword(ToolMaterial.DIAMOND, 5.0f, -3.0f)
+                    .registryKey(generateItemKey("diamond_battleaxe"))));
     public static final Item NETHERITE_BATTLEAXE = registerItem("netherite_battleaxe",
-            new ModBattleaxeItem(ToolMaterial.NETHERITE, 5, -3.0f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("netherite_battleaxe"))
-                            .fireproof()));
+            new Item(new Item.Settings()
+                    .sword(ToolMaterial.NETHERITE, 5.0f, -3.0f)
+                    .registryKey(generateItemKey("netherite_battleaxe"))
+                    .fireproof()));
     public static final Item COBALT_STEEL_BATTLEAXE = registerItem("cobalt_steel_battleaxe",
-            new ModCobaltSteelBattleaxeItem(ModToolMaterials.COBALT_STEEL,
-                    5, -2.7f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("cobalt_steel_battleaxe"))
-                            .fireproof())); //Faster, Netherite = 5.0f, -3.0f
+            new ModCobaltSteelToolItem(new Item.Settings()
+                    .sword(ModToolMaterials.COBALT_STEEL, 5.0f, -2.7f)
+                    .registryKey(generateItemKey("cobalt_steel_battleaxe"))
+                    .fireproof()));     //Faster, Netherite = 5.0f, -3.0f
     public static final Item INFUSED_GEMSTONE_BATTLEAXE = registerItem("infused_gemstone_battleaxe",
-            new ModInfusedGemstoneBattleaxeItem(ModToolMaterials.INFUSED_GEMSTONE,
-                    5, -2.9f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("infused_gemstone_battleaxe"))
-                            .fireproof())); //Very fast, Netherite = 5.0f, -3.0f
+            new ModInfusedGemstoneToolItem(new Item.Settings()
+                    .sword(ModToolMaterials.INFUSED_GEMSTONE, 5.0f, -2.9f)
+                    .registryKey(generateItemKey("infused_gemstone_battleaxe"))
+                    .fireproof()));     //Very fast, Netherite = 5.0f, -3.0f
     public static final Item TUNGSTEN_CARBIDE_BATTLEAXE = registerItem("tungsten_carbide_battleaxe",
-            new ModTungstenCarbideBattleaxeItem(ModToolMaterials.TUNGSTEN_CARBIDE,
-                    6, -3.2f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("tungsten_carbide_battleaxe"))
-                            .fireproof())); //Slower, Netherite = 5.0f, -3.0f
+            new ModTungstenCarbideToolItem(new Item.Settings()
+                    .sword(ModToolMaterials.TUNGSTEN_CARBIDE, 6.0f, -3.2f)
+                    .registryKey(generateItemKey("tungsten_carbide_battleaxe"))
+                    .fireproof()));     //Slower, Netherite = 5.0f, -3.0f
     //endregion
 
     //region Hoes
@@ -203,20 +218,17 @@ public class ModItems {
                     new Item.Settings()
                             .registryKey(generateItemKey("gilded_bronze_hoe"))));
     public static final Item COBALT_STEEL_HOE = registerItem("cobalt_steel_hoe",
-            new ModCobaltSteelHoeItem(ModToolMaterials.COBALT_STEEL,
-                    -2, 0.0f,
+            new ModCobaltSteelHoeItem(ModToolMaterials.COBALT_STEEL, -2, 0.0f,
                     new Item.Settings()
                             .registryKey(generateItemKey("cobalt_steel_hoe"))
                             .fireproof())); //Very fast, Netherite = -4, 0.0f
     public static final Item INFUSED_GEMSTONE_HOE = registerItem("infused_gemstone_hoe",
-            new ModInfusedGemstoneHoeItem(ModToolMaterials.INFUSED_GEMSTONE,
-                    -2, -1.0f,
+            new ModInfusedGemstoneHoeItem(ModToolMaterials.INFUSED_GEMSTONE, -2, -1.0f,
                     new Item.Settings()
                             .registryKey(generateItemKey("infused_gemstone_hoe"))
                             .fireproof())); //Faster, Netherite = -4, 0.0f
     public static final Item TUNGSTEN_CARBIDE_HOE = registerItem("tungsten_carbide_hoe",
-            new ModTungstenCarbideHoeItem(ModToolMaterials.TUNGSTEN_CARBIDE,
-                    -3, -2.0f,
+            new ModTungstenCarbideHoeItem(ModToolMaterials.TUNGSTEN_CARBIDE, -3, -2.0f,
                     new Item.Settings()
                             .registryKey(generateItemKey("tungsten_carbide_hoe"))
                             .fireproof())); //Slower, Netherite = -4, 0.0f
@@ -224,32 +236,34 @@ public class ModItems {
 
     //region Paxels
     public static final Item DIAMOND_PAXEL = registerItem("diamond_paxel",
-            new ModPaxelItem(ToolMaterial.DIAMOND, 2.0f, -2.9f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("diamond_paxel"))));
+            new Item(new Item.Settings()
+                    .tool(ToolMaterial.DIAMOND, ModTags.Blocks.MOD_PAXEL_MINEABLE,
+                            2.0f, -2.9f, 0.0f)
+                    .registryKey(generateItemKey("diamond_paxel"))));
     public static final Item NETHERITE_PAXEL = registerItem("netherite_paxel",
-            new ModPaxelItem(ToolMaterial.NETHERITE, 2.0f, -2.9f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("netherite_paxel"))
-                            .fireproof())); //Rough average between Axe, Pickaxe, and Shovel stats
+            new Item(new Item.Settings()
+                    .tool(ToolMaterial.NETHERITE, ModTags.Blocks.MOD_PAXEL_MINEABLE,
+                            2.0f, -2.9f, 0.0f)
+                    .registryKey(generateItemKey("netherite_paxel"))
+                    .fireproof()));     //Rough average between Axe, Pickaxe, and Shovel stats
     public static final Item COBALT_STEEL_PAXEL = registerItem("cobalt_steel_paxel",
-            new ModCobaltSteelPaxelItem(ModToolMaterials.COBALT_STEEL,
-                    2.0f, -2.6f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("cobalt_steel_paxel"))
-                            .fireproof())); //Faster, Netherite = 2.0f, -2.9f
+            new ModCobaltSteelToolItem(new Item.Settings()
+                    .tool(ModToolMaterials.COBALT_STEEL, ModTags.Blocks.MOD_PAXEL_MINEABLE,
+                            2.0f, -2.6f, 0.0f)
+                    .registryKey(generateItemKey("cobalt_steel_paxel"))
+                    .fireproof()));     //Very fast, Netherite = 2.0f, -2.9f
     public static final Item INFUSED_GEMSTONE_PAXEL = registerItem("infused_gemstone_paxel",
-            new ModInfusedGemstonePaxelItem(ModToolMaterials.INFUSED_GEMSTONE,
-                    2.0f, -2.8f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("infused_gemstone_paxel"))
-                            .fireproof())); //Very fast, Netherite = 2.0f, -2.9f
+            new ModInfusedGemstoneToolItem(new Item.Settings()
+                    .tool(ModToolMaterials.INFUSED_GEMSTONE, ModTags.Blocks.MOD_PAXEL_MINEABLE,
+                            2.0f, -2.8f, 0.0f)
+                    .registryKey(generateItemKey("infused_gemstone_paxel"))
+                    .fireproof()));     //Faster, Netherite = 2.0f, -2.9f
     public static final Item TUNGSTEN_CARBIDE_PAXEL = registerItem("tungsten_carbide_paxel",
-            new ModTungstenCarbidePaxelItem(ModToolMaterials.TUNGSTEN_CARBIDE,
-                    2.5f, -3.1f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("tungsten_carbide_paxel"))
-                            .fireproof())); //Slower, Netherite = 2.0f, -2.9f
+            new ModTungstenCarbideToolItem(new Item.Settings()
+                    .tool(ModToolMaterials.TUNGSTEN_CARBIDE, ModTags.Blocks.MOD_PAXEL_MINEABLE,
+                            2.5f, -3.1f, 0.0f)
+                    .registryKey(generateItemKey("tungsten_carbide_paxel"))
+                    .fireproof()));     //Slower, Netherite = 2.0f, -2.9f
     //endregion
 
     //region Pickaxes
@@ -262,23 +276,20 @@ public class ModItems {
                     .pickaxe(ModToolMaterials.GILDED_BRONZE, 1.0f, -2.6f)
                     .registryKey(generateItemKey("gilded_bronze_pickaxe"))));
     public static final Item COBALT_STEEL_PICKAXE = registerItem("cobalt_steel_pickaxe",
-            new ModCobaltSteelPickaxeItem(ModToolMaterials.COBALT_STEEL,
-                    1.0f, -2.5f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("cobalt_steel_pickaxe"))
-                            .fireproof())); //Slower, Netherite = 1, -2.8f
+            new ModCobaltSteelToolItem(new Item.Settings()
+                    .pickaxe(ModToolMaterials.COBALT_STEEL, 1.0f, -2.5f)
+                    .registryKey(generateItemKey("cobalt_steel_pickaxe"))
+                    .fireproof()));     //Very fast, Netherite = 1, -2.8f
     public static final Item INFUSED_GEMSTONE_PICKAXE = registerItem("infused_gemstone_pickaxe",
-            new ModInfusedGemstonePickaxeItem(ModToolMaterials.INFUSED_GEMSTONE,
-                    1.0f, -2.7f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("infused_gemstone_pickaxe"))
-                            .fireproof())); //Faster, Netherite = 1, -2.8f
+            new ModInfusedGemstoneToolItem(new Item.Settings()
+                    .pickaxe(ModToolMaterials.INFUSED_GEMSTONE, 1.0f, -2.7f)
+                    .registryKey(generateItemKey("infused_gemstone_pickaxe"))
+                    .fireproof()));     //Faster, Netherite = 1, -2.8f
     public static final Item TUNGSTEN_CARBIDE_PICKAXE = registerItem("tungsten_carbide_pickaxe",
-            new ModTungstenCarbidePickaxeItem(ModToolMaterials.TUNGSTEN_CARBIDE,
-                    1.0f, -3.0f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("tungsten_carbide_pickaxe"))
-                            .fireproof())); //Very fast, Netherite = 1, -2.8f
+            new ModTungstenCarbideToolItem(new Item.Settings()
+                    .pickaxe(ModToolMaterials.TUNGSTEN_CARBIDE, 1.0f, -3.0f)
+                    .registryKey(generateItemKey("tungsten_carbide_pickaxe"))
+                    .fireproof()));     //Slower, Netherite = 1, -2.8f
     //endregion
 
     //region Shovel
@@ -291,20 +302,17 @@ public class ModItems {
                     new Item.Settings()
                             .registryKey(generateItemKey("gilded_bronze_shovel"))));
     public static final Item COBALT_STEEL_SHOVEL = registerItem("cobalt_steel_shovel",
-            new ModCobaltSteelShovelItem(ModToolMaterials.COBALT_STEEL,
-                    1.5f, -2.7f,
+            new ModCobaltSteelShovelItem(ModToolMaterials.COBALT_STEEL, 1.5f, -2.7f,
                     new Item.Settings()
                             .registryKey(generateItemKey("cobalt_steel_shovel"))
                             .fireproof())); //Very fast, Netherite = 1.5f, -3.0f
     public static final Item INFUSED_GEMSTONE_SHOVEL = registerItem("infused_gemstone_shovel",
-            new ModInfusedGemstoneShovelItem(ModToolMaterials.INFUSED_GEMSTONE,
-                    2.0f, -2.9f,
+            new ModInfusedGemstoneShovelItem(ModToolMaterials.INFUSED_GEMSTONE, 2.0f, -2.9f,
                     new Item.Settings()
                             .registryKey(generateItemKey("infused_gemstone_shovel"))
                             .fireproof())); //Faster, Netherite = 1.5f, -3.0f
     public static final Item TUNGSTEN_CARBIDE_SHOVEL = registerItem("tungsten_carbide_shovel",
-            new ModTungstenCarbideShovelItem(ModToolMaterials.TUNGSTEN_CARBIDE,
-                    2.0f, -3.2f,
+            new ModTungstenCarbideShovelItem(ModToolMaterials.TUNGSTEN_CARBIDE, 2.0f, -3.2f,
                     new Item.Settings()
                             .registryKey(generateItemKey("tungsten_carbide_shovel"))
                             .fireproof())); //Slower, Netherite = 1.5f, -3.0f
@@ -320,30 +328,27 @@ public class ModItems {
                     .sword(ModToolMaterials.GILDED_BRONZE, 3.0f, -2.2f)
                     .registryKey(generateItemKey("gilded_bronze_sword"))));
     public static final Item COBALT_STEEL_SWORD = registerItem("cobalt_steel_sword",
-            new ModCobaltSteelSwordItem(ModToolMaterials.COBALT_STEEL,
-                    3.0f, -2.0f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("cobalt_steel_sword"))
-                            .fireproof())); //Very fast, Netherite = 3, -2.4f
+            new ModCobaltSteelToolItem(new Item.Settings()
+                    .sword(ModToolMaterials.COBALT_STEEL, 3.0f, -2.0f)
+                    .registryKey(generateItemKey("cobalt_steel_sword"))
+                    .fireproof()));     //Very fast, Netherite = 3, -2.4f
     public static final Item INFUSED_GEMSTONE_SWORD = registerItem("infused_gemstone_sword",
-            new ModInfusedGemstoneSwordItem(ModToolMaterials.INFUSED_GEMSTONE,
-                    3.0f, -2.3f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("infused_gemstone_sword"))
-                            .fireproof())); //Faster, Netherite = 3, -2.4f
+            new ModInfusedGemstoneToolItem(new Item.Settings()
+                    .sword(ModToolMaterials.INFUSED_GEMSTONE, 3.0f, -2.3f)
+                    .registryKey(generateItemKey("infused_gemstone_sword"))
+                    .fireproof()));     //Faster, Netherite = 3, -2.4f
     public static final Item TUNGSTEN_CARBIDE_SWORD = registerItem("tungsten_carbide_sword",
-            new ModTungstenCarbideSwordItem(ModToolMaterials.TUNGSTEN_CARBIDE,
-                    3.0f, -2.6f,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("tungsten_carbide_sword"))
-                            .fireproof())); //Slower, Netherite = 3, -2.4f
+            new ModTungstenCarbideToolItem(new Item.Settings()
+                    .sword(ModToolMaterials.TUNGSTEN_CARBIDE, 3.0f, -2.6f)
+                    .registryKey(generateItemKey("tungsten_carbide_sword"))
+                    .fireproof()));     //Slower, Netherite = 3, -2.4f
     //endregion
 
     //region Bronze armor
     public static final Item BRONZE_HELMET = registerItem("bronze_helmet",
             new Item(new Item.Settings()
                     .armor(ModArmorMaterials.BRONZE, EquipmentType.HELMET)
-                    .registryKey(generateItemKey("bronze_helmet"))));  //15 durability multiplier, same as Iron
+                    .registryKey(generateItemKey("bronze_helmet"))));
     public static final Item BRONZE_CHESTPLATE = registerItem("bronze_chestplate",
             new Item(new Item.Settings()
                     .armor(ModArmorMaterials.BRONZE, EquipmentType.CHESTPLATE)
@@ -360,78 +365,78 @@ public class ModItems {
 
     //region Gilded Bronze armor
     public static final Item GILDED_BRONZE_HELMET = registerItem("gilded_bronze_helmet",
-            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, EquipmentType.HELMET,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("gilded_bronze_helmet"))));  //23 durability multiplier
+            new ModGildedBronzeArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.GILDED_BRONZE, EquipmentType.HELMET)
+                    .registryKey(generateItemKey("gilded_bronze_helmet"))));
     public static final Item GILDED_BRONZE_CHESTPLATE = registerItem("gilded_bronze_chestplate",
-            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, EquipmentType.CHESTPLATE,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("gilded_bronze_chestplate"))));
+            new ModGildedBronzeArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.GILDED_BRONZE, EquipmentType.CHESTPLATE)
+                    .registryKey(generateItemKey("gilded_bronze_chestplate"))));
     public static final Item GILDED_BRONZE_LEGGINGS = registerItem("gilded_bronze_leggings",
-            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, EquipmentType.LEGGINGS,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("gilded_bronze_leggings"))));
+            new ModGildedBronzeArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.GILDED_BRONZE, EquipmentType.LEGGINGS)
+                    .registryKey(generateItemKey("gilded_bronze_leggings"))));
     public static final Item GILDED_BRONZE_BOOTS = registerItem("gilded_bronze_boots",
-            new ModGildedBronzeArmorItem(ModArmorMaterials.GILDED_BRONZE, EquipmentType.BOOTS,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("gilded_bronze_boots"))));
+            new ModGildedBronzeArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.GILDED_BRONZE, EquipmentType.BOOTS)
+                    .registryKey(generateItemKey("gilded_bronze_boots"))));
     //endregion
 
     //region Cobalt-Steel armor
     public static final Item COBALT_STEEL_HELMET = registerItem("cobalt_steel_helmet",
-            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, EquipmentType.HELMET,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("cobalt_steel_helmet"))));  //37 durability multiplier
+            new ModCobaltSteelArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.COBALT_STEEL, EquipmentType.HELMET)
+                    .registryKey(generateItemKey("cobalt_steel_helmet"))));
     public static final Item COBALT_STEEL_CHESTPLATE = registerItem("cobalt_steel_chestplate",
-            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, EquipmentType.CHESTPLATE,
-                    new Item.Settings()
+            new ModCobaltSteelArmorItem(new Item.Settings()
+                            .armor(ModArmorMaterials.COBALT_STEEL, EquipmentType.CHESTPLATE)
                             .registryKey(generateItemKey("cobalt_steel_chestplate"))));
     public static final Item COBALT_STEEL_LEGGINGS = registerItem("cobalt_steel_leggings",
-            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, EquipmentType.LEGGINGS,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("cobalt_steel_leggings"))));
+            new ModCobaltSteelArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.COBALT_STEEL, EquipmentType.LEGGINGS)
+                    .registryKey(generateItemKey("cobalt_steel_leggings"))));
     public static final Item COBALT_STEEL_BOOTS = registerItem("cobalt_steel_boots",
-            new ModCobaltSteelArmorItem(ModArmorMaterials.COBALT_STEEL, EquipmentType.BOOTS,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("cobalt_steel_boots"))));
+            new ModCobaltSteelArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.COBALT_STEEL, EquipmentType.BOOTS)
+                    .registryKey(generateItemKey("cobalt_steel_boots"))));
     //endregion
 
     //region Infused Gemstone armor
     public static final Item INFUSED_GEMSTONE_HELMET = registerItem("infused_gemstone_helmet",
-            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.HELMET,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("infused_gemstone_helmet"))));  //37 durability multiplier
+            new ModInfusedGemstoneArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.HELMET)
+                    .registryKey(generateItemKey("infused_gemstone_helmet"))));
     public static final Item INFUSED_GEMSTONE_CHESTPLATE = registerItem("infused_gemstone_chestplate",
-            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.CHESTPLATE,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("infused_gemstone_chestplate"))));
+            new ModInfusedGemstoneArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.CHESTPLATE)
+                    .registryKey(generateItemKey("infused_gemstone_chestplate"))));
     public static final Item INFUSED_GEMSTONE_LEGGINGS = registerItem("infused_gemstone_leggings",
-            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.LEGGINGS,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("infused_gemstone_leggings"))));
+            new ModInfusedGemstoneArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.LEGGINGS)
+                    .registryKey(generateItemKey("infused_gemstone_leggings"))));
     public static final Item INFUSED_GEMSTONE_BOOTS = registerItem("infused_gemstone_boots",
-            new ModInfusedGemstoneArmorItem(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.BOOTS,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("infused_gemstone_boots"))));
+            new ModInfusedGemstoneArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.INFUSED_GEMSTONE, EquipmentType.BOOTS)
+                    .registryKey(generateItemKey("infused_gemstone_boots"))));
     //endregion
 
     //region Infused Gemstone armor
     public static final Item TUNGSTEN_CARBIDE_HELMET = registerItem("tungsten_carbide_helmet",
-            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.HELMET,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("tungsten_carbide_helmet"))));  //41 durability multiplier
+            new ModTungstenCarbideArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.HELMET)
+                    .registryKey(generateItemKey("tungsten_carbide_helmet"))));  //41 durability multiplier
     public static final Item TUNGSTEN_CARBIDE_CHESTPLATE = registerItem("tungsten_carbide_chestplate",
-            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.CHESTPLATE,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("tungsten_carbide_chestplate"))));
+            new ModTungstenCarbideArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.CHESTPLATE)
+                    .registryKey(generateItemKey("tungsten_carbide_chestplate"))));
     public static final Item TUNGSTEN_CARBIDE_LEGGINGS = registerItem("tungsten_carbide_leggings",
-            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.LEGGINGS,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("tungsten_carbide_leggings"))));
+            new ModTungstenCarbideArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.LEGGINGS)
+                    .registryKey(generateItemKey("tungsten_carbide_leggings"))));
     public static final Item TUNGSTEN_CARBIDE_BOOTS = registerItem("tungsten_carbide_boots",
-            new ModTungstenCarbideArmorItem(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.BOOTS,
-                    new Item.Settings()
-                            .registryKey(generateItemKey("tungsten_carbide_boots"))));
+            new ModTungstenCarbideArmorItem(new Item.Settings()
+                    .armor(ModArmorMaterials.TUNGSTEN_CARBIDE, EquipmentType.BOOTS)
+                    .registryKey(generateItemKey("tungsten_carbide_boots"))));
     //endregion
 
 

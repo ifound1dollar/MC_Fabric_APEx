@@ -11,8 +11,6 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.equipment.ArmorMaterial;
-import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
@@ -20,8 +18,8 @@ import net.minecraft.text.Text;
 import java.util.function.Consumer;
 
 public class ModCobaltSteelArmorItem extends Item implements IFullSetEffectArmor {
-    public ModCobaltSteelArmorItem(ArmorMaterial material, EquipmentType type, Item.Settings settings) {
-        super(settings.armor(material, type));
+    public ModCobaltSteelArmorItem(Item.Settings settings) {
+        super(settings);
     }
 
 
@@ -47,7 +45,7 @@ public class ModCobaltSteelArmorItem extends Item implements IFullSetEffectArmor
 
         //ModMain.LOGGER.info("Full set: " + isFullSet + " | Effect: " + effect.getName());
 
-        return !(isFullSet && (effect == StatusEffects.WEAKNESS || effect == StatusEffects.MINING_FATIGUE));
+        return !(isFullSet && (effect == StatusEffects.SLOWNESS || effect == StatusEffects.MINING_FATIGUE));
     }
 
     /**

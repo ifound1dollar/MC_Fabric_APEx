@@ -11,8 +11,6 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.equipment.ArmorMaterial;
-import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
@@ -21,8 +19,8 @@ import java.util.function.Consumer;
 
 
 public class ModTungstenCarbideArmorItem extends Item implements IFullSetEffectArmor {
-    public ModTungstenCarbideArmorItem(ArmorMaterial material, EquipmentType type, Item.Settings settings) {
-        super(settings.armor(material, type));
+    public ModTungstenCarbideArmorItem(Item.Settings settings) {
+        super(settings);
     }
 
 
@@ -46,10 +44,8 @@ public class ModTungstenCarbideArmorItem extends Item implements IFullSetEffectA
             isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
         }
 
-        return !(isFullSet && (effect == StatusEffects.SLOWNESS || effect == StatusEffects.LEVITATION));
+        return !(isFullSet && (effect == StatusEffects.WEAKNESS || effect == StatusEffects.LEVITATION));
     }
-
-
 
     /**
      * Appends text to the Item's hover tooltip.

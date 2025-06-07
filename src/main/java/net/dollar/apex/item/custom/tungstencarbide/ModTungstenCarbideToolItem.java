@@ -1,20 +1,18 @@
-package net.dollar.apex.item.custom.cobaltsteel;
+package net.dollar.apex.item.custom.tungstencarbide;
 
-import net.dollar.apex.item.custom.ModBattleaxeItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 
 import java.util.function.Consumer;
 
-public class ModCobaltSteelBattleaxeItem extends ModBattleaxeItem {
-    public ModCobaltSteelBattleaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+public class ModTungstenCarbideToolItem extends Item {
+    public ModTungstenCarbideToolItem(Settings settings) {
+        super(settings);
     }
 
 
@@ -27,7 +25,7 @@ public class ModCobaltSteelBattleaxeItem extends ModBattleaxeItem {
      */
     @Override
     public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyCobaltSteelOnHit(target);
+        ModUtils.applyTungstenCarbideOnHit(target);
     }
 
     /**
@@ -40,6 +38,6 @@ public class ModCobaltSteelBattleaxeItem extends ModBattleaxeItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModUtils.EquipmentType.TOOL);
+        ModUtils.appendTungstenCarbideEquipmentTooltip(textConsumer, ModUtils.EquipmentType.TOOL);
     }
 }

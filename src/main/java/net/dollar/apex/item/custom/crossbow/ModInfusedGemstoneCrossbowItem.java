@@ -1,7 +1,6 @@
 package net.dollar.apex.item.custom.crossbow;
 
 import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
@@ -22,7 +21,7 @@ import java.util.function.Consumer;
  * Corresponds specifically to the Infused Gemstone Crossbow item. Overrides and creates new methods to generate
  *  a custom arrow entity for special on-hit behavior.
  */
-public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstoneCrossbowItem extends CrossbowItem {
     public ModInfusedGemstoneCrossbowItem(Settings settings) {
         super(settings);
     }
