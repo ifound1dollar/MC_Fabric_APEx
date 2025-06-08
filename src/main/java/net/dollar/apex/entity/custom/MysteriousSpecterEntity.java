@@ -1,5 +1,6 @@
 package net.dollar.apex.entity.custom;
 
+import net.dollar.apex.entity.ModStareAtEntityGoal;
 import net.dollar.apex.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
@@ -54,12 +55,13 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
-        this.goalSelector.add(2, new WanderNearTargetGoal(this, 0.9, 32.0f));
-        this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.6, false));
-        //this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
         this.goalSelector.add(8, new LookAroundGoal(this));
+        this.goalSelector.add(9, new WanderAroundFarGoal(this, 0.6, 0.001f));
+
         this.targetSelector.add(2, new RevengeGoal(this));
         this.targetSelector.add(4, new UniversalAngerGoal<>(this, false));
+
+        this.goalSelector.add(3, new ModStareAtEntityGoal(this, PlayerEntity.class, 10.0f));
     }
 
     /**

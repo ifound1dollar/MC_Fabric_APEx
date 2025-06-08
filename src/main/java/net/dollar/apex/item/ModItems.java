@@ -83,19 +83,24 @@ public class ModItems {
 
     //Region End-game upgrade items
     public static final Item MOLTEN_CORE = registerItem("molten_core",
-            new ModCustomItem(new Item.Settings().registryKey(generateItemKey("molten_core"))
+            new ModCustomItem(new Item.Settings()
+                    .registryKey(generateItemKey("molten_core"))
                     .fireproof(), "tooltip.molten_core", false));
     public static final Item HANDFUL_OF_STARDUST = registerItem("handful_of_stardust",
-            new ModCustomItem(new Item.Settings().registryKey(generateItemKey("handful_of_stardust"))
+            new ModCustomItem(new Item.Settings()
+                    .registryKey(generateItemKey("handful_of_stardust"))
                     .fireproof(), "tooltip.handful_of_stardust", false));
     public static final Item INFUSED_GEMSTONE = registerItem("infused_gemstone",
-            new ModCustomItem(new Item.Settings().registryKey(generateItemKey("infused_gemstone"))
+            new ModCustomItem(new Item.Settings()
+                    .registryKey(generateItemKey("infused_gemstone"))
                     .fireproof(), "tooltip.infused_gemstone", true));
     public static final Item COBALT_STEEL_INGOT = registerItem("cobalt_steel_ingot",
-            new ModCustomItem(new Item.Settings().registryKey(generateItemKey("cobalt_steel_ingot"))
+            new ModCustomItem(new Item.Settings()
+                    .registryKey(generateItemKey("cobalt_steel_ingot"))
                     .fireproof(), "tooltip.cobalt_steel_ingot", false));
     public static final Item TUNGSTEN_CARBIDE_INGOT = registerItem("tungsten_carbide_ingot",
-            new ModCustomItem(new Item.Settings().registryKey(generateItemKey("tungsten_carbide_ingot"))
+            new ModCustomItem(new Item.Settings()
+                    .registryKey(generateItemKey("tungsten_carbide_ingot"))
                     .fireproof(), "tooltip.tungsten_carbide_ingot", false));
     //endregion
 
