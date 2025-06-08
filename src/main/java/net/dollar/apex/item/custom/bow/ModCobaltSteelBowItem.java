@@ -70,11 +70,13 @@ public class ModCobaltSteelBowItem extends BowItem {
      * @return The generated ProjectileEntity
      */
     @Override
-    protected ProjectileEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
+    protected ProjectileEntity createArrowEntity(World world, LivingEntity shooter,
+                                                 ItemStack weaponStack, ItemStack projectileStack,
+                                                 boolean critical) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
         PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, shooter,
-                projectileStack, ArrowUtil.ARROW_TYPE.COBALT);
+                projectileStack, weaponStack, ArrowUtil.ARROW_TYPE.COBALT);
 
         if (critical) {
             persistentProjectileEntity.setCritical(true);
@@ -82,8 +84,6 @@ public class ModCobaltSteelBowItem extends BowItem {
 
         return persistentProjectileEntity;
     }
-
-
 
     /**
      * Appends text to the Item's hover tooltip.

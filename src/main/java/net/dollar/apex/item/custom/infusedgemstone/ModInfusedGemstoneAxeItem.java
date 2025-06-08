@@ -1,6 +1,5 @@
 package net.dollar.apex.item.custom.infusedgemstone;
 
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModToolMaterials;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.item.tooltip.TooltipType;
@@ -10,7 +9,7 @@ import net.minecraft.text.Text;
 
 import java.util.List;
 
-public class ModInfusedGemstoneAxeItem extends AxeItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstoneAxeItem extends AxeItem {
     public ModInfusedGemstoneAxeItem(ToolMaterial material, float attackDamage, float attackSpeed) {
         super(material, new Item.Settings()
                 .attributeModifiers(MiningToolItem.createAttributeModifiers(

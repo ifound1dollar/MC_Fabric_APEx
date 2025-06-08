@@ -1,7 +1,6 @@
 package net.dollar.apex.item.custom.bow;
 
 import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.entity.LivingEntity;
@@ -19,7 +18,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ModInfusedGemstoneBowItem extends BowItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstoneBowItem extends BowItem {
     public ModInfusedGemstoneBowItem(Settings settings) {
         super(settings);
     }
@@ -75,7 +74,7 @@ public class ModInfusedGemstoneBowItem extends BowItem implements IInfusedGemsto
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
         PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, shooter,
-                projectileStack, ArrowUtil.ARROW_TYPE.INFUSED);
+                projectileStack, weaponStack, ArrowUtil.ARROW_TYPE.INFUSED);
 
         if (critical) {
             persistentProjectileEntity.setCritical(true);
@@ -83,8 +82,6 @@ public class ModInfusedGemstoneBowItem extends BowItem implements IInfusedGemsto
 
         return persistentProjectileEntity;
     }
-
-
 
     /**
      * Appends text to the Item's hover tooltip.

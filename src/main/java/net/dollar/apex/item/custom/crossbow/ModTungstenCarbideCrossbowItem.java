@@ -48,7 +48,7 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
         }
 
         //Vanilla functionality overridden only in next line.
-        ProjectileEntity projectileEntity = customArrowEntity(world, shooter, projectileStack, critical);
+        ProjectileEntity projectileEntity = customArrowEntity(world, shooter, projectileStack, weaponStack, critical);
 
         if (projectileEntity instanceof PersistentProjectileEntity persistentProjectileEntity) {
             persistentProjectileEntity.setSound(SoundEvents.ITEM_CROSSBOW_HIT);
@@ -65,11 +65,12 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
      * @return The generated custom PersistentProjectileEntity
      */
     private static PersistentProjectileEntity customArrowEntity(World world, LivingEntity entity,
-                                                                ItemStack projectileStack, boolean critical) {
+                                                                ItemStack projectileStack, ItemStack weaponStack,
+                                                                boolean critical) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
         PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, entity,
-                projectileStack, ArrowUtil.ARROW_TYPE.CARBIDE);
+                projectileStack, weaponStack, ArrowUtil.ARROW_TYPE.CARBIDE);
 
         //Remainder of original function (with arrow creation omitted) is below.
         if (critical) {

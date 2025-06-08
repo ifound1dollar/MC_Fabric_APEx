@@ -1,7 +1,6 @@
 package net.dollar.apex.item.custom.crossbow;
 
 import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.entity.LivingEntity;
@@ -21,7 +20,7 @@ import java.util.List;
  * Corresponds specifically to the Infused Gemstone Crossbow item. Overrides and creates new methods to generate
  *  a custom arrow entity for special on-hit behavior.
  */
-public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstoneCrossbowItem extends CrossbowItem {
     public ModInfusedGemstoneCrossbowItem(Settings settings) {
         super(settings);
     }
@@ -49,7 +48,7 @@ public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInf
         }
 
         //Vanilla functionality overridden only in next line.
-        ProjectileEntity projectileEntity = customArrowEntity(world, shooter, projectileStack, critical);
+        ProjectileEntity projectileEntity = customArrowEntity(world, shooter, projectileStack, weaponStack, critical);
 
         if (projectileEntity instanceof PersistentProjectileEntity persistentProjectileEntity) {
             persistentProjectileEntity.setSound(SoundEvents.ITEM_CROSSBOW_HIT);
@@ -66,11 +65,12 @@ public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInf
      * @return The generated custom PersistentProjectileEntity
      */
     private static PersistentProjectileEntity customArrowEntity(World world, LivingEntity entity,
-                                                                ItemStack projectileStack, boolean critical) {
+                                                                ItemStack projectileStack, ItemStack weaponStack,
+                                                                boolean critical) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
         PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, entity,
-                projectileStack, ArrowUtil.ARROW_TYPE.INFUSED);
+                projectileStack, weaponStack, ArrowUtil.ARROW_TYPE.INFUSED);
 
         //Remainder of original function (with arrow creation omitted) is below.
         if (critical) {

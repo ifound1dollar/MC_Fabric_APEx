@@ -1,5 +1,6 @@
 package net.dollar.apex.item.custom.arrow;
 
+import net.dollar.apex.util.ModUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -11,8 +12,9 @@ import net.minecraft.world.World;
 public class TungstenCarbideArrowEntity extends ArrowEntity {
     private boolean isSpectral;
 
-    public TungstenCarbideArrowEntity(World world, LivingEntity owner, ItemStack stack) {
-        super(world, owner, stack, null);
+    public TungstenCarbideArrowEntity(World world, LivingEntity owner, ItemStack arrowStack, ItemStack weaponStack) {
+        super(world, owner, arrowStack, weaponStack);
+        setDamage(3.0f);
     }
 
 
@@ -24,15 +26,6 @@ public class TungstenCarbideArrowEntity extends ArrowEntity {
      */
     public void checkIsSpectral(ItemStack arrow) {
         if (arrow.getItem() instanceof SpectralArrowItem) { isSpectral = true; }
-    }
-
-    /**
-     * Sets the base damage value of this ArrowEntity (set to 3.0 from 2.0).
-     * @param damage New base damage (default 2.0)
-     */
-    @Override
-    public void setDamage(double damage) {
-        super.setDamage(3.0);
     }
 
     /**
@@ -50,15 +43,7 @@ public class TungstenCarbideArrowEntity extends ArrowEntity {
             target.addStatusEffect(statusEffectInstance, this.getEffectCause());
         }
 
-        //If the owner (who fired the arrow) is a LivingEntity.
-        if (getOwner() instanceof LivingEntity livingEntity) {
-            //Apply Weakness effect to target for configurable duration in seconds.
-            //TODO: RE-IMPLEMENT CONFIGS
-            //Level 1 (third argument) for 4 heart melee damage reduction.
-//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
-//                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 0));
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
-                    4 * 20, 0));
-        }
+        // Apply special on-hit effect when this arrow entity hits a LivingEntity.
+        ModUtils.applyTungstenCarbideOnHit(target);
     }
 }
