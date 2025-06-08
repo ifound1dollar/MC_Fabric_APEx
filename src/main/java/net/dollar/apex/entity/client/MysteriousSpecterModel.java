@@ -1,11 +1,14 @@
 package net.dollar.apex.entity.client;
 
 import net.dollar.apex.entity.custom.MysteriousSpecterEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
 
+@Environment(EnvType.CLIENT)
 public class MysteriousSpecterModel<T extends MysteriousSpecterEntity> extends BipedEntityModel<T> {
     public MysteriousSpecterModel(ModelPart root) {
         super(root, RenderLayer::getEntityTranslucent);
