@@ -1,5 +1,6 @@
 package net.dollar.apex.entity.custom;
 
+import net.dollar.apex.entity.ModStareAtEntityGoal;
 import net.dollar.apex.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
@@ -76,12 +77,13 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
-        this.goalSelector.add(2, new WanderNearTargetGoal(this, 0.9, 32.0f));
-        this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.6, false));
-        //this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
         this.goalSelector.add(8, new LookAroundGoal(this));
+        this.goalSelector.add(9, new WanderAroundFarGoal(this, 0.6, 0.001f));
+
         this.targetSelector.add(2, new RevengeGoal(this));
         this.targetSelector.add(4, new UniversalAngerGoal<>(this, false));
+
+        this.goalSelector.add(3, new ModStareAtEntityGoal(this, PlayerEntity.class, 10.0f));
     }
 
     /**
@@ -337,10 +339,9 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
 
         for (Entity entity : entities) {
             if (entity instanceof LivingEntity livingEntity) {
-                //Do not apply effect to Mysterious Specters.
-                if (livingEntity instanceof MysteriousSpecterEntity) {
-                    continue;
-                }
+                // Do not apply effect to creative mode players or other Mysterious Specters.
+                if (livingEntity instanceof PlayerEntity player && player.isCreative()) continue;
+                if (livingEntity instanceof MysteriousSpecterEntity) continue;
 
                 //Apply lowest-level Weakness and Hunger to each entity for 10 seconds.
                 livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 200, 0));
@@ -366,14 +367,13 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         this.playSound(SoundEvents.ENTITY_RAVAGER_ROAR, 1.0f, 1.0f);
         for (Entity entity : entities) {
             if (entity instanceof LivingEntity livingEntity) {
+                // Do not apply effect to creative mode players or other Mysterious Specters.
+                if (livingEntity instanceof PlayerEntity player && player.isCreative()) continue;
+                if (livingEntity instanceof MysteriousSpecterEntity) continue;
+
                 //Slow and Weaken ALL nearby LivingEntities regardless of whether angry at.
                 livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 1));
                 livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 60));
-
-                //Knockback the LivingEntity with half default strength.
-                //KNOCKBACK NOT WORKING FOR SOME REASON
-//                livingEntity.takeKnockback(0.5f, MathHelper.sin(this.getYaw() * ((float)Math.PI / 180)),
-//                        -MathHelper.cos(this.getYaw() * ((float)Math.PI / 180)));
             }
         }
     }

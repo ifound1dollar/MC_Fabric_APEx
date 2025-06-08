@@ -1,7 +1,6 @@
 package net.dollar.apex.item.custom.infusedgemstone;
 
 import net.dollar.apex.item.custom.ModPaxelItem;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
@@ -13,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModInfusedGemstonePaxelItem extends ModPaxelItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstonePaxelItem extends ModPaxelItem {
     public ModInfusedGemstonePaxelItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }

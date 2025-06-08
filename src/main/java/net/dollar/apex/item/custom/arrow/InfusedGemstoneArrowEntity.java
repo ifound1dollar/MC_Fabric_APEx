@@ -1,5 +1,6 @@
 package net.dollar.apex.item.custom.arrow;
 
+import net.dollar.apex.util.ModUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -13,6 +14,7 @@ public class InfusedGemstoneArrowEntity extends ArrowEntity {
 
     public InfusedGemstoneArrowEntity(World world, LivingEntity owner) {
         super(world, owner);
+        setDamage(3.0f);
     }
 
 
@@ -24,15 +26,6 @@ public class InfusedGemstoneArrowEntity extends ArrowEntity {
      */
     public void checkIsSpectral(ItemStack arrow) {
         if (arrow.getItem() instanceof SpectralArrowItem) { isSpectral = true; }
-    }
-
-    /**
-     * Sets the base damage value of this ArrowEntity (set to 3.0 from 2.0).
-     * @param damage New base damage (default 2.0)
-     */
-    @Override
-    public void setDamage(double damage) {
-        super.setDamage(3.0);
     }
 
     /**
@@ -50,15 +43,7 @@ public class InfusedGemstoneArrowEntity extends ArrowEntity {
             target.addStatusEffect(statusEffectInstance, this.getEffectCause());
         }
 
-        //If the owner (who fired the arrow) is a LivingEntity.
-        if (getOwner() instanceof LivingEntity livingEntity) {
-            //Apply Wither effect to target (attackedEntity) for configurable duration in seconds.
-            //TODO: RE-IMPLEMENT CONFIGS
-            //Level 2 wither for once-per-second damage tick (duration +1 tick so ticks 4 times).
-//            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
-//                    (ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20) + 1, 1));
-            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
-                    (4 * 20) + 1, 1));
-        }
+        // Apply special on-hit effect when this arrow entity hits a LivingEntity.
+        ModUtils.applyInfusedGemstoneOnHit(target);
     }
 }
