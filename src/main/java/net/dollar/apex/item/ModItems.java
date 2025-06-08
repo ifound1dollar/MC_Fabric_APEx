@@ -79,20 +79,25 @@ public class ModItems {
 
     //Region End-game upgrade items
     public static final Item MOLTEN_CORE = registerItem("molten_core",
-            new ModCustomItem(new FabricItemSettings().fireproof(),
-                    "tooltip.molten_core", false, false));
+            new ModCustomItem(new FabricItemSettings()
+                    .fireproof(),
+                    "tooltip.molten_core", false));
     public static final Item HANDFUL_OF_STARDUST = registerItem("handful_of_stardust",
-            new ModCustomItem(new FabricItemSettings(),
-                    "tooltip.handful_of_stardust", false, false));
+            new ModCustomItem(new FabricItemSettings()
+                    .fireproof(),
+                    "tooltip.handful_of_stardust", false));
     public static final Item INFUSED_GEMSTONE = registerItem("infused_gemstone",
-            new ModCustomItem(new FabricItemSettings().fireproof(),
-                    "tooltip.infused_gemstone", true, true));
+            new ModCustomItem(new FabricItemSettings()
+                    .fireproof(),
+                    "tooltip.infused_gemstone", true));
     public static final Item COBALT_STEEL_INGOT = registerItem("cobalt_steel_ingot",
-            new ModCustomItem(new FabricItemSettings().fireproof(),
-                    "tooltip.cobalt_steel_ingot", false, true));
+            new ModCustomItem(new FabricItemSettings()
+                    .fireproof(),
+                    "tooltip.cobalt_steel_ingot", false));
     public static final Item TUNGSTEN_CARBIDE_INGOT = registerItem("tungsten_carbide_ingot",
-            new ModCustomItem(new FabricItemSettings().fireproof(),
-                    "tooltip.tungsten_carbide_ingot", false, true));
+            new ModCustomItem(new FabricItemSettings()
+                    .fireproof(),
+                    "tooltip.tungsten_carbide_ingot", false));
     //endregion
 
     //region Upgrade Templates
@@ -108,17 +113,29 @@ public class ModItems {
 
     //region Bows/Crossbows 
     public static final Item INFUSED_GEMSTONE_BOW = registerItem("infused_gemstone_bow",
-            new ModInfusedGemstoneBowItem(new FabricItemSettings().maxDamage(1200)));   //Base durability (maxDamage) is 384
+            new ModInfusedGemstoneBowItem(new FabricItemSettings()
+                    .maxDamage(1350)        // Default maxDamage is 384
+                    .fireproof()));
     public static final Item INFUSED_GEMSTONE_CROSSBOW = registerItem("infused_gemstone_crossbow",
-            new ModInfusedGemstoneCrossbowItem(new FabricItemSettings().maxDamage(1500)));  //Base durability (maxDamage) is 465
+            new ModInfusedGemstoneCrossbowItem(new FabricItemSettings()
+                    .maxDamage(1650)        // Default maxDamage is 465
+                    .fireproof()));
     public static final Item COBALT_STEEL_BOW = registerItem("cobalt_steel_bow",
-            new ModCobaltSteelBowItem(new FabricItemSettings().maxDamage(1200)));
+            new ModCobaltSteelBowItem(new FabricItemSettings()
+                    .maxDamage(1200)
+                    .fireproof()));
     public static final Item COBALT_STEEL_CROSSBOW = registerItem("cobalt_steel_crossbow",
-            new ModCobaltSteelCrossbowItem(new FabricItemSettings().maxDamage(1500)));
+            new ModCobaltSteelCrossbowItem(new FabricItemSettings()
+                    .maxDamage(1500)
+                    .fireproof()));
     public static final Item TUNGSTEN_CARBIDE_BOW = registerItem("tungsten_carbide_bow",
-            new ModTungstenCarbideBowItem(new FabricItemSettings().maxDamage(1200)));
+            new ModTungstenCarbideBowItem(new FabricItemSettings()
+                    .maxDamage(1500)
+                    .fireproof()));
     public static final Item TUNGSTEN_CARBIDE_CROSSBOW = registerItem("tungsten_carbide_crossbow",
-            new ModTungstenCarbideCrossbowItem(new FabricItemSettings().maxDamage(1500)));
+            new ModTungstenCarbideCrossbowItem(new FabricItemSettings()
+                    .maxDamage(1800)
+                    .fireproof()));
     //endregion
 
     //region Axes

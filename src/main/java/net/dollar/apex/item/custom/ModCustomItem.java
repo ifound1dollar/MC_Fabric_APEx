@@ -16,7 +16,6 @@ import java.util.List;
 public class ModCustomItem extends Item {
     private final String tooltipLang;
     private final boolean hasGlint;
-    private final boolean isFireImmune;
 
 
 
@@ -26,25 +25,14 @@ public class ModCustomItem extends Item {
      * @param settings FabricItemSettings for this Item
      * @param tooltipLang String pointing to the lang entry for this Item's custom tooltip
      * @param hasGlint Whether this item should have enchantment glint
-     * @param isFireImmune Whether this item (Entity when dropped) should be Fire immune
      */
-    public ModCustomItem(Settings settings, String tooltipLang, boolean hasGlint, boolean isFireImmune) {
+    public ModCustomItem(Settings settings, String tooltipLang, boolean hasGlint) {
         super(settings);
         this.tooltipLang = tooltipLang;
         this.hasGlint = hasGlint;
-        this.isFireImmune = isFireImmune;
     }
 
 
-
-    /**
-     * Gets whether Entities of this Item are fireproof (true).
-     * @return Whether this Item is fireproof
-     */
-    @Override
-    public boolean isFireproof() {
-        return isFireImmune;
-    }
 
     /**
      * Gets whether this Item should render with enchantment glint (true).
