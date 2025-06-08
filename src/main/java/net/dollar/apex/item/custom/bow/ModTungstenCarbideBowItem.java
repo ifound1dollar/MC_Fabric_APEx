@@ -74,7 +74,7 @@ public class ModTungstenCarbideBowItem extends BowItem {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
         PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, shooter,
-                projectileStack, ArrowUtil.ARROW_TYPE.CARBIDE);
+                projectileStack, weaponStack, ArrowUtil.ARROW_TYPE.CARBIDE);
 
         if (critical) {
             persistentProjectileEntity.setCritical(true);
