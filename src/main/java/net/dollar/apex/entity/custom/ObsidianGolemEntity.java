@@ -271,6 +271,21 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     }
 
     @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return switch (getRandom().nextInt(3)) {
+            case 0 -> SoundEvents.ENTITY_RAVAGER_AMBIENT;
+            case 1 -> SoundEvents.ENTITY_CREAKING_AMBIENT;
+            case 2 -> SoundEvents.ENTITY_CREAKING_TWITCH;
+            default -> null;    // Should never reach default case.
+        };
+    }
+
+    @Override
+    public int getMinAmbientSoundDelay() {
+        return 300;     // Default is 80.
+    }
+
+    @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
         this.playSound(SoundEvents.ENTITY_IRON_GOLEM_STEP, 1.0f, 1.0f);
     }
@@ -504,11 +519,16 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
                                                        ServerWorldAccess serverWorldAccess, SpawnReason spawnReason,
                                                        BlockPos blockPos, Random random) {
         //Only allow spawn below a certain y-level.
-        if (blockPos.getY() >= 0) {
+        int y = blockPos.getY();
+        if (y >= 0) {
             return false;
+        } else if (y >= -24) {
+            // Effectively reduce spawn rate by 50% when above y=-24.
+            return random.nextBoolean()
+                    && canMobSpawn(obsidianGolemEntityEntityType, serverWorldAccess, spawnReason, blockPos, random);
         }
 
-        //Calls the default mob spawn check, ignoring light levels entirely. Use canSpawnInDark instead.
+        // Calls the default mob spawn check, ignoring light levels entirely. Use canSpawnInDark instead.
         return canMobSpawn(obsidianGolemEntityEntityType, serverWorldAccess, spawnReason, blockPos, random);
     }
 }
