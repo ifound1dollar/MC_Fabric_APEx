@@ -19,24 +19,25 @@ public class ArrowUtil {
      * @return The newly created custom PersistentProjectileEntity
      */
     public static PersistentProjectileEntity createCustomArrow(World world, LivingEntity shooter,
-                                                               ItemStack arrowStack, ARROW_TYPE type) {
+                                                               ItemStack arrowStack, ItemStack weaponStack,
+                                                               ARROW_TYPE type) {
         ArrowEntity arrowEntity;
 
         //For each case, first generate the correct type of ArrowEntity. Then, check whether it is
         //  spectral. Finally, implicitly cast it to the ArrowEntity class by assigning it to arrowEntity.
         switch (type) {
             case INFUSED -> {
-                InfusedGemstoneArrowEntity temp = new InfusedGemstoneArrowEntity(world, shooter, arrowStack);
+                InfusedGemstoneArrowEntity temp = new InfusedGemstoneArrowEntity(world, shooter, arrowStack, weaponStack);
                 temp.checkIsSpectral(arrowStack);
                 arrowEntity = temp;
             }
             case CARBIDE -> {
-                TungstenCarbideArrowEntity temp = new TungstenCarbideArrowEntity(world, shooter, arrowStack);
+                TungstenCarbideArrowEntity temp = new TungstenCarbideArrowEntity(world, shooter, arrowStack, weaponStack);
                 temp.checkIsSpectral(arrowStack);
                 arrowEntity = temp;
             }
             default -> {    //Guaranteed to be COBALT
-                CobaltSteelArrowEntity temp = new CobaltSteelArrowEntity(world, shooter, arrowStack);
+                CobaltSteelArrowEntity temp = new CobaltSteelArrowEntity(world, shooter, arrowStack, weaponStack);
                 temp.checkIsSpectral(arrowStack);
                 arrowEntity = temp;
             }
