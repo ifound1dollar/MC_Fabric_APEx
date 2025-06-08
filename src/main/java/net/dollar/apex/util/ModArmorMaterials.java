@@ -45,23 +45,23 @@ public class ModArmorMaterials {
             }), 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.1f,
             () -> Ingredient.ofItems(ModItems.COBALT_STEEL_INGOT));
     public static final RegistryEntry<ArmorMaterial> INFUSED_GEMSTONE = register("infused_gemstone", Util.make(
-                    new EnumMap<>(ArmorItem.Type.class), (map) -> {
-                        map.put(ArmorItem.Type.BOOTS, 3);
-                        map.put(ArmorItem.Type.LEGGINGS, 6);
-                        map.put(ArmorItem.Type.CHESTPLATE, 8);
-                        map.put(ArmorItem.Type.HELMET, 3);
-                        map.put(ArmorItem.Type.BODY, 11);
-                    }), 25, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.05f,
-            () -> Ingredient.ofItems(ModItems.INFUSED_GEMSTONE));
+            new EnumMap<>(ArmorItem.Type.class), (map) -> {
+                map.put(ArmorItem.Type.BOOTS, 3);
+                map.put(ArmorItem.Type.LEGGINGS, 6);
+                map.put(ArmorItem.Type.CHESTPLATE, 8);
+                map.put(ArmorItem.Type.HELMET, 3);
+                map.put(ArmorItem.Type.BODY, 11);
+            }), 28, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.1f,
+    () -> Ingredient.ofItems(ModItems.INFUSED_GEMSTONE));
     public static final RegistryEntry<ArmorMaterial> TUNGSTEN_CARBIDE = register("tungsten_carbide", Util.make(
-                    new EnumMap<>(ArmorItem.Type.class), (map) -> {
-                        map.put(ArmorItem.Type.BOOTS, 3);
-                        map.put(ArmorItem.Type.LEGGINGS, 6);
-                        map.put(ArmorItem.Type.CHESTPLATE, 8);
-                        map.put(ArmorItem.Type.HELMET, 3);
-                        map.put(ArmorItem.Type.BODY, 11);
-                    }), 15, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0f, 0.1f,
-            () -> Ingredient.ofItems(ModItems.TUNGSTEN_CARBIDE_INGOT));
+            new EnumMap<>(ArmorItem.Type.class), (map) -> {
+                map.put(ArmorItem.Type.BOOTS, 3);
+                map.put(ArmorItem.Type.LEGGINGS, 6);
+                map.put(ArmorItem.Type.CHESTPLATE, 8);
+                map.put(ArmorItem.Type.HELMET, 3);
+                map.put(ArmorItem.Type.BODY, 11);
+            }), 15, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0f, 0.1f,
+    () -> Ingredient.ofItems(ModItems.TUNGSTEN_CARBIDE_INGOT));
 
 
 

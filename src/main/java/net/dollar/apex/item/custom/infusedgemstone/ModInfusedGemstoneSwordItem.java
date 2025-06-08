@@ -1,6 +1,5 @@
 package net.dollar.apex.item.custom.infusedgemstone;
 
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModToolMaterials;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.client.item.TooltipType;
@@ -13,7 +12,7 @@ import net.minecraft.text.Text;
 
 import java.util.List;
 
-public class ModInfusedGemstoneSwordItem extends SwordItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstoneSwordItem extends SwordItem {
     public ModInfusedGemstoneSwordItem(ToolMaterial material, int attackDamage, float attackSpeed) {
         super(material, new Item.Settings()
                 .attributeModifiers(SwordItem.createAttributeModifiers(

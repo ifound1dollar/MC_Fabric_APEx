@@ -2,7 +2,6 @@ package net.dollar.apex.item.custom.infusedgemstone;
 
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.IFullSetEffectArmor;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.client.item.TooltipType;
 import net.minecraft.entity.EquipmentSlot;
@@ -18,7 +17,7 @@ import net.minecraft.text.Text;
 
 import java.util.List;
 
-public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEffectArmor, IInfusedGemstoneItem {
+public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEffectArmor {
     public ModInfusedGemstoneArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
@@ -46,8 +45,6 @@ public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEf
 
         return !(isFullSet && (effect == StatusEffects.WITHER || effect == StatusEffects.POISON));
     }
-
-
 
     /**
      * Appends text to the Item's hover tooltip.

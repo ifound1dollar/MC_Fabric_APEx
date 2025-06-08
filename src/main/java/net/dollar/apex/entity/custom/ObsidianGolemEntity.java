@@ -63,13 +63,10 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
-        this.goalSelector.add(2, new WanderNearTargetGoal(this, 0.9, 32.0f));
-        this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.6, false));
-        //this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
         this.goalSelector.add(8, new LookAroundGoal(this));
+        this.goalSelector.add(9, new WanderAroundFarGoal(this, 0.6));
+
         this.targetSelector.add(2, new RevengeGoal(this));
-        //this.targetSelector.add(3, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
-        //this.targetSelector.add(3, new ActiveTargetGoal<MobEntity>(this, MobEntity.class, 5, false, false, entity -> entity instanceof Monster && !(entity instanceof CreeperEntity)));
         this.targetSelector.add(4, new UniversalAngerGoal<>(this, false));
     }
 
@@ -389,6 +386,10 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         this.playSound(SoundEvents.ENTITY_RAVAGER_ROAR, 1.0f, 1.0f);
         for (Entity entity : entities) {
             if (entity instanceof LivingEntity livingEntity) {
+                // Do not apply effect to creative mode players or other Obsidian Golems.
+                if (livingEntity instanceof PlayerEntity player && player.isCreative()) continue;
+                if (livingEntity instanceof ObsidianGolemEntity) continue;
+
                 //Blind and slow ALL nearby LivingEntities regardless of whether angry at.
                 livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 60));
                 livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 1));
