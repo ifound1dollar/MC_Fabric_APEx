@@ -12,8 +12,8 @@ import net.minecraft.world.World;
 public class CobaltSteelArrowEntity extends ArrowEntity {
     private boolean isSpectral;
 
-    public CobaltSteelArrowEntity(World world, LivingEntity owner, ItemStack stack) {
-        super(world, owner, stack, null);
+    public CobaltSteelArrowEntity(World world, LivingEntity owner, ItemStack arrowStack, ItemStack weaponStack) {
+        super(world, owner, arrowStack, weaponStack);
         setDamage(3.0f);
     }
 
