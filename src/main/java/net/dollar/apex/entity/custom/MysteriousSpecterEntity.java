@@ -68,7 +68,6 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     protected void initGoals() {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
         this.goalSelector.add(8, new LookAroundGoal(this));
-        this.goalSelector.add(9, new WanderAroundFarGoal(this, 0.6, 0.001f));
 
         this.targetSelector.add(2, new RevengeGoal(this));
         this.targetSelector.add(4, new UniversalAngerGoal<>(this, false));
