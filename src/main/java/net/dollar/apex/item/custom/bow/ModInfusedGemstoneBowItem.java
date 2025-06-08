@@ -1,7 +1,6 @@
 package net.dollar.apex.item.custom.bow;
 
 import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -21,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModInfusedGemstoneBowItem extends BowItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstoneBowItem extends BowItem {
     public ModInfusedGemstoneBowItem(Settings settings) {
         super(settings);
     }

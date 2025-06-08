@@ -1,21 +1,18 @@
 package net.dollar.apex.item.custom.infusedgemstone;
 
 import net.dollar.apex.item.custom.ModBattleaxeItem;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModInfusedGemstoneBattleaxeItem extends ModBattleaxeItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstoneBattleaxeItem extends ModBattleaxeItem {
     public ModInfusedGemstoneBattleaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }

@@ -2,26 +2,23 @@ package net.dollar.apex.item.custom.infusedgemstone;
 
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.IFullSetEffectArmor;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEffectArmor, IInfusedGemstoneItem {
+public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEffectArmor {
     public ModInfusedGemstoneArmorItem(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }
@@ -49,8 +46,6 @@ public class ModInfusedGemstoneArmorItem extends ArmorItem implements IFullSetEf
 
         return !(isFullSet && (effect == StatusEffects.WITHER || effect == StatusEffects.POISON));
     }
-
-
 
     /**
      * Gets whether Entities of this Item are fireproof (true).

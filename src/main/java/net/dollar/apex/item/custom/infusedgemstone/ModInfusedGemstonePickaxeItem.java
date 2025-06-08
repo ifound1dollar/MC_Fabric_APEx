@@ -1,21 +1,18 @@
 package net.dollar.apex.item.custom.infusedgemstone;
 
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class ModInfusedGemstonePickaxeItem extends PickaxeItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstonePickaxeItem extends PickaxeItem {
     public ModInfusedGemstonePickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }

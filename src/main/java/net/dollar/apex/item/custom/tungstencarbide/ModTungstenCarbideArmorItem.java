@@ -6,14 +6,12 @@ import net.dollar.apex.util.ModUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -46,7 +44,7 @@ public class ModTungstenCarbideArmorItem extends ArmorItem implements IFullSetEf
             isFullSet = hasHelm && hasChest && hasLegs && hasBoots;
         }
 
-        return !(isFullSet && (effect == StatusEffects.SLOWNESS || effect == StatusEffects.LEVITATION));
+        return !(isFullSet && (effect == StatusEffects.WEAKNESS || effect == StatusEffects.LEVITATION));
     }
 
 

@@ -2,7 +2,6 @@ package net.dollar.apex.item.custom.crossbow;
 
 import com.google.common.collect.Lists;
 import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.IInfusedGemstoneItem;
 import net.dollar.apex.util.ModUtils;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.client.item.TooltipContext;
@@ -40,7 +39,7 @@ import java.util.List;
  * Corresponds specifically to the Infused Gemstone Crossbow item. Re-implements NUMEROUS methods from CrossbowItem
  *  which are private and must be entirely re-defined. All redundant override methods are removed.
  */
-public class ModInfusedGemstoneCrossbowItem extends CrossbowItem implements IInfusedGemstoneItem {
+public class ModInfusedGemstoneCrossbowItem extends CrossbowItem {
     public ModInfusedGemstoneCrossbowItem(Settings settings) {
         super(settings);
     }
