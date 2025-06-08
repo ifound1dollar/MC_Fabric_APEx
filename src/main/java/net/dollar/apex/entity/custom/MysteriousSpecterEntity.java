@@ -1,6 +1,6 @@
 package net.dollar.apex.entity.custom;
 
-import net.dollar.apex.entity.ModStareAtEntityGoal;
+import net.dollar.apex.entity.goal.ModStareOrMoveGoal;
 import net.dollar.apex.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
@@ -78,12 +78,12 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     protected void initGoals() {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
         this.goalSelector.add(8, new LookAroundGoal(this));
-        this.goalSelector.add(9, new WanderAroundFarGoal(this, 0.6, 0.001f));
 
         this.targetSelector.add(2, new RevengeGoal(this));
         this.targetSelector.add(4, new UniversalAngerGoal<>(this, false));
 
-        this.goalSelector.add(3, new ModStareAtEntityGoal(this, PlayerEntity.class, 10.0f));
+        this.goalSelector.add(3, new ModStareOrMoveGoal(this, PlayerEntity.class, 10.0f,
+                0.666d, 0.001f));
     }
 
     /**
@@ -267,6 +267,28 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_BLAZE_DEATH;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return switch (getRandom().nextInt(5)) {
+            case 0 -> SoundEvents.ENTITY_BLAZE_AMBIENT;
+            case 1 -> SoundEvents.ENTITY_HUSK_AMBIENT;
+            case 2 -> SoundEvents.ENTITY_ZOMBIE_VILLAGER_AMBIENT;
+            case 3 -> SoundEvents.ENTITY_GHAST_AMBIENT;
+            case 4 -> SoundEvents.ENTITY_WARDEN_TENDRIL_CLICKS;
+            default -> null;    // Should never reach default case.
+        };
+    }
+
+    @Override
+    public int getMinAmbientSoundDelay() {
+        return 300;     // Default is 80.
+    }
+
+    @Override
+    protected float getSoundVolume() {
+        return 0.666f;  // Default is 1.0f.
     }
 
     @Override
