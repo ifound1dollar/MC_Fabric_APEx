@@ -286,7 +286,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
      * Applies the Weakness and Hunger effect to all nearby Entities.
      */
     private void applyWeaknessHungerAura() {
-        double radius = 16.0;
+        double radius = 10.0;
         double x = this.getX();
         double y = this.getY();
         double z = this.getZ();
