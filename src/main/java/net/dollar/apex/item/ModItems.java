@@ -247,7 +247,7 @@ public class ModItems {
                     .registryKey(generateItemKey("netherite_paxel"))
                     .fireproof()));     //Rough average between Axe, Pickaxe, and Shovel stats
     public static final Item COBALT_STEEL_PAXEL = registerItem("cobalt_steel_paxel",
-            new ModCobaltSteelToolItem(new Item.Settings()
+            new ModCobaltSteelPaxelOrPickaxeItem(new Item.Settings()
                     .tool(ModToolMaterials.COBALT_STEEL, ModTags.Blocks.MOD_PAXEL_MINEABLE,
                             2.0f, -2.6f, 0.0f)
                     .registryKey(generateItemKey("cobalt_steel_paxel"))
@@ -276,7 +276,7 @@ public class ModItems {
                     .pickaxe(ModToolMaterials.GILDED_BRONZE, 1.0f, -2.6f)
                     .registryKey(generateItemKey("gilded_bronze_pickaxe"))));
     public static final Item COBALT_STEEL_PICKAXE = registerItem("cobalt_steel_pickaxe",
-            new ModCobaltSteelToolItem(new Item.Settings()
+            new ModCobaltSteelPaxelOrPickaxeItem(new Item.Settings()
                     .pickaxe(ModToolMaterials.COBALT_STEEL, 1.0f, -2.5f)
                     .registryKey(generateItemKey("cobalt_steel_pickaxe"))
                     .fireproof()));     //Very fast, Netherite = 1, -2.8f
