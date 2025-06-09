@@ -1,6 +1,6 @@
 package net.dollar.apex.item.custom.infusedgemstone;
 
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.HoeItem;
@@ -27,7 +27,7 @@ public class ModInfusedGemstoneHoeItem extends HoeItem {
      */
     @Override
     public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyInfusedGemstoneOnHit(target);
+        ModItemUtils.applyInfusedGemstoneOnHit(target);
     }
 
     /**
@@ -40,6 +40,6 @@ public class ModInfusedGemstoneHoeItem extends HoeItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModUtils.appendInfusedGemstoneEquipmentTooltip(textConsumer, ModUtils.EquipmentType.TOOL);
+        ModItemUtils.appendInfusedGemstoneEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.TOOL);
     }
 }

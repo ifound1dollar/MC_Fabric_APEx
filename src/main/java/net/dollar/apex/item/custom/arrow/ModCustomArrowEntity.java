@@ -1,6 +1,7 @@
 package net.dollar.apex.item.custom.arrow;
 
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModArrowUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -9,11 +10,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpectralArrowItem;
 import net.minecraft.world.World;
 
-public class InfusedGemstoneArrowEntity extends ArrowEntity {
+public class ModCustomArrowEntity extends ArrowEntity {
     private boolean isSpectral;
+    private final ModArrowUtils.ArrowType arrowType;
 
-    public InfusedGemstoneArrowEntity(World world, LivingEntity owner, ItemStack arrowStack, ItemStack weaponStack) {
+    public ModCustomArrowEntity(World world, LivingEntity owner, ItemStack arrowStack, ItemStack weaponStack,
+                                ModArrowUtils.ArrowType arrowType) {
         super(world, owner, arrowStack, weaponStack);
+        this.arrowType = arrowType;
         setDamage(3.0f);
     }
 
@@ -44,6 +48,10 @@ public class InfusedGemstoneArrowEntity extends ArrowEntity {
         }
 
         // Apply special on-hit effect when this arrow entity hits a LivingEntity.
-        ModUtils.applyInfusedGemstoneOnHit(target);
+        switch (arrowType) {
+            case COBALT_STEEL -> ModItemUtils.applyCobaltSteelOnHit(target);
+            case INFUSED_GEMSTONE -> ModItemUtils.applyInfusedGemstoneOnHit(target);
+            case TUNGSTEN_CARBIDE -> ModItemUtils.applyTungstenCarbideOnHit(target);
+        }
     }
 }

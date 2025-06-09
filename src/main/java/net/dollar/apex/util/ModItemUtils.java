@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 /**
  * Contains a handful of misc. helper methods used in various parts of the mod.
  */
-public class ModUtils {
+public class ModItemUtils {
     public enum EquipmentType { ARMOR, TOOL, RANGED }
 
 

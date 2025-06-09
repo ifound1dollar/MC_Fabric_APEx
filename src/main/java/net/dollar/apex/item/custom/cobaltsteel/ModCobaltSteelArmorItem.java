@@ -2,7 +2,7 @@ package net.dollar.apex.item.custom.cobaltsteel;
 
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.IFullSetEffectArmor;
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -58,6 +58,6 @@ public class ModCobaltSteelArmorItem extends Item implements IFullSetEffectArmor
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModUtils.EquipmentType.ARMOR);
+        ModItemUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.ARMOR);
     }
 }

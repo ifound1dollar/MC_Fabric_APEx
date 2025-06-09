@@ -1,6 +1,6 @@
 package net.dollar.apex.item.custom.cobaltsteel;
 
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
@@ -27,7 +27,7 @@ public class ModCobaltSteelShovelItem extends ShovelItem {
      */
     @Override
     public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyCobaltSteelOnHit(target);
+        ModItemUtils.applyCobaltSteelOnHit(target);
     }
 
     /**
@@ -40,6 +40,6 @@ public class ModCobaltSteelShovelItem extends ShovelItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModUtils.EquipmentType.TOOL);
+        ModItemUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.TOOL);
     }
 }

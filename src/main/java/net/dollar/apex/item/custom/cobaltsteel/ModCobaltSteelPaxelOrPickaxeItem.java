@@ -1,6 +1,6 @@
 package net.dollar.apex.item.custom.cobaltsteel;
 
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.component.type.TooltipDisplayComponent;
@@ -43,7 +43,7 @@ public class ModCobaltSteelPaxelOrPickaxeItem extends Item {
      */
     @Override
     public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyCobaltSteelOnHit(target);
+        ModItemUtils.applyCobaltSteelOnHit(target);
     }
 
     /**
@@ -56,6 +56,6 @@ public class ModCobaltSteelPaxelOrPickaxeItem extends Item {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModUtils.EquipmentType.TOOL);
+        ModItemUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.TOOL);
     }
 }

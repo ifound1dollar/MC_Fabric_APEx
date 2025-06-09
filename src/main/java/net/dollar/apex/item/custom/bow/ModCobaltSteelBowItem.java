@@ -1,7 +1,7 @@
 package net.dollar.apex.item.custom.bow;
 
-import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModArrowUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -76,8 +76,8 @@ public class ModCobaltSteelBowItem extends BowItem {
     protected ProjectileEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
-        PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, shooter,
-                projectileStack, weaponStack, ArrowUtil.ARROW_TYPE.COBALT);
+        PersistentProjectileEntity persistentProjectileEntity = ModArrowUtils.createCustomArrow(world, shooter,
+                projectileStack, weaponStack, ModArrowUtils.ArrowType.COBALT_STEEL);
 
         if (critical) {
             persistentProjectileEntity.setCritical(true);
@@ -98,6 +98,6 @@ public class ModCobaltSteelBowItem extends BowItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModUtils.EquipmentType.RANGED);
+        ModItemUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.RANGED);
     }
 }

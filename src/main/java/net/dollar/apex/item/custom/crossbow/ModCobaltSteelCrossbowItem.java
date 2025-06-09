@@ -1,7 +1,7 @@
 package net.dollar.apex.item.custom.crossbow;
 
-import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModArrowUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
@@ -70,8 +70,8 @@ public class ModCobaltSteelCrossbowItem extends CrossbowItem {
                                                                 boolean critical) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
-        PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, entity,
-                projectileStack, weaponStack, ArrowUtil.ARROW_TYPE.COBALT);
+        PersistentProjectileEntity persistentProjectileEntity = ModArrowUtils.createCustomArrow(world, entity,
+                projectileStack, weaponStack, ModArrowUtils.ArrowType.COBALT_STEEL);
 
         //Remainder of original function (with arrow creation omitted) is below.
         if (critical) {
@@ -91,7 +91,7 @@ public class ModCobaltSteelCrossbowItem extends CrossbowItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModUtils.EquipmentType.RANGED);
+        ModItemUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.RANGED);
 
         //Call super function because it has return statement if not charged.
         super.appendTooltip(stack, context, displayComponent, textConsumer, type);

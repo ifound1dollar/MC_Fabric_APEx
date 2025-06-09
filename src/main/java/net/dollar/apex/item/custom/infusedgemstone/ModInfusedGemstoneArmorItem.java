@@ -2,7 +2,7 @@ package net.dollar.apex.item.custom.infusedgemstone;
 
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.IFullSetEffectArmor;
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -58,6 +58,6 @@ public class ModInfusedGemstoneArmorItem extends Item implements IFullSetEffectA
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModUtils.appendInfusedGemstoneEquipmentTooltip(textConsumer, ModUtils.EquipmentType.ARMOR);
+        ModItemUtils.appendInfusedGemstoneEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.ARMOR);
     }
 }

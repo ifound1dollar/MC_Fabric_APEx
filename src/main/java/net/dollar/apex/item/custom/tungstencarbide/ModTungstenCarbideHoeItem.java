@@ -1,6 +1,6 @@
 package net.dollar.apex.item.custom.tungstencarbide;
 
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.HoeItem;
@@ -27,7 +27,7 @@ public class ModTungstenCarbideHoeItem extends HoeItem {
      */
     @Override
     public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyTungstenCarbideOnHit(target);
+        ModItemUtils.applyTungstenCarbideOnHit(target);
     }
 
     /**
@@ -40,6 +40,6 @@ public class ModTungstenCarbideHoeItem extends HoeItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModUtils.appendTungstenCarbideEquipmentTooltip(textConsumer, ModUtils.EquipmentType.TOOL);
+        ModItemUtils.appendTungstenCarbideEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.TOOL);
     }
 }
