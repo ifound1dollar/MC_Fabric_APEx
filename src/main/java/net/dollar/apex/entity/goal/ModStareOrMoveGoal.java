@@ -6,10 +6,13 @@ import net.minecraft.entity.ai.FuzzyTargeting;
 import net.minecraft.entity.ai.NoPenaltyTargeting;
 import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,7 +30,7 @@ public class ModStareOrMoveGoal extends Goal {
     private State state = State.IDLE;
 
     @Nullable
-    protected Entity lookTarget;
+    protected LivingEntity lookTarget;
     protected final float lookRange;
     private final double lookRangeSquared;
     protected final Class<? extends LivingEntity> lookTargetType;
@@ -42,6 +45,9 @@ public class ModStareOrMoveGoal extends Goal {
     protected boolean moveIgnoringChance;
     private final boolean checkNoActionTime;
     private final float moveProbability;
+
+    private int staringForTicks = 0;
+    private static final int STARING_FOR_TICKS_ANGER_THRESHOLD = 200;
 
     /**
      * Constructs a new ModStareOrMoveGoal instance, which causes the mob to look at a target
@@ -215,6 +221,8 @@ public class ModStareOrMoveGoal extends Goal {
         this.mob.getNavigation().stop();
         super.stop();
 
+        // Reset staring ticks and set state to IDLE.
+        staringForTicks = 0;
         state = State.IDLE;
     }
 
@@ -228,6 +236,33 @@ public class ModStareOrMoveGoal extends Goal {
         if (state == State.LOOKING && lookTarget != null && lookTarget.isAlive()) {
             double lookTargetEyeY = lookTarget.getEyeY();
             mob.getLookControl().lookAt(lookTarget.getX(), lookTargetEyeY, lookTarget.getZ());
+
+            // Increment staringForTicks, then if greater than threshold, roll chance to get angry at target.
+            staringForTicks++;
+            if (staringForTicks > STARING_FOR_TICKS_ANGER_THRESHOLD) {
+                // Roll 1% chance per tick to get angry at.
+                if (mob.getRandom().nextInt(100) == 0) {
+                    // Ignore if target is creative or spectator player, also reset counter to stop rolling chance.
+                    if (lookTarget instanceof PlayerEntity player) {
+                        if (player.isCreative() || player.isSpectator()) {
+                            staringForTicks = 0;
+                            return;
+                        }
+                    }
+
+                    // If now angry at, set target (makes angry) and play anger sound.
+                    mob.setTarget(lookTarget);
+                    mob.playSound(SoundEvents.ENTITY_RAVAGER_ROAR);
+
+                    // Add Speed effect on aggro for an exciting start, also removing Slowness if active.
+                    mob.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1200, 2,
+                            false, false));     // 60% movement speed bonus, 20% per level.
+                    mob.removeStatusEffect(StatusEffects.SLOWNESS);
+
+                    // Stop the goal, must be called AFTER setting target because stop() nullifies lookTarget.
+                    stop();
+                }
+            }
         }
     }
 }

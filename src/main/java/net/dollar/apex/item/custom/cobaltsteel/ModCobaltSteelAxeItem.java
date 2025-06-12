@@ -10,11 +10,18 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class ModCobaltSteelAxeItem extends AxeItem {
+    private final Consumer<LivingEntity> onHitMethod;
+    private final BiConsumer<Consumer<Text>, ModItemUtils.EquipmentType> tooltipMethod;
+
     public ModCobaltSteelAxeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
+
+        onHitMethod = ModItemUtils::applyCobaltSteelOnHit;
+        tooltipMethod = ModItemUtils::appendCobaltSteelEquipmentTooltip;
     }
 
 
@@ -27,7 +34,7 @@ public class ModCobaltSteelAxeItem extends AxeItem {
      */
     @Override
     public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModItemUtils.applyCobaltSteelOnHit(target);
+        onHitMethod.accept(target);
     }
 
     /**
@@ -40,6 +47,6 @@ public class ModCobaltSteelAxeItem extends AxeItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModItemUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.TOOL);
+        tooltipMethod.accept(textConsumer, ModItemUtils.EquipmentType.TOOL);
     }
 }
