@@ -1,11 +1,15 @@
 package net.dollar.apex.util;
 
+import net.dollar.apex.item.custom.ranged.ModArrowEntity;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
+import net.minecraft.world.World;
 
 import java.util.function.Consumer;
 
@@ -14,6 +18,27 @@ import java.util.function.Consumer;
  */
 public class ModItemUtils {
     public enum EquipmentType { ARMOR, TOOL, RANGED }
+    public enum EndgameTier { COBALT_STEEL, INFUSED_GEMSTONE, TUNGSTEN_CARBIDE }
+
+
+
+    /**
+     * Creates a custom arrow entity specific to the Steel, Infused Gemstone, Netherite, or Tungsten-Carbide
+     *  bows/crossbows. Each is of a custom ArrowEntity class with special onHit() functionality.
+     * @param world Active world
+     * @param shooter LivingEntity firing the weapon
+     * @param arrowStack ItemStack where the arrow is pulled from (used for Spectral/Tipped behavior)
+     * @param tier Enum determining which endgame tier type the arrow corresponds to
+     * @return The newly created custom PersistentProjectileEntity
+     */
+    public static PersistentProjectileEntity createCustomArrow(World world, LivingEntity shooter,
+                                                               ItemStack arrowStack, ItemStack weaponStack,
+                                                               EndgameTier tier) {
+        // Create custom arrow entity, then check for spectral and return the initialized entity.
+        ModArrowEntity arrowEntity = new ModArrowEntity(world, shooter, arrowStack, weaponStack, tier);
+        arrowEntity.checkIsSpectral(arrowStack);
+        return arrowEntity;
+    }
 
 
 

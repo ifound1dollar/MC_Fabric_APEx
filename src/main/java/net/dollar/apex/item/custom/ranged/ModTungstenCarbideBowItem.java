@@ -1,6 +1,5 @@
-package net.dollar.apex.item.custom.bow;
+package net.dollar.apex.item.custom.ranged;
 
-import net.dollar.apex.util.ModArrowUtils;
 import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
@@ -76,8 +75,8 @@ public class ModTungstenCarbideBowItem extends BowItem {
     protected ProjectileEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
-        PersistentProjectileEntity persistentProjectileEntity = ModArrowUtils.createCustomArrow(world, shooter,
-                projectileStack, weaponStack, ModArrowUtils.ArrowType.TUNGSTEN_CARBIDE);
+        PersistentProjectileEntity persistentProjectileEntity = ModItemUtils.createCustomArrow(world, shooter,
+                projectileStack, weaponStack, ModItemUtils.EndgameTier.TUNGSTEN_CARBIDE);
 
         if (critical) {
             persistentProjectileEntity.setCritical(true);

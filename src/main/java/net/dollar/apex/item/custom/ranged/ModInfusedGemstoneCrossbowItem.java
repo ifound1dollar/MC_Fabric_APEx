@@ -1,6 +1,5 @@
-package net.dollar.apex.item.custom.crossbow;
+package net.dollar.apex.item.custom.ranged;
 
-import net.dollar.apex.util.ModArrowUtils;
 import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
@@ -18,11 +17,11 @@ import net.minecraft.world.World;
 import java.util.function.Consumer;
 
 /**
- * Corresponds specifically to the Tungsten-Carbide Crossbow item. Overrides and creates new methods to generate
+ * Corresponds specifically to the Infused Gemstone Crossbow item. Overrides and creates new methods to generate
  *  a custom arrow entity for special on-hit behavior.
  */
-public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
-    public ModTungstenCarbideCrossbowItem(Settings settings) {
+public class ModInfusedGemstoneCrossbowItem extends CrossbowItem {
+    public ModInfusedGemstoneCrossbowItem(Settings settings) {
         super(settings);
     }
 
@@ -70,8 +69,8 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
                                                                 boolean critical) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
-        PersistentProjectileEntity persistentProjectileEntity = ModArrowUtils.createCustomArrow(world, entity,
-                projectileStack, weaponStack, ModArrowUtils.ArrowType.TUNGSTEN_CARBIDE);
+        PersistentProjectileEntity persistentProjectileEntity = ModItemUtils.createCustomArrow(world, entity,
+                projectileStack, weaponStack, ModItemUtils.EndgameTier.INFUSED_GEMSTONE);
 
         //Remainder of original function (with arrow creation omitted) is below.
         if (critical) {
@@ -91,7 +90,7 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModItemUtils.appendTungstenCarbideEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.RANGED);
+        ModItemUtils.appendInfusedGemstoneEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.RANGED);
 
         //Call super function because it has return statement if not charged.
         super.appendTooltip(stack, context, displayComponent, textConsumer, type);
