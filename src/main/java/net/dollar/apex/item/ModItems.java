@@ -5,12 +5,8 @@ import net.dollar.apex.entity.ModEntities;
 import net.dollar.apex.item.custom.ModCustomItem;
 import net.dollar.apex.item.custom.ModGildedBronzeArmorItem;
 import net.dollar.apex.item.custom.ModTrophyItem;
-import net.dollar.apex.item.custom.ranged.ModCobaltSteelBowItem;
-import net.dollar.apex.item.custom.ranged.ModInfusedGemstoneBowItem;
-import net.dollar.apex.item.custom.ranged.ModTungstenCarbideBowItem;
-import net.dollar.apex.item.custom.ranged.ModCobaltSteelCrossbowItem;
-import net.dollar.apex.item.custom.ranged.ModInfusedGemstoneCrossbowItem;
-import net.dollar.apex.item.custom.ranged.ModTungstenCarbideCrossbowItem;
+import net.dollar.apex.item.custom.ranged.ModEndgameBowItem;
+import net.dollar.apex.item.custom.ranged.ModEndgameCrossbowItem;
 import net.dollar.apex.item.custom.equipment.*;
 import net.dollar.apex.util.*;
 import net.minecraft.item.*;
@@ -116,36 +112,36 @@ public class ModItems {
 
     //region Bows/Crossbows 
     public static final Item COBALT_STEEL_BOW = registerItem("cobalt_steel_bow",
-            new ModCobaltSteelBowItem(new Item.Settings()
+            new ModEndgameBowItem(ModItemUtils.EndgameTier.COBALT_STEEL, new Item.Settings()
                     .registryKey(generateItemKey("cobalt_steel_bow"))
                     .maxDamage(1350)                // Default maxDamage is 384
                     .enchantable(18)    // Matches tool tiers exactly
                     .fireproof()));
     public static final Item COBALT_STEEL_CROSSBOW = registerItem("cobalt_steel_crossbow",
-            new ModCobaltSteelCrossbowItem(new Item.Settings()
+            new ModEndgameCrossbowItem(ModItemUtils.EndgameTier.COBALT_STEEL, new Item.Settings()
                     .registryKey(generateItemKey("cobalt_steel_crossbow"))
                     .maxDamage(1650)                // Default maxDamage is 465
                     .enchantable(18)
                     .fireproof()));
     public static final Item INFUSED_GEMSTONE_BOW = registerItem("infused_gemstone_bow",
-            new ModInfusedGemstoneBowItem(new Item.Settings()
+            new ModEndgameBowItem(ModItemUtils.EndgameTier.INFUSED_GEMSTONE, new Item.Settings()
                     .registryKey(generateItemKey("infused_gemstone_bow"))
                     .maxDamage(1200)
                     .enchantable(25)    // Matches tool tiers exactly
                     .fireproof()));
     public static final Item INFUSED_GEMSTONE_CROSSBOW = registerItem("infused_gemstone_crossbow",
-            new ModInfusedGemstoneCrossbowItem(new Item.Settings()
+            new ModEndgameCrossbowItem(ModItemUtils.EndgameTier.INFUSED_GEMSTONE, new Item.Settings()
                     .registryKey(generateItemKey("infused_gemstone_crossbow"))
                     .maxDamage(1500)
                     .fireproof()));
     public static final Item TUNGSTEN_CARBIDE_BOW = registerItem("tungsten_carbide_bow",
-            new ModTungstenCarbideBowItem(new Item.Settings()
+            new ModEndgameBowItem(ModItemUtils.EndgameTier.TUNGSTEN_CARBIDE, new Item.Settings()
                     .registryKey(generateItemKey("tungsten_carbide_bow"))
                     .maxDamage(1500)
                     .enchantable(15)    // Matches tool tiers exactly
                     .fireproof()));
     public static final Item TUNGSTEN_CARBIDE_CROSSBOW = registerItem("tungsten_carbide_crossbow",
-            new ModTungstenCarbideCrossbowItem(new Item.Settings()
+            new ModEndgameCrossbowItem(ModItemUtils.EndgameTier.TUNGSTEN_CARBIDE, new Item.Settings()
                     .registryKey(generateItemKey("tungsten_carbide_crossbow"))
                     .maxDamage(1800)
                     .enchantable(15)

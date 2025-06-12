@@ -1,6 +1,6 @@
 package net.dollar.apex.util;
 
-import net.dollar.apex.item.custom.ranged.ModArrowEntity;
+import net.dollar.apex.item.custom.ranged.ModCustomArrowEntity;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -35,7 +35,7 @@ public class ModItemUtils {
                                                                ItemStack arrowStack, ItemStack weaponStack,
                                                                EndgameTier tier) {
         // Create custom arrow entity, then check for spectral and return the initialized entity.
-        ModArrowEntity arrowEntity = new ModArrowEntity(world, shooter, arrowStack, weaponStack, tier);
+        ModCustomArrowEntity arrowEntity = new ModCustomArrowEntity(world, shooter, arrowStack, weaponStack, tier);
         arrowEntity.checkIsSpectral(arrowStack);
         return arrowEntity;
     }

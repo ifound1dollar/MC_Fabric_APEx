@@ -17,11 +17,24 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-public class ModTungstenCarbideBowItem extends BowItem {
-    public ModTungstenCarbideBowItem(Settings settings) {
+public class ModEndgameBowItem extends BowItem {
+    private final ModItemUtils.EndgameTier endgameTier;
+    private final BiConsumer<Consumer<Text>, ModItemUtils.EquipmentType> tooltipMethod;
+
+    public ModEndgameBowItem(ModItemUtils.EndgameTier tier, Settings settings) {
         super(settings);
+
+        // Set EndgameTier field (for use in creating custom arrow) and assign tooltip BiConsumer.
+        this.endgameTier = tier;
+        switch (tier) {
+            case COBALT_STEEL -> tooltipMethod = ModItemUtils::appendCobaltSteelEquipmentTooltip;
+            case INFUSED_GEMSTONE -> tooltipMethod = ModItemUtils::appendInfusedGemstoneEquipmentTooltip;
+            case TUNGSTEN_CARBIDE -> tooltipMethod = ModItemUtils::appendTungstenCarbideEquipmentTooltip;
+            default -> throw new IllegalStateException("Unexpected value: " + tier);
+        }
     }
 
 
@@ -76,7 +89,7 @@ public class ModTungstenCarbideBowItem extends BowItem {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
         PersistentProjectileEntity persistentProjectileEntity = ModItemUtils.createCustomArrow(world, shooter,
-                projectileStack, weaponStack, ModItemUtils.EndgameTier.TUNGSTEN_CARBIDE);
+                projectileStack, weaponStack, endgameTier);
 
         if (critical) {
             persistentProjectileEntity.setCritical(true);
@@ -97,6 +110,6 @@ public class ModTungstenCarbideBowItem extends BowItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        ModItemUtils.appendTungstenCarbideEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.RANGED);
+        tooltipMethod.accept(textConsumer, ModItemUtils.EquipmentType.RANGED);
     }
 }

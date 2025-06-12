@@ -11,12 +11,12 @@ import net.minecraft.world.World;
 
 import java.util.function.Consumer;
 
-public class ModArrowEntity extends ArrowEntity {
+public class ModCustomArrowEntity extends ArrowEntity {
     private boolean isSpectral;
     private final Consumer<LivingEntity> onHitMethod;
 
-    public ModArrowEntity(World world, LivingEntity owner, ItemStack arrowStack, ItemStack weaponStack,
-                          ModItemUtils.EndgameTier tier) {
+    public ModCustomArrowEntity(World world, LivingEntity owner, ItemStack arrowStack, ItemStack weaponStack,
+                                ModItemUtils.EndgameTier tier) {
         super(world, owner, arrowStack, weaponStack);
         setDamage(3.0f);
 
