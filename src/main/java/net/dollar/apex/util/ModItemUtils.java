@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import java.util.function.Consumer;
 
 /**
- * Contains a handful of misc. helper methods used in various parts of the mod.
+ * Contains a handful of misc. helper methods and enums used in various parts of the mod.
  */
 public class ModItemUtils {
     public enum EquipmentType { ARMOR, TOOL, RANGED }
@@ -23,8 +23,8 @@ public class ModItemUtils {
 
 
     /**
-     * Creates a custom arrow entity specific to the Steel, Infused Gemstone, Netherite, or Tungsten-Carbide
-     *  bows/crossbows. Each is of a custom ArrowEntity class with special onHit() functionality.
+     * Creates a custom arrow entity specific to the Cobalt-Steel, Infused Gemstone, or Tungsten-Carbide
+     *  bows/crossbow. Each is of a custom ArrowEntity class with special onHit() functionality.
      * @param world Active world
      * @param shooter LivingEntity firing the weapon
      * @param arrowStack ItemStack where the arrow is pulled from (used for Spectral/Tipped behavior)

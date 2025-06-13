@@ -23,6 +23,14 @@ public class ModMeleeAttackGoal extends Goal {
     private long lastUpdateTime;
     private final long MAX_ATTACK_TIME;
 
+    /**
+     * Instantiates a new ModMeleeAttackGoal, which is functionally similar to MeleeAttackGoal but
+     *  supports explicitly setting attack speed on construction.
+     * @param mob PathAwareEntity that this Goal is attached to
+     * @param speed Movement speed of mob when actively attacking a target
+     * @param pauseWhenMobIdle Whether to pause while the mob is idle (should be false)
+     * @param attackIntervalTicks Minimum number of ticks between each attack attempt (attack speed)
+     */
     public ModMeleeAttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle, int attackIntervalTicks) {
         this.mob = mob;
         this.speed = speed;
@@ -33,6 +41,13 @@ public class ModMeleeAttackGoal extends Goal {
         this.MAX_ATTACK_TIME = attackIntervalTicks;
     }
 
+
+
+    /**
+     * Returns whether this Goal is ready to be used. Returns true if the mob has a valid target
+     *  which it can attack.
+     * @return Whether the Goal can be used.
+     */
     @Override
     public boolean canStart() {
         long l = this.mob.getWorld().getTime();
@@ -52,6 +67,11 @@ public class ModMeleeAttackGoal extends Goal {
         }
     }
 
+    /**
+     * Gets whether this Goal can continue being used, returning true if the mob still
+     *  has an attackable target.
+     * @return Whether this Goal can continue being used.
+     */
     @Override
     public boolean shouldContinue() {
         LivingEntity livingEntity = this.mob.getTarget();
@@ -68,6 +88,9 @@ public class ModMeleeAttackGoal extends Goal {
         }
     }
 
+    /**
+     * Starts executing this Goal. Begins movement toward the target and begins attacking it.
+     */
     @Override
     public void start() {
         this.mob.getNavigation().startMovingAlong(this.path, this.speed);
@@ -76,6 +99,9 @@ public class ModMeleeAttackGoal extends Goal {
         this.cooldown = 0;
     }
 
+    /**
+     * Stops execution of this Goal. Nullifies target, stops attacking, and stops navigation.
+     */
     @Override
     public void stop() {
         LivingEntity livingEntity = this.mob.getTarget();
@@ -87,11 +113,19 @@ public class ModMeleeAttackGoal extends Goal {
         this.mob.getNavigation().stop();
     }
 
+    /**
+     * Gets whether this Goal should run every tick. Overridden to always return true.
+     * @return True if this Goal should run every tick (overridden to always return true)
+     */
     @Override
     public boolean shouldRunEveryTick() {
         return true;
     }
 
+    /**
+     * Runs per-tick operations for this Goal. Used to move toward and actually attack
+     *  the target.
+     */
     @Override
     public void tick() {
         LivingEntity livingEntity = this.mob.getTarget();
@@ -128,6 +162,11 @@ public class ModMeleeAttackGoal extends Goal {
         }
     }
 
+    /**
+     * Actually attempts to attack the target, checking whether an attack is possible and
+     *  then resetting attack cooldown and actually attacking if true.
+     * @param target The LivingEntity being attacked
+     */
     protected void attack(LivingEntity target) {
         if (this.canAttack(target)) {
             this.resetCooldown();
@@ -136,14 +175,27 @@ public class ModMeleeAttackGoal extends Goal {
         }
     }
 
+    /**
+     * Resets the cooldown of this Goal. The cooldown of this Goal is the attack cooldown.
+     */
     protected void resetCooldown() {
         this.cooldown = this.getTickCount(attackIntervalTicks);
     }
 
+    /**
+     * Gets whether the cooldown of this Goal has completed fully. The cooldown of this Goal
+     *  is the attack cooldown.
+     * @return True if the cooldown has completed and an attack is ready to be used again
+     */
     protected boolean isCooledDown() {
         return this.cooldown <= 0;
     }
 
+    /**
+     * Gets whether the mob this Goal is attached to can attack the passed-in LivingEntity.
+     * @param target The LivingEntity in question
+     * @return True if the LivingEntity can be attacked (Goal not on cooldown and target is visible and in range)
+     */
     protected boolean canAttack(LivingEntity target) {
         return this.isCooledDown() && this.mob.isInAttackRange(target) && this.mob.getVisibilityCache().canSee(target);
     }

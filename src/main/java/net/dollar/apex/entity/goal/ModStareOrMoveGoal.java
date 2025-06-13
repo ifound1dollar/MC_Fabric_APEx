@@ -106,7 +106,7 @@ public class ModStareOrMoveGoal extends Goal {
         }
 
         // Get a random position for movement, and set fields if successful.
-        Vec3d vec3 = getRandomWanterTarget();
+        Vec3d vec3 = getRandomWanderTarget();
         if (vec3 == null) {
             return false;
         } else {
@@ -154,7 +154,7 @@ public class ModStareOrMoveGoal extends Goal {
      * @return The generated 3-vector world position, or null if none is available.
      */
     @Nullable
-    protected Vec3d getRandomWanterTarget() {
+    protected Vec3d getRandomWanderTarget() {
         // If in water, try to find position on land, else find default position.
         if (mob.isTouchingWater()) {
             Vec3d vec3 = FuzzyTargeting.find(mob, 15, 7);

@@ -321,7 +321,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     }
 
     /**
-     * Applies Blindness and Slowness effects to all nearby LivingEntities and plays aggressive sound.
+     * Applies Darkness and Slowness effects to all nearby PlayerEntities and plays aggressive sound.
      */
     private void blindAndSlowNearbyPlayers() {
         //Store xyz coordinates and get all entities within radius of this Entity.
@@ -349,7 +349,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     }
 
     /**
-     * Applies Blindness and Slowness effects to all nearby LivingEntities and plays aggressive sound.
+     * Applies Wither effect to each nearby PlayerEntity.
      */
     private void witherNearbyPlayers() {
         //Store xyz coordinates and get all entities within radius of this Entity.

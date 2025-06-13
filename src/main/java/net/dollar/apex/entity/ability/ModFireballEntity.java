@@ -12,6 +12,14 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class ModFireballEntity extends SmallFireballEntity {
+    /**
+     * Instantiates a ModFireballEntity object, which derives from SmallFireballEntity and
+     *  behaves almost identically. Overridden to slightly reduce burn time when a fireball
+     *  hits an Entity, and does not spawn fire when a fireball hits a block.
+     * @param world World this fireball is being spawned within
+     * @param owner LivingEntity spawning this fireball
+     * @param velocity Velocity (on construction) of this fireball entity; remains constant
+     */
     public ModFireballEntity(World world, LivingEntity owner, Vec3d velocity) {
         super(world, owner, velocity);
     }

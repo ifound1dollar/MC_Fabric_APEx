@@ -6,6 +6,10 @@ import net.minecraft.item.equipment.EquipmentAssetKeys;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
+/**
+ * Contains a RegistryKey<EquipmentAsset> for each armor equipment tier. Required in order to
+ *  successfully load worn equipment textures.
+ */
 public interface ModEquipmentAssetKeys {
     RegistryKey<EquipmentAsset> BRONZE = register("bronze");
     RegistryKey<EquipmentAsset> GILDED_BRONZE = register("gilded_bronze");
