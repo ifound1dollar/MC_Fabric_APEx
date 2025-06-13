@@ -1,8 +1,7 @@
-package net.dollar.apex.item.custom.crossbow;
+package net.dollar.apex.item.custom.ranged;
 
 import com.google.common.collect.Lists;
-import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -36,15 +35,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Corresponds specifically to the Tungsten-Carbide Crossbow item. Re-implements NUMEROUS methods from CrossbowItem
+ * Corresponds specifically to the Steel Crossbow item. Re-implements NUMEROUS methods from CrossbowItem
  *  which are private and must be entirely re-defined. All redundant override methods are removed.
  */
-public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
-    public ModTungstenCarbideCrossbowItem(Settings settings) {
+public class ModInfusedGemstoneCrossbowItem extends CrossbowItem {
+    public ModInfusedGemstoneCrossbowItem(Settings settings) {
         super(settings);
     }
-
-
 
 
 
@@ -112,7 +109,8 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
         return true;
     }
 
-    private static boolean loadProjectile(LivingEntity shooter, ItemStack crossbow, ItemStack projectile, boolean simulated, boolean creative) {
+    private static boolean loadProjectile(LivingEntity shooter, ItemStack crossbow, ItemStack projectile,
+                                          boolean simulated, boolean creative) {
         ItemStack itemStack;
         boolean bl;
         if (projectile.isEmpty()) {
@@ -208,8 +206,8 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
     private static PersistentProjectileEntity createArrow(World world, LivingEntity entity, ItemStack crossbow, ItemStack arrow) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
-        PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, entity,
-                arrow, ArrowUtil.ARROW_TYPE.CARBIDE);
+        PersistentProjectileEntity persistentProjectileEntity = ModItemUtils.createCustomArrow(world, entity,
+                arrow, ModItemUtils.EndgameTier.INFUSED_GEMSTONE);
 
         if (entity instanceof PlayerEntity) {
             persistentProjectileEntity.setCritical(true);
@@ -311,7 +309,7 @@ public class ModTungstenCarbideCrossbowItem extends CrossbowItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
+        ModItemUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, ModItemUtils.EquipmentType.RANGED);
 
         //Call super function because it has return statement if not charged.
         super.appendTooltip(stack, world, tooltip, context);

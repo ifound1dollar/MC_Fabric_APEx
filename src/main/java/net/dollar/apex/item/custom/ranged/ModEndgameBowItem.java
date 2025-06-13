@@ -1,7 +1,6 @@
-package net.dollar.apex.item.custom.bow;
+package net.dollar.apex.item.custom.ranged;
 
-import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -19,11 +18,25 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.BiConsumer;
 
-public class ModInfusedGemstoneBowItem extends BowItem {
-    public ModInfusedGemstoneBowItem(Settings settings) {
+public class ModEndgameBowItem extends BowItem {
+    private final ModItemUtils.EndgameTier endgameTier;
+    private final BiConsumer<List<Text>, ModItemUtils.EquipmentType> tooltipMethod;
+
+    public ModEndgameBowItem(ModItemUtils.EndgameTier tier, Settings settings) {
         super(settings);
+
+        // Set endgameTier field and tooltip method reference based on passed-in EndgameTier.
+        this.endgameTier = tier;
+        switch (tier) {
+            case COBALT_STEEL -> tooltipMethod = ModItemUtils::appendCobaltSteelEquipmentTooltip;
+            case INFUSED_GEMSTONE -> tooltipMethod = ModItemUtils::appendInfusedGemstoneEquipmentTooltip;
+            case TUNGSTEN_CARBIDE -> tooltipMethod = ModItemUtils::appendTungstenCarbideEquipmentTooltip;
+            default -> throw new IllegalStateException("Unexpected value: " + tier);
+        }
     }
+
 
 
     /**
@@ -58,8 +71,8 @@ public class ModInfusedGemstoneBowItem extends BowItem {
 
             //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
             //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
-            PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, playerEntity,
-                    itemStack, ArrowUtil.ARROW_TYPE.INFUSED);
+            PersistentProjectileEntity persistentProjectileEntity = ModItemUtils.createCustomArrow(world, playerEntity,
+                    itemStack, endgameTier);
 
             persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 3.0f, 1.0f);
             if (f == 1.0f) {
@@ -90,19 +103,8 @@ public class ModInfusedGemstoneBowItem extends BowItem {
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
     }
 
-    //CAN DEFINE A NEW getPullProgress() METHOD TO TRY TO ADJUST SPEED OF WEAPON
-
-
-
-    /**
-     * Appends text to the Item's hover tooltip (lore).
-     * @param stack ItemStack corresponding to this Item
-     * @param world Active world
-     * @param tooltip List of tooltip texts to show
-     * @param context TooltipContext denoting data like simple or advanced
-     */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
+        tooltipMethod.accept(tooltip, ModItemUtils.EquipmentType.RANGED);
     }
 }
