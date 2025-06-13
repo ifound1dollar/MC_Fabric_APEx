@@ -1,18 +1,15 @@
-package net.dollar.apex.item.custom.bow;
+package net.dollar.apex.item.custom.ranged;
 
-import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -21,11 +18,25 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.BiConsumer;
 
-public class ModTungstenCarbideBowItem extends BowItem {
-    public ModTungstenCarbideBowItem(Settings settings) {
+public class ModEndgameBowItem extends BowItem {
+    private final ModItemUtils.EndgameTier endgameTier;
+    private final BiConsumer<List<Text>, ModItemUtils.EquipmentType> tooltipMethod;
+
+    public ModEndgameBowItem(ModItemUtils.EndgameTier tier, Settings settings) {
         super(settings);
+
+        // Set endgameTier field and tooltip method reference based on passed-in EndgameTier.
+        this.endgameTier = tier;
+        switch (tier) {
+            case COBALT_STEEL -> tooltipMethod = ModItemUtils::appendCobaltSteelEquipmentTooltip;
+            case INFUSED_GEMSTONE -> tooltipMethod = ModItemUtils::appendInfusedGemstoneEquipmentTooltip;
+            case TUNGSTEN_CARBIDE -> tooltipMethod = ModItemUtils::appendTungstenCarbideEquipmentTooltip;
+            default -> throw new IllegalStateException("Unexpected value: " + tier);
+        }
     }
+
 
 
     /**
@@ -60,8 +71,8 @@ public class ModTungstenCarbideBowItem extends BowItem {
 
             //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
             //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
-            PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, playerEntity,
-                    itemStack, ArrowUtil.ARROW_TYPE.CARBIDE);
+            PersistentProjectileEntity persistentProjectileEntity = ModItemUtils.createCustomArrow(world, playerEntity,
+                    itemStack, endgameTier);
 
             persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 3.0f, 1.0f);
             if (f == 1.0f) {
@@ -92,38 +103,8 @@ public class ModTungstenCarbideBowItem extends BowItem {
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
     }
 
-    //CAN DEFINE A NEW getPullProgress() METHOD TO TRY TO ADJUST SPEED OF WEAPON
-
-
-
-    /**
-     * Gets whether Entities of this Item are fireproof (true).
-     * @return Whether this Item is fireproof
-     */
-    @Override
-    public boolean isFireproof() {
-        return true;
-    }
-
-    /**
-     * Gets whether Entities of this Item can be damaged by a specific DamageSource (false for fire and explosion).
-     * @param source DamageSource being checked
-     * @return Whether this Item can be damaged by the DamageSource
-     */
-    @Override
-    public boolean damage(DamageSource source) {
-        return !(source.isIn(DamageTypeTags.IS_FIRE) || source.isIn(DamageTypeTags.IS_EXPLOSION));
-    }
-
-    /**
-     * Appends text to the Item's hover tooltip (lore).
-     * @param stack ItemStack corresponding to this Item
-     * @param world Active world
-     * @param tooltip List of tooltip texts to show
-     * @param context TooltipContext denoting data like simple or advanced
-     */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
+        tooltipMethod.accept(tooltip, ModItemUtils.EquipmentType.RANGED);
     }
 }

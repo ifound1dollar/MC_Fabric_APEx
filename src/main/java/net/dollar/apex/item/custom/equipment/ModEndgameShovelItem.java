@@ -1,34 +1,46 @@
-package net.dollar.apex.item.custom.cobaltsteel;
+package net.dollar.apex.item.custom.equipment;
 
-import net.dollar.apex.item.custom.ModPaxelItem;
-import net.dollar.apex.util.ModUtils;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShovelItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
-public class ModCobaltSteelPaxelItem extends ModPaxelItem {
-    public ModCobaltSteelPaxelItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+public class ModEndgameShovelItem extends ShovelItem {
+    private final Consumer<LivingEntity> onHitMethod;
+    private final BiConsumer<List<Text>, ModItemUtils.EquipmentType> tooltipMethod;
+
+    public ModEndgameShovelItem(ToolMaterial material, float attackDamage, float attackSpeed,
+                             ModItemUtils.EndgameTier tier, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
+
+        // Set proper method references to both Consumers.
+        switch (tier) {
+            case COBALT_STEEL -> {
+                onHitMethod = ModItemUtils::applyCobaltSteelOnHit;
+                tooltipMethod = ModItemUtils::appendCobaltSteelEquipmentTooltip;
+            }
+            case INFUSED_GEMSTONE -> {
+                onHitMethod = ModItemUtils::applyInfusedGemstoneOnHit;
+                tooltipMethod = ModItemUtils::appendInfusedGemstoneEquipmentTooltip;
+            }
+            case TUNGSTEN_CARBIDE -> {
+                onHitMethod = ModItemUtils::applyTungstenCarbideOnHit;
+                tooltipMethod = ModItemUtils::appendTungstenCarbideEquipmentTooltip;
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + tier);
+        }
     }
 
 
-    @Override
-    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-        float baseVal = super.getMiningSpeedMultiplier(stack, state);
-
-        //If the block being mined is Deepslate, increase mining speed by a further 100% (allows instant
-        //  mining with Cobalt Steel Paxel/Pickaxe w/Efficiency V & Haste II : results in total mining speed
-        //  of 92.4, needs 90).
-        return (state.getBlock() == Blocks.DEEPSLATE) ? baseVal * 2.0f : baseVal;
-    }
 
     /**
      * Performs normal post-hit operations but with chance to apply additional effect(s).
@@ -39,7 +51,7 @@ public class ModCobaltSteelPaxelItem extends ModPaxelItem {
      */
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyCobaltSteelOnHit(target);
+        onHitMethod.accept(target);
         return super.postHit(stack, target, attacker);
     }
 
@@ -61,6 +73,6 @@ public class ModCobaltSteelPaxelItem extends ModPaxelItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        ModUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
+        tooltipMethod.accept(tooltip, ModItemUtils.EquipmentType.TOOL);
     }
 }
