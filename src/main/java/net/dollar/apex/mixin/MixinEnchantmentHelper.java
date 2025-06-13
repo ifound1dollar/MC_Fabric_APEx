@@ -4,15 +4,9 @@ import net.dollar.apex.item.custom.ModBattleaxeItem;
 import net.dollar.apex.item.custom.ModBronzeArmorItem;
 import net.dollar.apex.item.custom.ModGildedBronzeArmorItem;
 import net.dollar.apex.item.custom.ModPaxelItem;
-import net.dollar.apex.item.custom.bow.ModCobaltSteelBowItem;
-import net.dollar.apex.item.custom.bow.ModInfusedGemstoneBowItem;
-import net.dollar.apex.item.custom.bow.ModTungstenCarbideBowItem;
-import net.dollar.apex.item.custom.cobaltsteel.ModCobaltSteelArmorItem;
-import net.dollar.apex.item.custom.crossbow.ModCobaltSteelCrossbowItem;
-import net.dollar.apex.item.custom.crossbow.ModInfusedGemstoneCrossbowItem;
-import net.dollar.apex.item.custom.crossbow.ModTungstenCarbideCrossbowItem;
-import net.dollar.apex.item.custom.infusedgemstone.ModInfusedGemstoneArmorItem;
-import net.dollar.apex.item.custom.tungstencarbide.ModTungstenCarbideArmorItem;
+import net.dollar.apex.item.custom.equipment.ModEndgameArmorItem;
+import net.dollar.apex.item.custom.ranged.ModEndgameBowItem;
+import net.dollar.apex.item.custom.ranged.ModEndgameCrossbowItem;
 import net.dollar.apex.util.MixinUtils;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -97,9 +91,7 @@ public class MixinEnchantmentHelper {
                     continue block0;  //Continue to OUTER block (adds only the highest possible enchantment level).
                 }
             }
-        } else if (item instanceof ModCobaltSteelBowItem ||
-                item instanceof ModInfusedGemstoneBowItem ||
-                item instanceof ModTungstenCarbideBowItem) {
+        } else if (item instanceof ModEndgameBowItem) {
             //If the passed-in ItemStack is a new Bow, add bow enchantments.
             ArrayList<Enchantment> enchantments = new ArrayList<>() {
                 {
@@ -124,9 +116,7 @@ public class MixinEnchantmentHelper {
                     continue block0;  //Continue to OUTER block (adds only the highest possible enchantment level).
                 }
             }
-        } else if (item instanceof ModCobaltSteelCrossbowItem ||
-                item instanceof ModInfusedGemstoneCrossbowItem ||
-                item instanceof ModTungstenCarbideCrossbowItem) {
+        } else if (item instanceof ModEndgameCrossbowItem) {
             //If the passed-in ItemStack is a new Crossbow, add crossbow enchantments.
             ArrayList<Enchantment> enchantments = new ArrayList<>() {
                 {
@@ -151,9 +141,7 @@ public class MixinEnchantmentHelper {
             }
         } else if (item instanceof ModBronzeArmorItem ||
                 item instanceof ModGildedBronzeArmorItem ||
-                item instanceof ModCobaltSteelArmorItem ||
-                item instanceof ModInfusedGemstoneArmorItem ||
-                item instanceof ModTungstenCarbideArmorItem) {
+                item instanceof ModEndgameArmorItem) {
             //If the passed-in ItemStack is a new Armor item, add armor enchantments.
             //Retrieve list of enchantments for the armor type from helper method.
             ArrayList<Enchantment> enchantments = MixinUtils.getEnchantmentsForArmorItem(item);
