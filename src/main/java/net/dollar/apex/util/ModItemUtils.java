@@ -1,19 +1,44 @@
 package net.dollar.apex.util;
 
+import net.dollar.apex.item.custom.ranged.ModCustomArrowEntity;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
+import net.minecraft.world.World;
 
 import java.util.List;
 
 /**
  * Contains a handful of misc. helper methods used in various parts of the mod.
  */
-public class ModUtils {
+public class ModItemUtils {
     public enum EquipmentType { ARMOR, TOOL, RANGED }
+    public enum EndgameTier { COBALT_STEEL, INFUSED_GEMSTONE, TUNGSTEN_CARBIDE }
+
+
+
+    /**
+     * Creates a custom arrow entity specific to the Steel, Infused Gemstone, Netherite, or Tungsten-Carbide
+     *  bows/crossbows. Each is of a custom ArrowEntity class with special onHit() functionality.
+     * @param world Active world
+     * @param shooter LivingEntity firing the weapon
+     * @param arrowStack ItemStack where the arrow is pulled from (used for Spectral/Tipped behavior)
+     * @param tier Enum determining which of the four bow/crossbow types to spawn the ArrowEntity for
+     * @return The newly created custom PersistentProjectileEntity
+     */
+    public static PersistentProjectileEntity createCustomArrow(World world, LivingEntity shooter,
+                                                               ItemStack arrowStack, ItemStack weaponStack,
+                                                               EndgameTier tier) {
+        // Create a custom arrow entity with the proper endgame-tier-based behavior.
+        ModCustomArrowEntity arrowEntity = new ModCustomArrowEntity(world, shooter, arrowStack, weaponStack, tier);
+        arrowEntity.checkIsSpectral(arrowStack);
+        return arrowEntity;
+    }
 
 
 
