@@ -1,6 +1,6 @@
-package net.dollar.apex.item.custom.arrow;
+package net.dollar.apex.item.custom.ranged;
 
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -9,12 +9,24 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpectralArrowItem;
 import net.minecraft.world.World;
 
-public class InfusedGemstoneArrowEntity extends ArrowEntity {
-    private boolean isSpectral;
+import java.util.function.Consumer;
 
-    public InfusedGemstoneArrowEntity(World world, LivingEntity owner, ItemStack arrowStack, ItemStack weaponStack) {
+public class ModCustomArrowEntity extends ArrowEntity {
+    private boolean isSpectral;
+    private final Consumer<LivingEntity> onHitMethod;
+
+    public ModCustomArrowEntity(World world, LivingEntity owner, ItemStack arrowStack, ItemStack weaponStack,
+                                ModItemUtils.EndgameTier tier) {
         super(world, owner, arrowStack, weaponStack);
         setDamage(3.0f);
+
+        // Set Consumer method reference.
+        switch (tier) {
+            case COBALT_STEEL -> onHitMethod = ModItemUtils::applyCobaltSteelOnHit;
+            case INFUSED_GEMSTONE -> onHitMethod = ModItemUtils::applyInfusedGemstoneOnHit;
+            case TUNGSTEN_CARBIDE -> onHitMethod = ModItemUtils::applyTungstenCarbideOnHit;
+            default -> throw new IllegalStateException("Unexpected value: " + tier);
+        }
     }
 
 
@@ -44,6 +56,6 @@ public class InfusedGemstoneArrowEntity extends ArrowEntity {
         }
 
         // Apply special on-hit effect when this arrow entity hits a LivingEntity.
-        ModUtils.applyInfusedGemstoneOnHit(target);
+        onHitMethod.accept(target);
     }
 }

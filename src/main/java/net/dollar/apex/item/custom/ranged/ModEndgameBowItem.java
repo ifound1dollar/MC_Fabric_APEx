@@ -1,7 +1,6 @@
-package net.dollar.apex.item.custom.bow;
+package net.dollar.apex.item.custom.ranged;
 
-import net.dollar.apex.item.custom.arrow.ArrowUtil;
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,10 +16,23 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.function.BiConsumer;
 
-public class ModTungstenCarbideBowItem extends BowItem {
-    public ModTungstenCarbideBowItem(Settings settings) {
+public class ModEndgameBowItem extends BowItem {
+    private final ModItemUtils.EndgameTier endgameTier;
+    private final BiConsumer<List<Text>, ModItemUtils.EquipmentType> tooltipMethod;
+
+    public ModEndgameBowItem(ModItemUtils.EndgameTier tier, Settings settings) {
         super(settings);
+
+        // Set endgameTier field and tooltip method reference based on passed-in EndgameTier.
+        this.endgameTier = tier;
+        switch (tier) {
+            case COBALT_STEEL -> tooltipMethod = ModItemUtils::appendCobaltSteelEquipmentTooltip;
+            case INFUSED_GEMSTONE -> tooltipMethod = ModItemUtils::appendInfusedGemstoneEquipmentTooltip;
+            case TUNGSTEN_CARBIDE -> tooltipMethod = ModItemUtils::appendTungstenCarbideEquipmentTooltip;
+            default -> throw new IllegalStateException("Unexpected value: " + tier);
+        }
     }
 
 
@@ -70,11 +82,13 @@ public class ModTungstenCarbideBowItem extends BowItem {
      * @return The generated ProjectileEntity
      */
     @Override
-    protected ProjectileEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
+    protected ProjectileEntity createArrowEntity(World world, LivingEntity shooter,
+                                                 ItemStack weaponStack, ItemStack projectileStack,
+                                                 boolean critical) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
-        PersistentProjectileEntity persistentProjectileEntity = ArrowUtil.createCustomArrow(world, shooter,
-                projectileStack, weaponStack, ArrowUtil.ARROW_TYPE.CARBIDE);
+        PersistentProjectileEntity persistentProjectileEntity = ModItemUtils.createCustomArrow(world, shooter,
+                projectileStack, weaponStack, endgameTier);
 
         if (critical) {
             persistentProjectileEntity.setCritical(true);
@@ -92,6 +106,6 @@ public class ModTungstenCarbideBowItem extends BowItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendTungstenCarbideEquipmentTooltip(tooltip, ModUtils.EquipmentType.RANGED);
+        tooltipMethod.accept(tooltip, ModItemUtils.EquipmentType.RANGED);
     }
 }
