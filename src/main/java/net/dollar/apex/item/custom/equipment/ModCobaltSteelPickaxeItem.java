@@ -1,6 +1,8 @@
-package net.dollar.apex.item.custom.infusedgemstone;
+package net.dollar.apex.item.custom.equipment;
 
-import net.dollar.apex.util.ModUtils;
+import net.dollar.apex.util.ModItemUtils;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -11,12 +13,28 @@ import net.minecraft.text.Text;
 
 import java.util.List;
 
-public class ModInfusedGemstonePickaxeItem extends PickaxeItem {
-    public ModInfusedGemstonePickaxeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
+public class ModCobaltSteelPickaxeItem extends PickaxeItem {
+    public ModCobaltSteelPickaxeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
 
 
+
+    /**
+     * Gets the mining speed of this Tool, depending on the Block being mined.
+     * @param stack Stack corresponding to this Tool
+     * @param state BlockState corresponding to Block attempting to be mined
+     * @return The calculated mining speed
+     */
+    @Override
+    public float getMiningSpeed(ItemStack stack, BlockState state) {
+        float baseVal = super.getMiningSpeed(stack, state);
+
+        //If the block being mined is Deepslate, increase mining speed by a further 100% (allows instant
+        //  mining with Cobalt Steel Paxel/Pickaxe w/Efficiency V & Haste II : results in total mining speed
+        //  of 92.4, needs 90).
+        return (state.getBlock() == Blocks.DEEPSLATE) ? baseVal * 2.0f : baseVal;
+    }
 
     /**
      * Performs normal post-hit operations but with chance to apply additional effect(s).
@@ -27,7 +45,7 @@ public class ModInfusedGemstonePickaxeItem extends PickaxeItem {
      */
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ModUtils.applyInfusedGemstoneOnHit(target);
+        ModItemUtils.applyCobaltSteelOnHit(target);
         return super.postHit(stack, target, attacker);
     }
 
@@ -40,6 +58,6 @@ public class ModInfusedGemstonePickaxeItem extends PickaxeItem {
      */
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        ModUtils.appendInfusedGemstoneEquipmentTooltip(tooltip, ModUtils.EquipmentType.TOOL);
+        ModItemUtils.appendCobaltSteelEquipmentTooltip(tooltip, ModItemUtils.EquipmentType.TOOL);
     }
 }
