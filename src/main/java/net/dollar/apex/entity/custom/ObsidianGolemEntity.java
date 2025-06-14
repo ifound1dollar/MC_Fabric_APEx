@@ -407,7 +407,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     @Override
     public boolean canHaveStatusEffect(StatusEffectInstance effect) {
         RegistryEntry<StatusEffect> statusEffect = effect.getEffectType();
-        return statusEffect != StatusEffects.POISON && statusEffect != StatusEffects.WITHER;
+        return statusEffect != StatusEffects.POISON;
     }
 
     /**
