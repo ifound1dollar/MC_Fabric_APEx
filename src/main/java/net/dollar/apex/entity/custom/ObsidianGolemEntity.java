@@ -1,5 +1,7 @@
 package net.dollar.apex.entity.custom;
 
+import net.dollar.apex.entity.ability.ModFireballEntity;
+import net.dollar.apex.entity.goal.ModMeleeAttackGoal;
 import net.dollar.apex.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -18,6 +20,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -44,11 +47,15 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     private UUID angryAt;
 
     private int ticksSinceLastAttack = 0;
-    private int teleportDelayTicks = 0;
+    private static final int DEFAULT_LAST_ATTACK_TICKS_THRESHOLD = 100;
+    private int abilityCooldownTicks;
+    private static final int DEFAULT_ABILITY_COOLDOWN_TICKS = 100;
 
     public ObsidianGolemEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.setStepHeight(1.0f);
+
+        abilityCooldownTicks = DEFAULT_ABILITY_COOLDOWN_TICKS;
     }
 
 
@@ -60,7 +67,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      */
     @Override
     public double squaredAttackRange(LivingEntity target) {
-        return super.squaredAttackRange(target) / 1.5;
+        return super.squaredAttackRange(target) * 1.05;
     }
 
     /**
@@ -68,7 +75,8 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      */
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
+        this.goalSelector.add(1, new ModMeleeAttackGoal(this, 1.0, false,
+                40));
         this.goalSelector.add(8, new LookAroundGoal(this));
         this.goalSelector.add(9, new WanderAroundFarGoal(this, 0.6));
 
@@ -174,69 +182,34 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     }
 
     /**
-     * Returns the attack damage of this Entity.
-     * @return The Entity's attack damage
-     */
-    private float getAttackDamage() {
-        return (float)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-    }
-
-    /**
      * Attempts to perform attack operations against the target.
+     * * @param world Server World this Entity exists in
      * @param target Target being attacked by this Entity
      * @return Whether the attack was successfully performed
      */
     @Override
     public boolean tryAttack(Entity target) {
-        //Verify it has been at least 30 ticks (1.5 seconds) since last attack.
-        if (ticksSinceLastAttack < 30) { return false; }
+        ticksSinceLastAttack = 0;
+        attackTicksLeft = 10;
 
-        //Actual attack operation done here.
-        this.attackTicksLeft = 10;
-        this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_ATTACK_SOUND);
-        float f = this.getAttackDamage();
-        float g = (int)f > 0 ? f / 2.0f + (float)this.random.nextInt((int)f) : f;
-        boolean bl = target.damage(this.getDamageSources().mobAttack(this), g);
+        // If default attack operation was successful, do special attack effects.
+        if (super.tryAttack(target)) {
+            ticksSinceLastAttack = 0;
 
-        //If damaging target was successful.
-        if (bl) {
-            double d;
+            // After applying damage effects and knockback, do special Obsidian Golem attack behaviors.
             if (target instanceof LivingEntity livingEntity) {
-                d = livingEntity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE);
-            } else {
-                d = 0.0;
-            }
-            double d2 = d;
-            double e = Math.max(0.0, 1.0 - d2);
-            target.setVelocity(target.getVelocity().add(0.0, (double)0.4f * e, 0.0));
-            this.applyDamageEffects(this, target);
-
-            //After applying damage effects and knockback, do special Obsidian Golem attack behaviors.
-            if (target instanceof LivingEntity livingEntity) {
-                //Roll chance to apply a negative effect to target here.
-                if (random.nextInt(100) < 50) {
-                    //Apply one of two effects.
-                    if (random.nextBoolean()) {
-                        //Only level 1 slow, 15%/level (30% was too punishing).
-                        livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 80, 0));
-                    } else {
-                        //Only weakness 1 (4 fewer points of damage).
-                        livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 80, 0));
-                    }
-                }
-
-                //Also roll chance to set target on fire based on % missing HP (loosely corresponds to crackiness).
-                if (random.nextFloat() > (this.getHealth() / this.getMaxHealth()) - 0.1f) {
-                    livingEntity.setOnFireFor(4);   //100% chance at 10% Health because of -0.1f above
+                // Roll chance to set target on fire based on % missing HP (loosely corresponds to crackiness).
+                if (random.nextFloat() > (this.getHealth() / this.getMaxHealth()) - 0.25f) {
+                    livingEntity.setOnFireFor(4);   // 100% chance at 25% Health because of -0.25f above
                 }
             }
+
+            // Play attack sound, then return success.
+            this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, this.getSoundVolume(), 1.0f);
+            return true;
         }
 
-        //Set ticks since last attack to 0.
-        ticksSinceLastAttack = 0;
-
-        this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 1.0f, 1.0f);
-        return bl;
+        return false;
     }
 
     /**
@@ -250,7 +223,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         IronGolemEntity.Crack crack = this.getCrack();
         boolean bl = super.damage(source, amount);
         if (bl && this.getCrack() != crack) {
-            this.playSound(SoundEvents.ENTITY_IRON_GOLEM_DAMAGE, 1.0f, 1.0f);
+            this.playSound(SoundEvents.ENTITY_IRON_GOLEM_DAMAGE, this.getSoundVolume(), 1.0f);
         }
 
         return bl;
@@ -268,7 +241,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     public void handleStatus(byte status) {
         if (status == EntityStatuses.PLAY_ATTACK_SOUND) {
             this.attackTicksLeft = 10;
-            this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, 1.0f, 1.0f);
+            this.playSound(SoundEvents.ENTITY_IRON_GOLEM_ATTACK, this.getSoundVolume(), 1.0f);
         } else {
             super.handleStatus(status);
         }
@@ -304,21 +277,11 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-        this.playSound(SoundEvents.ENTITY_IRON_GOLEM_STEP, 1.0f, 1.0f);
+        this.playSound(SoundEvents.ENTITY_IRON_GOLEM_STEP, this.getSoundVolume(), 1.0f);
     }
 
     /**
-     * Performs any operations immediately on death.
-     * @param damageSource Source of damage that killed this Entity
-     */
-    @Override
-    public void onDeath(DamageSource damageSource) {
-        super.onDeath(damageSource);
-    }
-
-    /**
-     * Gets whether this Entity can spawn at the passed-in WorldView location. Altered to disallow spawns
-     *  above y = -16.
+     * This method implementation directly copied from IronGolemEntity.
      * @param world The current WorldView (includes world position)
      * @return Whether this Entity can spawn at a given location
      */
@@ -326,11 +289,6 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     public boolean canSpawn(WorldView world) {
         BlockPos blockPos = this.getBlockPos();
         BlockPos blockPos2 = blockPos.down();
-
-        //Only valid spawn below y = -16.
-        //if (blockPos.getY() >= -16) return false;
-
-        //Remainder of original function below.
         BlockState blockState = world.getBlockState(blockPos2);
         if (blockState.hasSolidTopSurface(world, blockPos2, this)) {
             for (int i = 1; i < 3; ++i) {
@@ -344,19 +302,9 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         return false;
     }
 
-    @Override
-    public Vec3d getLeashOffset() {
-        return new Vec3d(0.0, 0.875f * this.getStandingEyeHeight(), this.getWidth() * 0.4f);
-    }
-
-
-
-
-
     /**
      * Performs per-tick operations of this Entity. Here, checks if this Entity has been unable to attack for
-     *  at least 3 seconds. If it hasn't, rolls a chance each tick to blind and slow all nearby LivingEntities
-     *  then teleport toward its affected target.
+     *  at least 3 seconds. If it hasn't, rolls a chance each tick to use special ability.
      */
     @Override
     public void tick() {
@@ -368,76 +316,70 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
             return;
         }
 
-        //If valid target, increment ticksSinceLastAttack and decrement teleportDelayTicks.
+        // If valid target, increment ticksSinceLastAttack and decrement abilityCooldownTicks.
         ticksSinceLastAttack++;
-        teleportDelayTicks--;
+        abilityCooldownTicks--;
 
-        //Then, if unable to attack for at least 3 seconds, roll chance per tick to do special attack.
-        if (ticksSinceLastAttack >= 60 && teleportDelayTicks <= 0) {
+        // Then, if unable to attack for at least 3 seconds and ability not on cooldown, try special ability.
+        if (ticksSinceLastAttack >= DEFAULT_LAST_ATTACK_TICKS_THRESHOLD && abilityCooldownTicks <= 0) {
             if (random.nextInt(100) == 0) {
-                //Roll 1% chance each tick to perform special attack.
-                blindAndSlowNearbyEntities();
+                // Roll 1% chance each tick to perform special attack.
+                rangedAttackNearbyPlayers();
 
-                //Teleport directly on top of target if unable to attack for more than 12s (240 ticks),
-                //  else teleport near the target.
-                teleportTowardTarget(this.getTarget(), ticksSinceLastAttack >= 240);
+                abilityCooldownTicks = DEFAULT_ABILITY_COOLDOWN_TICKS;
             }
         }
     }
 
     /**
-     * Applies Blindness and Slowness effects to all nearby LivingEntities and plays aggressive sound.
+     * Perform special ranged attack against all nearby PlayerEntities.
      */
-    private void blindAndSlowNearbyEntities() {
-        //Store xyz coordinates and get all entities within radius of this Entity.
-        double radius = 24.0;
-        double x = this.getX();
-        double y = this.getY();
-        double z = this.getZ();
-        List<Entity> entities = this.getWorld().getOtherEntities(this,
-                new Box(x - radius, y - radius, z - radius,
-                        x + radius, y + radius, z + radius));
+    private void rangedAttackNearbyPlayers() {
+        // Only run on server.
+        if (this.getWorld() instanceof ServerWorld) {
+            double radius = 24.0;
+            double x = this.getX();
+            double y = this.getY();
+            double z = this.getZ();
+            List<PlayerEntity> players = this.getWorld().getEntitiesByClass(PlayerEntity.class,
+                    new Box(x - radius, y - radius, z - radius,
+                            x + radius, y + radius, z + radius), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR);
 
-        //Play aggressive sound, then apply effects to all nearby LivingEntities.
-        this.playSound(SoundEvents.ENTITY_RAVAGER_ROAR, 1.0f, 1.0f);
-        for (Entity entity : entities) {
-            if (entity instanceof LivingEntity livingEntity) {
-                // Do not apply effect to creative mode players or other Obsidian Golems.
-                if (livingEntity instanceof PlayerEntity player && player.isCreative()) continue;
-                if (livingEntity instanceof ObsidianGolemEntity) continue;
+            // Play aggressive sound at full volume, then perform special ability.
+            this.playSound(SoundEvents.ENTITY_RAVAGER_ROAR, 1.0f, 1.0f);
+            for (PlayerEntity player : players) {
+                // Slow all nearby players at Level 3 intensity (45%) for 3s.
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60,
+                        2, false, false, true));
 
-                //Blind and slow ALL nearby LivingEntities regardless of whether angry at.
-                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 60));
-                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 1));
+                // Shoot a fireball at the player always, but if not visible, immediately damage and set on fire.
+                shootFireballAtPlayer(player);
+                if (!this.getVisibilityCache().canSee(player)) {
+                    player.damage(this.getDamageSources().mobAttackNoAggro(this),
+                            5.0f);      // Same damage as fireball.
+                    player.setOnFireFor(4);     // Same duration as fireball.
+                }
             }
         }
     }
 
     /**
-     * Teleports this Entity either toward or directly on top of the target, determined by parameter.
-     * @param target LivingEntity target of this Entity
-     * @param onTop Whether to teleport directly on top of the target
+     * Attempts to shoot a fireball at a visible PlayerEntity. Pulled largely from blaze fireball goal.
+     * @param player PlayerEntity to attempt to shoot the fireball at
      */
-    private void teleportTowardTarget(LivingEntity target, boolean onTop) {
-        if (onTop) {
-            //Teleport directly on top of target, +- 0.5 blocks.
-            teleport((random.nextDouble() - 0.5D) + target.getX(),
-                    target.getY() + 0.5D,
-                    (random.nextDouble() - 0.5D) + target.getZ());
-        } else {
-            //Else teleport to within 5 blocks of the target.
-            teleport((random.nextDouble() - 0.5D) + target.getX() + (random.nextInt(10) - 5),
-                    target.getY() + 2.5D,
-                    (random.nextDouble() - 0.5D) + target.getZ() + (random.nextInt(10) - 5));
-        }
+    private void shootFireballAtPlayer(PlayerEntity player) {
+        double xDist = player.getX() - this.getX();
+        double yDist = player.getBodyY(0.5) - this.getBodyY(0.5);
+        double zDist = player.getZ() - this.getZ();
 
-        //Should delay any attack after teleporting by 0.5s to not be overpowered.
-        if (this.isInAttackRange(target)) {
-            ticksSinceLastAttack = 20;  //Will attack at 30, so in 10 ticks
-        }
-
-        //Finally, set teleportDelayTicks to 100 (5 seconds) to prevent teleport spam.
-        teleportDelayTicks = 100;
+        // Create fireball velocity vector, then create fireball and shoot it at the PlayerEntity.
+        Vec3d vec3d = new Vec3d(xDist, yDist, zDist);
+        ModFireballEntity modFireballEntity = new ModFireballEntity(this.getWorld(), this, vec3d.normalize());
+        modFireballEntity.setPosition(
+                modFireballEntity.getX(),
+                this.getBodyY(0.5) + 0.5,
+                modFireballEntity.getZ());
+        this.getWorld().spawnEntity(modFireballEntity);
     }
 
 
@@ -449,7 +391,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     @Override
     public boolean canHaveStatusEffect(StatusEffectInstance effect) {
         StatusEffect statusEffect = effect.getEffectType();
-        return statusEffect != StatusEffects.POISON && statusEffect != StatusEffects.WITHER;
+        return statusEffect != StatusEffects.POISON;
     }
 
     /**
@@ -509,15 +451,6 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     @Override
     public boolean isFireImmune() {
         return true;
-    }
-
-    /**
-     * Gets whether this Entity should always render its display name.
-     * @return Whether it should render its display name
-     */
-    @Override
-    public boolean shouldRenderName() {
-        return false;
     }
 
     /**

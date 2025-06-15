@@ -15,6 +15,12 @@ public class ModCustomArrowEntity extends ArrowEntity {
     private boolean isSpectral;
     private final Consumer<LivingEntity> onHitMethod;
 
+    /**
+     * Instantiates a custom ArrowEntity, which allows explicitly overriding damage and on-hit effects.
+     * @param world World the arrow entity is being spawned within
+     * @param owner LivingEntity which is spawning this ArrowEntity
+     * @param tier EndgameTier this ArrowEntity is being spawned for, determines on-hit effect
+     */
     public ModCustomArrowEntity(World world, LivingEntity owner, ModItemUtils.EndgameTier tier) {
         super(world, owner);
         setDamage(3.0f);

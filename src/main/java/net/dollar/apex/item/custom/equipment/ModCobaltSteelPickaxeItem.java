@@ -15,6 +15,14 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ModCobaltSteelPickaxeItem extends PickaxeItem {
+    /**
+     * Instantiates a new Cobalt-Steel Pickaxe item. This class must remain distinct
+     *  from the other generic Endgame classes because it overrides getMiningSpeed().
+     * @param material ToolMaterial for this Item
+     * @param attackDamage Attack damage of this Item
+     * @param attackSpeed Attack speed of this Item
+     * @param settings Item.Settings for this Item
+     */
     public ModCobaltSteelPickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
