@@ -237,18 +237,19 @@ public class ModStareOrMoveGoal extends Goal {
             double lookTargetEyeY = lookTarget.getEyeY();
             mob.getLookControl().lookAt(lookTarget.getX(), lookTargetEyeY, lookTarget.getZ());
 
-            // Increment staringForTicks, then if greater than threshold, roll chance to get angry at target.
+            // Ensure that lookTarget is a PlayerEntity.
+            if (!(lookTarget instanceof PlayerEntity player)) return;
+
+            // If lookTarget is a player in creative or spectator mode, reset staringForTicks and return.
+            if (player.isCreative() || player.isSpectator()) {
+                staringForTicks = 0;
+                return;
+            }
+            // Else should tick down anger time, rolling chance if greater than threshold.
             staringForTicks++;
             if (staringForTicks > STARING_FOR_TICKS_ANGER_THRESHOLD) {
                 // Roll 1% chance per tick to get angry at.
                 if (mob.getRandom().nextInt(100) == 0) {
-                    // Ignore if target is creative or spectator player, also reset counter to stop rolling chance.
-                    if (lookTarget instanceof PlayerEntity player) {
-                        if (player.isCreative() || player.isSpectator()) {
-                            staringForTicks = 0;
-                            return;
-                        }
-                    }
 
                     // If now angry at, set target (makes angry) and play anger sound.
                     mob.setTarget(lookTarget);
