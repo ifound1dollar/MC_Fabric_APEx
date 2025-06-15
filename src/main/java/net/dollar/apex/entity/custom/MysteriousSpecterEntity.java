@@ -1,10 +1,12 @@
 package net.dollar.apex.entity.custom;
 
+import net.dollar.apex.entity.goal.ModMeleeAttackGoal;
 import net.dollar.apex.entity.goal.ModStareOrMoveGoal;
 import net.dollar.apex.item.ModItems;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.goal.LookAroundGoal;
+import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.goal.UniversalAngerGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -18,6 +20,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -40,11 +43,17 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     private UUID angryAt;
 
     private int ticksSinceLastAttack = 0;
+    private static final int DEFAULT_LAST_ATTACK_TICKS_THRESHOLD = 100;
     private int auraCounterTicks = 60;
+    private int abilityCooldownTicks;
+    private static final int DEFAULT_ABILITY_COOLDOWN_TICKS = 100;
     private final int textureID;
 
     public MysteriousSpecterEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
+        this.setStepHeight(1.0f);
+
+        abilityCooldownTicks = DEFAULT_ABILITY_COOLDOWN_TICKS;
 
         //Set textureID to a value between 0-4, which is used to determine which texture to render.
         textureID = world.random.nextInt(5);
@@ -66,7 +75,8 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
      */
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
+        this.goalSelector.add(1, new ModMeleeAttackGoal(this, 1.0, false,
+                40));
         this.goalSelector.add(8, new LookAroundGoal(this));
 
         this.targetSelector.add(2, new RevengeGoal(this));
@@ -85,9 +95,18 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 120)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.0)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 15.0)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 12.0)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 0.5)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 30f);
+    }
+
+    /**
+     * Gets the attack Box for this mob. Overridden to expand on the X and Z axes slightly.
+     * @return The attack Box for this mob.
+     */
+    @Override
+    protected Box getAttackBox() {
+        return super.getAttackBox().expand(0.1d, 0.0d, 0.1d);
     }
 
     /**
@@ -170,60 +189,36 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     }
 
     /**
-     * Returns the attack damage of this Entity.
-     * @return The Entity's attack damage
-     */
-    private float getAttackDamage() {
-        return (float)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
-    }
-
-    /**
      * Attempts to perform attack operations against the target.
      * @param target Target being attacked by this Entity
      * @return Whether the attack was successfully performed
      */
     @Override
     public boolean tryAttack(Entity target) {
-        //Verify it has been at least 20 ticks (1 second) since last attack.
-        if (ticksSinceLastAttack < 20) { return false; }
+        ticksSinceLastAttack = 0;
 
-        //Actual attack operation done here.
-        this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_ATTACK_SOUND);
-        float f = this.getAttackDamage();
-        float g = (int)f > 0 ? f / 2.0f + (float)this.random.nextInt((int)f) : f;
-        boolean bl = target.damage(this.getDamageSources().mobAttack(this), g);
-
-        //If damaging target was successful.
-        if (bl) {
+        // If default attack operation was successful, do special attack effects.
+        if (super.tryAttack(target)) {
             //Immediately reset attack counter and movement speed buff.
-            ticksSinceLastAttack = 0;
             resetMovementSpeed();
 
-            //REST OF BASE FUNCTION HERE.
-            double d;
+            //After applying damage effects and knockback, do special Mysterious Specter attack behaviors.
             if (target instanceof LivingEntity livingEntity) {
-                d = livingEntity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE);
-            } else {
-                d = 0.0;
-            }
-            double d2 = d;
-            double e = Math.max(0.0, 1.0 - d2);
-            target.setVelocity(target.getVelocity().add(0.0, (double)0.4f * e, 0.0));
-            this.applyDamageEffects(this, target);
-
-            //After applying damage effects and knockback, do special Obsidian Golem attack behaviors.
-            if (target instanceof LivingEntity livingEntity) {
-                //Roll chance to apply a negative effect to target here.
+                //Roll 50% chance to Wither the target here.
                 if (random.nextInt(100) < 50) {
                     //Increase Wither level based on missing Health (split into 3 parts, 33% HP each).
-                    livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 81,
-                            calcWitherStrength()));
+                    livingEntity.addStatusEffect(
+                            new StatusEffectInstance(StatusEffects.WITHER, 81, calcWitherStrength(),
+                                    false, false, true));
                 }
             }
+
+            // Play attack sound, then return success.
+            this.playSound(SoundEvents.ENTITY_RAVAGER_ATTACK, this.getSoundVolume(), 1.0f);
+            return true;
         }
 
-        this.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_STRONG, 1.0f, 1.0f);
-        return bl;
+        return false;
     }
 
     /**
@@ -281,25 +276,6 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         return 0.666f;  // Default is 1.0f.
     }
 
-    @Override
-    protected void playStepSound(BlockPos pos, BlockState state) {
-        //PLAY NO STEP SOUND.
-//        this.playSound(SoundEvents.ENTITY_IRON_GOLEM_STEP, 1.0f, 1.0f);
-    }
-
-    /**
-     * Performs any operations immediately on death.
-     * @param damageSource Source of damage that killed this Entity
-     */
-    @Override
-    public void onDeath(DamageSource damageSource) {
-        super.onDeath(damageSource);
-    }
-
-
-
-
-
     /**
      * Performs per-tick operations of this Entity. Here, checks if this Entity has been unable to attack for
      *  at least 3 seconds. If it hasn't, rolls a chance each tick to blind and slow all nearby LivingEntities
@@ -322,71 +298,99 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
             return;
         }
 
-        //If valid target, increment ticksSinceLastAttack.
+        // If valid target, increment ticksSinceLastAttack and decrement abilityCooldownTicks.
         ticksSinceLastAttack++;
+        abilityCooldownTicks--;
 
-        //Then, if unable to attack for at least 3 seconds, roll chance per tick to do special attack.
-        if (ticksSinceLastAttack >= 60) {
+        // Then, if unable to attack for at least 3 seconds and ability not on cooldown, try special ability.
+        if (ticksSinceLastAttack >= DEFAULT_LAST_ATTACK_TICKS_THRESHOLD && abilityCooldownTicks <= 0) {
             if (random.nextInt(100) == 0) {
                 //Roll 1% chance each tick to perform special attack.
-                weakenAndSlowNearbyEntities();
-
-                //Increase movement speed temporarily.
+                blindAndSlowNearbyPlayers();
                 increaseMovementSpeedTemporarily();
+
+                // If not able to attack for 7.5 seconds, apply Wither also.
+                if (ticksSinceLastAttack >= 150) {
+                    witherNearbyPlayers();
+                }
+
+                abilityCooldownTicks = DEFAULT_ABILITY_COOLDOWN_TICKS;
             }
         }
     }
 
     /**
-     * Applies the Weakness and Hunger effect to all nearby Entities.
+     * Applies the Weakness and Hunger effect to all nearby PlayerEntities.
      */
     private void applyWeaknessHungerAura() {
         double radius = 10.0;
         double x = this.getX();
         double y = this.getY();
         double z = this.getZ();
-        List<Entity> entities = this.getWorld().getOtherEntities(this,
+        List<PlayerEntity> players = this.getWorld().getEntitiesByClass(PlayerEntity.class,
                 new Box(x - radius, y - radius, z - radius,
-                        x + radius, y + radius, z + radius));
+                        x + radius, y + radius, z + radius), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR);
 
-        for (Entity entity : entities) {
-            if (entity instanceof LivingEntity livingEntity) {
-                // Do not apply effect to creative mode players or other Mysterious Specters.
-                if (livingEntity instanceof PlayerEntity player && player.isCreative()) continue;
-                if (livingEntity instanceof MysteriousSpecterEntity) continue;
-
-                //Apply lowest-level Weakness and Hunger to each entity for 10 seconds.
-                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 200, 0));
-                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 200, 0));
-            }
+        for (PlayerEntity player : players) {
+            // Apply lowest-level Weakness and Hunger to each player for 10 seconds.
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 200, 0,
+                    false, false, true));
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 200, 0,
+                    false, false, true));
         }
     }
 
     /**
-     * Applies Blindness and Slowness effects to all nearby LivingEntities and plays aggressive sound.
+     * Applies Darkness and Slowness effects to all nearby PlayerEntities and plays aggressive sound.
      */
-    private void weakenAndSlowNearbyEntities() {
+    private void blindAndSlowNearbyPlayers() {
         //Store xyz coordinates and get all entities within radius of this Entity.
         double radius = 24.0;
         double x = this.getX();
         double y = this.getY();
         double z = this.getZ();
-        List<Entity> entities = this.getWorld().getOtherEntities(this,
+        List<PlayerEntity> players = this.getWorld().getEntitiesByClass(PlayerEntity.class,
                 new Box(x - radius, y - radius, z - radius,
-                        x + radius, y + radius, z + radius));
+                        x + radius, y + radius, z + radius), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR);
 
         //Play aggressive sound, then apply effects to all nearby LivingEntities.
-        this.playSound(SoundEvents.ENTITY_RAVAGER_ROAR, 1.0f, 1.0f);
-        for (Entity entity : entities) {
-            if (entity instanceof LivingEntity livingEntity) {
-                // Do not apply effect to creative mode players or other Mysterious Specters.
-                if (livingEntity instanceof PlayerEntity player && player.isCreative()) continue;
-                if (livingEntity instanceof MysteriousSpecterEntity) continue;
+        switch (random.nextInt(3)) {
+            case 0 -> this.playSound(SoundEvents.ENTITY_ENDERMAN_SCREAM, this.getSoundVolume(), 1.0f);
+            case 1 -> this.playSound(SoundEvents.ENTITY_WARDEN_ANGRY, this.getSoundVolume(), 1.0f);
+            default -> this.playSound(SoundEvents.ENTITY_RAVAGER_ROAR, this.getSoundVolume(), 1.0f);
+        }
+        for (PlayerEntity player : players) {
+            // Blind (Darkness) and Slow ALL nearby players that are not creative or spectator mode.
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 1,
+                    false, false, true));
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 60, 0,
+                    false, false, true));
+        }
+    }
 
-                //Slow and Weaken ALL nearby LivingEntities regardless of whether angry at.
-                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 1));
-                livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 60));
-            }
+    /**
+     * Applies Wither effect to each nearby PlayerEntity.
+     */
+    private void witherNearbyPlayers() {
+        //Store xyz coordinates and get all entities within radius of this Entity.
+        double radius = 24.0;
+        double x = this.getX();
+        double y = this.getY();
+        double z = this.getZ();
+        List<PlayerEntity> players = this.getWorld().getEntitiesByClass(PlayerEntity.class,
+                new Box(x - radius, y - radius, z - radius,
+                        x + radius, y + radius, z + radius), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR);
+
+//        // Wither effect intensity should scale up with duration.
+//        // Should increase by one level per 6 seconds, -1 to apply intensity 0 at first.
+//        int intensity = (ticksSinceLastAttack / 120) - 1;
+//        intensity = Math.min(intensity, 2);     // Cap at intensity 2 (Level 3 Wither).
+
+        // Apply effect to each player, strength clamped to mob health percentage.
+        int intensity = calcWitherStrength();
+        for (PlayerEntity player : players) {
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 81, intensity,
+                    false, false, true));
         }
     }
 
@@ -394,10 +398,13 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
      * Increases Entity's movement speed for a duration using the Speed status effect.
      */
     private void increaseMovementSpeedTemporarily() {
-        //Add Speed effect at level 5 (20% * level), so double speed, for 1200 ticks (60 seconds).
-        if (!this.hasStatusEffect(StatusEffects.SPEED)) {
-            this.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1200, 4));
-        }
+        // Add Speed effect at Level 3 (20% * level), so 60% bonus speed, for 1200 ticks (60 seconds).
+        // This will upgrade an existing lower-strength Speed effect, if active.
+        this.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1200, 2,
+                false, false));
+
+        // Also remove Slowness effect if active.
+        this.removeStatusEffect(StatusEffects.SLOWNESS);
     }
 
     /**
@@ -482,17 +489,6 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     public boolean isFireImmune() {
         return true;
     }
-
-    /**
-     * Gets whether this Entity should always render its display name.
-     * @return Whether it should render its display name
-     */
-    @Override
-    public boolean shouldRenderName() {
-        return false;
-    }
-
-
 
     /**
      * Checks whether a spawn attempt is valid, specifically whether it is below a specific y-value.

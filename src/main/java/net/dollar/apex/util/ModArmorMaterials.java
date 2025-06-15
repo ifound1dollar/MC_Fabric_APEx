@@ -10,6 +10,10 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import java.util.function.Supplier;
 
+/**
+ * Defines ArmorMaterials for each of the new equipment tiers (Bronze, Gilded Bronze,
+ *  Cobalt-Steel, Infused Gemstone, and Tungsten-Carbide).
+ */
 public enum ModArmorMaterials implements ArmorMaterial {
     //NETHERITE: 37, {3,8,6,3}, 15, 3.0, 0.1
     BRONZE("bronze",
