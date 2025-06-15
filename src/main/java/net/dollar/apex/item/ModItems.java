@@ -2,7 +2,10 @@ package net.dollar.apex.item;
 
 import net.dollar.apex.ModMain;
 import net.dollar.apex.entity.ModEntities;
-import net.dollar.apex.item.custom.*;
+import net.dollar.apex.item.custom.ModBattleaxeItem;
+import net.dollar.apex.item.custom.ModCustomItem;
+import net.dollar.apex.item.custom.ModGildedBronzeArmorItem;
+import net.dollar.apex.item.custom.ModPaxelItem;
 import net.dollar.apex.item.custom.equipment.*;
 import net.dollar.apex.item.custom.ranged.ModEndgameBowItem;
 import net.dollar.apex.item.custom.ranged.ModEndgameCrossbowItem;
@@ -30,9 +33,9 @@ public class ModItems {
     //region Trophy items
     //Set maxCount here instead of in the item class.
     public static final Item TROPHY_OBSIDIAN_DUST = registerItem("trophy_obsidian_dust",
-            new ModTrophyItem(new Item.Settings().maxCount(1)));
+            new ModCustomItem(new Item.Settings().maxCount(1), "tooltip.trophy_item", false));
     public static final Item TROPHY_OMINOUS_LETTER = registerItem("trophy_ominous_letter",
-            new ModTrophyItem(new Item.Settings().maxCount(1)));
+            new ModCustomItem(new Item.Settings().maxCount(1), "tooltip.trophy_item", false));
 
     //endregion
 
