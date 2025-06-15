@@ -16,6 +16,10 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.function.Supplier;
 
+/**
+ * Defines ArmorMaterials for each of the new equipment tiers (Bronze, Gilded Bronze,
+ *  Cobalt-Steel, Infused Gemstone, and Tungsten-Carbide).
+ */
 public class ModArmorMaterials {
     public static final RegistryEntry<ArmorMaterial> BRONZE = register("bronze", Util.make(
             new EnumMap<>(ArmorItem.Type.class), (map) -> {

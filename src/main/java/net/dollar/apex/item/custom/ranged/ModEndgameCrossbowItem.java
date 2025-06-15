@@ -19,13 +19,19 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 /**
- * Corresponds specifically to the Cobalt-Steel Crossbow item. Overrides and creates new methods to generate
- *  a custom arrow entity for special on-hit behavior.
+ * Corresponds to an endgame-tier Crossbow item. Spawns a custom ArrowEntity which
+ *  deals bonus damage and applies an effect on-hit.
  */
 public class ModEndgameCrossbowItem extends CrossbowItem {
     private final ModItemUtils.EndgameTier endgameTier;
     private final BiConsumer<List<Text>, ModItemUtils.EquipmentType> tooltipMethod;
 
+    /**
+     * Instantiates a new endgame-tier Crossbow item for the passed-in EndgameTier. Spawns
+     *  a custom ArrowEntity when fired which deals bonus damage and applies an effect on-hit.
+     * @param tier EndgameTier for this Crossbow item
+     * @param settings Item.Settings for this Crossbow item
+     */
     public ModEndgameCrossbowItem(ModItemUtils.EndgameTier tier, Settings settings) {
         super(settings);
 

@@ -30,10 +30,9 @@ public class ModItems {
     //region Trophy items
     //Set maxCount here instead of in the item class.
     public static final Item TROPHY_OBSIDIAN_DUST = registerItem("trophy_obsidian_dust",
-            new ModTrophyItem(new Item.Settings().maxCount(1)));
+            new ModCustomItem(new Item.Settings().maxCount(1), "tooltip.trophy_item", false));
     public static final Item TROPHY_OMINOUS_LETTER = registerItem("trophy_ominous_letter",
-            new ModTrophyItem(new Item.Settings().maxCount(1)));
-
+            new ModCustomItem(new Item.Settings().maxCount(1), "tooltip.trophy_item", false));
     //endregion
 
     //region Raw Items, Gems, Compounds
