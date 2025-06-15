@@ -18,10 +18,20 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.BiConsumer;
 
+/**
+ * Corresponds to an endgame-tier Bow item. Spawns a custom ArrowEntity which
+ *  deals bonus damage and applies an effect on-hit.
+ */
 public class ModEndgameBowItem extends BowItem {
     private final ModItemUtils.EndgameTier endgameTier;
     private final BiConsumer<List<Text>, ModItemUtils.EquipmentType> tooltipMethod;
 
+    /**
+     * Instantiates a new endgame-tier Bow item for the passed-in EndgameTier. Spawns
+     *  a custom ArrowEntity when fired which deals bonus damage and applies an effect on-hit.
+     * @param tier EndgameTier for this Bow item
+     * @param settings Item.Settings for this Bow item
+     */
     public ModEndgameBowItem(ModItemUtils.EndgameTier tier, Settings settings) {
         super(settings);
 

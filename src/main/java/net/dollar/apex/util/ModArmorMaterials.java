@@ -8,6 +8,10 @@ import net.minecraft.util.Util;
 
 import java.util.EnumMap;
 
+/**
+ * Defines ArmorMaterials for each of the new equipment tiers (Bronze, Gilded Bronze,
+ *  Cobalt-Steel, Infused Gemstone, and Tungsten-Carbide).
+ */
 public interface ModArmorMaterials {
     ArmorMaterial BRONZE = new ArmorMaterial(15, Util.make(
             new EnumMap<>(EquipmentType.class), (map) -> {
