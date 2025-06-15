@@ -7,6 +7,10 @@ import net.minecraft.recipe.Ingredient;
 
 import java.util.function.Supplier;
 
+/**
+ * Defines ToolMaterials for each of the new equipment tiers (Bronze, Gilded Bronze,
+ *  Cobalt-Steel, Infused Gemstone, and Tungsten-Carbide).
+ */
 public enum ModToolMaterials implements ToolMaterial {
     //NETHERITE: 4, 2031, 9, 4.0f, 15
     BRONZE(2,

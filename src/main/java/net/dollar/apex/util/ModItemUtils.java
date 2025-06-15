@@ -23,13 +23,13 @@ public class ModItemUtils {
 
 
     /**
-     * Creates a custom arrow entity specific to the Steel, Infused Gemstone, Netherite, or Tungsten-Carbide
-     *  bows/crossbows. Each is of a custom ArrowEntity class with special onHit() functionality.
-     * @param world Active world
+     * Creates a custom arrow entity specific to the Cobalt-Steel, Infused Gemstone, or Tungsten-Carbide
+     *  Bow/Crossbow. Each is of a custom ArrowEntity class with special onHit() functionality.
+     * @param world Active world the arrow is being fired within
      * @param shooter LivingEntity firing the weapon
      * @param arrowStack ItemStack where the arrow is pulled from (used for Spectral/Tipped behavior)
-     * @param tier Enum determining which of the four bow/crossbow types to spawn the ArrowEntity for
-     * @return The newly created custom PersistentProjectileEntity
+     * @param tier Enum determining which endgame tier type the arrow corresponds to
+     * @return The newly created custom PersistentProjectileEntity.
      */
     public static PersistentProjectileEntity createCustomArrow(World world, LivingEntity shooter,
                                                                ItemStack arrowStack, EndgameTier tier) {
