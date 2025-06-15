@@ -14,6 +14,11 @@ import net.minecraft.text.Text;
 import java.util.List;
 
 public class ModCobaltSteelPaxelItem extends ModPaxelItem {
+    /**
+     * Instantiates a new Cobalt-Steel Paxel item. This class must remain distinct
+     *  from the other generic Endgame classes because it overrides getMiningSpeed().
+     * @param settings Item.Settings for this Paxel item
+     */
     public ModCobaltSteelPaxelItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }

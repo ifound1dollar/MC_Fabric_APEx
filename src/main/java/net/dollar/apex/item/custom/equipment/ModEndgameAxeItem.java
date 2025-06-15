@@ -16,6 +16,14 @@ public class ModEndgameAxeItem extends AxeItem {
     private final Consumer<LivingEntity> onHitMethod;
     private final BiConsumer<List<Text>, ModItemUtils.EquipmentType> tooltipMethod;
 
+    /**
+     * Instantiates a new AxeItem for one of the new endgame tiers.
+     * @param material ToolMaterial for this Item
+     * @param attackDamage Attack damage of this Item
+     * @param attackSpeed Attack speed of this Item
+     * @param settings Item.Settings for with this Item
+     * @param tier EndgameTier determining on-hit behavior and tooltip text
+     */
     public ModEndgameAxeItem(ToolMaterial material, float attackDamage, float attackSpeed,
                              ModItemUtils.EndgameTier tier, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);

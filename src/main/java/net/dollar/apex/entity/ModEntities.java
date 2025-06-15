@@ -11,7 +11,9 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
-
+/**
+ * Class responsible for defining and registering mob entities for this mod.
+ */
 public class ModEntities {
     private static final RegistryKey<EntityType<?>> obsidianGolemKey = RegistryKey.of(
             RegistryKeys.ENTITY_TYPE, Identifier.of(ModMain.MOD_ID, "obsidian_golem"));
@@ -21,7 +23,7 @@ public class ModEntities {
     public static final EntityType<ObsidianGolemEntity> OBSIDIAN_GOLEM = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(ModMain.MOD_ID, "obsidian_golem"),
             EntityType.Builder.create(ObsidianGolemEntity::new, SpawnGroup.MONSTER)
-                    .dimensions(1.67f, 3.33f)
+                    .dimensions(1.4f, 2.7f)
                     .build(obsidianGolemKey));
 
     public static final EntityType<MysteriousSpecterEntity> MYSTERIOUS_SPECTER = Registry.register(Registries.ENTITY_TYPE,
