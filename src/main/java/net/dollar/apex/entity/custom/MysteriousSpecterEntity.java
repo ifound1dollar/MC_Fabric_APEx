@@ -265,6 +265,9 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     public void tick() {
         super.tick();
 
+        // Only run tick behavior on server.
+        if (!(this.getWorld() instanceof ServerWorld serverWorld)) return;
+
         //Decrement aura counter, then if <= 0, do aura and reset counter.
         auraCounterTicks--;
         if (auraCounterTicks <= 0) {
@@ -291,7 +294,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
 
                 // If not able to attack for 7.5 seconds, apply Wither also.
                 if (ticksSinceLastAttack >= 150) {
-                    witherNearbyPlayers();
+                    witherAndDamageNearbyPlayers(serverWorld);
                 }
 
                 abilityCooldownTicks = DEFAULT_ABILITY_COOLDOWN_TICKS;
@@ -351,7 +354,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     /**
      * Applies Wither effect to each nearby PlayerEntity.
      */
-    private void witherNearbyPlayers() {
+    private void witherAndDamageNearbyPlayers(ServerWorld serverWorld) {
         //Store xyz coordinates and get all entities within radius of this Entity.
         double radius = 24.0;
         double x = this.getX();
@@ -371,6 +374,9 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         for (PlayerEntity player : players) {
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 81, intensity,
                     false, false, true));
+
+            // Also deal instant damage for parity with Obsidian Golem special attack.
+            player.damage(serverWorld, this.getDamageSources().mobAttack(this), 5.0f);
         }
     }
 

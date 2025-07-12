@@ -324,6 +324,9 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     public void tick() {
         super.tick();
 
+        // Only run tick behavior on server.
+        if (!(this.getWorld() instanceof ServerWorld serverWorld)) return;
+
         //If there is no target, ensure that ticksSinceLastAttack remains at 0 and return.
         if (this.getTarget() == null) {
             ticksSinceLastAttack = 0;
@@ -338,7 +341,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         if (ticksSinceLastAttack >= DEFAULT_LAST_ATTACK_TICKS_THRESHOLD && abilityCooldownTicks <= 0) {
             if (random.nextInt(100) == 0) {
                 // Roll 1% chance each tick to perform special attack.
-                rangedAttackNearbyPlayers();
+                rangedAttackNearbyPlayers(serverWorld);
 
                 abilityCooldownTicks = DEFAULT_ABILITY_COOLDOWN_TICKS;
             }
@@ -347,32 +350,30 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
 
     /**
      * Perform special ranged attack against all nearby PlayerEntities.
+     * @param serverWorld Active ServerWorld this mob currently exists within.
      */
-    private void rangedAttackNearbyPlayers() {
-        // Only run on server, and cast getWorld() to ServerWorld inline.
-        if (this.getWorld() instanceof ServerWorld serverWorld) {
-            double radius = 24.0;
-            double x = this.getX();
-            double y = this.getY();
-            double z = this.getZ();
-            List<PlayerEntity> players = this.getWorld().getEntitiesByClass(PlayerEntity.class,
-                    new Box(x - radius, y - radius, z - radius,
-                            x + radius, y + radius, z + radius), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR);
+    private void rangedAttackNearbyPlayers(ServerWorld serverWorld) {
+        double radius = 24.0;
+        double x = this.getX();
+        double y = this.getY();
+        double z = this.getZ();
+        List<PlayerEntity> players = this.getWorld().getEntitiesByClass(PlayerEntity.class,
+                new Box(x - radius, y - radius, z - radius,
+                        x + radius, y + radius, z + radius), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR);
 
-            // Play aggressive sound at full volume, then perform special ability.
-            this.playSound(SoundEvents.ENTITY_RAVAGER_ROAR);
-            for (PlayerEntity player : players) {
-                // Slow all nearby players at Level 3 intensity (45%) for 3s.
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60,
-                        2, false, false, true));
+        // Play aggressive sound at full volume, then perform special ability.
+        this.playSound(SoundEvents.ENTITY_RAVAGER_ROAR);
+        for (PlayerEntity player : players) {
+            // Slow all nearby players at Level 3 intensity (45%) for 3s.
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60,
+                    2, false, false, true));
 
-                // Shoot a fireball at the player always, but if not visible, immediately damage and set on fire.
-                shootFireballAtPlayer(player);
-                if (!this.getVisibilityCache().canSee(player)) {
-                    player.damage(serverWorld, this.getDamageSources().mobAttackNoAggro(this),
-                            5.0f);      // Same damage as fireball.
-                    player.setOnFireFor(4);     // Same duration as fireball.
-                }
+            // Shoot a fireball at the player always, but if not visible, immediately damage and set on fire.
+            shootFireballAtPlayer(player);
+            if (!this.getVisibilityCache().canSee(player)) {
+                player.damage(serverWorld, this.getDamageSources().mobAttackNoAggro(this),
+                        5.0f);      // Same damage as fireball.
+                player.setOnFireFor(4);     // Same duration as fireball.
             }
         }
     }
