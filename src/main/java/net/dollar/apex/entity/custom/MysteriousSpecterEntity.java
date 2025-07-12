@@ -279,6 +279,9 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     public void tick() {
         super.tick();
 
+        // Only run tick behavior on server.
+        if (!(this.getWorld() instanceof ServerWorld)) return;
+
         //Decrement aura counter, then if <= 0, do aura and reset counter.
         auraCounterTicks--;
         if (auraCounterTicks <= 0) {
@@ -385,6 +388,9 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         for (PlayerEntity player : players) {
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 81, intensity,
                     false, false, true));
+
+            // Also deal instant damage for parity with Obsidian Golem special attack.
+            player.damage(this.getDamageSources().mobAttack(this), 5.0f);
         }
     }
 
