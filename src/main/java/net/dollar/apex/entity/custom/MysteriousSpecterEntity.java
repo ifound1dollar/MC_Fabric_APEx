@@ -215,6 +215,9 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
                 }
             }
 
+            // Heal the Mysterious Specter for 1 heart (2 health) on each successful attack.
+            this.setHealth(this.getHealth() + 2.0f);
+
             return true;
         }
 
