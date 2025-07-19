@@ -13,7 +13,7 @@ public class ModEntityGeneration {
     public static void addSpawns() {
         //Regular mob weights (Skeleton, Spider, etc.) are 100 but don't have heightmap restrictions.
         BiomeModifications.addSpawn(BiomeSelectors.foundInOverworld(), SpawnGroup.MONSTER,
-                ModEntities.OBSIDIAN_GOLEM, 300, 1, 1);
+                ModEntities.OBSIDIAN_GOLEM, 225, 1, 1);
         SpawnRestriction.register(ModEntities.OBSIDIAN_GOLEM, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ObsidianGolemEntity::checkObsidianGolemSpawnRules);
 

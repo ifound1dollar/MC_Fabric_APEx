@@ -214,6 +214,9 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
                 }
             }
 
+            // Heal the Mysterious Specter for 1 heart (2 health) on each successful attack.
+            this.setHealth(this.getHealth() + 2.0f);
+
             // Play attack sound, then return success.
             this.playSound(SoundEvents.ENTITY_RAVAGER_ATTACK, this.getSoundVolume(), 1.0f);
             return true;
