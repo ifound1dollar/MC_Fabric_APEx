@@ -16,7 +16,7 @@ public class MysteriousSpecterRenderer
 
     public MysteriousSpecterRenderer(EntityRendererFactory.Context context) {
         super(context, new MysteriousSpecterModel<>(context.getPart(ModModelLayers.MYSTERIOUS_SPECTER)),
-                0.6f);
+                0.0f);
     }
 
 
