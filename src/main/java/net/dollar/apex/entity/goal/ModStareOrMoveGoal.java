@@ -131,7 +131,8 @@ public class ModStareOrMoveGoal extends Goal {
                     lookTargetPredicate, mob, mob.getX(), mob.getEyeY(), mob.getZ());
         }
 
-        return (lookTarget != null);
+        // Return true if lookTarget is non-null and is NOT a spectator mode player.
+        return ((lookTarget != null) && (!lookTarget.isSpectator()));
     }
 
     /**
@@ -139,8 +140,15 @@ public class ModStareOrMoveGoal extends Goal {
      * @return True if the lookTarget Entity is valid.
      */
     protected boolean checkLookTargetIsValid() {
-        return (lookTarget != null && lookTarget.isAlive()
-                && (mob.squaredDistanceTo(lookTarget) <= lookRangeSquared));
+        if (lookTarget != null && lookTarget.isAlive()) {
+            // Do not look at spectator mode players.
+            if (lookTarget.isSpectator()) return false;
+
+            // Return true if lookTarget is within look range.
+            return (mob.squaredDistanceTo(lookTarget) <= lookRangeSquared);
+        }
+
+        return false;
     }
 
     /**
@@ -222,8 +230,8 @@ public class ModStareOrMoveGoal extends Goal {
     }
 
     /**
-     * Runs per-tick operations for this Goal. This method is only necessary for looking, as
-     *  movement uses a navigation component to move (not this Goal directly).
+     * Runs per-tick operations for this Goal. This method is only relevant for looking
+     *  and determining whether to get angry at.
      */
     @Override
     public void tick() {
@@ -235,30 +243,41 @@ public class ModStareOrMoveGoal extends Goal {
             // Ensure that lookTarget is a PlayerEntity.
             if (!(lookTarget instanceof PlayerEntity player)) return;
 
-            // If lookTarget is a player in creative or spectator mode, reset staringForTicks and return.
-            if (player.isCreative() || player.isSpectator()) {
+            // If lookTarget is a player in creative mode, reset staringForTicks and return.
+            if (player.isCreative()) {
                 staringForTicks = 0;
                 return;
             }
             // Else should tick down anger time, rolling chance if greater than threshold.
             staringForTicks++;
             if (staringForTicks > STARING_FOR_TICKS_ANGER_THRESHOLD) {
-                // Roll 1% chance per tick to get angry at.
-                if (mob.getRandom().nextInt(100) == 0) {
-
-                    // If now angry at, set target (makes angry) and play anger sound.
-                    mob.setTarget(lookTarget);
-                    mob.playSound(SoundEvents.ENTITY_RAVAGER_ROAR);
-
-                    // Add Speed effect on aggro for an exciting start, also removing Slowness if active.
-                    mob.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1200, 2,
-                            false, false));     // 60% movement speed bonus, 20% per level.
-                    mob.removeStatusEffect(StatusEffects.SLOWNESS);
-
-                    // Stop the goal, must be called AFTER setting target because stop() nullifies lookTarget.
-                    stop();
-                }
+                doAngerAtTargetChance();
             }
+        }
+    }
+
+    /**
+     * Rolls a 1% chance each tick to get angry at the current lookTarget. Can only get
+     *  angry at targets that are visible (ex. not behind a wall inside a structure).
+     */
+    private void doAngerAtTargetChance() {
+        // If lookTarget is not visible (ex. behind block, inside a structure), do not get angry.
+        if (!mob.canSee(lookTarget)) return;
+
+        // Roll 1% chance per tick to get angry at.
+        if (mob.getRandom().nextInt(100) == 0) {
+
+            // If now angry at, set target (makes angry) and play anger sound.
+            mob.setTarget(lookTarget);
+            mob.playSound(SoundEvents.ENTITY_RAVAGER_ROAR);
+
+            // Add Speed effect on aggro for an exciting start, also removing Slowness if active.
+            mob.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1200, 2,
+                    false, false));     // 60% movement speed bonus, 20% per level.
+            mob.removeStatusEffect(StatusEffects.SLOWNESS);
+
+            // Stop the goal, must be called AFTER setting target because stop() nullifies lookTarget.
+            stop();
         }
     }
 }
