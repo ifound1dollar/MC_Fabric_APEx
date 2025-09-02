@@ -82,7 +82,7 @@ public class ModMeleeAttackGoal extends Goal {
         } else if (!this.pauseWhenMobIdle) {
             return !this.mob.getNavigation().isIdle();
         } else {
-            return this.mob.isInWalkTargetRange(livingEntity.getBlockPos())
+            return this.mob.isInPositionTargetRange(livingEntity.getBlockPos())
                     && !(livingEntity instanceof PlayerEntity playerEntity
                     && (playerEntity.isSpectator() || playerEntity.isCreative()));
         }

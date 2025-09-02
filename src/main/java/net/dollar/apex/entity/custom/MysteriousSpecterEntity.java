@@ -19,12 +19,13 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -120,15 +121,15 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     }
 
     @Override
-    public void writeCustomDataToNbt(NbtCompound nbt) {
-        super.writeCustomDataToNbt(nbt);
-        this.writeAngerToNbt(nbt);
+    protected void writeCustomData(WriteView view) {
+        super.writeCustomData(view);
+        this.writeAngerToData(view);
     }
 
     @Override
-    public void readCustomDataFromNbt(NbtCompound nbt) {
-        super.readCustomDataFromNbt(nbt);
-        this.readAngerFromNbt(this.getWorld(), nbt);
+    public void readCustomData(ReadView view) {
+        super.readCustomData(view);
+        this.readAngerFromData(this.getWorld(), view);
     }
 
     /**
