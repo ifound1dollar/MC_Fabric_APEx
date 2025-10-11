@@ -3,7 +3,7 @@ package net.dollar.apex.mixin;
 import net.dollar.apex.util.MixinUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.item.HeldItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.CrossbowItem;
@@ -46,12 +46,12 @@ public class MixinHeldItemRenderer {
 	 * @param item ItemStack of the held Item
 	 * @param equipProgress Current equip progress
 	 * @param matrices MatrixStack for transform
-	 * @param vertexConsumers ???
+	 * @param orderedRenderCommandQueue ???
 	 * @param light Light level which affects render brightness
 	 * @param ci CallbackInfo object used by mixins
 	 */
 	@Inject(at = @At("HEAD"), method = "renderFirstPersonItem", cancellable = true)
-	private void injectHeadRenderFirstPersonItem(AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
+	private void injectHeadRenderFirstPersonItem(AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, OrderedRenderCommandQueue orderedRenderCommandQueue, int light, CallbackInfo ci) {
 		if (item.getItem() instanceof CrossbowItem) {
 			//Variables used in the vanilla function, also push a new matrix entry for this use ONLY (popped later).
 			boolean bl = hand == Hand.MAIN_HAND;
@@ -98,7 +98,7 @@ public class MixinHeldItemRenderer {
 
 			//Perform a chain of calls to get the current HeldItemRenderer object, allowing using its renderItem().
 			HeldItemRenderer renderer = MinecraftClient.getInstance().getEntityRenderDispatcher().getHeldItemRenderer();
-			renderer.renderItem(player, item, bl3 ? ItemDisplayContext.FIRST_PERSON_RIGHT_HAND : ItemDisplayContext.FIRST_PERSON_LEFT_HAND, matrices, vertexConsumers, light);
+			renderer.renderItem(player, item, bl3 ? ItemDisplayContext.FIRST_PERSON_RIGHT_HAND : ItemDisplayContext.FIRST_PERSON_LEFT_HAND, matrices, orderedRenderCommandQueue, light);
 
 			//Pop the previously-added matrix entry.
 			matrices.pop();

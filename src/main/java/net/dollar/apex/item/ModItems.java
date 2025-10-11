@@ -18,10 +18,12 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     //region Misc.
     public static final Item OBSIDIAN_GOLEM_SPAWN_EGG = registerItem("obsidian_golem_spawn_egg",
-            new SpawnEggItem(ModEntities.OBSIDIAN_GOLEM, new Item.Settings()
+            new SpawnEggItem(new Item.Settings()
+                    .spawnEgg(ModEntities.OBSIDIAN_GOLEM)
                     .registryKey(generateItemKey("obsidian_golem_spawn_egg"))));
     public static final Item MYSTERIOUS_SPECTER_SPAWN_EGG = registerItem("mysterious_specter_spawn_egg",
-            new SpawnEggItem(ModEntities.MYSTERIOUS_SPECTER, new Item.Settings()
+            new SpawnEggItem(new Item.Settings()
+                    .spawnEgg(ModEntities.MYSTERIOUS_SPECTER)
                     .registryKey(generateItemKey("mysterious_specter_spawn_egg"))));
     public static final Item FERTILIZER = registerItem("fertilizer",
             new BoneMealItem((new Item.Settings().registryKey(generateItemKey("fertilizer")))));

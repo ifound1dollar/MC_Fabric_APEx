@@ -31,7 +31,7 @@ public class ModFireballEntity extends SmallFireballEntity {
         //  been set to 4s (from 5s). Also, the local Entity variables have been renamed.
         super.onEntityHit(entityHitResult);
 
-        if (this.getWorld() instanceof ServerWorld serverWorld) {
+        if (this.getEntityWorld() instanceof ServerWorld serverWorld) {
             Entity hitEntity = entityHitResult.getEntity();
             Entity ownerEntity = this.getOwner();
 

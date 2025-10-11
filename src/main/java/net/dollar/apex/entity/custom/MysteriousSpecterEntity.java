@@ -115,8 +115,8 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     public void tickMovement() {
         super.tickMovement();
 
-        if (!this.getWorld().isClient) {
-            this.tickAngerLogic((ServerWorld)this.getWorld(), true);
+        if (!this.getEntityWorld().isClient()) {
+            this.tickAngerLogic((ServerWorld)this.getEntityWorld(), true);
         }
     }
 
@@ -129,7 +129,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     @Override
     public void readCustomData(ReadView view) {
         super.readCustomData(view);
-        this.readAngerFromData(this.getWorld(), view);
+        this.readAngerFromData(this.getEntityWorld(), view);
     }
 
     /**
@@ -270,7 +270,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         super.tick();
 
         // Only run tick behavior on server.
-        if (!(this.getWorld() instanceof ServerWorld serverWorld)) return;
+        if (!(this.getEntityWorld() instanceof ServerWorld serverWorld)) return;
 
         //Decrement aura counter, then if <= 0, do aura and reset counter.
         auraCounterTicks--;
@@ -314,7 +314,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         double x = this.getX();
         double y = this.getY();
         double z = this.getZ();
-        List<PlayerEntity> players = this.getWorld().getEntitiesByClass(PlayerEntity.class,
+        List<PlayerEntity> players = this.getEntityWorld().getEntitiesByClass(PlayerEntity.class,
                 new Box(x - radius, y - radius, z - radius,
                         x + radius, y + radius, z + radius), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR);
 
@@ -336,7 +336,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         double x = this.getX();
         double y = this.getY();
         double z = this.getZ();
-        List<PlayerEntity> players = this.getWorld().getEntitiesByClass(PlayerEntity.class,
+        List<PlayerEntity> players = this.getEntityWorld().getEntitiesByClass(PlayerEntity.class,
                 new Box(x - radius, y - radius, z - radius,
                         x + radius, y + radius, z + radius), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR);
 
@@ -365,7 +365,7 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
         double x = this.getX();
         double y = this.getY();
         double z = this.getZ();
-        List<PlayerEntity> players = this.getWorld().getEntitiesByClass(PlayerEntity.class,
+        List<PlayerEntity> players = this.getEntityWorld().getEntitiesByClass(PlayerEntity.class,
                 new Box(x - radius, y - radius, z - radius,
                         x + radius, y + radius, z + radius), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR);
 

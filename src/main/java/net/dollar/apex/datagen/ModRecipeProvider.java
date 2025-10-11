@@ -276,7 +276,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion("has_tin_ingot", conditionsFromTag(ModTags.Items.COMMON_TIN_INGOTS))
                         .offerTo(exporter, RegistryKey.of(
                                 RegistryKeys.RECIPE, Identifier.of(ModMain.MOD_ID, "compass_from_tin_ingot")));
-                createShaped(RecipeCategory.MISC, Items.CHAIN, 1)
+                createShaped(RecipeCategory.MISC, Items.IRON_CHAIN, 1)
                         .input('d', ModItems.TIN_NUGGET)
                         .input('i', ModTags.Items.COMMON_TIN_INGOTS)
                         .pattern("d")

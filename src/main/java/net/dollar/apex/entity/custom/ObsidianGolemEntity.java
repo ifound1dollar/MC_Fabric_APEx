@@ -130,8 +130,8 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
             --this.attackTicksLeft;
         }
 
-        if (!this.getWorld().isClient) {
-            this.tickAngerLogic((ServerWorld)this.getWorld(), true);
+        if (!this.getEntityWorld().isClient()) {
+            this.tickAngerLogic((ServerWorld)this.getEntityWorld(), true);
         }
     }
 
@@ -144,7 +144,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     @Override
     public void readCustomData(ReadView view) {
         super.readCustomData(view);
-        this.readAngerFromData(this.getWorld(), view);
+        this.readAngerFromData(this.getEntityWorld(), view);
     }
 
     /**
@@ -332,7 +332,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         super.tick();
 
         // Only run tick behavior on server.
-        if (!(this.getWorld() instanceof ServerWorld serverWorld)) return;
+        if (!(this.getEntityWorld() instanceof ServerWorld serverWorld)) return;
 
         //If there is no target, ensure that ticksSinceLastAttack remains at 0 and return.
         if (this.getTarget() == null) {
@@ -364,7 +364,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         double x = this.getX();
         double y = this.getY();
         double z = this.getZ();
-        List<PlayerEntity> players = this.getWorld().getEntitiesByClass(PlayerEntity.class,
+        List<PlayerEntity> players = this.getEntityWorld().getEntitiesByClass(PlayerEntity.class,
                 new Box(x - radius, y - radius, z - radius,
                         x + radius, y + radius, z + radius), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR);
 
@@ -396,12 +396,12 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
 
         // Create fireball velocity vector, then create fireball and shoot it at the PlayerEntity.
         Vec3d vec3d = new Vec3d(xDist, yDist, zDist);
-        ModFireballEntity modFireballEntity = new ModFireballEntity(this.getWorld(), this, vec3d.normalize());
+        ModFireballEntity modFireballEntity = new ModFireballEntity(this.getEntityWorld(), this, vec3d.normalize());
         modFireballEntity.setPosition(
                 modFireballEntity.getX(),
                 this.getBodyY(0.5) + 0.5,
                 modFireballEntity.getZ());
-        this.getWorld().spawnEntity(modFireballEntity);
+        this.getEntityWorld().spawnEntity(modFireballEntity);
     }
 
     /**
@@ -435,7 +435,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
             ItemStack heldItem = playerEntity.getEquippedStack(EquipmentSlot.MAINHAND);
 
             //If heldItem is a Tungsten-Carbide Battleaxe with Sharpness V.
-            RegistryWrapper.Impl<Enchantment> impl = this.getWorld().getRegistryManager().getOrThrow(RegistryKeys.ENCHANTMENT);
+            RegistryWrapper.Impl<Enchantment> impl = this.getEntityWorld().getRegistryManager().getOrThrow(RegistryKeys.ENCHANTMENT);
             if (heldItem.getItem() == ModItems.TUNGSTEN_CARBIDE_BATTLEAXE &&
                     EnchantmentHelper.getLevel(impl.getOrThrow(Enchantments.SHARPNESS), heldItem) >= 5) {
                 //Drop Obsidian Dust collector item and give it a long despawn delay.

@@ -50,7 +50,7 @@ public class ModMeleeAttackGoal extends Goal {
      */
     @Override
     public boolean canStart() {
-        long l = this.mob.getWorld().getTime();
+        long l = this.mob.getEntityWorld().getTime();
         if (l - this.lastUpdateTime < MAX_ATTACK_TIME) {
             return false;
         } else {
