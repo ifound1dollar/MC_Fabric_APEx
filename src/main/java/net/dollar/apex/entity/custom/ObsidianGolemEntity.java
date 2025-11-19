@@ -44,6 +44,7 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.SpawnHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.biome.BiomeKeys;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -487,6 +488,9 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     public static boolean checkObsidianGolemSpawnRules(EntityType<ObsidianGolemEntity> obsidianGolemEntityEntityType,
                                                        ServerWorldAccess serverWorldAccess, SpawnReason spawnReason,
                                                        BlockPos blockPos, Random random) {
+        // Return false if biome at attempted spawn location is mushroom island.
+        if (serverWorldAccess.getBiome(blockPos).matchesKey(BiomeKeys.MUSHROOM_FIELDS)) return false;
+
         //Only allow spawn below a certain y-level.
         int y = blockPos.getY();
         if (y >= 0) {
@@ -494,10 +498,19 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
         } else if (y >= -24) {
             // Effectively reduce spawn rate by 50% when above y=-24.
             return random.nextBoolean()
-                    && canMobSpawn(obsidianGolemEntityEntityType, serverWorldAccess, spawnReason, blockPos, random);
+                    && canSpawnInDark(obsidianGolemEntityEntityType, serverWorldAccess, spawnReason, blockPos, random);
         }
 
         // Calls the default mob spawn check, ignoring light levels entirely. Use canSpawnInDark instead.
-        return canMobSpawn(obsidianGolemEntityEntityType, serverWorldAccess, spawnReason, blockPos, random);
+        return canSpawnInDark(obsidianGolemEntityEntityType, serverWorldAccess, spawnReason, blockPos, random);
+    }
+
+    /**
+     * Gets whether this mob should not exist in peaceful mode. Returns true here.
+     * @return Returns true if mob not allowed, false otherwise
+     */
+    @Override
+    protected boolean isDisallowedInPeaceful() {
+        return super.isDisallowedInPeaceful();
     }
 }
