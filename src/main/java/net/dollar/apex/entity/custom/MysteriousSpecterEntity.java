@@ -4,7 +4,9 @@ import net.dollar.apex.entity.goal.ModMeleeAttackGoal;
 import net.dollar.apex.entity.goal.ModStareOrMoveGoal;
 import net.dollar.apex.item.ModItems;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.goal.LookAroundGoal;
+import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.goal.UniversalAngerGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -30,6 +32,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeKeys;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -53,8 +56,11 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
 
         abilityCooldownTicks = DEFAULT_ABILITY_COOLDOWN_TICKS;
 
-        //Set textureID to a value between 0-4, which is used to determine which texture to render.
-        textureID = world.random.nextInt(5);
+//        //Set textureID to a value between 0-4, which is used to determine which texture to render.
+//        textureID = world.random.nextInt(5);
+
+        // Above was causing rapid swapping between textures for some reason, change to always 0.
+        this.textureID = 0;
     }
 
 
@@ -502,6 +508,9 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     public static boolean checkMysteriousSpecterSpawnRules(EntityType<MysteriousSpecterEntity> mysteriousSpecterEntityType,
                                                        ServerWorldAccess serverWorldAccess, SpawnReason spawnReason,
                                                        BlockPos blockPos, Random random) {
+        // Return false if biome at attempted spawn location is mushroom island.
+        if (serverWorldAccess.getBiome(blockPos).matchesKey(BiomeKeys.MUSHROOM_FIELDS)) return false;
+
         //Only allow spawn above a certain y-level (62 is sea level).
         if (blockPos.getY() < 62) {
             return false;
@@ -509,5 +518,14 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
 
         //Calls the default mob spawn check, ignoring light levels entirely. Use canSpawnInDark instead.
         return canSpawnInDark(mysteriousSpecterEntityType, serverWorldAccess, spawnReason, blockPos, random);
+    }
+
+    /**
+     * Gets whether this mob should not exist in peaceful mode. Returns true here.
+     * @return Returns true if mob not allowed, false otherwise
+     */
+    @Override
+    protected boolean isDisallowedInPeaceful() {
+        return super.isDisallowedInPeaceful();
     }
 }
