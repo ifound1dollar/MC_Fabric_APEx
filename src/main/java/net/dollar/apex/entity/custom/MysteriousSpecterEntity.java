@@ -32,6 +32,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeKeys;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -494,6 +495,9 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
     public static boolean checkMysteriousSpecterSpawnRules(EntityType<MysteriousSpecterEntity> mysteriousSpecterEntityType,
                                                        ServerWorldAccess serverWorldAccess, SpawnReason spawnReason,
                                                        BlockPos blockPos, Random random) {
+        // Return false if biome at attempted spawn location is mushroom island.
+        if (serverWorldAccess.getBiome(blockPos).matchesKey(BiomeKeys.MUSHROOM_FIELDS)) return false;
+
         //Only allow spawn above a certain y-level (62 is sea level).
         if (blockPos.getY() < 62) {
             return false;
@@ -501,5 +505,14 @@ public class MysteriousSpecterEntity extends HostileEntity implements Angerable 
 
         //Calls the default mob spawn check, ignoring light levels entirely. Use canSpawnInDark instead.
         return canSpawnInDark(mysteriousSpecterEntityType, serverWorldAccess, spawnReason, blockPos, random);
+    }
+
+    /**
+     * Gets whether this mob should not exist in peaceful mode. Returns true here.
+     * @return Returns true if mob not allowed, false otherwise
+     */
+    @Override
+    protected boolean isDisallowedInPeaceful() {
+        return super.isDisallowedInPeaceful();
     }
 }
