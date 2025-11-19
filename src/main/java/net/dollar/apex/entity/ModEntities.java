@@ -24,12 +24,14 @@ public class ModEntities {
             Identifier.of(ModMain.MOD_ID, "obsidian_golem"),
             EntityType.Builder.create(ObsidianGolemEntity::new, SpawnGroup.MONSTER)
                     .dimensions(1.4f, 2.7f)     // Matches Iron Golem
+                    .notAllowedInPeaceful()
                     .build(obsidianGolemKey));
 
     public static final EntityType<MysteriousSpecterEntity> MYSTERIOUS_SPECTER = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(ModMain.MOD_ID, "mysterious_specter"),
             EntityType.Builder.create(MysteriousSpecterEntity::new, SpawnGroup.MONSTER)
                     .dimensions(0.6f, 1.8f)
+                    .notAllowedInPeaceful()
                     .build(mysteriousSpecterKey));
 
 

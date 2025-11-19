@@ -44,6 +44,7 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.SpawnHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.biome.BiomeKeys;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -487,6 +488,9 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     public static boolean checkObsidianGolemSpawnRules(EntityType<ObsidianGolemEntity> obsidianGolemEntityEntityType,
                                                        ServerWorldAccess serverWorldAccess, SpawnReason spawnReason,
                                                        BlockPos blockPos, Random random) {
+        // Return false if biome at attempted spawn location is mushroom island.
+        if (serverWorldAccess.getBiome(blockPos).matchesKey(BiomeKeys.MUSHROOM_FIELDS)) return false;
+
         //Only allow spawn below a certain y-level.
         int y = blockPos.getY();
         if (y >= 0) {
