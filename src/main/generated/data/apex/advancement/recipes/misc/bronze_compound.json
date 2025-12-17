@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:bronze_compound"
+        "recipe": "apex:bronze_compound"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -37,7 +37,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:bronze_compound"
+      "apex:bronze_compound"
     ]
   }
 }

@@ -63,7 +63,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:infused_gemstone"
+        "recipe": "apex:infused_gemstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -81,7 +81,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:infused_gemstone"
+      "apex:infused_gemstone"
     ]
   }
 }

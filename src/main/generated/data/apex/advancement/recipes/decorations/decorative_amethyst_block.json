@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:decorative_amethyst_block"
+        "recipe": "apex:decorative_amethyst_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:decorative_amethyst_block"
+      "apex:decorative_amethyst_block"
     ]
   }
 }

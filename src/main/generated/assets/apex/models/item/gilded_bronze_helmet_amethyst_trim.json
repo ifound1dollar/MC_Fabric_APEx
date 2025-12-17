@@ -2,6 +2,6 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "apex:item/gilded_bronze_helmet",
-    "layer1": "apex:gilded_bronze_helmet_amethyst"
+    "layer1": "minecraft:trims/items/helmet_trim_amethyst"
   }
 }

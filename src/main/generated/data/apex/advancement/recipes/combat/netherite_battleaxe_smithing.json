@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:netherite_battleaxe_smithing"
+        "recipe": "apex:netherite_battleaxe_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -37,7 +37,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:netherite_battleaxe_smithing"
+      "apex:netherite_battleaxe_smithing"
     ]
   }
 }

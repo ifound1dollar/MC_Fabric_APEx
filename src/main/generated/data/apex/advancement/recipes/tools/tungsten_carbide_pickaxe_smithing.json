@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:tungsten_carbide_pickaxe_smithing"
+        "recipe": "apex:tungsten_carbide_pickaxe_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -37,7 +37,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:tungsten_carbide_pickaxe_smithing"
+      "apex:tungsten_carbide_pickaxe_smithing"
     ]
   }
 }

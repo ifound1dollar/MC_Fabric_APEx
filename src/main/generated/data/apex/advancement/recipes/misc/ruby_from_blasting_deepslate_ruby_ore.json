@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:ruby_from_blasting_deepslate_ruby_ore"
+        "recipe": "apex:ruby_from_blasting_deepslate_ruby_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:ruby_from_blasting_deepslate_ruby_ore"
+      "apex:ruby_from_blasting_deepslate_ruby_ore"
     ]
   }
 }

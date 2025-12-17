@@ -2,6 +2,6 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "apex:item/tungsten_carbide_helmet",
-    "layer1": "apex:tungsten_carbide_helmet_diamond"
+    "layer1": "minecraft:trims/items/helmet_trim_diamond"
   }
 }

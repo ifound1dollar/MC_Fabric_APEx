@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:phosphate_powder_from_smelting_phosphate_ore"
+        "recipe": "apex:phosphate_powder_from_smelting_phosphate_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:phosphate_powder_from_smelting_phosphate_ore"
+      "apex:phosphate_powder_from_smelting_phosphate_ore"
     ]
   }
 }

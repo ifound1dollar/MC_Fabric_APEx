@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cobalt_steel_hoe_smithing"
+        "recipe": "apex:cobalt_steel_hoe_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -37,7 +37,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cobalt_steel_hoe_smithing"
+      "apex:cobalt_steel_hoe_smithing"
     ]
   }
 }

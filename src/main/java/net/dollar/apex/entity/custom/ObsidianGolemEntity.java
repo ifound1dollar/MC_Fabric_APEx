@@ -48,16 +48,15 @@ import net.minecraft.world.biome.BiomeKeys;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.UUID;
 
 import static net.minecraft.entity.passive.Cracks.IRON_GOLEM;
 
 public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     private int attackTicksLeft;
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
-    private int angerTime;
+    private long angerTime;
     @Nullable
-    private UUID angryAt;
+    private LazyEntityReference<LivingEntity> angryAt;
 
     private int ticksSinceLastAttack = 0;
     private static final int DEFAULT_LAST_ATTACK_TICKS_THRESHOLD = 100;
@@ -103,12 +102,13 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
     }
 
     /**
-     * Gets the attack Box for this mob. Overridden to expand on the X and Z axes somewhat.
+     * Gets the attack Box for this mob. Overridden to expand on the X and Z axes slightly.
+     * @param attackRange Attack range of this mob
      * @return The attack Box for this mob.
      */
     @Override
-    protected Box getAttackBox() {
-        return super.getAttackBox().expand(0.2d, 0.0d, 0.2d);
+    protected Box getAttackBox(double attackRange) {
+        return super.getAttackBox(attackRange).expand(0.2d, 0.0d, 0.2d);
     }
 
     /**
@@ -153,7 +153,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      */
     @Override
     public void chooseRandomAngerTime() {
-        this.setAngerTime(ANGER_TIME_RANGE.get(this.random));
+        this.setAngerDuration(ANGER_TIME_RANGE.get(this.random));
     }
 
     /**
@@ -161,7 +161,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      * @param angerTime New value to set
      */
     @Override
-    public void setAngerTime(int angerTime) {
+    public void setAngerEndTime(long angerTime) {
         this.angerTime = angerTime;
     }
 
@@ -170,7 +170,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      * @return The current anger time
      */
     @Override
-    public int getAngerTime() {
+    public long getAngerEndTime() {
         return this.angerTime;
     }
 
@@ -179,7 +179,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      * @param angryAt UUID (nullable) of new anger target
      */
     @Override
-    public void setAngryAt(@Nullable UUID angryAt) {
+    public void setAngryAt(@org.jspecify.annotations.Nullable LazyEntityReference<LivingEntity> angryAt) {
         this.angryAt = angryAt;
     }
 
@@ -188,8 +188,7 @@ public class ObsidianGolemEntity extends HostileEntity implements Angerable {
      * @return The current anger target's UUID (nullable)
      */
     @Override
-    @Nullable
-    public UUID getAngryAt() {
+    public @org.jspecify.annotations.Nullable LazyEntityReference<LivingEntity> getAngryAt() {
         return this.angryAt;
     }
 

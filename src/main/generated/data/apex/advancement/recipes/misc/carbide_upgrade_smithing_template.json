@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:carbide_upgrade_smithing_template"
+        "recipe": "apex:carbide_upgrade_smithing_template"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -37,7 +37,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:carbide_upgrade_smithing_template"
+      "apex:carbide_upgrade_smithing_template"
     ]
   }
 }
