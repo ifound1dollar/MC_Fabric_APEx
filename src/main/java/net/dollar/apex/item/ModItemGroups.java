@@ -2,7 +2,7 @@ package net.dollar.apex.item;
 
 import net.dollar.apex.ModMain;
 import net.dollar.apex.block.ModBlocks;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -14,7 +14,7 @@ public class ModItemGroups {
     //Contains all items from the mod that should show up in the Simple Gearing Expansion tab.
     public static final CreativeModeTab MAIN_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
             Identifier.fromNamespaceAndPath(ModMain.MOD_ID, "main"),
-            FabricItemGroup.builder().title(Component.translatable("itemgroup.main"))
+            FabricCreativeModeTab.builder().title(Component.translatable("itemgroup.main"))
                     .icon(() -> new ItemStack(ModItems.INFUSED_GEMSTONE)).displayItems((displayContext, entries) -> {
                         //Ores and Raw Blocks
                         entries.accept(ModBlocks.COBALT_ORE);

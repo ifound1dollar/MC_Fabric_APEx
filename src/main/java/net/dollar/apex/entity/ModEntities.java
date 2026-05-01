@@ -20,14 +20,14 @@ public class ModEntities {
     private static final ResourceKey<EntityType<?>> mysteriousSpecterKey = ResourceKey.create(
             Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ModMain.MOD_ID, "mysterious_specter"));
 
-    public static final EntityType<ObsidianGolemEntity> OBSIDIAN_GOLEM = Registry.register(BuiltInRegistries.ENTITY_TYPE,
+    public static final EntityType<@org.jetbrains.annotations.NotNull ObsidianGolemEntity> OBSIDIAN_GOLEM = Registry.register(BuiltInRegistries.ENTITY_TYPE,
             Identifier.fromNamespaceAndPath(ModMain.MOD_ID, "obsidian_golem"),
             EntityType.Builder.of(ObsidianGolemEntity::new, MobCategory.MONSTER)
                     .sized(1.4f, 2.7f)     // Matches Iron Golem
                     .notInPeaceful()
                     .build(obsidianGolemKey));
 
-    public static final EntityType<MysteriousSpecterEntity> MYSTERIOUS_SPECTER = Registry.register(BuiltInRegistries.ENTITY_TYPE,
+    public static final EntityType<@org.jetbrains.annotations.NotNull MysteriousSpecterEntity> MYSTERIOUS_SPECTER = Registry.register(BuiltInRegistries.ENTITY_TYPE,
             Identifier.fromNamespaceAndPath(ModMain.MOD_ID, "mysterious_specter"),
             EntityType.Builder.of(MysteriousSpecterEntity::new, MobCategory.MONSTER)
                     .sized(0.6f, 1.8f)

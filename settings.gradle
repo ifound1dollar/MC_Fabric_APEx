@@ -7,4 +7,6 @@ pluginManagement {
 		mavenCentral()
 		gradlePluginPortal()
 	}
+
+	rootProject.name = "apex"
 }

@@ -1,16 +1,18 @@
 package net.dollar.apex.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.concurrent.CompletableFuture;
 
 /**
  * Handles world generation setup and registries relating to ConfiguredFeatures and PlacedFeatures.
  */
 public class ModWorldGenerator extends FabricDynamicRegistryProvider {
-    public ModWorldGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public ModWorldGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
@@ -28,7 +30,7 @@ public class ModWorldGenerator extends FabricDynamicRegistryProvider {
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "World Gen";
     }
 }

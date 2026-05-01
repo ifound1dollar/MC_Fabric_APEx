@@ -4,7 +4,7 @@ import net.dollar.apex.ModMain;
 import net.dollar.apex.block.ModBlocks;
 import net.dollar.apex.item.ModItems;
 import net.dollar.apex.util.ModTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -19,15 +19,18 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 
 public class ModRecipeProvider extends FabricRecipeProvider {
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         //TODO: Verify this is correct, advancement provider uses this and is just "Advancements"
         return "ModRecipes";
     }
@@ -64,12 +67,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 
 
-    public ModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public ModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput exporter) {
+    protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NotNull Provider registries,
+                                                           @NotNull RecipeOutput exporter) {
         return new RecipeProvider(registries, exporter) {
             @Override
             public void buildRecipes() {
@@ -77,47 +81,47 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 
                 
                 //region SMELTING AND BLASTING
-                oreSmelting(COBALT_SMELTABLES, RecipeCategory.MISC, ModItems.COBALT_SHARD,
+                oreSmelting(COBALT_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.COBALT_SHARD,
                         0.9f, 200, "cobalt_shard"); //Diamond is 1.0
-                oreBlasting(COBALT_SMELTABLES, RecipeCategory.MISC, ModItems.COBALT_SHARD,
+                oreBlasting(COBALT_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.COBALT_SHARD,
                         0.9f, 100, "cobalt_shard");
-                oreSmelting(PHOSPHATE_SMELTABLES, RecipeCategory.MISC, ModItems.PHOSPHATE_POWDER,
+                oreSmelting(PHOSPHATE_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.PHOSPHATE_POWDER,
                         0.2f, 200, "phosphate_powder"); //Coal is 0.1
-                oreBlasting(PHOSPHATE_SMELTABLES, RecipeCategory.MISC, ModItems.PHOSPHATE_POWDER,
+                oreBlasting(PHOSPHATE_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.PHOSPHATE_POWDER,
                         0.2f, 100, "phosphate_powder");
-                oreSmelting(RUBY_SMELTABLES, RecipeCategory.MISC, ModItems.RUBY,
+                oreSmelting(RUBY_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.RUBY,
                         1.2f, 200, "ruby");         //Diamond/Emerald is 1.0
-                oreBlasting(RUBY_SMELTABLES, RecipeCategory.MISC, ModItems.RUBY,
+                oreBlasting(RUBY_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.RUBY,
                         1.2f, 100, "ruby");
-                oreSmelting(SAPPHIRE_SMELTABLES, RecipeCategory.MISC, ModItems.SAPPHIRE,
+                oreSmelting(SAPPHIRE_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.SAPPHIRE,
                         1.2f, 200, "sapphire");     //Diamond/Emerald is 1.0
-                oreBlasting(SAPPHIRE_SMELTABLES, RecipeCategory.MISC, ModItems.SAPPHIRE,
+                oreBlasting(SAPPHIRE_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.SAPPHIRE,
                         1.2f, 100, "sapphire");
-                oreSmelting(TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT,
+                oreSmelting(TIN_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.TIN_INGOT,
                         0.7f, 200, "tin_ingot");    //Iron is 0.7
-                oreBlasting(TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN_INGOT,
+                oreBlasting(TIN_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.TIN_INGOT,
                         0.7f, 100, "tin_ingot");
-                oreSmelting(TUNGSTEN_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
+                oreSmelting(TUNGSTEN_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.TUNGSTEN_INGOT,
                         1.0f, 200, "tungsten_ingot");   //Diamond is 1.0
-                oreBlasting(TUNGSTEN_SMELTABLES, RecipeCategory.MISC, ModItems.TUNGSTEN_INGOT,
+                oreBlasting(TUNGSTEN_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.TUNGSTEN_INGOT,
                         1.0f, 100, "tungsten_ingot");
-                oreSmelting(BRONZE_SMELTABLES, RecipeCategory.MISC, ModItems.BRONZE_INGOT,
+                oreSmelting(BRONZE_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.BRONZE_INGOT,
                         0.7f, 200, "bronze_ingot");    //Iron is 0.7
-                oreBlasting(BRONZE_SMELTABLES, RecipeCategory.MISC, ModItems.BRONZE_INGOT,
+                oreBlasting(BRONZE_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.BRONZE_INGOT,
                         0.7f, 100, "bronze_ingot");
-                oreSmelting(STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL_INGOT,
+                oreSmelting(STEEL_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.STEEL_INGOT,
                         0.9f, 200, "steel_ingot");   //Diamond is 1.0
-                oreBlasting(STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL_INGOT,
+                oreBlasting(STEEL_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.STEEL_INGOT,
                         0.9f, 100, "steel_ingot");
 
-                oreSmelting(BRONZE_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, ModItems.BRONZE_NUGGET,
-                        0.1f, 200, "bronze_nugget");   //Diamond is 1.0
-                oreBlasting(BRONZE_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, ModItems.BRONZE_NUGGET,
-                        0.1f, 100, "bronze_nugget");
-                oreSmelting(GOLD_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, Items.GOLD_NUGGET,
-                        0.1f, 200, "gold_nugget");   //Diamond is 1.0
-                oreBlasting(GOLD_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, Items.GOLD_NUGGET,
-                        0.1f, 100, "gold_nugget");
+                oreSmelting(BRONZE_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, CookingBookCategory.MISC,
+                        ModItems.BRONZE_NUGGET, 0.1f, 200, "bronze_nugget");   //Diamond is 1.0
+                oreBlasting(BRONZE_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, CookingBookCategory.MISC,
+                        ModItems.BRONZE_NUGGET, 0.1f, 100, "bronze_nugget");
+                oreSmelting(GOLD_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, CookingBookCategory.MISC,
+                        Items.GOLD_NUGGET, 0.1f, 200, "gold_nugget");   //Diamond is 1.0
+                oreBlasting(GOLD_NUGGET_SMELTABLE_TOOLS, RecipeCategory.MISC, CookingBookCategory.MISC,
+                        Items.GOLD_NUGGET, 0.1f, 100, "gold_nugget");
                 //endregion
 
                 //region STORAGE BLOCKS

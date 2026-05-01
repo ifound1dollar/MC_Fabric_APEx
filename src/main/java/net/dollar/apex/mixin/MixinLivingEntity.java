@@ -37,13 +37,13 @@ public abstract class MixinLivingEntity extends Entity {
         boolean value = true;   //Default allow any status effect
 
         //Implement base function checks for consistency.
-        if (this.getType().is(EntityTypeTags.IMMUNE_TO_INFESTED)) {
+        if (this.is(EntityTypeTags.IMMUNE_TO_INFESTED)) {
             value = !effect.is(MobEffects.INFESTED);
         }
-        if (this.getType().is(EntityTypeTags.IMMUNE_TO_OOZING)) {
+        if (this.is(EntityTypeTags.IMMUNE_TO_OOZING)) {
             value = !effect.is(MobEffects.OOZING);
         }
-        if (this.getType().is(EntityTypeTags.IGNORES_POISON_AND_REGEN)) {
+        if (this.is(EntityTypeTags.IGNORES_POISON_AND_REGEN)) {
             if (effect.is(MobEffects.REGENERATION) || effect.is(MobEffects.POISON)) {
                 value = false;
             }
