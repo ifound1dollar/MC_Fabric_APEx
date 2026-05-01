@@ -1,21 +1,20 @@
 package net.dollar.apex.item.custom.equipment;
 
 import net.dollar.apex.util.ModItemUtils;
-import net.minecraft.component.type.TooltipDisplayComponent;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.text.Text;
-
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class ModEndgameHoeItem extends HoeItem {
     private final Consumer<LivingEntity> onHitMethod;
-    private final BiConsumer<Consumer<Text>, ModItemUtils.EquipmentType> tooltipMethod;
+    private final BiConsumer<Consumer<Component>, ModItemUtils.EquipmentType> tooltipMethod;
 
     /**
      * Instantiates a new HoeItem for one of the new endgame tiers.
@@ -26,7 +25,7 @@ public class ModEndgameHoeItem extends HoeItem {
      * @param tier EndgameTier determining on-hit behavior and tooltip text
      */
     public ModEndgameHoeItem(ToolMaterial material, float attackDamage, float attackSpeed,
-                             ModItemUtils.EndgameTier tier, Item.Settings settings) {
+                             ModItemUtils.EndgameTier tier, Item.Properties settings) {
         super(material, attackDamage, attackSpeed, settings);
 
         // Set proper method references to both Consumers.
@@ -58,7 +57,7 @@ public class ModEndgameHoeItem extends HoeItem {
      * @param attacker Attacker (user) living entity
      */
     @Override
-    public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         onHitMethod.accept(target);
     }
 
@@ -71,8 +70,8 @@ public class ModEndgameHoeItem extends HoeItem {
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent,
-                              Consumer<Text> textConsumer, TooltipType type) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent,
+                              Consumer<Component> textConsumer, TooltipFlag type) {
         tooltipMethod.accept(textConsumer, ModItemUtils.EquipmentType.TOOL);
     }
 }

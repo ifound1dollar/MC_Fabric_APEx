@@ -5,8 +5,8 @@ import net.dollar.apex.world.ModConfiguredFeatures;
 import net.dollar.apex.world.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.minecraft.registry.RegistryBuilder;
-import net.minecraft.registry.RegistryKeys;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 
 public class ModMainDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -23,11 +23,11 @@ public class ModMainDataGenerator implements DataGeneratorEntrypoint {
 
 	/**
 	 * Overrides function to add new ConfiguredFeature and PlaceFeature registries.
-	 * @param registryBuilder a {@link RegistryBuilder} instance
+	 * @param registryBuilder a {@link RegistrySetBuilder} instance
 	 */
 	@Override
-	public void buildRegistry(RegistryBuilder registryBuilder) {
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		registryBuilder.add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
+		registryBuilder.add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 	}
 }

@@ -1,16 +1,15 @@
 package net.dollar.apex.util;
 
 import net.dollar.apex.item.custom.ranged.ModCustomArrowEntity;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
-import net.minecraft.world.World;
-
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import java.util.function.Consumer;
 
 /**
@@ -31,7 +30,7 @@ public class ModItemUtils {
      * @param tier Enum determining which endgame tier type the arrow corresponds to
      * @return The newly created custom PersistentProjectileEntity
      */
-    public static PersistentProjectileEntity createCustomArrow(World world, LivingEntity shooter,
+    public static AbstractArrow createCustomArrow(Level world, LivingEntity shooter,
                                                                ItemStack arrowStack, ItemStack weaponStack,
                                                                EndgameTier tier) {
         // Create custom arrow entity, then check for spectral and return the initialized entity.
@@ -53,10 +52,10 @@ public class ModItemUtils {
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 1));
 
         // Do not apply effect to creative mode players.
-        if (target instanceof PlayerEntity player && player.isCreative()) return;
+        if (target instanceof Player player && player.isCreative()) return;
 
         //Level 2 Slowness (third argument) for 30% reduction, 15%/level.
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
+        target.addEffect(new MobEffectInstance(MobEffects.SLOWNESS,
                 4 * 20, 1));
     }
 
@@ -66,36 +65,36 @@ public class ModItemUtils {
      * @param tooltip List of Texts to be appended
      * @param equipmentType What type of equipment to generate the tooltip for (different for each)
      */
-    public static void appendCobaltSteelEquipmentTooltip(Consumer<Text> tooltip, EquipmentType equipmentType) {
+    public static void appendCobaltSteelEquipmentTooltip(Consumer<Component> tooltip, EquipmentType equipmentType) {
         //This method should only ever be called client-side, so no null risk here.
 
         //If the player is holding shift, show detailed info.
-        if (MinecraftClient.getInstance().isShiftPressed()) {
+        if (Minecraft.getInstance().hasShiftDown()) {
             switch (equipmentType) {
                 case ARMOR -> {
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_armor_details_0"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_armor_details_1"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_armor_details_2"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_armor_full_set"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_armor_details_0"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_armor_details_1"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_armor_details_2"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_armor_full_set"));
                 }
                 case TOOL -> {
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_tool_details_0"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_tool_details_1"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_tool_details_2"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_tool_details_3"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_tool_details_4"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_on_hit_effect"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_tool_details_0"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_tool_details_1"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_tool_details_2"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_tool_details_3"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_tool_details_4"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_on_hit_effect"));
                 }
                 case RANGED -> {
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_ranged_details_0"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_ranged_details_1"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_ranged_details_2"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_ranged_bonus_damage"));
-                    tooltip.accept(Text.translatable("tooltip.cobalt_steel_on_hit_effect"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_ranged_details_0"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_ranged_details_1"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_ranged_details_2"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_ranged_bonus_damage"));
+                    tooltip.accept(Component.translatable("tooltip.cobalt_steel_on_hit_effect"));
                 }
             }
         } else {
-            tooltip.accept(Text.translatable("tooltip.cobalt_steel_hold_shift"));
+            tooltip.accept(Component.translatable("tooltip.cobalt_steel_hold_shift"));
         }
     }
 
@@ -112,10 +111,10 @@ public class ModItemUtils {
 //                    (ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20) + 1, 1));
 
         // Do not apply effect to creative mode players.
-        if (target instanceof PlayerEntity player && player.isCreative()) return;
+        if (target instanceof Player player && player.isCreative()) return;
 
         //Level 2 Wither for once-per-second damage tick (duration +1 tick so ticks 4 times).
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER,
+        target.addEffect(new MobEffectInstance(MobEffects.WITHER,
                 (4 * 20) + 1, 1));
     }
 
@@ -125,37 +124,37 @@ public class ModItemUtils {
      * @param tooltip List of Texts to be appended
      * @param equipmentType What type of equipment to generate the tooltip for (different for each)
      */
-    public static void appendInfusedGemstoneEquipmentTooltip(Consumer<Text> tooltip, EquipmentType equipmentType) {
+    public static void appendInfusedGemstoneEquipmentTooltip(Consumer<Component> tooltip, EquipmentType equipmentType) {
         //This method should only ever be called client-side, so no null risk here.
 
         //If the player is holding shift, show detailed info.
-        if (MinecraftClient.getInstance().isShiftPressed()) {
+        if (Minecraft.getInstance().hasShiftDown()) {
             switch (equipmentType) {
                 case ARMOR -> {
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_armor_details_0"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_armor_details_1"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_armor_details_2"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_armor_full_set"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_armor_details_0"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_armor_details_1"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_armor_details_2"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_armor_full_set"));
                 }
                 case TOOL -> {
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_tool_details_0"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_tool_details_1"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_tool_details_2"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_tool_details_3"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_tool_details_4"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_on_hit_effect"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_tool_details_0"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_tool_details_1"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_tool_details_2"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_tool_details_3"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_tool_details_4"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_on_hit_effect"));
                 }
                 case RANGED -> {
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_ranged_details_0"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_ranged_details_1"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_ranged_details_2"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_ranged_details_3"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_ranged_bonus_damage"));
-                    tooltip.accept(Text.translatable("tooltip.infused_gemstone_on_hit_effect"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_ranged_details_0"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_ranged_details_1"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_ranged_details_2"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_ranged_details_3"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_ranged_bonus_damage"));
+                    tooltip.accept(Component.translatable("tooltip.infused_gemstone_on_hit_effect"));
                 }
             }
         } else {
-            tooltip.accept(Text.translatable("tooltip.infused_gemstone_hold_shift"));
+            tooltip.accept(Component.translatable("tooltip.infused_gemstone_hold_shift"));
         }
     }
 
@@ -172,10 +171,10 @@ public class ModItemUtils {
 //                    ModCommonConfigs.ENDGAME_TIER_EFFECT_SECONDS.get() * 20, 0));
 
         // Do not apply effect to creative mode players.
-        if (target instanceof PlayerEntity player && player.isCreative()) return;
+        if (target instanceof Player player && player.isCreative()) return;
 
         //Level 1 Weakness (third argument) for 4 heart melee damage reduction.
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
+        target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,
                 4 * 20, 0));
     }
     /**
@@ -184,37 +183,37 @@ public class ModItemUtils {
      * @param tooltip List of Texts to be appended
      * @param equipmentType What type of equipment to generate the tooltip for (different for each)
      */
-    public static void appendTungstenCarbideEquipmentTooltip(Consumer<Text> tooltip, EquipmentType equipmentType) {
+    public static void appendTungstenCarbideEquipmentTooltip(Consumer<Component> tooltip, EquipmentType equipmentType) {
         //This method should only ever be called client-side, so no null risk here.
 
         //If the player is holding shift, show detailed info.
-        if (MinecraftClient.getInstance().isShiftPressed()) {
+        if (Minecraft.getInstance().hasShiftDown()) {
             switch (equipmentType) {
                 case ARMOR -> {
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_armor_details_0"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_armor_details_1"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_armor_details_2"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_armor_full_set"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_armor_details_0"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_armor_details_1"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_armor_details_2"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_armor_full_set"));
                 }
                 case TOOL -> {
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_tool_details_0"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_tool_details_1"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_tool_details_2"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_tool_details_3"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_tool_details_4"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_on_hit_effect"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_tool_details_0"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_tool_details_1"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_tool_details_2"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_tool_details_3"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_tool_details_4"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_on_hit_effect"));
                 }
                 case RANGED -> {
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_ranged_details_0"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_ranged_details_1"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_ranged_details_2"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_ranged_details_3"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_ranged_bonus_damage"));
-                    tooltip.accept(Text.translatable("tooltip.tungsten_carbide_on_hit_effect"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_ranged_details_0"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_ranged_details_1"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_ranged_details_2"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_ranged_details_3"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_ranged_bonus_damage"));
+                    tooltip.accept(Component.translatable("tooltip.tungsten_carbide_on_hit_effect"));
                 }
             }
         } else {
-            tooltip.accept(Text.translatable("tooltip.tungsten_carbide_hold_shift"));
+            tooltip.accept(Component.translatable("tooltip.tungsten_carbide_hold_shift"));
         }
     }
 }

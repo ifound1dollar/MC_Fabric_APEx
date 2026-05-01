@@ -1,15 +1,14 @@
 package net.dollar.apex.item.custom.equipment;
 
 import net.dollar.apex.util.ModItemUtils;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.component.type.TooltipDisplayComponent;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.text.Text;
-
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import java.util.function.Consumer;
 
 public class ModCobaltSteelPaxelOrPickaxeItem extends Item {
@@ -18,7 +17,7 @@ public class ModCobaltSteelPaxelOrPickaxeItem extends Item {
      *  from the other generic Endgame classes because it overrides getMiningSpeed().
      * @param settings Item.Settings for this Paxel/Pickaxe item
      */
-    public ModCobaltSteelPaxelOrPickaxeItem(Settings settings) {
+    public ModCobaltSteelPaxelOrPickaxeItem(Properties settings) {
         super(settings);
     }
 
@@ -31,8 +30,8 @@ public class ModCobaltSteelPaxelOrPickaxeItem extends Item {
      * @return The calculated mining speed
      */
     @Override
-    public float getMiningSpeed(ItemStack stack, BlockState state) {
-        float baseVal = super.getMiningSpeed(stack, state);
+    public float getDestroySpeed(ItemStack stack, BlockState state) {
+        float baseVal = super.getDestroySpeed(stack, state);
 
         //If the block being mined is Deepslate, increase mining speed by a further 100% (allows instant
         //  mining with Cobalt Steel Paxel/Pickaxe w/Efficiency V & Haste II : results in total mining speed
@@ -47,7 +46,7 @@ public class ModCobaltSteelPaxelOrPickaxeItem extends Item {
      * @param attacker Attacker (user) living entity
      */
     @Override
-    public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         ModItemUtils.applyCobaltSteelOnHit(target);
     }
 
@@ -60,7 +59,7 @@ public class ModCobaltSteelPaxelOrPickaxeItem extends Item {
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
         ModItemUtils.appendCobaltSteelEquipmentTooltip(textConsumer, ModItemUtils.EquipmentType.TOOL);
     }
 }

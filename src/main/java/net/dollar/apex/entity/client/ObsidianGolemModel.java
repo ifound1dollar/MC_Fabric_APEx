@@ -6,9 +6,15 @@ package net.dollar.apex.entity.client;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.EntityModelPartNames;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartNames;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.util.Mth;
 
 @Environment(value=EnvType.CLIENT)
 public class ObsidianGolemModel extends EntityModel<ObsidianGolemRenderState> {
@@ -29,38 +35,38 @@ public class ObsidianGolemModel extends EntityModel<ObsidianGolemRenderState> {
 
 
 
-    public static TexturedModelData getTexturedModelData() {
-        ModelData modelData = new ModelData();
-        ModelPartData modelPartData = modelData.getRoot();
-        modelPartData.addChild(EntityModelPartNames.HEAD, ModelPartBuilder.create().uv(0, 0).cuboid(-4.0f, -12.0f, -5.5f, 8.0f, 10.0f, 8.0f).uv(24, 0).cuboid(-1.0f, -5.0f, -7.5f, 2.0f, 4.0f, 2.0f), ModelTransform.origin(0.0f, -7.0f, -2.0f));
-        modelPartData.addChild(EntityModelPartNames.BODY, ModelPartBuilder.create().uv(0, 40).cuboid(-9.0f, -2.0f, -6.0f, 18.0f, 12.0f, 11.0f).uv(0, 70).cuboid(-4.5f, 10.0f, -3.0f, 9.0f, 5.0f, 6.0f, new Dilation(0.5f)), ModelTransform.origin(0.0f, -7.0f, 0.0f));
-        modelPartData.addChild(EntityModelPartNames.RIGHT_ARM, ModelPartBuilder.create().uv(60, 21).cuboid(-13.0f, -2.5f, -3.0f, 4.0f, 30.0f, 6.0f), ModelTransform.origin(0.0f, -7.0f, 0.0f));
-        modelPartData.addChild(EntityModelPartNames.LEFT_ARM, ModelPartBuilder.create().uv(60, 58).cuboid(9.0f, -2.5f, -3.0f, 4.0f, 30.0f, 6.0f), ModelTransform.origin(0.0f, -7.0f, 0.0f));
-        modelPartData.addChild(EntityModelPartNames.RIGHT_LEG, ModelPartBuilder.create().uv(37, 0).cuboid(-3.5f, -3.0f, -3.0f, 6.0f, 16.0f, 5.0f), ModelTransform.origin(-4.0f, 11.0f, 0.0f));
-        modelPartData.addChild(EntityModelPartNames.LEFT_LEG, ModelPartBuilder.create().uv(60, 0).mirrored().cuboid(-3.5f, -3.0f, -3.0f, 6.0f, 16.0f, 5.0f), ModelTransform.origin(5.0f, 11.0f, 0.0f));
-        return TexturedModelData.of(modelData, 128, 128);
+    public static LayerDefinition getTexturedModelData() {
+        MeshDefinition modelData = new MeshDefinition();
+        PartDefinition modelPartData = modelData.getRoot();
+        modelPartData.addOrReplaceChild(PartNames.HEAD, CubeListBuilder.create().texOffs(0, 0).addBox(-4.0f, -12.0f, -5.5f, 8.0f, 10.0f, 8.0f).texOffs(24, 0).addBox(-1.0f, -5.0f, -7.5f, 2.0f, 4.0f, 2.0f), PartPose.offset(0.0f, -7.0f, -2.0f));
+        modelPartData.addOrReplaceChild(PartNames.BODY, CubeListBuilder.create().texOffs(0, 40).addBox(-9.0f, -2.0f, -6.0f, 18.0f, 12.0f, 11.0f).texOffs(0, 70).addBox(-4.5f, 10.0f, -3.0f, 9.0f, 5.0f, 6.0f, new CubeDeformation(0.5f)), PartPose.offset(0.0f, -7.0f, 0.0f));
+        modelPartData.addOrReplaceChild(PartNames.RIGHT_ARM, CubeListBuilder.create().texOffs(60, 21).addBox(-13.0f, -2.5f, -3.0f, 4.0f, 30.0f, 6.0f), PartPose.offset(0.0f, -7.0f, 0.0f));
+        modelPartData.addOrReplaceChild(PartNames.LEFT_ARM, CubeListBuilder.create().texOffs(60, 58).addBox(9.0f, -2.5f, -3.0f, 4.0f, 30.0f, 6.0f), PartPose.offset(0.0f, -7.0f, 0.0f));
+        modelPartData.addOrReplaceChild(PartNames.RIGHT_LEG, CubeListBuilder.create().texOffs(37, 0).addBox(-3.5f, -3.0f, -3.0f, 6.0f, 16.0f, 5.0f), PartPose.offset(-4.0f, 11.0f, 0.0f));
+        modelPartData.addOrReplaceChild(PartNames.LEFT_LEG, CubeListBuilder.create().texOffs(60, 0).mirror().addBox(-3.5f, -3.0f, -3.0f, 6.0f, 16.0f, 5.0f), PartPose.offset(5.0f, 11.0f, 0.0f));
+        return LayerDefinition.create(modelData, 128, 128);
     }
 
     public void setAngles(ObsidianGolemRenderState renderState) {
-        super.setAngles(renderState);
+        super.setupAnim(renderState);
         float f = renderState.attackTicksLeft;
-        float g = renderState.limbSwingAmplitude;
-        float h = renderState.limbSwingAnimationProgress;
+        float g = renderState.walkAnimationSpeed;
+        float h = renderState.walkAnimationPos;
         if (f > 0.0F) {
-            this.rightArm.pitch = -2.0F + 1.5F * MathHelper.wrap(f, 10.0F);
-            this.leftArm.pitch = -2.0F + 1.5F * MathHelper.wrap(f, 10.0F);
+            this.rightArm.xRot = -2.0F + 1.5F * Mth.triangleWave(f, 10.0F);
+            this.leftArm.xRot = -2.0F + 1.5F * Mth.triangleWave(f, 10.0F);
         } else {
-            this.rightArm.pitch = (-0.2F + 1.5F * MathHelper.wrap(h, 13.0F)) * g;
-            this.leftArm.pitch = (-0.2F - 1.5F * MathHelper.wrap(h, 13.0F)) * g;
+            this.rightArm.xRot = (-0.2F + 1.5F * Mth.triangleWave(h, 13.0F)) * g;
+            this.leftArm.xRot = (-0.2F - 1.5F * Mth.triangleWave(h, 13.0F)) * g;
 
         }
 
-        this.head.yaw = renderState.relativeHeadYaw * ((float)Math.PI / 180F);
-        this.head.pitch = renderState.pitch * ((float)Math.PI / 180F);
-        this.rightLeg.pitch = -1.5F * MathHelper.wrap(h, 13.0F) * g;
-        this.leftLeg.pitch = 1.5F * MathHelper.wrap(h, 13.0F) * g;
-        this.rightLeg.yaw = 0.0F;
-        this.leftLeg.yaw = 0.0F;
+        this.head.yRot = renderState.yRot * ((float)Math.PI / 180F);
+        this.head.xRot = renderState.xRot * ((float)Math.PI / 180F);
+        this.rightLeg.xRot = -1.5F * Mth.triangleWave(h, 13.0F) * g;
+        this.leftLeg.xRot = 1.5F * Mth.triangleWave(h, 13.0F) * g;
+        this.rightLeg.yRot = 0.0F;
+        this.leftLeg.yRot = 0.0F;
     }
 
 //    public ModelPart getRightArm() {

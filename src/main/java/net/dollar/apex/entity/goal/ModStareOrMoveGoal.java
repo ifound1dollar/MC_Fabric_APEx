@@ -1,23 +1,23 @@
 package net.dollar.apex.entity.goal;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.FuzzyTargeting;
-import net.minecraft.entity.ai.NoPenaltyTargeting;
-import net.minecraft.entity.ai.TargetPredicate;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.predicate.entity.EntityPredicates;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
 import java.util.function.Predicate;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySelector;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.ai.util.DefaultRandomPos;
+import net.minecraft.world.entity.ai.util.LandRandomPos;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.Vec3;
 
 /**
  * This goal prioritizes staring at a target class when within range, else will do random strolls.
@@ -26,7 +26,7 @@ import java.util.function.Predicate;
 public class ModStareOrMoveGoal extends Goal {
     private enum State { IDLE, LOOKING, MOVING }
 
-    protected final PathAwareEntity mob;
+    protected final PathfinderMob mob;
     private State state = State.IDLE;
 
     @Nullable
@@ -34,7 +34,7 @@ public class ModStareOrMoveGoal extends Goal {
     protected final float lookRange;
     private final double lookRangeSquared;
     protected final Class<? extends LivingEntity> lookTargetType;
-    protected final TargetPredicate lookTargetPredicate;
+    protected final TargetingConditions lookTargetPredicate;
 
     public static final int DEFAULT_INTERVAL = 120;
     protected double wantedX;
@@ -58,21 +58,21 @@ public class ModStareOrMoveGoal extends Goal {
      * @param moveSpeedModifier Speed modifier for mob movement
      * @param moveProbability Probability each tick that movement will start (only while not looking)
      */
-    public ModStareOrMoveGoal(PathAwareEntity mob, Class<? extends LivingEntity> targetType, float range,
+    public ModStareOrMoveGoal(PathfinderMob mob, Class<? extends LivingEntity> targetType, float range,
                               double moveSpeedModifier, float moveProbability) {
         this.mob = mob;
-        setControls(EnumSet.of(Control.LOOK, Control.MOVE));
+        setFlags(EnumSet.of(Flag.LOOK, Flag.MOVE));
 
         // Looking
         this.lookTargetType = targetType;
         this.lookRange = range;
         this.lookRangeSquared = ((double)lookRange * lookRange);
-        if (targetType == PlayerEntity.class) {
-            Predicate<Entity> predicate = EntityPredicates.rides(mob);
-            this.lookTargetPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(range)
-                    .setPredicate((entity, world) -> predicate.test(entity));
+        if (targetType == Player.class) {
+            Predicate<Entity> predicate = EntitySelector.notRiding(mob);
+            this.lookTargetPredicate = TargetingConditions.forNonCombat().range(range)
+                    .selector((entity, world) -> predicate.test(entity));
         } else {
-            this.lookTargetPredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(range);
+            this.lookTargetPredicate = TargetingConditions.forNonCombat().range(range);
         }
 
         // Moving
@@ -90,23 +90,23 @@ public class ModStareOrMoveGoal extends Goal {
      * @return Whether the Goal can be used.
      */
     @Override
-    public boolean canStart() {
+    public boolean canUse() {
         // Seek a valid look target, and return true immediately if one is found.
         if (findNewLookTarget()) return true;
 
         // Else if no valid look target, check if a random stroll can be started.
         if (!moveIgnoringChance) {
-            if (checkNoActionTime && mob.getDespawnCounter() >= 100) {
+            if (checkNoActionTime && mob.getNoActionTime() >= 100) {
                 return false;
             }
 
-            if (mob.getRandom().nextInt(toGoalTicks(interval)) != 0) {
+            if (mob.getRandom().nextInt(reducedTickDelay(interval)) != 0) {
                 return false;
             }
         }
 
         // Get a random position for movement, and set fields if successful.
-        Vec3d vec3 = getRandomWanderTarget();
+        Vec3 vec3 = getRandomWanderTarget();
         if (vec3 == null) {
             return false;
         } else {
@@ -124,14 +124,14 @@ public class ModStareOrMoveGoal extends Goal {
      * @return True if a new lookTarget Entity was found.
      */
     protected boolean findNewLookTarget() {
-        ServerWorld serverLevel = getServerWorld(mob);
+        ServerLevel serverLevel = getServerLevel(mob);
 
-        if (lookTargetType == PlayerEntity.class) {
-            lookTarget = serverLevel.getClosestPlayer(
+        if (lookTargetType == Player.class) {
+            lookTarget = serverLevel.getNearestPlayer(
                     lookTargetPredicate, mob, mob.getX(), mob.getEyeY(), mob.getZ());
         } else {
-            lookTarget = serverLevel.getClosestEntity(serverLevel.getEntitiesByClass(lookTargetType,
-                            mob.getBoundingBox().expand(lookRange, 3.0, lookRange),
+            lookTarget = serverLevel.getNearestEntity(serverLevel.getEntitiesOfClass(lookTargetType,
+                            mob.getBoundingBox().inflate(lookRange, 3.0, lookRange),
                             p_148124_ -> true),
                     lookTargetPredicate, mob, mob.getX(), mob.getEyeY(), mob.getZ());
         }
@@ -150,7 +150,7 @@ public class ModStareOrMoveGoal extends Goal {
             if (lookTarget.isSpectator()) return false;
 
             // Return true if lookTarget is within look range.
-            return (mob.squaredDistanceTo(lookTarget) <= lookRangeSquared);
+            return (mob.distanceToSqr(lookTarget) <= lookRangeSquared);
         }
 
         return false;
@@ -162,12 +162,12 @@ public class ModStareOrMoveGoal extends Goal {
      * @return The generated 3-vector world position, or null if none is available.
      */
     @Nullable
-    protected Vec3d getRandomWanderTarget() {
+    protected Vec3 getRandomWanderTarget() {
         // If in water, try to find position on land, else find default position.
-        if (mob.isTouchingWater()) {
-            Vec3d vec3 = FuzzyTargeting.find(mob, 15, 7);
+        if (mob.isInWater()) {
+            Vec3 vec3 = LandRandomPos.getPos(mob, 15, 7);
             if (vec3 == null) {
-                vec3 = NoPenaltyTargeting.find(mob, 10, 7);
+                vec3 = DefaultRandomPos.getPos(mob, 10, 7);
             }
 
             return vec3;
@@ -175,8 +175,8 @@ public class ModStareOrMoveGoal extends Goal {
 
         // Else seek random position if passes probability check (water-avoiding only if fails, otherwise default).
         return (mob.getRandom().nextFloat() >= moveProbability) ?
-                FuzzyTargeting.find(mob, 15, 7) :
-                NoPenaltyTargeting.find(this.mob, 10, 7);
+                LandRandomPos.getPos(mob, 15, 7) :
+                DefaultRandomPos.getPos(this.mob, 10, 7);
     }
 
     /**
@@ -185,7 +185,7 @@ public class ModStareOrMoveGoal extends Goal {
      * @return Whether this Goal can continue being used.
      */
     @Override
-    public boolean shouldContinue() {
+    public boolean canContinueToUse() {
         if (state == State.LOOKING) {
             // While LOOKING, return whether the lookAt target is still valid.
             return checkLookTargetIsValid();
@@ -196,7 +196,7 @@ public class ModStareOrMoveGoal extends Goal {
                 return false;
             } else {
                 // Else MOVING but no valid look target, so return whether movement is done.
-                return !mob.getNavigation().isIdle();
+                return !mob.getNavigation().isDone();
             }
         }
 
@@ -214,7 +214,7 @@ public class ModStareOrMoveGoal extends Goal {
         if (lookTarget != null && lookTarget.isAlive()) {
             state = State.LOOKING;
         } else {
-            mob.getNavigation().startMovingTo(wantedX, wantedY, wantedZ, moveSpeedModifier);
+            mob.getNavigation().moveTo(wantedX, wantedY, wantedZ, moveSpeedModifier);
             state = State.MOVING;
         }
     }
@@ -243,10 +243,10 @@ public class ModStareOrMoveGoal extends Goal {
         // Only if state is LOOKING and lookAt Entity is valid.
         if (state == State.LOOKING && lookTarget != null && lookTarget.isAlive()) {
             double lookTargetEyeY = lookTarget.getEyeY();
-            mob.getLookControl().lookAt(lookTarget.getX(), lookTargetEyeY, lookTarget.getZ());
+            mob.getLookControl().setLookAt(lookTarget.getX(), lookTargetEyeY, lookTarget.getZ());
 
             // Ensure that lookTarget is a PlayerEntity.
-            if (!(lookTarget instanceof PlayerEntity player)) return;
+            if (!(lookTarget instanceof Player player)) return;
 
             // If lookTarget is a player in creative mode, reset staringForTicks and return.
             if (player.isCreative()) {
@@ -267,19 +267,19 @@ public class ModStareOrMoveGoal extends Goal {
      */
     private void doAngerAtTargetChance() {
         // If lookTarget is not visible (ex. behind block, inside a structure), do not get angry.
-        if (!mob.canSee(lookTarget)) return;
+        if (!mob.hasLineOfSight(lookTarget)) return;
 
         // Roll 1% chance per tick to get angry at.
         if (mob.getRandom().nextInt(100) == 0) {
 
             // If now angry at, set target (makes angry) and play anger sound.
             mob.setTarget(lookTarget);
-            mob.playSound(SoundEvents.ENTITY_RAVAGER_ROAR);
+            mob.makeSound(SoundEvents.RAVAGER_ROAR);
 
             // Add Speed effect on aggro for an exciting start, also removing Slowness if active.
-            mob.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 1200, 2,
+            mob.addEffect(new MobEffectInstance(MobEffects.SPEED, 1200, 2,
                     false, false));     // 60% movement speed bonus, 20% per level.
-            mob.removeStatusEffect(StatusEffects.SLOWNESS);
+            mob.removeEffect(MobEffects.SLOWNESS);
 
             // Stop the goal, must be called AFTER setting target because stop() nullifies lookTarget.
             stop();

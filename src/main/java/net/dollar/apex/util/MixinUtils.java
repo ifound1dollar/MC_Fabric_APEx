@@ -1,9 +1,9 @@
 package net.dollar.apex.util;
 
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.Arm;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RotationAxis;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.HumanoidArm;
 
 public class MixinUtils {
     /**
@@ -12,8 +12,8 @@ public class MixinUtils {
      * @param arm Arm holding the item
      * @param equipProgress Progress of equipping function
      */
-    public static void applyEquipOffset(MatrixStack matrices, Arm arm, float equipProgress) {
-        int i = arm == Arm.RIGHT ? 1 : -1;
+    public static void applyEquipOffset(PoseStack matrices, HumanoidArm arm, float equipProgress) {
+        int i = arm == HumanoidArm.RIGHT ? 1 : -1;
         matrices.translate((float)i * 0.56f, -0.52f + equipProgress * -0.6f, -0.72f);
     }
 
@@ -23,13 +23,13 @@ public class MixinUtils {
      * @param arm Arm holding the item
      * @param swingProgress Progress of swing function
      */
-    public static void applySwingOffset(MatrixStack matrices, Arm arm, float swingProgress) {
-        int i = arm == Arm.RIGHT ? 1 : -1;
-        float f = MathHelper.sin(swingProgress * swingProgress * (float)Math.PI);
-        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((float)i * (45.0f + f * -20.0f)));
-        float g = MathHelper.sin(MathHelper.sqrt(swingProgress) * (float)Math.PI);
-        matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees((float)i * g * -20.0f));
-        matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(g * -80.0f));
-        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((float)i * -45.0f));
+    public static void applySwingOffset(PoseStack matrices, HumanoidArm arm, float swingProgress) {
+        int i = arm == HumanoidArm.RIGHT ? 1 : -1;
+        float f = Mth.sin(swingProgress * swingProgress * (float)Math.PI);
+        matrices.mulPose(Axis.YP.rotationDegrees((float)i * (45.0f + f * -20.0f)));
+        float g = Mth.sin(Mth.sqrt(swingProgress) * (float)Math.PI);
+        matrices.mulPose(Axis.ZP.rotationDegrees((float)i * g * -20.0f));
+        matrices.mulPose(Axis.XP.rotationDegrees(g * -80.0f));
+        matrices.mulPose(Axis.YP.rotationDegrees((float)i * -45.0f));
     }
 }

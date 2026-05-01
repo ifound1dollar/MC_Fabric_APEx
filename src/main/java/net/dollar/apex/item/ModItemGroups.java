@@ -3,45 +3,45 @@ package net.dollar.apex.item;
 import net.dollar.apex.ModMain;
 import net.dollar.apex.block.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 
 public class ModItemGroups {
     //Contains all items from the mod that should show up in the Simple Gearing Expansion tab.
-    public static final ItemGroup MAIN_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(ModMain.MOD_ID, "main"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.main"))
-                    .icon(() -> new ItemStack(ModItems.INFUSED_GEMSTONE)).entries((displayContext, entries) -> {
+    public static final CreativeModeTab MAIN_GROUP = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB,
+            Identifier.fromNamespaceAndPath(ModMain.MOD_ID, "main"),
+            FabricItemGroup.builder().title(Component.translatable("itemgroup.main"))
+                    .icon(() -> new ItemStack(ModItems.INFUSED_GEMSTONE)).displayItems((displayContext, entries) -> {
                         //Ores and Raw Blocks
-                        entries.add(ModBlocks.COBALT_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_COBALT_ORE);
-                        entries.add(ModBlocks.COBALT_BLOCK);
-                        entries.add(ModBlocks.PHOSPHATE_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_PHOSPHATE_ORE);
-                        entries.add(ModBlocks.RUBY_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_RUBY_ORE);
-                        entries.add(ModBlocks.RUBY_BLOCK);
-                        entries.add(ModBlocks.SAPPHIRE_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_SAPPHIRE_ORE);
-                        entries.add(ModBlocks.SAPPHIRE_BLOCK);
-                        entries.add(ModBlocks.TIN_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_TIN_ORE);
-                        entries.add(ModBlocks.RAW_TIN_BLOCK);
-                        entries.add(ModBlocks.TIN_BLOCK);
-                        entries.add(ModBlocks.TUNGSTEN_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_TUNGSTEN_ORE);
-                        entries.add(ModBlocks.RAW_TUNGSTEN_BLOCK);
-                        entries.add(ModBlocks.TUNGSTEN_BLOCK);
+                        entries.accept(ModBlocks.COBALT_ORE);
+                        entries.accept(ModBlocks.DEEPSLATE_COBALT_ORE);
+                        entries.accept(ModBlocks.COBALT_BLOCK);
+                        entries.accept(ModBlocks.PHOSPHATE_ORE);
+                        entries.accept(ModBlocks.DEEPSLATE_PHOSPHATE_ORE);
+                        entries.accept(ModBlocks.RUBY_ORE);
+                        entries.accept(ModBlocks.DEEPSLATE_RUBY_ORE);
+                        entries.accept(ModBlocks.RUBY_BLOCK);
+                        entries.accept(ModBlocks.SAPPHIRE_ORE);
+                        entries.accept(ModBlocks.DEEPSLATE_SAPPHIRE_ORE);
+                        entries.accept(ModBlocks.SAPPHIRE_BLOCK);
+                        entries.accept(ModBlocks.TIN_ORE);
+                        entries.accept(ModBlocks.DEEPSLATE_TIN_ORE);
+                        entries.accept(ModBlocks.RAW_TIN_BLOCK);
+                        entries.accept(ModBlocks.TIN_BLOCK);
+                        entries.accept(ModBlocks.TUNGSTEN_ORE);
+                        entries.accept(ModBlocks.DEEPSLATE_TUNGSTEN_ORE);
+                        entries.accept(ModBlocks.RAW_TUNGSTEN_BLOCK);
+                        entries.accept(ModBlocks.TUNGSTEN_BLOCK);
 
 
                         //Crafted Blocks
-                        entries.add(ModBlocks.DECORATIVE_AMETHYST_BLOCK);
-                        entries.add(ModBlocks.BRONZE_BLOCK);
-                        entries.add(ModBlocks.STEEL_BLOCK);
+                        entries.accept(ModBlocks.DECORATIVE_AMETHYST_BLOCK);
+                        entries.accept(ModBlocks.BRONZE_BLOCK);
+                        entries.accept(ModBlocks.STEEL_BLOCK);
 
                         //Misc. Blocks
                         //SOMETHING HERE
@@ -49,119 +49,119 @@ public class ModItemGroups {
 
 
                         //Misc. Items
-                        entries.add(ModItems.OBSIDIAN_GOLEM_SPAWN_EGG);
-                        entries.add(ModItems.MYSTERIOUS_SPECTER_SPAWN_EGG);
-                        entries.add(ModItems.FERTILIZER);
+                        entries.accept(ModItems.OBSIDIAN_GOLEM_SPAWN_EGG);
+                        entries.accept(ModItems.MYSTERIOUS_SPECTER_SPAWN_EGG);
+                        entries.accept(ModItems.FERTILIZER);
 
                         //Raw Items, Gems, Compounds
-                        entries.add(ModItems.COBALT_SHARD);
-                        entries.add(ModItems.PHOSPHATE_POWDER);
-                        entries.add(ModItems.RUBY);
-                        entries.add(ModItems.SAPPHIRE);
-                        entries.add(ModItems.RAW_TIN);
-                        entries.add(ModItems.TIN_INGOT);
-                        entries.add(ModItems.TIN_NUGGET);
-                        entries.add(ModItems.RAW_TUNGSTEN);
-                        entries.add(ModItems.TUNGSTEN_INGOT);
-                        entries.add(ModItems.TUNGSTEN_NUGGET);
-                        entries.add(ModItems.BRONZE_COMPOUND);
-                        entries.add(ModItems.BRONZE_INGOT);
-                        entries.add(ModItems.BRONZE_NUGGET);
-                        entries.add(ModItems.STEEL_COMPOUND);
-                        entries.add(ModItems.STEEL_INGOT);
-                        entries.add(ModItems.STEEL_NUGGET);
+                        entries.accept(ModItems.COBALT_SHARD);
+                        entries.accept(ModItems.PHOSPHATE_POWDER);
+                        entries.accept(ModItems.RUBY);
+                        entries.accept(ModItems.SAPPHIRE);
+                        entries.accept(ModItems.RAW_TIN);
+                        entries.accept(ModItems.TIN_INGOT);
+                        entries.accept(ModItems.TIN_NUGGET);
+                        entries.accept(ModItems.RAW_TUNGSTEN);
+                        entries.accept(ModItems.TUNGSTEN_INGOT);
+                        entries.accept(ModItems.TUNGSTEN_NUGGET);
+                        entries.accept(ModItems.BRONZE_COMPOUND);
+                        entries.accept(ModItems.BRONZE_INGOT);
+                        entries.accept(ModItems.BRONZE_NUGGET);
+                        entries.accept(ModItems.STEEL_COMPOUND);
+                        entries.accept(ModItems.STEEL_INGOT);
+                        entries.accept(ModItems.STEEL_NUGGET);
 
                         //Endgame upgrade items
-                        entries.add(ModItems.HANDFUL_OF_STARDUST);
-                        entries.add(ModItems.MOLTEN_CORE);
-                        entries.add(ModItems.COBALT_STEEL_INGOT);
-                        entries.add(ModItems.INFUSED_GEMSTONE);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_INGOT);
+                        entries.accept(ModItems.HANDFUL_OF_STARDUST);
+                        entries.accept(ModItems.MOLTEN_CORE);
+                        entries.accept(ModItems.COBALT_STEEL_INGOT);
+                        entries.accept(ModItems.INFUSED_GEMSTONE);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_INGOT);
 
                         //Upgrade templates
-                        entries.add(ModItems.BASIC_UPGRADE_TEMPLATE);
-                        entries.add(ModItems.COBALT_UPGRADE_TEMPLATE);
-                        entries.add(ModItems.INFUSION_UPGRADE_TEMPLATE);
-                        entries.add(ModItems.CARBIDE_UPGRADE_TEMPLATE);
+                        entries.accept(ModItems.BASIC_UPGRADE_TEMPLATE);
+                        entries.accept(ModItems.COBALT_UPGRADE_TEMPLATE);
+                        entries.accept(ModItems.INFUSION_UPGRADE_TEMPLATE);
+                        entries.accept(ModItems.CARBIDE_UPGRADE_TEMPLATE);
 
                         //Bronze equipment
-                        entries.add(ModItems.BRONZE_AXE);
-                        entries.add(ModItems.BRONZE_HOE);
-                        entries.add(ModItems.BRONZE_PICKAXE);
-                        entries.add(ModItems.BRONZE_SHOVEL);
-                        entries.add(ModItems.BRONZE_SWORD);
-                        entries.add(ModItems.BRONZE_HELMET);
-                        entries.add(ModItems.BRONZE_CHESTPLATE);
-                        entries.add(ModItems.BRONZE_LEGGINGS);
-                        entries.add(ModItems.BRONZE_BOOTS);
+                        entries.accept(ModItems.BRONZE_AXE);
+                        entries.accept(ModItems.BRONZE_HOE);
+                        entries.accept(ModItems.BRONZE_PICKAXE);
+                        entries.accept(ModItems.BRONZE_SHOVEL);
+                        entries.accept(ModItems.BRONZE_SWORD);
+                        entries.accept(ModItems.BRONZE_HELMET);
+                        entries.accept(ModItems.BRONZE_CHESTPLATE);
+                        entries.accept(ModItems.BRONZE_LEGGINGS);
+                        entries.accept(ModItems.BRONZE_BOOTS);
 
                         //Gilded Bronze equipment
-                        entries.add(ModItems.GILDED_BRONZE_AXE);
-                        entries.add(ModItems.GILDED_BRONZE_HOE);
-                        entries.add(ModItems.GILDED_BRONZE_PICKAXE);
-                        entries.add(ModItems.GILDED_BRONZE_SHOVEL);
-                        entries.add(ModItems.GILDED_BRONZE_SWORD);
-                        entries.add(ModItems.GILDED_BRONZE_HELMET);
-                        entries.add(ModItems.GILDED_BRONZE_CHESTPLATE);
-                        entries.add(ModItems.GILDED_BRONZE_LEGGINGS);
-                        entries.add(ModItems.GILDED_BRONZE_BOOTS);
+                        entries.accept(ModItems.GILDED_BRONZE_AXE);
+                        entries.accept(ModItems.GILDED_BRONZE_HOE);
+                        entries.accept(ModItems.GILDED_BRONZE_PICKAXE);
+                        entries.accept(ModItems.GILDED_BRONZE_SHOVEL);
+                        entries.accept(ModItems.GILDED_BRONZE_SWORD);
+                        entries.accept(ModItems.GILDED_BRONZE_HELMET);
+                        entries.accept(ModItems.GILDED_BRONZE_CHESTPLATE);
+                        entries.accept(ModItems.GILDED_BRONZE_LEGGINGS);
+                        entries.accept(ModItems.GILDED_BRONZE_BOOTS);
 
                         //Diamond equipment
-                        entries.add(ModItems.DIAMOND_BATTLEAXE);
-                        entries.add(ModItems.DIAMOND_PAXEL);
+                        entries.accept(ModItems.DIAMOND_BATTLEAXE);
+                        entries.accept(ModItems.DIAMOND_PAXEL);
 
                         //Netherite equipment
-                        entries.add(ModItems.NETHERITE_BATTLEAXE);
-                        entries.add(ModItems.NETHERITE_PAXEL);
+                        entries.accept(ModItems.NETHERITE_BATTLEAXE);
+                        entries.accept(ModItems.NETHERITE_PAXEL);
 
                         //Cobalt-Steel equipment
-                        entries.add(ModItems.COBALT_STEEL_BOW);
-                        entries.add(ModItems.COBALT_STEEL_CROSSBOW);
-                        entries.add(ModItems.COBALT_STEEL_AXE);
-                        entries.add(ModItems.COBALT_STEEL_BATTLEAXE);
-                        entries.add(ModItems.COBALT_STEEL_HOE);
-                        entries.add(ModItems.COBALT_STEEL_PAXEL);
-                        entries.add(ModItems.COBALT_STEEL_PICKAXE);
-                        entries.add(ModItems.COBALT_STEEL_SHOVEL);
-                        entries.add(ModItems.COBALT_STEEL_SWORD);
-                        entries.add(ModItems.COBALT_STEEL_HELMET);
-                        entries.add(ModItems.COBALT_STEEL_CHESTPLATE);
-                        entries.add(ModItems.COBALT_STEEL_LEGGINGS);
-                        entries.add(ModItems.COBALT_STEEL_BOOTS);
+                        entries.accept(ModItems.COBALT_STEEL_BOW);
+                        entries.accept(ModItems.COBALT_STEEL_CROSSBOW);
+                        entries.accept(ModItems.COBALT_STEEL_AXE);
+                        entries.accept(ModItems.COBALT_STEEL_BATTLEAXE);
+                        entries.accept(ModItems.COBALT_STEEL_HOE);
+                        entries.accept(ModItems.COBALT_STEEL_PAXEL);
+                        entries.accept(ModItems.COBALT_STEEL_PICKAXE);
+                        entries.accept(ModItems.COBALT_STEEL_SHOVEL);
+                        entries.accept(ModItems.COBALT_STEEL_SWORD);
+                        entries.accept(ModItems.COBALT_STEEL_HELMET);
+                        entries.accept(ModItems.COBALT_STEEL_CHESTPLATE);
+                        entries.accept(ModItems.COBALT_STEEL_LEGGINGS);
+                        entries.accept(ModItems.COBALT_STEEL_BOOTS);
 
                         //Infused Gemstone equipment
-                        entries.add(ModItems.INFUSED_GEMSTONE_BOW);
-                        entries.add(ModItems.INFUSED_GEMSTONE_CROSSBOW);
-                        entries.add(ModItems.INFUSED_GEMSTONE_AXE);
-                        entries.add(ModItems.INFUSED_GEMSTONE_BATTLEAXE);
-                        entries.add(ModItems.INFUSED_GEMSTONE_HOE);
-                        entries.add(ModItems.INFUSED_GEMSTONE_PAXEL);
-                        entries.add(ModItems.INFUSED_GEMSTONE_PICKAXE);
-                        entries.add(ModItems.INFUSED_GEMSTONE_SHOVEL);
-                        entries.add(ModItems.INFUSED_GEMSTONE_SWORD);
-                        entries.add(ModItems.INFUSED_GEMSTONE_HELMET);
-                        entries.add(ModItems.INFUSED_GEMSTONE_CHESTPLATE);
-                        entries.add(ModItems.INFUSED_GEMSTONE_LEGGINGS);
-                        entries.add(ModItems.INFUSED_GEMSTONE_BOOTS);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_BOW);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_CROSSBOW);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_AXE);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_BATTLEAXE);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_HOE);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_PAXEL);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_PICKAXE);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_SHOVEL);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_SWORD);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_HELMET);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_CHESTPLATE);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_LEGGINGS);
+                        entries.accept(ModItems.INFUSED_GEMSTONE_BOOTS);
 
                         //Tungsten-Carbide equipment
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_BOW);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_CROSSBOW);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_AXE);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_BATTLEAXE);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_HOE);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_PAXEL);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_PICKAXE);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_SHOVEL);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_SWORD);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_HELMET);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_CHESTPLATE);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_LEGGINGS);
-                        entries.add(ModItems.TUNGSTEN_CARBIDE_BOOTS);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_BOW);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_CROSSBOW);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_AXE);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_BATTLEAXE);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_HOE);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_PAXEL);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_PICKAXE);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_SHOVEL);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_SWORD);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_HELMET);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_CHESTPLATE);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_LEGGINGS);
+                        entries.accept(ModItems.TUNGSTEN_CARBIDE_BOOTS);
 
                         //Trophy items
-                        entries.add(ModItems.TROPHY_OBSIDIAN_DUST);
-                        entries.add(ModItems.TROPHY_OMINOUS_LETTER);
+                        entries.accept(ModItems.TROPHY_OBSIDIAN_DUST);
+                        entries.accept(ModItems.TROPHY_OMINOUS_LETTER);
 //                        entries.add(ModItems.COLLECTOR_POTION_OF_EVERLASTING_YOUTH);
 //                        entries.add(ModItems.COLLECTOR_SLIGHTLY_OVERCOOKED_CHICKEN);
                     }).build());

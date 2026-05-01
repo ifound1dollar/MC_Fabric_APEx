@@ -1,21 +1,20 @@
 package net.dollar.apex.item.custom.ranged;
 
 import net.dollar.apex.util.ModItemUtils;
-import net.minecraft.component.type.TooltipDisplayComponent;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.BowItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
-import net.minecraft.world.World;
-
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.Level;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -26,7 +25,7 @@ import java.util.function.Consumer;
  */
 public class ModEndgameBowItem extends BowItem {
     private final ModItemUtils.EndgameTier endgameTier;
-    private final BiConsumer<Consumer<Text>, ModItemUtils.EquipmentType> tooltipMethod;
+    private final BiConsumer<Consumer<Component>, ModItemUtils.EquipmentType> tooltipMethod;
 
     /**
      * Instantiates a new endgame-tier Bow item for the passed-in EndgameTier. Spawns
@@ -34,7 +33,7 @@ public class ModEndgameBowItem extends BowItem {
      * @param tier EndgameTier for this Bow item
      * @param settings Item.Settings for this Bow item
      */
-    public ModEndgameBowItem(ModItemUtils.EndgameTier tier, Settings settings) {
+    public ModEndgameBowItem(ModItemUtils.EndgameTier tier, Properties settings) {
         super(settings);
 
         // Set EndgameTier field (for use in creating custom arrow) and assign tooltip BiConsumer.
@@ -57,31 +56,31 @@ public class ModEndgameBowItem extends BowItem {
      * @param remainingUseTicks Remaining use ticks
      */
     @Override
-    public boolean onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
-        if (!(user instanceof PlayerEntity playerEntity)) {
+    public boolean releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
+        if (!(user instanceof Player playerEntity)) {
             return false;
         }
 
-        ItemStack itemStack = playerEntity.getProjectileType(stack);
+        ItemStack itemStack = playerEntity.getProjectile(stack);
         if (itemStack.isEmpty()) {
             return false;
         }
 
-        int i = this.getMaxUseTime(stack, user) - remainingUseTicks;
-        float f = BowItem.getPullProgress(i);
+        int i = this.getUseDuration(stack, user) - remainingUseTicks;
+        float f = BowItem.getPowerForTime(i);
         if ((double)f < 0.1) {
             return false;
         }
 
-        List<ItemStack> list = BowItem.load(stack, itemStack, playerEntity);
-        if (world instanceof ServerWorld serverWorld) {
+        List<ItemStack> list = BowItem.draw(stack, itemStack, playerEntity);
+        if (world instanceof ServerLevel serverWorld) {
             if (!list.isEmpty()) {
-                this.shootAll(serverWorld, playerEntity, playerEntity.getActiveHand(), stack, list, f * 3.0F, 1.0F, f == 1.0F, null);
+                this.shoot(serverWorld, playerEntity, playerEntity.getUsedItemHand(), stack, list, f * 3.0F, 1.0F, f == 1.0F, null);
             }
         }
 
-        world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0f, 1.0f / (world.getRandom().nextFloat() * 0.4f + 1.2f) + f * 0.5f);
-        playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+        world.playSound(null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1.0f, 1.0f / (world.getRandom().nextFloat() * 0.4f + 1.2f) + f * 0.5f);
+        playerEntity.awardStat(Stats.ITEM_USED.get(this));
         return true;
     }
 
@@ -95,14 +94,14 @@ public class ModEndgameBowItem extends BowItem {
      * @return The generated ProjectileEntity
      */
     @Override
-    protected ProjectileEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
+    protected Projectile createProjectile(Level world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
-        PersistentProjectileEntity persistentProjectileEntity = ModItemUtils.createCustomArrow(world, shooter,
+        AbstractArrow persistentProjectileEntity = ModItemUtils.createCustomArrow(world, shooter,
                 projectileStack, weaponStack, endgameTier);
 
         if (critical) {
-            persistentProjectileEntity.setCritical(true);
+            persistentProjectileEntity.setCritArrow(true);
         }
 
         return persistentProjectileEntity;
@@ -119,7 +118,7 @@ public class ModEndgameBowItem extends BowItem {
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
         tooltipMethod.accept(textConsumer, ModItemUtils.EquipmentType.RANGED);
     }
 }

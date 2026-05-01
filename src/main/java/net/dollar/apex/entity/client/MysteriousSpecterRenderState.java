@@ -2,10 +2,10 @@ package net.dollar.apex.entity.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.state.BipedEntityRenderState;
+import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
 
 @Environment(EnvType.CLIENT)
-public class MysteriousSpecterRenderState extends BipedEntityRenderState {
+public class MysteriousSpecterRenderState extends HumanoidRenderState {
     private final int textureID;
 
     public MysteriousSpecterRenderState() {

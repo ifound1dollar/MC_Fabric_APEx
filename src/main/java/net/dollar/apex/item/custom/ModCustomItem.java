@@ -1,12 +1,11 @@
 package net.dollar.apex.item.custom;
 
-import net.minecraft.component.type.TooltipDisplayComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.text.Text;
-
 import java.util.function.Consumer;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 
 /**
  * Used to create Items with special information and functionality like custom tooltips, explosion immunity,
@@ -25,7 +24,7 @@ public class ModCustomItem extends Item {
      * @param tooltipLang String pointing to the lang entry for this Item's custom tooltip
      * @param hasGlint Whether this item should have enchantment glint
      */
-    public ModCustomItem(Settings settings, String tooltipLang, boolean hasGlint) {
+    public ModCustomItem(Properties settings, String tooltipLang, boolean hasGlint) {
         super(settings);
         this.tooltipLang = tooltipLang;
         this.hasGlint = hasGlint;
@@ -39,7 +38,7 @@ public class ModCustomItem extends Item {
      * @return Whether this item has enchantment glint
      */
     @Override
-    public boolean hasGlint(ItemStack stack) {
+    public boolean isFoil(ItemStack stack) {
         return this.hasGlint;
     }
 
@@ -52,7 +51,7 @@ public class ModCustomItem extends Item {
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-        textConsumer.accept(Text.translatable(tooltipLang));
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
+        textConsumer.accept(Component.translatable(tooltipLang));
     }
 }

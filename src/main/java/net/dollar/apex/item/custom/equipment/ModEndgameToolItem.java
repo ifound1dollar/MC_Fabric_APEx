@@ -1,26 +1,25 @@
 package net.dollar.apex.item.custom.equipment;
 
 import net.dollar.apex.util.ModItemUtils;
-import net.minecraft.component.type.TooltipDisplayComponent;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.text.Text;
-
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class ModEndgameToolItem extends Item {
     private final Consumer<LivingEntity> onHitMethod;
-    private final BiConsumer<Consumer<Text>, ModItemUtils.EquipmentType> tooltipMethod;
+    private final BiConsumer<Consumer<Component>, ModItemUtils.EquipmentType> tooltipMethod;
 
     /**
      * Instantiates a new generic non-weapon tool item for the passed-in EndgameTier.
      * @param tier EndgameTier determining on-hit behavior and tooltip text
      * @param settings Item.Settings associated with this tool, should already have called .tool()
      */
-    public ModEndgameToolItem(ModItemUtils.EndgameTier tier, Settings settings) {
+    public ModEndgameToolItem(ModItemUtils.EndgameTier tier, Properties settings) {
         super(settings);
 
         // Set proper method references to both Consumers.
@@ -52,7 +51,7 @@ public class ModEndgameToolItem extends Item {
      * @param attacker Attacker (user) living entity
      */
     @Override
-    public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         onHitMethod.accept(target);
     }
 
@@ -65,8 +64,8 @@ public class ModEndgameToolItem extends Item {
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent,
-                              Consumer<Text> textConsumer, TooltipType type) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent,
+                              Consumer<Component> textConsumer, TooltipFlag type) {
         tooltipMethod.accept(textConsumer, ModItemUtils.EquipmentType.TOOL);
     }
 }

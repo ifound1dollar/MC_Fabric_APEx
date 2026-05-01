@@ -1,13 +1,13 @@
 package net.dollar.apex.entity.client;
 
-import net.minecraft.client.render.entity.state.LivingEntityRenderState;
-import net.minecraft.entity.passive.Cracks;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.world.entity.Crackiness;
 
 public class ObsidianGolemRenderState extends LivingEntityRenderState {
     public float attackTicksLeft;
-    public Cracks.CrackLevel crackLevel;
+    public Crackiness.Level crackLevel;
 
     public ObsidianGolemRenderState() {
-        this.crackLevel = Cracks.CrackLevel.NONE;
+        this.crackLevel = Crackiness.Level.NONE;
     }
 }

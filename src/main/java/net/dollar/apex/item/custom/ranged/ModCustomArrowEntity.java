@@ -1,17 +1,16 @@
 package net.dollar.apex.item.custom.ranged;
 
 import net.dollar.apex.util.ModItemUtils;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SpectralArrowItem;
-import net.minecraft.world.World;
-
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.arrow.Arrow;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpectralArrowItem;
+import net.minecraft.world.level.Level;
 import java.util.function.Consumer;
 
-public class ModCustomArrowEntity extends ArrowEntity {
+public class ModCustomArrowEntity extends Arrow {
     private boolean isSpectral;
     private final Consumer<LivingEntity> onHitMethod;
 
@@ -23,10 +22,10 @@ public class ModCustomArrowEntity extends ArrowEntity {
      * @param weaponStack ItemStack of the weapon shooting this ArrowEntity
      * @param tier EndgameTier this ArrowEntity is being spawned for, determines on-hit effect
      */
-    public ModCustomArrowEntity(World world, LivingEntity owner, ItemStack arrowStack, ItemStack weaponStack,
+    public ModCustomArrowEntity(Level world, LivingEntity owner, ItemStack arrowStack, ItemStack weaponStack,
                                 ModItemUtils.EndgameTier tier) {
         super(world, owner, arrowStack, weaponStack);
-        setDamage(3.0f);
+        setBaseDamage(3.0f);
 
         switch (tier) {
             case COBALT_STEEL -> onHitMethod = ModItemUtils::applyCobaltSteelOnHit;
@@ -52,14 +51,14 @@ public class ModCustomArrowEntity extends ArrowEntity {
      * @param target The collided LivingEntity
      */
     @Override
-    protected void onHit(LivingEntity target) {
-        super.onHit(target);
+    protected void doPostHurtEffects(LivingEntity target) {
+        super.doPostHurtEffects(target);
 
         //If the arrow is spectral, make the target glowing (same functionality as actual Spectral Arrow).
         if (isSpectral) {
-            StatusEffectInstance statusEffectInstance = new StatusEffectInstance(
-                    StatusEffects.GLOWING, 200, 0); //10 seconds
-            target.addStatusEffect(statusEffectInstance, this.getEffectCause());
+            MobEffectInstance statusEffectInstance = new MobEffectInstance(
+                    MobEffects.GLOWING, 200, 0); //10 seconds
+            target.addEffect(statusEffectInstance, this.getEffectSource());
         }
 
         // Apply special on-hit effect when this arrow entity hits a LivingEntity.

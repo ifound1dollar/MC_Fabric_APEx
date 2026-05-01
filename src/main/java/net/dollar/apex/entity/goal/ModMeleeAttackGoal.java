@@ -1,16 +1,16 @@
 package net.dollar.apex.entity.goal;
 
 import java.util.EnumSet;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.ai.pathing.Path;
-import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.predicate.entity.EntityPredicates;
-import net.minecraft.util.Hand;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.EntitySelector;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.pathfinder.Path;
 
 public class ModMeleeAttackGoal extends Goal {
-    protected final PathAwareEntity mob;
+    protected final PathfinderMob mob;
     private final double speed;
     private final boolean pauseWhenMobIdle;
     private Path path;
@@ -31,11 +31,11 @@ public class ModMeleeAttackGoal extends Goal {
      * @param pauseWhenMobIdle Whether to pause while the mob is idle (should be false)
      * @param attackIntervalTicks Minimum number of ticks between each attack attempt (attack speed)
      */
-    public ModMeleeAttackGoal(PathAwareEntity mob, double speed, boolean pauseWhenMobIdle, int attackIntervalTicks) {
+    public ModMeleeAttackGoal(PathfinderMob mob, double speed, boolean pauseWhenMobIdle, int attackIntervalTicks) {
         this.mob = mob;
         this.speed = speed;
         this.pauseWhenMobIdle = pauseWhenMobIdle;
-        this.setControls(EnumSet.of(Goal.Control.MOVE, Goal.Control.LOOK));
+        this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
 
         this.attackIntervalTicks = attackIntervalTicks;
         this.MAX_ATTACK_TIME = attackIntervalTicks;
@@ -49,8 +49,8 @@ public class ModMeleeAttackGoal extends Goal {
      * @return Whether the Goal can be used.
      */
     @Override
-    public boolean canStart() {
-        long l = this.mob.getEntityWorld().getTime();
+    public boolean canUse() {
+        long l = this.mob.level().getGameTime();
         if (l - this.lastUpdateTime < MAX_ATTACK_TIME) {
             return false;
         } else {
@@ -61,8 +61,8 @@ public class ModMeleeAttackGoal extends Goal {
             } else if (!livingEntity.isAlive()) {
                 return false;
             } else {
-                this.path = this.mob.getNavigation().findPathTo(livingEntity, 0);
-                return ((this.path != null) || this.mob.isInAttackRange(livingEntity));
+                this.path = this.mob.getNavigation().createPath(livingEntity, 0);
+                return ((this.path != null) || this.mob.isWithinMeleeAttackRange(livingEntity));
             }
         }
     }
@@ -73,17 +73,17 @@ public class ModMeleeAttackGoal extends Goal {
      * @return Whether this Goal can continue being used.
      */
     @Override
-    public boolean shouldContinue() {
+    public boolean canContinueToUse() {
         LivingEntity livingEntity = this.mob.getTarget();
         if (livingEntity == null) {
             return false;
         } else if (!livingEntity.isAlive()) {
             return false;
         } else if (!this.pauseWhenMobIdle) {
-            return !this.mob.getNavigation().isIdle();
+            return !this.mob.getNavigation().isDone();
         } else {
-            return this.mob.isInPositionTargetRange(livingEntity.getBlockPos())
-                    && !(livingEntity instanceof PlayerEntity playerEntity
+            return this.mob.isWithinHome(livingEntity.blockPosition())
+                    && !(livingEntity instanceof Player playerEntity
                     && (playerEntity.isSpectator() || playerEntity.isCreative()));
         }
     }
@@ -93,8 +93,8 @@ public class ModMeleeAttackGoal extends Goal {
      */
     @Override
     public void start() {
-        this.mob.getNavigation().startMovingAlong(this.path, this.speed);
-        this.mob.setAttacking(true);
+        this.mob.getNavigation().moveTo(this.path, this.speed);
+        this.mob.setAggressive(true);
         this.updateCountdownTicks = 0;
         this.cooldown = 0;
     }
@@ -105,11 +105,11 @@ public class ModMeleeAttackGoal extends Goal {
     @Override
     public void stop() {
         LivingEntity livingEntity = this.mob.getTarget();
-        if (!EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.test(livingEntity)) {
+        if (!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(livingEntity)) {
             this.mob.setTarget(null);
         }
 
-        this.mob.setAttacking(false);
+        this.mob.setAggressive(false);
         this.mob.getNavigation().stop();
     }
 
@@ -118,7 +118,7 @@ public class ModMeleeAttackGoal extends Goal {
      * @return True if this Goal should run every tick (overridden to always return true)
      */
     @Override
-    public boolean shouldRunEveryTick() {
+    public boolean requiresUpdateEveryTick() {
         return true;
     }
 
@@ -130,31 +130,31 @@ public class ModMeleeAttackGoal extends Goal {
     public void tick() {
         LivingEntity livingEntity = this.mob.getTarget();
         if (livingEntity != null) {
-            this.mob.getLookControl().lookAt(livingEntity, 30.0F, 30.0F);
+            this.mob.getLookControl().setLookAt(livingEntity, 30.0F, 30.0F);
             this.updateCountdownTicks = Math.max(this.updateCountdownTicks - 1, 0);
-            if ((this.pauseWhenMobIdle || this.mob.getVisibilityCache().canSee(livingEntity))
+            if ((this.pauseWhenMobIdle || this.mob.getSensing().hasLineOfSight(livingEntity))
                     && this.updateCountdownTicks <= 0
                     && (
                     this.targetX == 0.0 && this.targetY == 0.0 && this.targetZ == 0.0
-                            || livingEntity.squaredDistanceTo(this.targetX, this.targetY, this.targetZ) >= 1.0
+                            || livingEntity.distanceToSqr(this.targetX, this.targetY, this.targetZ) >= 1.0
                             || this.mob.getRandom().nextFloat() < 0.05F
             )) {
                 this.targetX = livingEntity.getX();
                 this.targetY = livingEntity.getY();
                 this.targetZ = livingEntity.getZ();
                 this.updateCountdownTicks = 4 + this.mob.getRandom().nextInt(7);
-                double d = this.mob.squaredDistanceTo(livingEntity);
+                double d = this.mob.distanceToSqr(livingEntity);
                 if (d > 1024.0) {
                     this.updateCountdownTicks += 10;
                 } else if (d > 256.0) {
                     this.updateCountdownTicks += 5;
                 }
 
-                if (!this.mob.getNavigation().startMovingTo(livingEntity, this.speed)) {
+                if (!this.mob.getNavigation().moveTo(livingEntity, this.speed)) {
                     this.updateCountdownTicks += 15;
                 }
 
-                this.updateCountdownTicks = this.getTickCount(this.updateCountdownTicks);
+                this.updateCountdownTicks = this.adjustedTickDelay(this.updateCountdownTicks);
             }
 
             this.cooldown = Math.max(this.cooldown - 1, 0);
@@ -170,8 +170,8 @@ public class ModMeleeAttackGoal extends Goal {
     protected void attack(LivingEntity target) {
         if (this.canAttack(target)) {
             this.resetCooldown();
-            this.mob.swingHand(Hand.MAIN_HAND);
-            this.mob.tryAttack(getServerWorld(this.mob), target);
+            this.mob.swing(InteractionHand.MAIN_HAND);
+            this.mob.doHurtTarget(getServerLevel(this.mob), target);
         }
     }
 
@@ -179,7 +179,7 @@ public class ModMeleeAttackGoal extends Goal {
      * Resets the cooldown of this Goal. The cooldown of this Goal is the attack cooldown.
      */
     protected void resetCooldown() {
-        this.cooldown = this.getTickCount(attackIntervalTicks);
+        this.cooldown = this.adjustedTickDelay(attackIntervalTicks);
     }
 
     /**
@@ -197,6 +197,6 @@ public class ModMeleeAttackGoal extends Goal {
      * @return True if the LivingEntity can be attacked (Goal not on cooldown and target is visible and in range)
      */
     protected boolean canAttack(LivingEntity target) {
-        return this.isCooledDown() && this.mob.isInAttackRange(target) && this.mob.getVisibilityCache().canSee(target);
+        return this.isCooledDown() && this.mob.isWithinMeleeAttackRange(target) && this.mob.getSensing().hasLineOfSight(target);
     }
 }

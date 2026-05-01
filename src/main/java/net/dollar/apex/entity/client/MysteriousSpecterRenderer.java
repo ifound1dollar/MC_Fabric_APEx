@@ -1,21 +1,23 @@
 package net.dollar.apex.entity.client;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.dollar.apex.ModMain;
 import net.dollar.apex.entity.custom.MysteriousSpecterEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.BipedEntityRenderer;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
+import net.minecraft.resources.Identifier;
+import org.jetbrains.annotations.NotNull;
 
 @Environment(value= EnvType.CLIENT)
 public class MysteriousSpecterRenderer
-        extends BipedEntityRenderer<MysteriousSpecterEntity, MysteriousSpecterRenderState, MysteriousSpecterModel<MysteriousSpecterRenderState>> {
+        extends HumanoidMobRenderer<@NotNull MysteriousSpecterEntity, @NotNull MysteriousSpecterRenderState,
+        @NotNull MysteriousSpecterModel<@NotNull MysteriousSpecterRenderState>> {
     private static final String TEXTURE_BASE = "textures/entity/mysterious_specter";
 
-    public MysteriousSpecterRenderer(EntityRendererFactory.Context context) {
-        super(context, new MysteriousSpecterModel<>(context.getPart(ModModelLayers.MYSTERIOUS_SPECTER)),
+    public MysteriousSpecterRenderer(EntityRendererProvider.Context context) {
+        super(context, new MysteriousSpecterModel<>(context.bakeLayer(ModModelLayers.MYSTERIOUS_SPECTER)),
                 0.0f);
     }
 
@@ -27,14 +29,14 @@ public class MysteriousSpecterRenderer
     }
 
     @Override
-    protected void scale(MysteriousSpecterRenderState state, MatrixStack matrices) {
+    protected void scale(MysteriousSpecterRenderState state, PoseStack matrices) {
         matrices.scale(0.9375f, 0.9375f, 0.9375f);
     }
 
     @Override
-    public Identifier getTexture(MysteriousSpecterRenderState renderState) {
+    public @NotNull Identifier getTextureLocation(MysteriousSpecterRenderState renderState) {
         //Generate and return a new identifier using the TEXTURE_BASE string appended with the texture
         //  ID from the RenderState instance (plus the .png extension).
-        return Identifier.of(ModMain.MOD_ID, TEXTURE_BASE + renderState.getTextureID() + ".png");
+        return Identifier.fromNamespaceAndPath(ModMain.MOD_ID, TEXTURE_BASE + renderState.getTextureID() + ".png");
     }
 }

@@ -1,14 +1,13 @@
 package net.dollar.apex.util;
 
 import net.dollar.apex.ModMain;
-import net.minecraft.item.Item;
-import net.minecraft.item.SmithingTemplateItem;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
-
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SmithingTemplateItem;
 import java.util.List;
 
 /**
@@ -18,46 +17,46 @@ import java.util.List;
 public class ModSmithingUpgradeItemHelper {
     //region COBALT-STEEL Texts
     //private static final Text COBALT_UPGRADE = Text.literal("Cobalt-Steel Upgrade").formatted(Formatting.GRAY);
-    private static final Text COBALT_UPGRADE_APPLIES_TO = Text.literal("Diamond Equipment").formatted(Formatting.BLUE);
-    private static final Text COBALT_UPGRADE_INGREDIENTS = Text.literal("Cobalt-Steel Ingot").formatted(Formatting.BLUE);
-    private static final Text COBALT_UPGRADE_BASE_SLOT_DESCRIPTION = Text.literal(
+    private static final Component COBALT_UPGRADE_APPLIES_TO = Component.literal("Diamond Equipment").withStyle(ChatFormatting.BLUE);
+    private static final Component COBALT_UPGRADE_INGREDIENTS = Component.literal("Cobalt-Steel Ingot").withStyle(ChatFormatting.BLUE);
+    private static final Component COBALT_UPGRADE_BASE_SLOT_DESCRIPTION = Component.literal(
             "Add diamond armor, weapon, or tool");
-    private static final Text COBALT_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Text.literal(
+    private static final Component COBALT_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.literal(
             "Add Cobalt-Steel Ingot");
     //endregion
 
     //region INFUSED DIAMOND Texts
     //private static final Text INFUSION_UPGRADE = Text.literal("Infused Gemstone Upgrade").formatted(Formatting.GRAY);
-    private static final Text INFUSION_UPGRADE_APPLIES_TO = Text.literal("Diamond Equipment").formatted(Formatting.BLUE);
-    private static final Text INFUSION_UPGRADE_INGREDIENTS = Text.literal("Infused Gemstone").formatted(Formatting.BLUE);
-    private static final Text INFUSION_UPGRADE_BASE_SLOT_DESCRIPTION = Text.literal(
+    private static final Component INFUSION_UPGRADE_APPLIES_TO = Component.literal("Diamond Equipment").withStyle(ChatFormatting.BLUE);
+    private static final Component INFUSION_UPGRADE_INGREDIENTS = Component.literal("Infused Gemstone").withStyle(ChatFormatting.BLUE);
+    private static final Component INFUSION_UPGRADE_BASE_SLOT_DESCRIPTION = Component.literal(
             "Add diamond armor, weapon, or tool");
-    private static final Text INFUSION_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Text.literal(
+    private static final Component INFUSION_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.literal(
             "Add Infused Gemstone");
     //endregion
 
     //region TUNGSTEN-CARBIDE Texts
     //private static final Text CARBIDE_UPGRADE = Text.literal("Tungsten-Carbide Upgrade").formatted(Formatting.GRAY);
-    private static final Text CARBIDE_UPGRADE_APPLIES_TO = Text.literal("Diamond Equipment").formatted(Formatting.BLUE);
-    private static final Text CARBIDE_UPGRADE_INGREDIENTS = Text.literal("Tungsten-Carbide Ingot").formatted(Formatting.BLUE);
-    private static final Text CARBIDE_UPGRADE_BASE_SLOT_DESCRIPTION = Text.literal(
+    private static final Component CARBIDE_UPGRADE_APPLIES_TO = Component.literal("Diamond Equipment").withStyle(ChatFormatting.BLUE);
+    private static final Component CARBIDE_UPGRADE_INGREDIENTS = Component.literal("Tungsten-Carbide Ingot").withStyle(ChatFormatting.BLUE);
+    private static final Component CARBIDE_UPGRADE_BASE_SLOT_DESCRIPTION = Component.literal(
             "Add diamond armor, weapon, or tool");
-    private static final Text CARBIDE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Text.literal(
+    private static final Component CARBIDE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.literal(
             "Add Tungsten-Carbide Ingot");
     //endregion
 
     //region EMPTY SLOT RESOURCE LOCATIONS
-    private static final Identifier EMPTY_SLOT_HELMET = Identifier.of("item/empty_armor_slot_helmet");
-    private static final Identifier EMPTY_SLOT_CHESTPLATE = Identifier.of("item/empty_armor_slot_chestplate");
-    private static final Identifier EMPTY_SLOT_LEGGINGS = Identifier.of("item/empty_armor_slot_leggings");
-    private static final Identifier EMPTY_SLOT_BOOTS = Identifier.of("item/empty_armor_slot_boots");
-    private static final Identifier EMPTY_SLOT_HOE = Identifier.of("item/empty_slot_hoe");
-    private static final Identifier EMPTY_SLOT_AXE = Identifier.of("item/empty_slot_axe");
-    private static final Identifier EMPTY_SLOT_SWORD = Identifier.of("item/empty_slot_sword");
-    private static final Identifier EMPTY_SLOT_SHOVEL = Identifier.of("item/empty_slot_shovel");
-    private static final Identifier EMPTY_SLOT_PICKAXE = Identifier.of("item/empty_slot_pickaxe");
-    private static final Identifier EMPTY_SLOT_INGOT = Identifier.of("item/empty_slot_ingot");
-    private static final Identifier EMPTY_SLOT_DIAMOND = Identifier.of("item/empty_slot_diamond");
+    private static final Identifier EMPTY_SLOT_HELMET = Identifier.parse("item/empty_armor_slot_helmet");
+    private static final Identifier EMPTY_SLOT_CHESTPLATE = Identifier.parse("item/empty_armor_slot_chestplate");
+    private static final Identifier EMPTY_SLOT_LEGGINGS = Identifier.parse("item/empty_armor_slot_leggings");
+    private static final Identifier EMPTY_SLOT_BOOTS = Identifier.parse("item/empty_armor_slot_boots");
+    private static final Identifier EMPTY_SLOT_HOE = Identifier.parse("item/empty_slot_hoe");
+    private static final Identifier EMPTY_SLOT_AXE = Identifier.parse("item/empty_slot_axe");
+    private static final Identifier EMPTY_SLOT_SWORD = Identifier.parse("item/empty_slot_sword");
+    private static final Identifier EMPTY_SLOT_SHOVEL = Identifier.parse("item/empty_slot_shovel");
+    private static final Identifier EMPTY_SLOT_PICKAXE = Identifier.parse("item/empty_slot_pickaxe");
+    private static final Identifier EMPTY_SLOT_INGOT = Identifier.parse("item/empty_slot_ingot");
+    private static final Identifier EMPTY_SLOT_DIAMOND = Identifier.parse("item/empty_slot_diamond");
     //endregion
 
 
@@ -73,9 +72,9 @@ public class ModSmithingUpgradeItemHelper {
     public static SmithingTemplateItem createCobaltUpgradeTemplate() {
         return new SmithingTemplateItem(COBALT_UPGRADE_APPLIES_TO, COBALT_UPGRADE_INGREDIENTS,
                 COBALT_UPGRADE_BASE_SLOT_DESCRIPTION, COBALT_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createUpgradeIconList(), createUpgradeMaterialList(true), new Item.Settings()
-                .registryKey(RegistryKey.of(RegistryKeys.ITEM,
-                        Identifier.of(ModMain.MOD_ID, "cobalt_upgrade_smithing_template"))));
+                createUpgradeIconList(), createUpgradeMaterialList(true), new Item.Properties()
+                .setId(ResourceKey.create(Registries.ITEM,
+                        Identifier.fromNamespaceAndPath(ModMain.MOD_ID, "cobalt_upgrade_smithing_template"))));
     }
 
     /**
@@ -86,9 +85,9 @@ public class ModSmithingUpgradeItemHelper {
     public static SmithingTemplateItem createInfusionUpgradeTemplate() {
         return new SmithingTemplateItem(INFUSION_UPGRADE_APPLIES_TO, INFUSION_UPGRADE_INGREDIENTS,
                 INFUSION_UPGRADE_BASE_SLOT_DESCRIPTION, INFUSION_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createUpgradeIconList(), createUpgradeMaterialList(false), new Item.Settings()
-                .registryKey(RegistryKey.of(RegistryKeys.ITEM,
-                Identifier.of(ModMain.MOD_ID, "infusion_upgrade_smithing_template"))));
+                createUpgradeIconList(), createUpgradeMaterialList(false), new Item.Properties()
+                .setId(ResourceKey.create(Registries.ITEM,
+                Identifier.fromNamespaceAndPath(ModMain.MOD_ID, "infusion_upgrade_smithing_template"))));
     }
 
     /**
@@ -99,9 +98,9 @@ public class ModSmithingUpgradeItemHelper {
     public static SmithingTemplateItem createCarbideUpgradeTemplate() {
         return new SmithingTemplateItem(CARBIDE_UPGRADE_APPLIES_TO, CARBIDE_UPGRADE_INGREDIENTS,
                 CARBIDE_UPGRADE_BASE_SLOT_DESCRIPTION, CARBIDE_UPGRADE_ADDITIONS_SLOT_DESCRIPTION,
-                createUpgradeIconList(), createUpgradeMaterialList(true), new Item.Settings()
-                .registryKey(RegistryKey.of(RegistryKeys.ITEM,
-                        Identifier.of(ModMain.MOD_ID, "carbide_upgrade_smithing_template"))));
+                createUpgradeIconList(), createUpgradeMaterialList(true), new Item.Properties()
+                .setId(ResourceKey.create(Registries.ITEM,
+                        Identifier.fromNamespaceAndPath(ModMain.MOD_ID, "carbide_upgrade_smithing_template"))));
     }
 
 

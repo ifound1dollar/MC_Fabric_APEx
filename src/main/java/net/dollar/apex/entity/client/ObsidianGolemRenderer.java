@@ -1,24 +1,25 @@
 package net.dollar.apex.entity.client;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 import net.dollar.apex.ModMain;
 import net.dollar.apex.entity.custom.ObsidianGolemEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.RotationAxis;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.Identifier;
+import org.jetbrains.annotations.NotNull;
 
 @Environment(value= EnvType.CLIENT)
 public class ObsidianGolemRenderer
-        extends MobEntityRenderer<ObsidianGolemEntity, ObsidianGolemRenderState, ObsidianGolemModel> {
-    private static final Identifier TEXTURE = Identifier.of(
+        extends MobRenderer<@NotNull ObsidianGolemEntity, @NotNull ObsidianGolemRenderState, @NotNull ObsidianGolemModel> {
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(
             ModMain.MOD_ID, "textures/entity/obsidian_golem.png");
 
-    public ObsidianGolemRenderer(EntityRendererFactory.Context context) {
-        super(context, new ObsidianGolemModel(context.getPart(ModModelLayers.OBSIDIAN_GOLEM)), 0.7f);
-        this.addFeature(new ObsidianGolemCrackRenderer(this));  //Add custom crack layer
+    public ObsidianGolemRenderer(EntityRendererProvider.Context context) {
+        super(context, new ObsidianGolemModel(context.bakeLayer(ModModelLayers.OBSIDIAN_GOLEM)), 0.7f);
+        this.addLayer(new ObsidianGolemCrackRenderer(this));  //Add custom crack layer
     }
 
 
@@ -29,7 +30,7 @@ public class ObsidianGolemRenderer
      * @param matrices MatrixStack corresponding to this renderer
      */
     @Override
-    protected void scale(ObsidianGolemRenderState state, MatrixStack matrices) {
+    protected void scale(ObsidianGolemRenderState state, PoseStack matrices) {
         //Scale the Entity's matrices by 1.25 on each axis (super.scale() function is empty, ignore).
         matrices.scale(1.25f, 1.25f, 1.25f);    }
 
@@ -39,7 +40,7 @@ public class ObsidianGolemRenderer
      * @return The corresponding Identifier
      */
     @Override
-    public Identifier getTexture(ObsidianGolemRenderState renderState) {
+    public @NotNull Identifier getTextureLocation(ObsidianGolemRenderState renderState) {
         return TEXTURE;
     }
 
@@ -48,19 +49,19 @@ public class ObsidianGolemRenderer
     }
 
     public void updateRenderState(ObsidianGolemEntity entity, ObsidianGolemRenderState renderState, float f) {
-        super.updateRenderState(entity, renderState, f);
+        super.extractRenderState(entity, renderState, f);
         renderState.attackTicksLeft = (float)entity.getAttackTicksLeft() > 0.0F ? (float)entity.getAttackTicksLeft() - f : 0.0F;
         renderState.crackLevel = entity.getCrack();
     }
 
     @Override
-    protected void setupTransforms(ObsidianGolemRenderState renderState, MatrixStack matrixStack,
-                                   float f, float g) {
-        super.setupTransforms(renderState, matrixStack, f, g);
-        if (!((double)renderState.limbSwingAmplitude < 0.01)) {
-            float i = renderState.limbSwingAnimationProgress + 6.0F;
+    protected void setupRotations(ObsidianGolemRenderState renderState, @NotNull PoseStack matrixStack,
+                                  float f, float g) {
+        super.setupRotations(renderState, matrixStack, f, g);
+        if (!((double)renderState.walkAnimationSpeed < 0.01)) {
+            float i = renderState.walkAnimationPos + 6.0F;
             float j = (Math.abs(i % 13.0F - 6.5F) - 3.25F) / 3.25F;
-            matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(6.5F * j));
+            matrixStack.mulPose(Axis.ZP.rotationDegrees(6.5F * j));
         }
     }
 }

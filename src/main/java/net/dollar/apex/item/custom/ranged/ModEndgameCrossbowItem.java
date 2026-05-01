@@ -1,19 +1,18 @@
 package net.dollar.apex.item.custom.ranged;
 
 import net.dollar.apex.util.ModItemUtils;
-import net.minecraft.component.type.TooltipDisplayComponent;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.FireworkRocketEntity;
-import net.minecraft.entity.projectile.PersistentProjectileEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.CrossbowItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.world.World;
-
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.FireworkRocketEntity;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.Level;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -23,7 +22,7 @@ import java.util.function.Consumer;
  */
 public class ModEndgameCrossbowItem extends CrossbowItem {
     private final ModItemUtils.EndgameTier endgameTier;
-    private final BiConsumer<Consumer<Text>, ModItemUtils.EquipmentType> tooltipMethod;
+    private final BiConsumer<Consumer<Component>, ModItemUtils.EquipmentType> tooltipMethod;
 
     /**
      * Instantiates a new endgame-tier Crossbow item for the passed-in EndgameTier. Spawns
@@ -31,7 +30,7 @@ public class ModEndgameCrossbowItem extends CrossbowItem {
      * @param tier EndgameTier for this Crossbow item
      * @param settings Item.Settings for this Crossbow item
      */
-    public ModEndgameCrossbowItem(ModItemUtils.EndgameTier tier, Settings settings) {
+    public ModEndgameCrossbowItem(ModItemUtils.EndgameTier tier, Properties settings) {
         super(settings);
 
         // Set EndgameTier field (for use in creating custom arrow) and assign tooltip BiConsumer.
@@ -61,15 +60,15 @@ public class ModEndgameCrossbowItem extends CrossbowItem {
      * @return The generated ProjectileEntity
      */
     @Override
-    protected ProjectileEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
-        if (projectileStack.isOf(Items.FIREWORK_ROCKET)) {
+    protected Projectile createProjectile(Level world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
+        if (projectileStack.is(Items.FIREWORK_ROCKET)) {
             return new FireworkRocketEntity(world, projectileStack, shooter, shooter.getX(), shooter.getEyeY() - (double)0.15f, shooter.getZ(), true);
         }
 
         // Vanilla functionality replaced from here on.
-        PersistentProjectileEntity projectileEntity = customArrowEntity(world, shooter, projectileStack,
+        AbstractArrow projectileEntity = customArrowEntity(world, shooter, projectileStack,
                 weaponStack, critical);
-        projectileEntity.setSound(SoundEvents.ITEM_CROSSBOW_HIT);
+        projectileEntity.setSoundEvent(SoundEvents.CROSSBOW_HIT);
         return projectileEntity;
     }
 
@@ -81,17 +80,17 @@ public class ModEndgameCrossbowItem extends CrossbowItem {
      * @param critical Whether the arrow will be critical
      * @return The generated custom PersistentProjectileEntity
      */
-    private PersistentProjectileEntity customArrowEntity(World world, LivingEntity entity,
+    private AbstractArrow customArrowEntity(Level world, LivingEntity entity,
                                                                 ItemStack projectileStack, ItemStack weaponStack,
                                                                 boolean critical) {
         //Replace vanilla functionality to get the ArrowItem from the found ItemStack with this function. Will
         //  automatically handle Spectral Arrow and Tipped Arrow functionality in-method.
-        PersistentProjectileEntity persistentProjectileEntity = ModItemUtils.createCustomArrow(world, entity,
+        AbstractArrow persistentProjectileEntity = ModItemUtils.createCustomArrow(world, entity,
                 projectileStack, weaponStack, endgameTier);
 
         //Remainder of original function (with arrow creation omitted) is below.
         if (critical) {
-            persistentProjectileEntity.setCritical(true);
+            persistentProjectileEntity.setCritArrow(true);
         }
 
         return persistentProjectileEntity;
@@ -106,10 +105,10 @@ public class ModEndgameCrossbowItem extends CrossbowItem {
      * @param type TooltipType determining data like simple or advanced
      */
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
         tooltipMethod.accept(textConsumer, ModItemUtils.EquipmentType.RANGED);
 
         //Call super function because it has return statement if not charged.
-        super.appendTooltip(stack, context, displayComponent, textConsumer, type);
+        super.appendHoverText(stack, context, displayComponent, textConsumer, type);
     }
 }

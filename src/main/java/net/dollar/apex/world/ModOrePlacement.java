@@ -1,7 +1,10 @@
 package net.dollar.apex.world;
 
-import net.minecraft.world.gen.placementmodifier.*;
-
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import java.util.List;
 
 public class ModOrePlacement {
@@ -12,7 +15,7 @@ public class ModOrePlacement {
      * @return Generated List of PlacementModifiers
      */
     public static List<PlacementModifier> modifiers(PlacementModifier countModifier, PlacementModifier heightModifier) {
-        return List.of(countModifier, SquarePlacementModifier.of(), heightModifier, BiomePlacementModifier.of());
+        return List.of(countModifier, InSquarePlacement.spread(), heightModifier, BiomeFilter.biome());
     }
 
     /**
@@ -22,7 +25,7 @@ public class ModOrePlacement {
      * @return Generated List of PlacementModifiers
      */
     public static List<PlacementModifier> modifiersWithCount(int count, PlacementModifier heightModifier) {
-        return modifiers(CountPlacementModifier.of(count), heightModifier);
+        return modifiers(CountPlacement.of(count), heightModifier);
     }
 
     /**
@@ -32,6 +35,6 @@ public class ModOrePlacement {
      * @return Generated List of PlacementModifiers
      */
     public static List<PlacementModifier> modifiersWithRarity(int chance, PlacementModifier heightModifier) {
-        return modifiers(RarityFilterPlacementModifier.of(chance), heightModifier);
+        return modifiers(RarityFilter.onAverageOnceEvery(chance), heightModifier);
     }
 }
