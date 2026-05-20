@@ -521,86 +521,95 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 //endregion
 
                 //region GILDED BRONZE EQUIPMENT
-                shaped(RecipeCategory.MISC, ModItems.GILDED_BRONZE_HELMET, 1)
+                shaped(RecipeCategory.COMBAT, ModItems.GILDED_BRONZE_HELMET, 1)
                         .define('d', ModTags.Items.COMMON_GOLD_INGOTS)
                         .define('i', ModItems.BRONZE_HELMET)
                         .pattern("ddd")
                         .pattern("did")
                         .pattern("ddd")
                         .unlockedBy("has_bronze_helmet", has(ModItems.BRONZE_HELMET))
+                        .unlockedBy("has_gold_ingot", has(ModTags.Items.COMMON_GOLD_INGOTS))
                         .save(output, ResourceKey.create(
                                 Registries.RECIPE, Identifier.parse(getSimpleRecipeName(ModItems.GILDED_BRONZE_HELMET))));
-                shaped(RecipeCategory.MISC, ModItems.GILDED_BRONZE_CHESTPLATE, 1)
+                shaped(RecipeCategory.COMBAT, ModItems.GILDED_BRONZE_CHESTPLATE, 1)
                         .define('d', ModTags.Items.COMMON_GOLD_INGOTS)
                         .define('i', ModItems.BRONZE_CHESTPLATE)
                         .pattern("ddd")
                         .pattern("did")
                         .pattern("ddd")
                         .unlockedBy("has_bronze_chestplate", has(ModItems.BRONZE_CHESTPLATE))
+                        .unlockedBy("has_gold_ingot", has(ModTags.Items.COMMON_GOLD_INGOTS))
                         .save(output, ResourceKey.create(
                                 Registries.RECIPE, Identifier.parse(getSimpleRecipeName(ModItems.GILDED_BRONZE_CHESTPLATE))));
-                shaped(RecipeCategory.MISC, ModItems.GILDED_BRONZE_LEGGINGS, 1)
+                shaped(RecipeCategory.COMBAT, ModItems.GILDED_BRONZE_LEGGINGS, 1)
                         .define('d', ModTags.Items.COMMON_GOLD_INGOTS)
                         .define('i', ModItems.BRONZE_LEGGINGS)
                         .pattern("ddd")
                         .pattern("did")
                         .pattern("ddd")
                         .unlockedBy("has_bronze_leggings", has(ModItems.BRONZE_LEGGINGS))
+                        .unlockedBy("has_gold_ingot", has(ModTags.Items.COMMON_GOLD_INGOTS))
                         .save(output, ResourceKey.create(
                                 Registries.RECIPE, Identifier.parse(getSimpleRecipeName(ModItems.GILDED_BRONZE_LEGGINGS))));
-                shaped(RecipeCategory.MISC, ModItems.GILDED_BRONZE_BOOTS, 1)
+                shaped(RecipeCategory.COMBAT, ModItems.GILDED_BRONZE_BOOTS, 1)
                         .define('d', ModTags.Items.COMMON_GOLD_INGOTS)
                         .define('i', ModItems.BRONZE_BOOTS)
                         .pattern("ddd")
                         .pattern("did")
                         .pattern("ddd")
                         .unlockedBy("has_bronze_boots", has(ModItems.BRONZE_BOOTS))
+                        .unlockedBy("has_gold_ingot", has(ModTags.Items.COMMON_GOLD_INGOTS))
                         .save(output, ResourceKey.create(
                                 Registries.RECIPE, Identifier.parse(getSimpleRecipeName(ModItems.GILDED_BRONZE_BOOTS))));
 
-                shaped(RecipeCategory.MISC, ModItems.GILDED_BRONZE_AXE, 1)
+                shaped(RecipeCategory.TOOLS, ModItems.GILDED_BRONZE_AXE, 1)
                         .define('d', ModTags.Items.COMMON_GOLD_INGOTS)
                         .define('i', ModItems.BRONZE_AXE)
                         .pattern("ddd")
                         .pattern("did")
                         .pattern("ddd")
                         .unlockedBy("has_bronze_axe", has(ModItems.BRONZE_AXE))
+                        .unlockedBy("has_gold_ingot", has(ModTags.Items.COMMON_GOLD_INGOTS))
                         .save(output, ResourceKey.create(
                                 Registries.RECIPE, Identifier.parse(getSimpleRecipeName(ModItems.GILDED_BRONZE_AXE))));
-                shaped(RecipeCategory.MISC, ModItems.GILDED_BRONZE_HOE, 1)
+                shaped(RecipeCategory.TOOLS, ModItems.GILDED_BRONZE_HOE, 1)
                         .define('d', ModTags.Items.COMMON_GOLD_INGOTS)
                         .define('i', ModItems.BRONZE_HOE)
                         .pattern("ddd")
                         .pattern("did")
                         .pattern("ddd")
                         .unlockedBy("has_bronze_hoe", has(ModItems.BRONZE_HOE))
+                        .unlockedBy("has_gold_ingot", has(ModTags.Items.COMMON_GOLD_INGOTS))
                         .save(output, ResourceKey.create(
                                 Registries.RECIPE, Identifier.parse(getSimpleRecipeName(ModItems.GILDED_BRONZE_HOE))));
-                shaped(RecipeCategory.MISC, ModItems.GILDED_BRONZE_PICKAXE, 1)
+                shaped(RecipeCategory.TOOLS, ModItems.GILDED_BRONZE_PICKAXE, 1)
                         .define('d', ModTags.Items.COMMON_GOLD_INGOTS)
                         .define('i', ModItems.BRONZE_PICKAXE)
                         .pattern("ddd")
                         .pattern("did")
                         .pattern("ddd")
                         .unlockedBy("has_bronze_pickaxe", has(ModItems.BRONZE_PICKAXE))
+                        .unlockedBy("has_gold_ingot", has(ModTags.Items.COMMON_GOLD_INGOTS))
                         .save(output, ResourceKey.create(
                                 Registries.RECIPE, Identifier.parse(getSimpleRecipeName(ModItems.GILDED_BRONZE_PICKAXE))));
-                shaped(RecipeCategory.MISC, ModItems.GILDED_BRONZE_SHOVEL, 1)
+                shaped(RecipeCategory.TOOLS, ModItems.GILDED_BRONZE_SHOVEL, 1)
                         .define('d', ModTags.Items.COMMON_GOLD_INGOTS)
                         .define('i', ModItems.BRONZE_SHOVEL)
                         .pattern("ddd")
                         .pattern("did")
                         .pattern("ddd")
                         .unlockedBy("has_bronze_shovel", has(ModItems.BRONZE_SHOVEL))
+                        .unlockedBy("has_gold_ingot", has(ModTags.Items.COMMON_GOLD_INGOTS))
                         .save(output, ResourceKey.create(
                                 Registries.RECIPE, Identifier.parse(getSimpleRecipeName(ModItems.GILDED_BRONZE_SHOVEL))));
-                shaped(RecipeCategory.MISC, ModItems.GILDED_BRONZE_SWORD, 1)
+                shaped(RecipeCategory.TOOLS, ModItems.GILDED_BRONZE_SWORD, 1)
                         .define('d', ModTags.Items.COMMON_GOLD_INGOTS)
                         .define('i', ModItems.BRONZE_SWORD)
                         .pattern("ddd")
                         .pattern("did")
                         .pattern("ddd")
                         .unlockedBy("has_bronze_sword", has(ModItems.BRONZE_SWORD))
+                        .unlockedBy("has_gold_ingot", has(ModTags.Items.COMMON_GOLD_INGOTS))
                         .save(output, ResourceKey.create(
                                 Registries.RECIPE, Identifier.parse(getSimpleRecipeName(ModItems.GILDED_BRONZE_SWORD))));
                 //endregion

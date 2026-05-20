@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "equipment",
   "key": {
     "d": "#c:gold_ingots",
     "i": "apex:bronze_leggings"
